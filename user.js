@@ -25,7 +25,8 @@ user_pref("user.theme.scarlet", false);
 user_pref("user.theme.fluent", false);
 user_pref("user.theme.fluent.thinkpad", false);
 user_pref("user.theme.brave", false);
-user_pref("user.theme.ayu", false)
+user_pref("user.theme.ayu", false);
+user_pref("user.theme.pywalfox", false);
 
 /* nav bar */
 user_pref("ultima.navbar.autohide", false);
@@ -136,7 +137,8 @@ user_pref("ultima.contextmenu.hide.separators", false);
 
 /* alternate styles */
 user_pref("ultima.spacing.compact", false);
-user_pref("ultima.spacing.relaxed", false); 
+user_pref("ultima.spacing.relaxed", false);
+user_pref("ultima.xstyle.gnome", false); 
 user_pref("ultima.tabs.tabContainer.1", false);
 user_pref("ultima.tabs.tabContainer.2", false);
 user_pref("ultima.tabs.tabContainer.3", true);
