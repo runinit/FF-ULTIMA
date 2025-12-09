@@ -19,21 +19,19 @@ Enable with: user_pref("ultima.xstyle.gnome", true);
    ============================================================================ */
 
 :root {
-    /* GNOME-style spacing and sizing */
-    --gnome-menu-padding: 6px;
-    --gnome-menu-item-padding: 8px 12px;
-    --gnome-dialog-padding: 24px;
-    --gnome-entry-padding: 8px 12px;
-    --gnome-button-padding: 8px 16px;
-    --gnome-control-size: 20px;
-    --gnome-switch-width: 48px;
-    --gnome-switch-height: 26px;
+    /* GNOME-style spacing and sizing - compact values */
+    --gnome-menu-padding: 4px;
+    --gnome-menu-item-padding: 4px 8px;
+    --gnome-dialog-padding: 16px;
+    --gnome-entry-padding: 6px 10px;
+    --gnome-button-padding: 6px 12px;
+    --gnome-control-size: 18px;
 
     /* GNOME-style border radius (more rounded than default) */
     --gnome-menu-border-radius: 12px;
-    --gnome-button-border-radius: 8px;
-    --gnome-entry-border-radius: 8px;
-    --gnome-control-border-radius: 6px;
+    --gnome-button-border-radius: 6px;
+    --gnome-entry-border-radius: 6px;
+    --gnome-control-border-radius: 4px;
 
     /* Colors derived from FF Ultima variables */
     --gnome-menu-background: var(--uc-panel-background);
@@ -47,29 +45,27 @@ Enable with: user_pref("ultima.xstyle.gnome", true);
     --gnome-destructive-background: var(--uc-button-red);
 
     /* Animation timing */
-    --gnome-animation-timing: 150ms ease;
+    --gnome-animation-timing: 100ms ease;
 }
 
 
 /* ============================================================================
    POPUP MENUS - GNOME Style
-   Rounded corners, consistent padding, proper spacing
+   Rounded corners, consistent padding
    ============================================================================ */
 
 menupopup:not(#ContentSelectDropdownPopup),
 panel:not(.autoscroller) {
     --panel-border-radius: var(--gnome-menu-border-radius) !important;
-    --panel-padding: var(--gnome-menu-padding) !important;
     border-radius: var(--gnome-menu-border-radius) !important;
     padding: var(--gnome-menu-padding) !important;
 }
 
-/* Menu items with GNOME-style padding and hover */
+/* Menu items - compact GNOME-style */
 menuitem, menu {
     border-radius: var(--gnome-button-border-radius) !important;
     padding: var(--gnome-menu-item-padding) !important;
-    margin: 2px var(--gnome-menu-padding) !important;
-    min-height: 32px !important;
+    margin: 1px 2px !important;
     transition: background-color var(--gnome-animation-timing) !important;
 }
 
@@ -82,16 +78,10 @@ menu[_moz-menuactive="true"] {
 
 /* Menu separators - subtle line */
 menuseparator {
-    margin: 6px var(--gnome-menu-padding) !important;
+    margin: 4px 2px !important;
     padding: 0 !important;
     border-top: 1px solid var(--uc-panel-border-2) !important;
     border-bottom: none !important;
-}
-
-/* Submenu arrow icon spacing */
-menu::after {
-    margin-inline-start: auto !important;
-    padding-inline-start: 12px !important;
 }
 
 
@@ -109,20 +99,12 @@ panel {
     padding: var(--gnome-menu-padding) !important;
 }
 
-/* Panel headers */
-.panel-header {
-    padding: 12px var(--gnome-menu-padding) !important;
-    border-bottom: 1px solid var(--uc-panel-border-2) !important;
-    margin-bottom: var(--gnome-menu-padding) !important;
-}
-
-/* Panel items */
+/* Panel items - compact */
 .subviewbutton,
 .panel-subview-body toolbarbutton {
     border-radius: var(--gnome-button-border-radius) !important;
     padding: var(--gnome-menu-item-padding) !important;
-    margin: 2px var(--gnome-menu-padding) !important;
-    min-height: 36px !important;
+    margin: 1px 2px !important;
     transition: background-color var(--gnome-animation-timing) !important;
 }
 
@@ -133,7 +115,7 @@ panel {
 
 /* Panel separators */
 toolbarseparator {
-    margin: 6px 0 !important;
+    margin: 4px 0 !important;
     border-color: var(--uc-panel-border-2) !important;
 }
 
@@ -154,20 +136,11 @@ dialog,
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Dialog title */
-.dialogTitle,
-dialog h1,
-[role="dialog"] h1 {
-    font-size: 1.25em !important;
-    font-weight: 700 !important;
-    margin-bottom: 12px !important;
-}
-
 /* Dialog buttons container */
 .dialogButtonBox,
 dialog .button-group {
-    margin-top: 24px !important;
-    gap: 12px !important;
+    margin-top: 16px !important;
+    gap: 8px !important;
     display: flex !important;
     justify-content: flex-end !important;
 }
@@ -175,7 +148,7 @@ dialog .button-group {
 
 /* ============================================================================
    FORM CONTROLS - GNOME Style
-   Text inputs, checkboxes, radio buttons, switches
+   Text inputs, checkboxes, radio buttons
    ============================================================================ */
 
 /* Text inputs */
@@ -191,7 +164,6 @@ textarea {
     background-color: var(--gnome-entry-background) !important;
     border: 2px solid transparent !important;
     transition: border-color var(--gnome-animation-timing), background-color var(--gnome-animation-timing) !important;
-    min-height: 36px !important;
 }
 
 input[type="text"]:focus,
@@ -226,7 +198,7 @@ input[type="checkbox"]:checked {
     background-color: var(--uc-accent-color-5) !important;
     border-color: var(--uc-accent-color-5) !important;
     background-image: url("chrome://global/skin/icons/check.svg") !important;
-    background-size: 12px !important;
+    background-size: 10px !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     -moz-context-properties: fill !important;
@@ -254,7 +226,7 @@ input[type="radio"]:checked {
     background-color: var(--uc-accent-color-5) !important;
     border-color: var(--uc-accent-color-5) !important;
     background-image: url("chrome://global/skin/icons/radio.svg") !important;
-    background-size: 8px !important;
+    background-size: 6px !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     -moz-context-properties: fill !important;
@@ -267,17 +239,6 @@ input[type="radio"]:checked {
    Regular, suggested (primary), and destructive buttons
    ============================================================================ */
 
-/* Base button styling */
-button,
-.button,
-toolbarbutton.subviewbutton {
-    border-radius: var(--gnome-button-border-radius) !important;
-    padding: var(--gnome-button-padding) !important;
-    min-height: 36px !important;
-    font-weight: 500 !important;
-    transition: background-color var(--gnome-animation-timing), box-shadow var(--gnome-animation-timing) !important;
-}
-
 /* Suggested/Primary action buttons */
 button[default],
 button.primary,
@@ -286,6 +247,7 @@ button[autofocus] {
     background-color: var(--gnome-suggested-background) !important;
     color: white !important;
     border: none !important;
+    border-radius: var(--gnome-button-border-radius) !important;
 }
 
 button[default]:hover,
@@ -293,7 +255,6 @@ button.primary:hover,
 .button.primary:hover,
 button[autofocus]:hover {
     background-color: color-mix(in srgb, var(--gnome-suggested-background) 90%, white 10%) !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Destructive action buttons */
@@ -302,6 +263,7 @@ button.destructive,
     background-color: var(--gnome-destructive-background) !important;
     color: white !important;
     border: none !important;
+    border-radius: var(--gnome-button-border-radius) !important;
 }
 
 button.destructive:hover,
@@ -321,20 +283,19 @@ button.destructive:hover,
 #placesContext {
     border-radius: var(--gnome-menu-border-radius) !important;
     padding: var(--gnome-menu-padding) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Context menu navigation icons group */
+/* Context menu navigation icons group - compact */
 #context-navigation {
-    padding: var(--gnome-menu-padding) !important;
-    margin-bottom: var(--gnome-menu-padding) !important;
+    padding: 2px !important;
+    margin-bottom: 2px !important;
     border-bottom: 1px solid var(--uc-panel-border-2) !important;
 }
 
 #context-navigation menuitem {
-    margin: 0 2px !important;
-    padding: 8px !important;
-    min-width: 36px !important;
+    margin: 0 1px !important;
+    padding: 6px !important;
 }
 
 
@@ -352,8 +313,8 @@ button.destructive:hover,
 
 .unified-extensions-item {
     border-radius: var(--gnome-button-border-radius) !important;
-    padding: 8px !important;
-    margin: 2px 0 !important;
+    padding: 6px !important;
+    margin: 1px 0 !important;
 }
 
 .unified-extensions-item:hover {
@@ -376,8 +337,8 @@ button.destructive:hover,
 
 .urlbarView-row {
     border-radius: var(--gnome-button-border-radius) !important;
-    padding: 8px 12px !important;
-    margin: 2px 6px !important;
+    padding: 6px 10px !important;
+    margin: 1px 4px !important;
 }
 
 
@@ -395,8 +356,8 @@ button.destructive:hover,
 
 .downloadMainArea {
     border-radius: var(--gnome-button-border-radius) !important;
-    padding: 12px !important;
-    margin: 4px 0 !important;
+    padding: 8px !important;
+    margin: 2px 0 !important;
 }
 
 .downloadMainArea:hover {
@@ -420,7 +381,6 @@ button.destructive:hover,
 #editBookmarkPanelContent input,
 #editBookmarkPanelContent menulist {
     border-radius: var(--gnome-entry-border-radius) !important;
-    min-height: 36px !important;
 }
 
 
@@ -454,7 +414,7 @@ button.destructive:hover,
 
 .identity-popup-section,
 .protections-popup-section {
-    padding: 12px var(--gnome-menu-padding) !important;
+    padding: 8px var(--gnome-menu-padding) !important;
     border-bottom: 1px solid var(--uc-panel-border-2) !important;
 }
 
@@ -480,10 +440,10 @@ button.destructive:hover,
 
 tooltip {
     border-radius: var(--gnome-button-border-radius) !important;
-    padding: 6px 10px !important;
+    padding: 4px 8px !important;
     background-color: var(--uc-panel-background) !important;
     border: 1px solid var(--uc-panel-border) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
 } /* End @media -moz-pref("ultima.xstyle.gnome") */

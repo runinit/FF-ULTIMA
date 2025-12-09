@@ -21,6 +21,14 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     body {background-image: var(--uc-wallpaper) !important;}
 }
 
+/* Pywalfox solid background - no wallpaper, uses theme color */
+@media -moz-pref("user.theme.pywalfox") {
+    body {
+        background-image: none !important;
+        background-color: var(--lwt-accent-color, var(--uc-browser-color)) !important;
+    }
+}
+
 /* override cs wallpapers ------------------------------------------------------------------------ */
     
 /* override the default wallpaper with a different color scheme wallpaper */

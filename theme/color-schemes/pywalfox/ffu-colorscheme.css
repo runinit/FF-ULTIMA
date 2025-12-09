@@ -15,7 +15,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     /* Base colors - Pywalfox will override --lwt-* and --toolbar-bgcolor */
     --uc-browser-color:      var(--lwt-accent-color, rgb(30, 30, 36));
     --uc-text:               var(--lwt-text-color, white);
-    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(30, 30, 36)) 95%, white 5%);
+    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(30, 30, 36)) 90%, white 10%);
     --uc-navbar-background:  var(--toolbar-bgcolor);
     --uc-urlbar-background:  var(--uc-layered-background);
     --uc-findbar-background: var(--uc-layered-background);
@@ -24,17 +24,18 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-layered-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    --uc-button-selected:    color-mix(in srgb, var(--lwt-accent-color, rgb(30, 30, 36)) 70%, white 30%);
+    /* Hover highlight - use semi-transparent white overlay for visibility */
+    --uc-button-selected:    rgba(255, 255, 255, 0.15);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-layered-background);
     --uc-panel-background:   var(--uc-layered-background);
     --uc-panel-border:       rgba(0, 0, 0, 0.4);
-    --uc-panel-border-2:     rgba(255, 255, 255, 0.1);
+    --uc-panel-border-2:     rgba(255, 255, 255, 0.15);
     /* Accent colors - derived from Pywalfox theme or fallbacks */
     --uc-accent-color-1:     var(--lwt-tab-line-color, #89b4fa);
     --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 70%, transparent);
     --uc-accent-color-3:     var(--lwt-text-color, white);
-    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-accent-color, rgb(30, 30, 36)) 50%, transparent);
+    --uc-accent-color-4:     rgba(255, 255, 255, 0.08);
     --uc-accent-color-5:     var(--lwt-tab-line-color, #89b4fa);
     --uc-transparent:        rgba(0,0,0,0);
     --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
@@ -49,7 +50,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     /* Base colors - Pywalfox will override --lwt-* and --toolbar-bgcolor */
     --uc-browser-color:      var(--lwt-accent-color, rgb(245, 245, 250));
     --uc-text:               var(--lwt-text-color, rgb(45, 45, 45));
-    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(245, 245, 250)) 95%, black 5%);
+    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(245, 245, 250)) 90%, black 10%);
     --uc-navbar-background:  var(--toolbar-bgcolor);
     --uc-urlbar-background:  var(--uc-layered-background);
     --uc-findbar-background: var(--uc-layered-background);
@@ -58,17 +59,18 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-layered-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    --uc-button-selected:    color-mix(in srgb, var(--lwt-accent-color, rgb(245, 245, 250)) 70%, black 30%);
+    /* Hover highlight - use semi-transparent black overlay for visibility */
+    --uc-button-selected:    rgba(0, 0, 0, 0.1);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-browser-color);
     --uc-panel-background:   var(--uc-browser-color);
     --uc-panel-border:       rgba(0, 0, 0, 0.2);
-    --uc-panel-border-2:     rgba(0, 0, 0, 0.1);
+    --uc-panel-border-2:     rgba(0, 0, 0, 0.15);
     /* Accent colors - derived from Pywalfox theme or fallbacks */
     --uc-accent-color-1:     var(--lwt-tab-line-color, #1e66f5);
     --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 70%, transparent);
     --uc-accent-color-3:     var(--lwt-text-color, black);
-    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-accent-color, rgb(245, 245, 250)) 50%, transparent);
+    --uc-accent-color-4:     rgba(0, 0, 0, 0.06);
     --uc-accent-color-5:     var(--lwt-tab-line-color, #1e66f5);
     --uc-accent-color-6:     rgb(203, 203, 204);
     --uc-transparent:        rgba(0,0,0,0);
