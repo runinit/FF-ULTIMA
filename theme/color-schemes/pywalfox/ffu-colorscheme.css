@@ -24,18 +24,18 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-layered-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    /* Hover highlight - use semi-transparent white overlay for visibility */
-    --uc-button-selected:    rgba(255, 255, 255, 0.15);
+    /* Hover highlight - uses pywalfox accent color with transparency */
+    --uc-button-selected:    color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 25%, transparent);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-layered-background);
     --uc-panel-background:   var(--uc-layered-background);
     --uc-panel-border:       rgba(0, 0, 0, 0.4);
-    --uc-panel-border-2:     rgba(255, 255, 255, 0.15);
-    /* Accent colors - derived from Pywalfox theme or fallbacks */
+    --uc-panel-border-2:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 20%, transparent);
+    /* Accent colors - derived from Pywalfox theme */
     --uc-accent-color-1:     var(--lwt-tab-line-color, #89b4fa);
     --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 70%, transparent);
     --uc-accent-color-3:     var(--lwt-text-color, white);
-    --uc-accent-color-4:     rgba(255, 255, 255, 0.08);
+    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 10%, transparent);
     --uc-accent-color-5:     var(--lwt-tab-line-color, #89b4fa);
     --uc-transparent:        rgba(0,0,0,0);
     --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
@@ -59,18 +59,18 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-layered-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    /* Hover highlight - use semi-transparent black overlay for visibility */
-    --uc-button-selected:    rgba(0, 0, 0, 0.1);
+    /* Hover highlight - uses pywalfox accent color with transparency */
+    --uc-button-selected:    color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 20%, transparent);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-browser-color);
     --uc-panel-background:   var(--uc-browser-color);
     --uc-panel-border:       rgba(0, 0, 0, 0.2);
-    --uc-panel-border-2:     rgba(0, 0, 0, 0.15);
-    /* Accent colors - derived from Pywalfox theme or fallbacks */
+    --uc-panel-border-2:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 15%, transparent);
+    /* Accent colors - derived from Pywalfox theme */
     --uc-accent-color-1:     var(--lwt-tab-line-color, #1e66f5);
     --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 70%, transparent);
     --uc-accent-color-3:     var(--lwt-text-color, black);
-    --uc-accent-color-4:     rgba(0, 0, 0, 0.06);
+    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 10%, transparent);
     --uc-accent-color-5:     var(--lwt-tab-line-color, #1e66f5);
     --uc-accent-color-6:     rgb(203, 203, 204);
     --uc-transparent:        rgba(0,0,0,0);
