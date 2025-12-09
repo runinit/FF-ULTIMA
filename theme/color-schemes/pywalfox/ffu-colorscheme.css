@@ -4,74 +4,71 @@ FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
 File Desc:         Pywalfox Color Scheme - Dynamic colors via Pywalfox extension
 
 This theme is designed to work with Pywalfox (https://github.com/Frewacom/pywalfox)
-Pywalfox dynamically injects colors from your system's pywal colorscheme.
-The colors below serve as fallbacks and structure - Pywalfox overrides them at runtime.
+Pywalfox dynamically injects colors via Firefox's native lwtheme system.
+
+This is essentially the default theme but configured to work seamlessly with Pywalfox.
+When Pywalfox is active, it sets [lwtheme] on the window, and Firefox's native
+theming handles most of the UI. These variables provide structure and fallbacks.
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-/* Pywalfox Theme - Dark Mode (colors will be overridden by Pywalfox extension) */
+/* Pywalfox Theme - Dark Mode */
 
 @media (prefers-color-scheme: dark) { :root {
-    /* Base colors - Pywalfox will override --lwt-* and --toolbar-bgcolor */
-    --uc-browser-color:      var(--lwt-accent-color, rgb(30, 30, 36));
-    --uc-text:               var(--lwt-text-color, white);
-    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(30, 30, 36)) 90%, white 10%);
+    --uc-browser-color:      rgb(43, 42, 51);
+    --uc-text:               white;
+    --uc-layered-background: rgb(35, 35, 42);
     --uc-navbar-background:  var(--toolbar-bgcolor);
     --uc-urlbar-background:  var(--uc-layered-background);
     --uc-findbar-background: var(--uc-layered-background);
     --uc-sidebar-background: var(--uc-layered-background);
     --uc-tabsbar-background: var(--uc-browser-color);
     --uc-tab-background:     transparent;
-    --uc-tab-selected:       var(--uc-layered-background);
+    --uc-tab-selected:       rgb(35, 35, 42);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    /* Hover highlight - mix pywalfox accent with background for visible tint */
-    --uc-button-selected:    color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 30%, var(--lwt-accent-color, rgb(30, 30, 36)));
+    --uc-button-selected:    rgba(25, 25, 30, 0.6);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-layered-background);
     --uc-panel-background:   var(--uc-layered-background);
-    --uc-panel-border:       rgba(0, 0, 0, 0.4);
-    --uc-panel-border-2:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 30%, var(--lwt-accent-color, rgb(30, 30, 36)));
-    /* Accent colors - derived from Pywalfox theme */
-    --uc-accent-color-1:     var(--lwt-tab-line-color, #89b4fa);
-    --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 60%, var(--lwt-accent-color, rgb(30, 30, 36)));
-    --uc-accent-color-3:     var(--lwt-text-color, white);
-    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-tab-line-color, #89b4fa) 15%, var(--lwt-accent-color, rgb(30, 30, 36)));
-    --uc-accent-color-5:     var(--lwt-tab-line-color, #89b4fa);
+    --uc-panel-border:       rgba(25, 25, 25, 0.5);
+    --uc-panel-border-2:     rgba(45, 45, 45, 0.5);
+    --uc-accent-color-1:     #f3faaa;
+    --uc-accent-color-2:     rgb(90, 121, 156);
+    --uc-accent-color-3:     white;
+    --uc-accent-color-4:     rgba(28, 27, 34, 0.5);
+    --uc-accent-color-5:     rgb(121, 161, 195);
     --uc-transparent:        rgba(0,0,0,0);
     --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
-    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.6);
+    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem rgba(25,25,25,1);
     --uc-button-border-radius: 10px;
     --uc-tab-border-radius: 8px;
 }}
 
-/* Pywalfox Theme - Light Mode (colors will be overridden by Pywalfox extension) */
+/* Pywalfox Theme - Light Mode */
 
 @media (prefers-color-scheme: light) { :root {
-    /* Base colors - Pywalfox will override --lwt-* and --toolbar-bgcolor */
-    --uc-browser-color:      var(--lwt-accent-color, rgb(245, 245, 250));
-    --uc-text:               var(--lwt-text-color, rgb(45, 45, 45));
-    --uc-layered-background: color-mix(in srgb, var(--lwt-accent-color, rgb(245, 245, 250)) 90%, black 10%);
+    --uc-browser-color:      rgb(250, 250, 255);
+    --uc-text:               rgb(45, 45, 45);
+    --uc-layered-background: rgb(242, 242, 248);
     --uc-navbar-background:  var(--toolbar-bgcolor);
     --uc-urlbar-background:  var(--uc-layered-background);
     --uc-findbar-background: var(--uc-layered-background);
     --uc-sidebar-background: var(--uc-layered-background);
     --uc-tabsbar-background: var(--uc-browser-color);
     --uc-tab-background:     transparent;
-    --uc-tab-selected:       var(--uc-layered-background);
+    --uc-tab-selected:       rgb(232, 232, 236);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
-    /* Hover highlight - mix pywalfox accent with background for visible tint */
-    --uc-button-selected:    color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 25%, var(--lwt-accent-color, rgb(245, 245, 250)));
+    --uc-button-selected:    rgb(220, 220, 255);
     --uc-button-red:         #f54e4e;
-    --uc-context-menu:       var(--uc-browser-color);
-    --uc-panel-background:   var(--uc-browser-color);
-    --uc-panel-border:       rgba(0, 0, 0, 0.2);
-    --uc-panel-border-2:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 25%, var(--lwt-accent-color, rgb(245, 245, 250)));
-    /* Accent colors - derived from Pywalfox theme */
-    --uc-accent-color-1:     var(--lwt-tab-line-color, #1e66f5);
-    --uc-accent-color-2:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 50%, var(--lwt-accent-color, rgb(245, 245, 250)));
-    --uc-accent-color-3:     var(--lwt-text-color, black);
-    --uc-accent-color-4:     color-mix(in srgb, var(--lwt-tab-line-color, #1e66f5) 12%, var(--lwt-accent-color, rgb(245, 245, 250)));
-    --uc-accent-color-5:     var(--lwt-tab-line-color, #1e66f5);
+    --uc-context-menu:       white;
+    --uc-panel-background:   white;
+    --uc-panel-border:       rgba(125, 125, 125, 0.4);
+    --uc-panel-border-2:     rgba(125, 125, 125, 0.3);
+    --uc-accent-color-1:     rgb(108, 152, 255);
+    --uc-accent-color-2:     rgba(144,144,200,0.8);
+    --uc-accent-color-3:     black;
+    --uc-accent-color-4:     rgba(37, 59, 111, 0.05);
+    --uc-accent-color-5:     rgb(108, 152, 255);
     --uc-accent-color-6:     rgb(203, 203, 204);
     --uc-transparent:        rgba(0,0,0,0);
     --uc-box-shadow:         0.1rem 0.3rem 0.4rem -0.1rem rgba(75,75,75,0.3);
@@ -81,80 +78,12 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 }}
 
 
-/* Detailed customization - Applying Pywalfox variables to browser elements */
+/* Detailed customization - applies when NO lwtheme (Pywalfox not active) */
 
-#main-window[lwtheme] {
-    --toolbar-bgcolor: var(--lwt-accent-color) !important;
-    --inactive-titlebar-opacity: 1 !important;
-    --lwt-accent-color-inactive: var(--lwt-accent-color) !important;
-    --uc-tabs-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
-    --uc-sb-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
-    --tab-selected-bgcolor: var(--uc-tab-selected) !important;
-    --toolbox-non-lwt-bgcolor-inactive: ActiveCaption !important;
-    --toolbox-non-lwt-textcolor-inactive: CaptionText !important;
-    --tab-selected-textcolor: var(--uc-text) !important;
-    --tab-hover-background-color: var(--uc-tab-selected) !important;
-    --tab-loading-fill: var(--uc-accent-color-1) !important;
-    --button-background-color-ghost-hover: var(--uc-button-selected) !important;
-    --button-background-color: var(--uc-button-selected) !important;
-    --button-background-color-hover: var(--uc-button-selected) !important;
-    --button-background-color-active: var(--uc-button-selected) !important;
-    --button-hover-bgcolor: var(--uc-button-selected) !important;
-    --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-    --button-active-bgcolor: var(--uc-button-selected) !important;
-    --toolbarbutton-active-background: var(--uc-button-selected) !important;
-    --button-primary-bgcolor: var(--uc-accent-color-1) !important;
-    --button-primary-hover-bgcolor: var(--uc-accent-color-1) !important;
-    --buttons-destructive-hover-bgcolor: #9d1c1c;
-    --buttons-destructive-active-bgcolor: var(--uc-button-red);
-    --toolbarbutton-icon-fill: var(--uc-text) !important;
-    --toolbar-field-background-color: var(--uc-accent-color-4) !important;
-    --toolbar-field-border-color: var(--uc-accent-color-3) !important;
-    --toolbar-field-focus-border-color: var(--uc-accent-color-3) !important;
-    --urlbarView-result-button-selected-color: var(--uc-text) !important;
-    --urlbarView-result-button-selected-background-color: var(--uc-button-selected) !important;
-    --urlbarView-highlight-background: var(--uc-button-selected) !important;
-    --urlbarView-hover-background: var(--uc-button-selected) !important;
-    --urlbar-box-focus-bgcolor: var(--uc-button-selected) !important;
-    --urlbar-box-hover-bgcolor: var(--uc-button-selected) !important;
-    --urlbar-box-hover-text-color: var(--uc-text) !important;
-    --urlbar-icon-border-radius: var(--uc-button-border-radius);
-    --arrowpanel-menuitem-border-radius: var(--uc-button-border-radius);
-    --arrowpanel-border-radius: var(--uc-all-border-radius);
-    --toolbarbutton-border-radius: var(--uc-button-border-radius);
-    --arrowpanel-menuitem-border-radius: var(--uc-button-border-radius) !important;
-    --menuitem-border-radius: var(--uc-button-border-radius) !important;
-    --button-border-radius: var(--uc-button-border-radius) !important;
-    --toolbarbutton-border-radius: var(--uc-button-border-radius) !important;
-    --toolbar-field-color: var(--uc-text) !important;
-    --toolbar-field-focus-color: var(--uc-text) !important;
-    --toolbar-color: var(--uc-text) !important;
-    --sidebar-text-color: var(--uc-text) !important;
-    --arrowpanel-background: var(--uc-panel-background) !important;
-    --arrowpanel-border-color: var(---uc-panel-border-ii) !important;
-    --arrowpanel-color: var(--uc-text) !important;
-    --newtab-background-color: var(--uc-tabsbar-background) !important;
-    --panel-background: var(--uc-panel-background) !important;
-    --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
-    --panel-banner-item-hover-bgcolor: var(--uc-button-selected) !important;
-    --short-notification-background: var(--uc-accent-color-2) !important;
-    --panel-border-color: var(--uc-panel-border) !important;
-    --organizer-toolbar-background: var(--uc-accent-color-4) !important;
-    --organizer-pane-background: var(--uc-accent-color-4) !important;
-    --organizer-content-background: var(--uc-accent-color-4) !important;
-    --organizer-hover-background: var(--uc-accent-color-4) !important;
-    --organizer-selected-background: var(--uc-button-selected) !important;
-    --organizer-focus-selected-color: var(--uc-button-selected) !important;
-    --organizer-outline-color: var(--uc-accent-color-1) !important;
-    --organizer-toolbar-field-background: var(--uc-accent-color-4) !important;
-    --organizer-toolbar-field-background-focused: var(--uc-accent-color-1) !important;
-    --content-select-background-image: none !important;
-}
-
-/* Fallback for non-lwtheme mode */
 #main-window:not([lwtheme]) {
     --toolbar-bgcolor: var(--uc-browser-color) !important;
     --inactive-titlebar-opacity: 1 !important;
+    --toolbar-bgcolor: var(--uc-browser-color) !important;
     --lwt-accent-color-inactive: var(--lwt-accent-color) !important;
     --uc-tabs-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
     --uc-sb-lwt: color-mix(in srgb, var(--lwt-accent-color) 75%, #000);
@@ -198,6 +127,8 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --toolbar-field-color: var(--uc-text) !important;
     --toolbar-field-focus-color: var(--uc-text) !important;
     --toolbar-color: var(--uc-text) !important;
+    --toolbar-field-color: var(--uc-text) !important;
+    --toolbar-field-focus-color: var(--uc-text) !important;
     --sidebar-text-color: var(--uc-text) !important;
     --arrowpanel-background: var(--uc-panel-background) !important;
     --arrowpanel-border-color: var(---uc-panel-border-ii) !important;
@@ -214,7 +145,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     --organizer-hover-background: var(--uc-accent-color-4) !important;
     --organizer-selected-background: var(--uc-button-selected) !important;
     --organizer-focus-selected-color: var(--uc-button-selected) !important;
-    --organizer-outline-color: var(--uc-accent-color-1) !important;
+    --organizer-outline-color: rgb(0,221,255) !important;
     --organizer-toolbar-field-background: var(--uc-accent-color-4) !important;
     --organizer-toolbar-field-background-focused: var(--uc-accent-color-1) !important;
     --content-select-background-image: none !important;
@@ -223,7 +154,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Main window adjustments ----------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     background-color: var(--uc-browser-color) !important;
     & body {background: var(--uc-browser-color) !important;}
     & #navigator-toolbox {
@@ -246,7 +177,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* URL Bar --------------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     & #urlbar[open] {
         box-shadow: var(--uc-box-shadow) !important;
     }
@@ -287,7 +218,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Find bar -------------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     & .findbar-textbox {
         background-color: var(--uc-findbar-background) !important;
         color: var(--uc-text) !important;
@@ -300,7 +231,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Sidebars -------------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     #sidebar {
         background:var(--uc-sidebar-background) !important;
     }
@@ -309,13 +240,16 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
         color: var(--uc-accent-color-5) !important;
     }
 }
+@layer input-common { #input {
+    accent-color: var(--uc-accent-color-5) !important;
+}}
 :root {
     --sidebar-box-background: rgba(140,140,150,0.1) !important;
 }
 
 /* Tabs -----------------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     #sidebar-main {
         background:var(--uc-tabsbar-background) !important;
     }
@@ -375,7 +309,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Button Adjustments ---------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     & .toolbarbutton-text {
         color: var(--toolbarbutton-icon-fill);
     }
@@ -407,7 +341,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Popups/Menus ---------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     :root[dialogroot] {
         --in-content-page-background: var(--uc-panel-background) !important;
         color: var(--uc-text)  !important;
@@ -445,7 +379,7 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
 
 /* Context Menu ---------------------------------------------------*/
 
-#main-window[lwtheme] {
+#main-window:not([lwtheme]) {
     menupopup:not(#ContentSelectDropdownPopup), panel:not(.autoscroller) {
         color-scheme: light dark;
         --panel-background: var(--uc-context-menu) !important;
@@ -472,9 +406,12 @@ The colors below serve as fallbacks and structure - Pywalfox overrides them at r
     #main-window .tab-icon-image[src="chrome://branding/content/icon32.png"]{
     content: url("../../icons/ultimafox.png");
     }
-    #main-window[lwtheme] #unified-extensions-button {
+    #main-window:not([lwtheme]) #unified-extensions-button {
         list-style-image: url("../../icons/extensions.svg") !important;
         fill: var(--toolbarbutton-icon-fill) !important;
+    }
+    #main-window[lwtheme] #unified-extensions-button {
+        list-style-image: url("../../icons/extensions.svg") !important;
     }
     .bookmark-item[container=true] {
         list-style-image: url("../../icons/bm.svg") !important;
