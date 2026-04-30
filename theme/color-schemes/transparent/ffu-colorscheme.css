@@ -210,7 +210,12 @@ Custom Icons
 @media -moz-pref("ultima.navbar.float"), -moz-pref("ultima.navbar.float.fullsize"), -moz-pref("ultima.navbar.autohide") {
     #main-window:not([lwtheme]) {
          & #navigator-toolbox {
-             background-color: color-mix(in srgb, var(--uc-layered-background) 60%, black) !important;
+             @media not -moz-pref("ultima.urlbar.transparent") {
+                 background-color: var(--uc-navbar-background) !important;
+             }
+             @media -moz-pref("ultima.urlbar.transparent") {
+                 background-color: color-mix(in srgb, var(--uc-layered-background) 60%, black) !important;
+             }
         }
     }
 }
