@@ -668,17 +668,23 @@ box-shadow: none !important;}}
             }
             /* autohide */
             /* keep visibility when accessing menus too */
-            & :has(#tabContextMenu:not(:hover)):has(.tab-group-editor-panel:not([panelopen="true"])):has(#new-tab-button-popup:not(:hover)):has(#tab-preview-panel:not([panelopen="true"])):has(#tabgroup-preview-panel:not([panelopen="true"]))
+            & :has(#tabContextMenu:not(:hover):not([state="open"]):not([state="showing"]):not([open]):not([open="true"])):has(.tab-group-editor-panel:not([panelopen="true"])):has(#new-tab-button-popup:not(:hover)):has(#tab-preview-panel:not([panelopen="true"])):has(#tabgroup-preview-panel:not([panelopen="true"]))
             {
                 #sidebar-main {
                     &:not(:hover) {
                         width: 3px !important;
-                        transition: width ease 0.45s !important;
+                        transition: width ease 0.45s 0.2s !important;
                     }
                     &:hover {
                         box-shadow: var(--uc-box-shadow) !important;
                         transition: width ease 0.3s !important;
                     }
+                }
+            }
+            & :has(#tabContextMenu:is(:hover, [state="open"], [state="showing"], [open], [open="true"])) {
+                #sidebar-main {
+                    box-shadow: var(--uc-box-shadow) !important;
+                    transition: width ease 0.3s !important;
                 }
             }
             /* additional hover zone */
@@ -728,7 +734,6 @@ box-shadow: none !important;}}
             }
         }
     }
-}
 
 @media -moz-pref("ultima.tabs.tabbar.disabled") {
     /* disable the tab bar completely */
@@ -762,7 +767,7 @@ box-shadow: none !important;}}
                 padding-top:5px !important;
             }
             /* when inner menus arent being interacted with, allow transition */
-            & :has(#tabContextMenu:not(:hover)),
+            & :has(#tabContextMenu:not(:hover):not([state="open"]):not([state="showing"]):not([open]):not([open="true"])),
             & :has(.tab-group-editor-panel:not([panelopen="true"])),
             & :has(#new-tab-button-popup:not(:hover)),
             & :has(#tab-preview-panel:not([panelopen="true"])),
@@ -778,6 +783,10 @@ box-shadow: none !important;}}
             }
             /* when inner menus arent being interacted with, keep extra styling */
             & :has(#tabContextMenu:hover),
+            & :has(#tabContextMenu[state="open"]),
+            & :has(#tabContextMenu[state="showing"]),
+            & :has(#tabContextMenu[open]),
+            & :has(#tabContextMenu[open="true"]),
             & :has(.tab-group-editor-panel[panelopen="true"]),
             & :has(#new-tab-button-popup:hover),
             & :has(#tab-preview-panel[panelopen="true"]),
