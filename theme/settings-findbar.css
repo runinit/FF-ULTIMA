@@ -15,7 +15,8 @@ ultima.findbar.disable.background.image
     /* Show searchbox at the top */
     .browserContainer > findbar {
         order: -1;
-        margin-top: 10px;
+        /* Firefox 150+ no longer needs the old spacer; keep the top findbar flush with the toolbar. */
+        margin-top: 0;
     }
 
     /* Limit the searchbox width */

@@ -148,7 +148,10 @@ Border Hunter
 #main-window:not([lwtheme]) {
     --inactive-titlebar-opacity: 1 !important;
     --lwt-accent-color-inactive: var(--lwt-accent-color) !important;
-    --toolbox-non-lwt-textcolor-inactive: CaptionText !important;
+    --toolbox-non-lwt-bgcolor: var(--uc-browser-color) !important;
+    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
+    --toolbox-non-lwt-textcolor: var(--uc-text) !important;
+    --toolbox-non-lwt-textcolor-inactive: var(--uc-text) !important;
     --tab-selected-bgcolor: var(--uc-tab-selected) !important;
     --tab-selected-textcolor: var(--uc-text) !important;
     --tab-hover-background-color: var(--uc-tab-selected) !important;
