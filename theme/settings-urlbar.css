@@ -291,7 +291,6 @@ ultima.urlbar.hide.trackingprotection.icon
         &:has(#urlbar:is([breakout][breakout-extend], [breakout][usertyping][focused])) {
             #browser {
                 filter: blur(6px);
-                pointer-events: none;
                 scale: 1.03 !important;
                 &::before {
                     background: rgba(0, 0, 0, 0.3);
