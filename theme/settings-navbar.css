@@ -200,6 +200,21 @@ enable bookmark url editting (add bookmark menu)
     }
 }
 
+/* nav bar bottom position without autohide/float ---------------------------------------------------- */
+
+@media -moz-pref("ultima.navbar.position","bottom") {
+    @media not -moz-pref("ultima.navbar.autohide") {
+        @media not -moz-pref("ultima.navbar.float") {
+            @media not -moz-pref("ultima.navbar.float.fullsize") {
+                #main-window:not([customizing=""]) {
+                    #browser { order: 1 !important; }
+                    #navigator-toolbox { order: 2 !important; }
+                }
+            }
+        }
+    }
+}
+
 /* tweak to allow urlbar to spring up with a bottom nav bar ------------------------------------------- */
 
 @media (-moz-pref("ultima.navbar.autohide")) or (-moz-pref("ultima.navbar.float")) or (-moz-pref("ultima.navbar.float.fullsize")) {
