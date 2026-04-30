@@ -160,22 +160,24 @@ Nightly Configurations
     }
     */
     /* window title in menu bar */
-    :root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([inactive="true"])) > head {
-        display: block;
-        position: fixed; top: 12px; right: 140px;
-        width: calc(100vw - 285px);
-        text-align: center;
-        pointer-events: none;
-        text-overflow: ellipsis;
-        overflow-x: hidden;
-        z-index: 1;
-        & title {
-            display: contents;
-            max-width: 50vw;
-            white-space: nowrap;
-        }
-        & * {
-            display: none;
+    @media not -moz-pref("ultima.navbar.autohide") {
+        :root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([inactive="true"])) > head {
+            display: block;
+            position: fixed; top: 12px; right: 140px;
+            width: calc(100vw - 285px);
+            text-align: center;
+            pointer-events: none;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            z-index: 1;
+            & title {
+                display: contents;
+                max-width: 50vw;
+                white-space: nowrap;
+            }
+            & * {
+                display: none;
+            }
         }
     }
     #inputs, .extensions {
