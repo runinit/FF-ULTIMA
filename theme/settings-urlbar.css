@@ -29,11 +29,18 @@ ultima.urlbar.hide.trackingprotection.icon
     #main-window[lwtheme], #main-window:not([lwtheme]) {
         & #urlbar:not([open]) {
             & #urlbar-background,
-            & .urlbar-background, & #searchbar {
-                background-color: transparent !important;
+            & .urlbar-background {
+                background-color: color-mix(in srgb, var(--uc-urlbar-background) 55%, transparent) !important;
+                backdrop-filter: blur(12px) saturate(140%) !important;
                 border-radius: var(--uc-button-border-radius) !important;
-                box-shadow: none !important;
+                box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-accent-color-3) 22%, transparent), var(--uc-box-shadow) !important;
             }
+        }
+        & #searchbar:not(:focus-within) {
+            background-color: color-mix(in srgb, var(--uc-urlbar-background) 55%, transparent) !important;
+            backdrop-filter: blur(12px) saturate(140%) !important;
+            border-radius: var(--uc-button-border-radius) !important;
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-accent-color-3) 22%, transparent), var(--uc-box-shadow) !important;
         }
     }
 }
@@ -113,6 +120,29 @@ ultima.urlbar.hide.trackingprotection.icon
         .urlbarView-favicon, .urlbarView-type-icon {
             margin-left:-27px !important;
             transition: margin-left 1.6s ease-in-out !important;
+        }
+    }
+}
+
+/* bottom fixed navbar urlbar/search alignment -------------------- */
+
+@media -moz-pref("ultima.navbar.position","bottom") {
+    @media not -moz-pref("ultima.navbar.autohide") {
+        @media not -moz-pref("ultima.navbar.float") {
+            @media not -moz-pref("ultima.navbar.float.fullsize") {
+                @media not -moz-pref("ultima.urlbar.float") {
+                    #urlbar[breakout-extend],
+                    :root:has(#urlbar-searchmode-switcher[open]) #urlbar {
+                        top: unset !important;
+                        bottom: var(--uc-bottom-navbar-urlbar-offset, 24px) !important;
+                        margin-bottom: var(--uc-bottom-navbar-urlbar-margin, 36px) !important;
+                    }
+                    #urlbar[breakout-extend] .search-one-offs:not([hidden]),
+                    :root:has(#urlbar-searchmode-switcher[open]) #urlbar .search-one-offs:not([hidden]) {
+                        margin-bottom: var(--uc-bottom-navbar-search-one-offs-margin, 6px) !important;
+                    }
+                }
+            }
         }
     }
 }

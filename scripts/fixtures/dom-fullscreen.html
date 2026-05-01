@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FF Ultima DOM fullscreen fixture</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: system-ui, sans-serif;
+      background: #10131a;
+      color: #f5f7fb;
+    }
+
+    body {
+      margin: 0;
+      min-height: 140vh;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(98, 146, 255, 0.26), transparent 28rem),
+        linear-gradient(135deg, #10131a 0%, #171d29 55%, #222736 100%);
+    }
+
+    main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 4rem clamp(1rem, 4vw, 4rem);
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      padding: 0.8rem 1.15rem;
+      background: #dbe8ff;
+      color: #10131a;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.24);
+    }
+
+    #fullscreen-target {
+      margin-top: 2rem;
+      min-height: 72vh;
+      padding: clamp(1.5rem, 6vw, 5rem);
+      border-radius: 2rem;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+        #172033;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+    }
+
+    #fullscreen-target:fullscreen {
+      box-sizing: border-box;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      border-radius: 0;
+      overflow: auto;
+      background: linear-gradient(135deg, #111827, #243044);
+    }
+
+    .measure-copy {
+      max-width: 62ch;
+      line-height: 1.65;
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+    }
+
+    #status {
+      display: inline-block;
+      margin-inline-start: 0.75rem;
+      color: #b9c8e8;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>FF Ultima DOM fullscreen fixture</h1>
+    <p class="measure-copy">
+      This page intentionally contains text-heavy content and a dedicated fullscreen target so the
+      live verifier can prove that Firefox DOM fullscreen keeps content flush with no FF Ultima
+      chrome/content seam, retained margin, rounded content corner, border, or shadow.
+    </p>
+    <button id="enter-fullscreen" type="button">Enter DOM fullscreen</button>
+    <span id="status" aria-live="polite">Waiting for activation.</span>
+
+    <section id="fullscreen-target" tabindex="-1">
+      <h2>Fullscreen target</h2>
+      <p class="measure-copy">
+        When this element enters DOM fullscreen, the browser chrome should not remain pinned over
+        the page and FF Ultima should zero its content margins and radii. The verifier inspects the
+        chrome root attributes, toolbox geometry, browser container geometry, selected browser
+        margins, borders, radii, and shadows while this element is fullscreen.
+      </p>
+      <p class="measure-copy">
+        The repeated prose gives the content viewport enough visual texture that a stray top, side,
+        or bottom seam would be visible during manual debugging, while still keeping the fixture
+        deterministic for Marionette automation.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const button = document.querySelector('#enter-fullscreen');
+    const target = document.querySelector('#fullscreen-target');
+    const status = document.querySelector('#status');
+
+    button.addEventListener('click', async () => {
+      try {
+        await target.requestFullscreen();
+        document.documentElement.dataset.fullscreenRequest = 'ok';
+        status.textContent = 'DOM fullscreen active.';
+      } catch (error) {
+        document.documentElement.dataset.fullscreenRequest = `error:${error.name}:${error.message}`;
+        status.textContent = `Fullscreen failed: ${error.name}`;
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      document.documentElement.dataset.fullscreenElement = document.fullscreenElement ? document.fullscreenElement.id : '';
+    });
+  </script>
+</body>
+</html>

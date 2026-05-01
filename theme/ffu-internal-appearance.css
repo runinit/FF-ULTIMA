@@ -669,8 +669,10 @@ treechildren::-moz-tree-row(selected) {
 /* default */
 #main-window:not([lwtheme]), #main-window[lwtheme] {
     /* tabs container background */
+    & #TabsToolbar,
+    & #TabsToolbar-customization-target,
     & #tabbrowser-tabs {
-        background: transparent !important;
+        background-color: var(--uc-tabsbar-background) !important;
     }
     /* tabs - selected tabs */
     & .tab-label-container[selected] {
@@ -678,6 +680,7 @@ treechildren::-moz-tree-row(selected) {
         /*color: var(--uc-accent-color-1) !important; dusky*/
     }
     & .tab-background[selected] {
+        background-color: var(--tab-selected-bgcolor) !important;
         box-shadow: var(--uc-box-shadow) !important;
     }
     & .tab-background[multiselected] {
@@ -719,28 +722,22 @@ treechildren::-moz-tree-row(selected) {
 /* add on */
 #main-window[lwtheme] {
     & #tabbrowser-tabs {
-        background: transparent !important;
         --tab-loading-fill: var(--uc-accent-color-1) !important;
-        --tab-selected-background: red !important;
+        --tab-selected-background: var(--tab-selected-bgcolor) !important;
     }
     & .tab-background[selected] {
-        background-color: var(--uc-layered-background) !important;
+        background-color: var(--tab-selected-bgcolor) !important;
     }
     & .tabbrowser-tab[pinned=""] .tab-background,
     & .tabbrowser-tab[pinned="true"] .tab-background {
-        background-color: var(--uc-layered-background) !important;
+        background-color: var(--tab-selected-bgcolor) !important;
     }
     /*tabs - all other tabs */
     & .tab-label-container:not([selected=""],[pinned]) {
         color: var(--arrowpanel-border-color) !important;
     }
-    & #TabsToolbar-customization-target {
-        background: transparent !important;
-    }
-    & toolbar {
-      &:-moz-window-inactive {
-        background-color: transparent !important;
-      }
+    & #TabsToolbar:-moz-window-inactive {
+        background-color: var(--uc-tabsbar-background) !important;
     }
 }
 /* unloaded tabs opacity */
@@ -787,7 +784,7 @@ treechildren::-moz-tree-row(selected) {
 }
 #main-window[lwtheme] {
     & #sidebar-main {
-        background: var(--lwt-accent-color) !important;
+        background: var(--uc-tabsbar-background) !important;
     }
 }
 /* visual clarity */

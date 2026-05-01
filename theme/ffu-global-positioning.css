@@ -51,6 +51,10 @@ Vertical Tabs Hidden in Private
     --uc-tabbar-height: 40px;
     --uc-bookbar-height: 28px;
     --uc-topbars-combined-height: calc(var(--uc-menubar-height) + var(--uc-navbar-height) + var(--uc-tabbar-height) + var(--uc-bookbar-height));
+    --uc-navbar-autohide-edge-seam: 3px;
+    --uc-navbar-autohide-hidden-offset: calc(0px - var(--uc-topbars-combined-height) - var(--uc-navbar-autohide-edge-seam));
+    --uc-navbar-autohide-hover-offset: calc(var(--uc-topbars-combined-height) + var(--uc-navbar-autohide-edge-seam));
+    --uc-navbar-autohide-content-offset: var(--uc-navbar-autohide-hover-offset);
     /*rounded corners*/
     --uc-all-border-radius: 10px;
     --uc-content-border-radius: var(--uc-all-border-radius);
@@ -110,7 +114,16 @@ Vertical Tabs Hidden in Private
      --uc-tabbar-height: 0px !important;
     }
 }
-:root[inDOMFullscreen] #tabbrowser-tabbox {
+:root[inDOMFullscreen],
+#main-window[inDOMFullscreen="true"] {
+    --uc-content-margins: 0px !important;
+    --uc-content-border-radius: 0px !important;
+    --uc-sidebar-border-radius: 0px !important;
+    --uc-sb-margins: 0px !important;
+    --uc-sb-margins-right: 0px !important;
+}
+:root[inDOMFullscreen] #tabbrowser-tabbox,
+#main-window[inDOMFullscreen="true"] #tabbrowser-tabbox {
     margin-inline-start: 0px !important;
 }
 
@@ -335,7 +348,7 @@ Vertical Tabs Hidden in Private
 }
 /*full screen compacting*/
 #main-window[sizemode="fullscreen"] * {
-    @media not (-moz-os-version: macos), (-moz-platform: macos) {
+    @media not (-moz-platform: macos) {
         /* 9/18/2025 - due to macs differences in fullscreen and maximized state, full screen compacting will be limited to not mac */
         /*rounded corners*/
         --uc-content-border-radius: 0px;
@@ -347,6 +360,27 @@ Vertical Tabs Hidden in Private
         --uc-tab-margins-right: 0px;
         --uc-sb-margins: 0px !important;
         --uc-sb-margins-right: 0px !important;
+    }
+}
+@media not (-moz-platform: macos) {
+    #main-window[sizemode="fullscreen"] {
+        --uc-content-margins: 0px !important;
+        --uc-content-border-radius: 0px !important;
+        --uc-sidebar-border-radius: 0px !important;
+        --uc-sb-margins: 0px !important;
+        --uc-sb-margins-right: 0px !important;
+    }
+    #main-window[sizemode="fullscreen"] #browser,
+    #main-window[sizemode="fullscreen"] #tabbrowser-tabbox,
+    #main-window[sizemode="fullscreen"] #tabbrowser-tabpanels,
+    #main-window[sizemode="fullscreen"] #tabbrowser-tabpanels browser[type] {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    #main-window[sizemode="fullscreen"] #tabbrowser-tabpanels browser[type] {
+        border: 0 !important;
     }
 }
 :root[uidensity="compact"]:not([customizing],[chromehidden~="menubar"]) {--uc-navbar-height: 38px;}
@@ -476,8 +510,20 @@ box-shadow: none !important;}}
     }
 }
 #main-window[inDOMFullscreen="true"][inFullscreen="true"] {
-    & #tabbrowser-tabpanels browser[type] {
+    & #browser,
+    & #tabbrowser-tabbox,
+    & #tabbrowser-tabpanels {
+        margin: 0 !important;
         border-radius: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+    & #tabbrowser-tabpanels browser[type] {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
     }    
 }
 

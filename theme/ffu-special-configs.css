@@ -161,7 +161,7 @@ Nightly Configurations
     */
     /* window title in menu bar */
     @media not -moz-pref("ultima.navbar.autohide") {
-        :root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([inactive="true"])) > head {
+        :root:not([sizemode="fullscreen"]):not([inDOMFullscreen="true"]):has(#toolbar-menubar:not([inactive="true"])) > head {
             display: block;
             position: fixed; top: 12px; right: 140px;
             width: calc(100vw - 285px);
@@ -191,7 +191,19 @@ Nightly Configurations
 
 /* this block below is duct tape. need to find the issue making this required */
 @media not -moz-pref("ultima.spacing.compact") {
-    #main-window:has(#tabbrowser-tabs[orient="horizontal"]) #browser {
+    #main-window:not([sizemode="fullscreen"]):not([inDOMFullscreen="true"]):has(#tabbrowser-tabs[orient="horizontal"]) #browser {
         margin-left: 5px;
     }
+}
+
+/* fullscreen content seam cleanup must run after ffu-internal-appearance/color modules */
+#main-window[sizemode="fullscreen"] #tabbrowser-tabpanels,
+#main-window[sizemode="fullscreen"] #tabbrowser-tabpanels browser[type],
+#main-window[inDOMFullscreen="true"][inFullscreen="true"] #tabbrowser-tabpanels,
+#main-window[inDOMFullscreen="true"][inFullscreen="true"] #tabbrowser-tabpanels browser[type] {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
 }

@@ -24,8 +24,18 @@ enable bookmark url editting (add bookmark menu)
 
 @media -moz-pref("ultima.navbar.autohide") {
     #main-window:is([sizemode="normal"],[sizemode="maximized"]):not([customizing=""])  {
-        /* quick adjustment for compact */
-        @media not -moz-pref("ultima.spacing.compact") {#browser {margin-top:3px;}}
+        /* top content contract: hidden state keeps only the seam; revealed state reserves toolbar height */
+        @media not -moz-pref("ultima.navbar.position","bottom") {
+            --uc-navbar-autohide-top-content-margin: var(--uc-navbar-autohide-edge-seam);
+            #browser {
+                margin-top: var(--uc-navbar-autohide-top-content-margin) !important;
+                transition: margin-top 0.3s ease 0.5s !important;
+            }
+            &:has(#navigator-toolbox:hover) {
+                --uc-navbar-autohide-top-content-margin: var(--uc-navbar-autohide-content-offset);
+                #browser {transition: margin-top 0.2s ease 0.5ms !important;}
+            }
+        }
         /* absolute positioning */
         #navigator-toolbox {
             position: absolute !important;
@@ -42,11 +52,11 @@ enable bookmark url editting (add bookmark menu)
             /* autohide */
             &:not(:hover) {
                 @media not -moz-pref("ultima.navbar.position","bottom") {
-                    top: calc(var(--uc-topbars-combined-height) - (var(--uc-topbars-combined-height) * 2) - 3px);
+                    top: var(--uc-navbar-autohide-hidden-offset);
                     transition: top 0.3s ease 0.5s !important;
                 }
                 @media -moz-pref("ultima.navbar.position","bottom") {
-                    bottom: calc(var(--uc-topbars-combined-height) - (var(--uc-topbars-combined-height) * 2) - 3px);
+                    bottom: var(--uc-navbar-autohide-hidden-offset);
                     transition: bottom 0.3s ease 0.5s !important;
                 }
             }
@@ -56,10 +66,10 @@ enable bookmark url editting (add bookmark menu)
                 height:20px; border-radius:10px; text-align:center;
                 left: 30%;right: 20%;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
-                    top: var(--uc-topbars-combined-height);
+                    top: var(--uc-navbar-autohide-hover-offset);
                 }
                 @media -moz-pref("ultima.navbar.position","bottom") {
-                    bottom: var(--uc-topbars-combined-height);
+                    bottom: var(--uc-navbar-autohide-hover-offset);
                 }
             }
             /* hover zone - full width */
@@ -68,10 +78,10 @@ enable bookmark url editting (add bookmark menu)
                 left:0%;right:0%;
                 height:12px;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
-                    top:var(--uc-topbars-combined-height);
+                    top:var(--uc-navbar-autohide-hover-offset);
                 }
                 @media -moz-pref("ultima.navbar.position","bottom") {
-                    bottom:var(--uc-topbars-combined-height);
+                    bottom:var(--uc-navbar-autohide-hover-offset);
                 }
             }
         }   
@@ -80,12 +90,17 @@ enable bookmark url editting (add bookmark menu)
         &:has(#appMenu-notification-popup[panelopen="true"]),   &:has(#unified-extensions-panel[panelopen="true"]), &:has(#widget-overflow[panelopen="true"]),
         &:has(#unified-extensions-context-menu:hover),          &:has(#notification-popup:hover),                   &:has(.bookmark-item[open="true"]),
         &:has(#tabContextMenu:hover),                           &:has(#tabContextMenu[state="open"]),              &:has(#tabContextMenu[state="showing"]),
+        &:has(#tabContextMenu[open]),                           &:has(#tabContextMenu[open="true"]),
         &:has(#blockedPopupOptions:hover),                      &:has(#toolbar-context-menu:hover),                 &:has(#backForwardMenu:hover), &:has(#customizationui-widget-panel[panelopen="true"]),
         &:has(#full-page-translations-panel[panelopen="true"]), &:has(panel[id*="_-panel"][panelopen="true"]),      &:has(#editBookmarkPanel[panelopen="true"]),
         &:has(#feature-callout[panelopen="true"]),              &:has(#notification-popup[panelopen="true"]),       &:has(#window-modal-dialog[open]),
         &:has(#pageActionPanel[panelopen="true"]),              &:has(#permission-popup[panelopen="true"]),         &:has(#downloadsPanel[panelopen="true"]),
         &:has(#backForwardMenu:hover),                          &:has(#protections-popup[panelopen="true"])
         {
+            @media not -moz-pref("ultima.navbar.position","bottom") {
+                --uc-navbar-autohide-top-content-margin: var(--uc-navbar-autohide-content-offset);
+                #browser {transition: margin-top 0.2s ease 0.5ms !important;}
+            }
             #navigator-toolbox {
                 @media not -moz-pref("ultima.navbar.position","bottom") {top:0 !important;}
                 @media -moz-pref("ultima.navbar.position","bottom") {bottom:0 !important;}
@@ -93,6 +108,10 @@ enable bookmark url editting (add bookmark menu)
         }
         @media not -moz-pref("ultima.navbar.autohide.ignore.urlbar") {
             &:has(#urlbar[focused=""][breakout-extend="true"]) {
+                @media not -moz-pref("ultima.navbar.position","bottom") {
+                    --uc-navbar-autohide-top-content-margin: var(--uc-navbar-autohide-content-offset);
+                    #browser {transition: margin-top 0.2s ease 0.5ms !important;}
+                }
                 #navigator-toolbox {
                     @media not -moz-pref("ultima.navbar.position","bottom") {top:0 !important;}
                     @media -moz-pref("ultima.navbar.position","bottom") {bottom:0 !important;}
@@ -173,6 +192,7 @@ enable bookmark url editting (add bookmark menu)
         &:has(#appMenu-notification-popup[panelopen="true"]),   &:has(#unified-extensions-panel[panelopen="true"]), &:has(#widget-overflow[panelopen="true"]),
         &:has(#unified-extensions-context-menu:hover),          &:has(#notification-popup:hover),                   &:has(.bookmark-item[open="true"]),
         &:has(#tabContextMenu:hover),                           &:has(#tabContextMenu[state="open"]),              &:has(#tabContextMenu[state="showing"]),
+        &:has(#tabContextMenu[open]),                           &:has(#tabContextMenu[open="true"]),
         &:has(#blockedPopupOptions:hover),                      &:has(#toolbar-context-menu:hover),                 &:has(#backForwardMenu:hover), &:has(#customizationui-widget-panel[panelopen="true"]),
         &:has(#full-page-translations-panel[panelopen="true"]), &:has(panel[id*="_-panel"][panelopen="true"]),      &:has(#editBookmarkPanel[panelopen="true"]),
         &:has(#feature-callout[panelopen="true"]),              &:has(#notification-popup[panelopen="true"]),       &:has(#window-modal-dialog[open]),
@@ -209,6 +229,9 @@ enable bookmark url editting (add bookmark menu)
         @media not -moz-pref("ultima.navbar.float") {
             @media not -moz-pref("ultima.navbar.float.fullsize") {
                 #main-window:not([customizing=""]) {
+                    --uc-bottom-navbar-urlbar-offset: 24px;
+                    --uc-bottom-navbar-urlbar-margin: 36px;
+                    --uc-bottom-navbar-search-one-offs-margin: 6px;
                     #browser { order: 1 !important; }
                     #navigator-toolbox { order: 2 !important; }
                 }
