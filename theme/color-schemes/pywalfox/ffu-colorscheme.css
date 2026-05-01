@@ -1,0 +1,62 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
+File Desc:         Pywalfox Bridge Color Scheme
+
+This scheme does not read ~/.cache/wal directly. Pywalfox should apply the
+Firefox theme first, then this bridge maps Firefox/LWT theme variables into
+FF Ultima's --uc-* color contract.
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Pywalfox / Firefox theme variables -> FF Ultima variables ----------------------------- */
+
+:root {
+    --uc-browser-color:      var(--lwt-accent-color, rgb(35, 35, 42));
+    --uc-text:               var(--lwt-text-color, var(--toolbar-color, CanvasText));
+    --uc-layered-background: color-mix(in srgb, var(--uc-browser-color) 88%, black);
+    --uc-navbar-background:  var(--toolbar-bgcolor, var(--uc-browser-color));
+    --uc-urlbar-background:  var(--toolbar-field-background-color, var(--uc-layered-background));
+    --uc-findbar-background: var(--uc-layered-background);
+    --uc-sidebar-background: var(--lwt-sidebar-background-color, var(--uc-layered-background));
+    --uc-tabsbar-background: var(--uc-browser-color);
+    --uc-tab-background:     transparent;
+    --uc-tab-selected:       var(--tab-selected-bgcolor, var(--uc-layered-background));
+    --uc-tab-selected-text:  var(--tab-selected-textcolor, var(--uc-text));
+    --uc-button-selected:    var(--button-background-color-hover, color-mix(in srgb, var(--uc-text) 12%, transparent));
+    --uc-button-red:         #f54e4e;
+    --uc-context-menu:       var(--arrowpanel-background, var(--uc-layered-background));
+    --uc-panel-background:   var(--arrowpanel-background, var(--uc-layered-background));
+    --uc-panel-border:       var(--arrowpanel-border-color, color-mix(in srgb, var(--uc-text) 20%, transparent));
+    --uc-panel-border-2:     color-mix(in srgb, var(--uc-text) 12%, transparent);
+    --uc-panel-border-ii:    var(--uc-panel-border-2);
+    --uc-accent-color-1:     var(--tab-loading-fill, var(--lwt-sidebar-highlight-background-color, AccentColor));
+    --uc-accent-color-2:     var(--lwt-sidebar-highlight-background-color, var(--uc-accent-color-1));
+    --uc-accent-color-3:     var(--toolbar-field-focus-border-color, var(--uc-text));
+    --uc-accent-color-4:     color-mix(in srgb, var(--uc-text) 8%, transparent);
+    --uc-accent-color-5:     var(--toolbar-color, var(--uc-text));
+    --uc-accent-color-6:     var(--lwt-sidebar-highlight-background-color, var(--uc-accent-color-1));
+    --uc-transparent:        rgba(0,0,0,0);
+    --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
+    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem rgba(25,25,25,1);
+    --uc-button-border-radius: 10px;
+    --uc-tab-border-radius: 8px;
+
+    /* Solid new-tab wallpaper from the darkest bridge surface. */
+    --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
+}
+
+/* Minimal surface nudges; Pywalfox keeps owning the Firefox Theme API colors. */
+
+#main-window #navigator-toolbox {
+    background-color: var(--uc-navbar-background) !important;
+}
+
+#main-window #browser {
+    background: var(--uc-browser-color) !important;
+}
+
+#main-window #TabsToolbar,
+#main-window #TabsToolbar-customization-target {
+    background-color: var(--uc-tabsbar-background) !important;
+}

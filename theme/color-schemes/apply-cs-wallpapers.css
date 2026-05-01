@@ -43,6 +43,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     @media -moz-pref("user.theme.wallpaper.kanagawa-wave"){--uc-wallpaper: url("walls/kanagawa-wave.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine"){--uc-wallpaper: url("walls/rose-pine.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine-dawn"){--uc-wallpaper: url("walls/rose-pine-dawn.jpg") !important;}
+    @media -moz-pref("user.theme.wallpaper.pywalfox"){--uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background)) !important;}
 }
 
 /* add cs wallpapers to menu -------------------------------------------------------------------- */
