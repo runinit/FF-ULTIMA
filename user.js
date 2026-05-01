@@ -27,6 +27,7 @@ user_pref("user.theme.fluent.thinkpad", false);
 user_pref("user.theme.brave", false);
 user_pref("user.theme.ayu", false);
 user_pref("user.theme.rose-pine", false);
+user_pref("user.theme.xtras.color-scheme.force.consistency", false);
 
 /* nav bar */
 user_pref("ultima.navbar.autohide", false);
