@@ -97,9 +97,10 @@ Another - applying colors to extension
         --tabs-progress-bg: var(--uc-accent-color-5) !important;
         --tabs-height: 35px !important;
 
-        --tabs-discarded-favicon-opacity: 0.05 !important;
-        --tabs-discarded-title-opacity: 0.15 !important;
-        @media not -moz-pref("ultima.sidebery.default.indent") {--tabs-indent: 30px !important;}
+        --tabs-discarded-favicon-opacity: 0.35 !important;
+        --tabs-discarded-title-opacity: 0.65 !important;
+        @media -moz-pref("ultima.sidebery.indent.compact") {--tabs-indent: 22px !important;}
+        @media not -moz-pref("ultima.sidebery.indent.compact") {--tabs-indent: 30px !important;}
         --tabs-audio-btn-width: 30px !important;
         --ntb-border-radius: var(--uc-button-border-radius) !important;
     }
