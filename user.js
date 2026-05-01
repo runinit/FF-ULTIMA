@@ -79,7 +79,7 @@ user_pref("ultima.sidebar.revamped.hide.when.horizontal", true);
 /* sidebery */
 user_pref("ultima.sidebery.autohide", true);
 user_pref("ultima.sidebery.expandon.inactive.windows", false);
-user_pref("ultima.sidebery.indent.mode", "standard"); // compact or standard
+user_pref("ultima.sidebery.indent.mode", "compact"); // compact or standard
 user_pref("user.theme.xtension.sidebery", true);
 
 /* findbar */
