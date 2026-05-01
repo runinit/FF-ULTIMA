@@ -15,7 +15,7 @@ FF Ultima's --uc-* color contract.
     --uc-browser-color:      var(--lwt-accent-color, rgb(35, 35, 42));
     --uc-text:               var(--lwt-text-color, var(--toolbar-color, CanvasText));
     --uc-layered-background: color-mix(in srgb, var(--uc-browser-color) 88%, black);
-    --uc-navbar-background:  var(--toolbar-bgcolor, var(--uc-browser-color));
+    --uc-navbar-background:  var(--uc-browser-color);
     --uc-urlbar-background:  var(--toolbar-field-background-color, var(--uc-layered-background));
     --uc-findbar-background: var(--uc-layered-background);
     --uc-sidebar-background: var(--lwt-sidebar-background-color, var(--uc-layered-background));
@@ -46,17 +46,28 @@ FF Ultima's --uc-* color contract.
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 
-/* Minimal surface nudges; Pywalfox keeps owning the Firefox Theme API colors. */
+/* Minimal surface nudges; Pywalfox keeps owning the Firefox Theme API palette. */
 
-#main-window #navigator-toolbox {
+#main-window {
+    --toolbar-bgcolor: var(--uc-navbar-background) !important;
+    --toolbox-bgcolor: var(--uc-browser-color) !important;
+    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
+}
+
+#main-window,
+#main-window #navigator-toolbox,
+#main-window #navigator-toolbox > toolbar,
+#main-window #titlebar,
+#main-window #TabsToolbar,
+#main-window #TabsToolbar-customization-target {
+    background-color: var(--uc-browser-color) !important;
+}
+
+#main-window #nav-bar,
+#main-window #PersonalToolbar {
     background-color: var(--uc-navbar-background) !important;
 }
 
 #main-window #browser {
     background: var(--uc-browser-color) !important;
-}
-
-#main-window #TabsToolbar,
-#main-window #TabsToolbar-customization-target {
-    background-color: var(--uc-tabsbar-background) !important;
 }
