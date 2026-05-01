@@ -33,7 +33,7 @@
 - `qol • 🟡 •` Ayu Color Scheme adjustments to menu panel options on hover
 - `qol • 🟡 •` extensions permission popup, downloads panel, backforward popup - added to navbar.autohide exclusion list b662b6d
 - `qol • 🟡 •` With the addition of a `customChrome.css` entry for your own personal modifications, there's now also a `customContent.css` entry for userContent.css (website styles) 
-- `qol • 🟡 •` Setting `ultima.sidebery.indent.compact` reduces Sidebery tab indentation for denser trees without changing other sidebar modes
+- `qol • 🟡 •` Added `ultima.sidebery.indent.standard` alongside `ultima.sidebery.indent.compact` so Sidebery indentation can be switched explicitly in about:config
 
 ### <ins> Update Preview ??
 

@@ -80,6 +80,7 @@ user_pref("ultima.sidebar.revamped.hide.when.horizontal", true);
 user_pref("ultima.sidebery.autohide", true);
 user_pref("ultima.sidebery.expandon.inactive.windows", false);
 user_pref("ultima.sidebery.indent.compact", true);
+user_pref("ultima.sidebery.indent.standard", false);
 user_pref("user.theme.xtension.sidebery", true);
 
 /* findbar */
