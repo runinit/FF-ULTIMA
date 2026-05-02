@@ -97,13 +97,14 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
             opacity: 0.34;
             transform: translate3d(-0.3%, -0.2%, 0) scale(1.02);
             transform-origin: center;
+            filter: blur(54px) saturate(102%);
             animation: none !important;
             will-change: auto;
         }
 
         @media -moz-pref("user.theme.wallpaper.fluid-gradient.animated") {
             body::before {
-                animation: ffu-fluid-gradient-flow 220s linear infinite alternate !important;
+                animation: ffu-fluid-gradient-flow 260s linear infinite alternate !important;
                 will-change: transform;
             }
         }
