@@ -179,6 +179,7 @@ user_pref("user.theme.wallpaper.fluent.dark", false);
 user_pref("user.theme.wallpaper.fluent.light", false);
 user_pref("user.theme.wallpaper.ayu", false);
 user_pref("user.theme.wallpaper.pywalfox", false);
+user_pref("user.theme.wallpaper.fluid-gradient", false);
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 

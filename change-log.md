@@ -20,6 +20,7 @@
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c
 - `fix • 🔴 •` Removed the custom selected indicator for [collapsed][hasactivetab] tab groups, replaced with a subtle highlight on the default # indicator #453
 - `new • 🟢 •` New `user.theme.pywalfox` bridge color scheme with solid `user.theme.wallpaper.pywalfox` support
+- `new • 🟢 •` New `user.theme.wallpaper.fluid-gradient` animated Pywalfox-aware new-tab wallpaper
 - `new • 🟢 •` New [`Rose Pine Color Scheme`](https://ff-ultima.github.io/docs/color-schemes/rose-pine) by @neyfua! #422 22640ef
 - `new • 🟢 •` Setting `ultima.tabs.focus.unblur` reduces the visibiliy of tabs unless they are hovered, selected, playing audio, or loading.
 - `new • 🟢 •` Setting `ultima.sidebar.compact.treeviews` compacts the tree view of the bookmarks/history sidebars ed9f73d

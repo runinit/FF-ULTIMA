@@ -44,6 +44,74 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     @media -moz-pref("user.theme.wallpaper.rose-pine"){--uc-wallpaper: url("walls/rose-pine.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine-dawn"){--uc-wallpaper: url("walls/rose-pine-dawn.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.pywalfox"){--uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background)) !important;}
+    @media -moz-pref("user.theme.wallpaper.fluid-gradient") {
+        --uc-fluid-gradient-surface: var(--uc-layered-background, color-mix(in srgb, var(--uc-browser-color) 88%, black));
+
+        @media (prefers-color-scheme: dark) {
+            --uc-fluid-gradient-base: color-mix(in srgb, var(--uc-fluid-gradient-surface) 64%, black);
+            --uc-fluid-gradient-field: color-mix(in srgb, var(--uc-accent-color-2) 42%, var(--uc-fluid-gradient-surface));
+            --uc-fluid-gradient-edge-a: color-mix(in srgb, var(--uc-accent-color-1) 28%, var(--uc-fluid-gradient-surface));
+            --uc-fluid-gradient-edge-b: color-mix(in srgb, var(--uc-accent-color-3) 24%, var(--uc-fluid-gradient-surface));
+            --uc-fluid-gradient-highlight: color-mix(in srgb, var(--uc-text) 8%, var(--uc-fluid-gradient-field));
+            --uc-fluid-gradient-opacity: 0.42;
+            --uc-fluid-gradient-blur: 112px;
+            --uc-fluid-gradient-saturate: 108%;
+            --uc-fluid-gradient-duration: 140s;
+            --uc-fluid-gradient-vignette: color-mix(in srgb, var(--uc-fluid-gradient-surface) 30%, black);
+        }
+
+        @media (prefers-color-scheme: light) {
+            --uc-fluid-gradient-base: color-mix(in srgb, var(--uc-fluid-gradient-surface) 50%, white);
+            --uc-fluid-gradient-field: color-mix(in srgb, var(--uc-accent-color-2) 26%, var(--uc-fluid-gradient-base));
+            --uc-fluid-gradient-edge-a: color-mix(in srgb, var(--uc-accent-color-1) 18%, var(--uc-fluid-gradient-base));
+            --uc-fluid-gradient-edge-b: color-mix(in srgb, var(--uc-accent-color-3) 16%, var(--uc-fluid-gradient-base));
+            --uc-fluid-gradient-highlight: color-mix(in srgb, var(--uc-text) 5%, var(--uc-fluid-gradient-field));
+            --uc-fluid-gradient-opacity: 0.28;
+            --uc-fluid-gradient-blur: 124px;
+            --uc-fluid-gradient-saturate: 96%;
+            --uc-fluid-gradient-duration: 170s;
+            --uc-fluid-gradient-vignette: color-mix(in srgb, var(--uc-fluid-gradient-surface) 36%, white);
+        }
+
+        --uc-wallpaper:
+            radial-gradient(ellipse 128% 96% at 68% 48%, color-mix(in srgb, var(--uc-fluid-gradient-field) 62%, transparent) 0%, color-mix(in srgb, var(--uc-fluid-gradient-field) 28%, transparent) 42%, transparent 78%),
+            radial-gradient(ellipse 82% 112% at -8% 54%, color-mix(in srgb, var(--uc-fluid-gradient-edge-a) 48%, transparent) 0%, color-mix(in srgb, var(--uc-fluid-gradient-edge-a) 20%, transparent) 42%, transparent 76%),
+            radial-gradient(ellipse 64% 82% at 18% 18%, color-mix(in srgb, var(--uc-fluid-gradient-edge-b) 34%, transparent) 0%, transparent 72%),
+            radial-gradient(ellipse 96% 72% at 86% 22%, color-mix(in srgb, var(--uc-fluid-gradient-highlight) 24%, transparent) 0%, transparent 76%),
+            radial-gradient(ellipse at center, transparent 0%, transparent 58%, color-mix(in srgb, var(--uc-fluid-gradient-vignette) 70%, transparent) 100%),
+            linear-gradient(var(--uc-fluid-gradient-base), var(--uc-fluid-gradient-base)) !important;
+
+        body {
+            background-color: var(--uc-fluid-gradient-base) !important;
+            background-image: var(--uc-wallpaper) !important;
+            overflow-x: hidden !important;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -24vmax;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 128% 96% at 68% 48%, color-mix(in srgb, var(--uc-fluid-gradient-field) 48%, transparent) 0%, transparent 72%),
+                radial-gradient(ellipse 82% 112% at -8% 54%, color-mix(in srgb, var(--uc-fluid-gradient-edge-a) 36%, transparent) 0%, transparent 76%),
+                radial-gradient(ellipse 64% 82% at 18% 18%, color-mix(in srgb, var(--uc-fluid-gradient-edge-b) 26%, transparent) 0%, transparent 72%),
+                radial-gradient(ellipse 96% 72% at 86% 22%, color-mix(in srgb, var(--uc-fluid-gradient-highlight) 20%, transparent) 0%, transparent 76%);
+            background-position: 52% 48%, 8% 52%, 20% 20%, 82% 24%;
+            background-repeat: no-repeat;
+            background-size: 132% 132%, 92% 126%, 86% 102%, 108% 90%;
+            filter: blur(var(--uc-fluid-gradient-blur)) saturate(var(--uc-fluid-gradient-saturate)) contrast(92%);
+            opacity: var(--uc-fluid-gradient-opacity);
+            transform: translate3d(-2%, -1%, 0) scale(1.06) rotate(0deg);
+            transform-origin: center;
+            animation: ffu-fluid-gradient-flow var(--uc-fluid-gradient-duration) ease-in-out infinite alternate !important;
+            will-change: transform, background-position;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body::before { animation: none !important; }
+        }
+    }
 }
 
 /* add cs wallpapers to menu -------------------------------------------------------------------- */
@@ -130,5 +198,21 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     }
 }
 
- 
-}} /*END*/
+}
+
+} /*END*/
+
+@keyframes ffu-fluid-gradient-flow {
+    0% {
+        background-position: 52% 48%, 8% 52%, 20% 20%, 82% 24%;
+        transform: translate3d(-2%, -1%, 0) scale(1.06) rotate(0deg);
+    }
+    45% {
+        background-position: 58% 48%, 14% 50%, 12% 28%, 78% 28%;
+        transform: translate3d(1.5%, -1%, 0) scale(1.08) rotate(2deg);
+    }
+    100% {
+        background-position: 48% 50%, 4% 48%, 26% 14%, 86% 20%;
+        transform: translate3d(-1%, 1.5%, 0) scale(1.07) rotate(-2deg);
+    }
+}
