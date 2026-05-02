@@ -286,7 +286,7 @@ ultima.urlbar.hide.trackingprotection.icon
         margin: var(--uc-content-margins);
 
         opacity: 0;
-        pointer-events: none;
+        pointer-events: none !important;
         transition: opacity 0.7s ease;
     }
     #main-window:has(#urlbar[breakout-extend="true"]) {
@@ -312,7 +312,7 @@ ultima.urlbar.hide.trackingprotection.icon
         content: '';
         position: absolute;
         background: rgba(0, 0, 0, 0);
-        pointer-events: none;
+        pointer-events: none !important;
         z-index: 999;
         transition: background-color 200ms ease-in-out;
     }

@@ -564,7 +564,7 @@ enable bookmark url editting (add bookmark menu)
         margin: var(--uc-content-margins);
 
         opacity: 0;
-        pointer-events: none;
+        pointer-events: none !important;
         transition: opacity 0.3s linear;
     }
     #main-window:has(.bookmark-item[open]) {

@@ -113,6 +113,7 @@ with a visual indicator to slightly improve accessibility.
             background: url("icons/splitter.gif") center center no-repeat;
             background-size: contain;
             background-color: var(--uc-accent-color-2);
+            pointer-events: none;
             border-radius:100%;
             transition: opacity ease-in-out 1s, background-color ease 1s;
         }
@@ -129,6 +130,7 @@ with a visual indicator to slightly improve accessibility.
             background: url("icons/splitter-r.gif") center center no-repeat;
             background-size: contain;
             background-color: var(--uc-accent-color-2);
+            pointer-events: none;
             border-radius:100%;
             transition: opacity ease-in-out 1s, background-color ease 1s;
         }
