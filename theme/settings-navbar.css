@@ -557,7 +557,6 @@ enable bookmark url editting (add bookmark menu)
 @media -moz-pref("ultima.navbar.bookmarks.focus.blur") {
     #tabbrowser-tabpanels::before {
         content: "";
-        backdrop-filter: blur(25px);
         background-color:rgba(1,1,1,0.1);
 
         z-index: 999;
@@ -573,6 +572,7 @@ enable bookmark url editting (add bookmark menu)
     }
     #main-window:has(.bookmark-item[open]) {
         #tabbrowser-tabpanels::before {
+            backdrop-filter: blur(25px);
             visibility: visible;
             opacity: 1;
             transition: opacity 0.3s linear, visibility 0s 0s;
