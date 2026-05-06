@@ -10,7 +10,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {  :root {
+@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) {  :root {
 
 /* apply cs wallpapers --------------------------------------------------------------------------- */
     
