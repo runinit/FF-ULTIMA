@@ -88,6 +88,33 @@ adjustments for accessible splitter
     }
 }
 
+/* active sidebery guard ----------------------------------------------------------------------------- */
+
+/*
+ * Firefox's revamped native sidebar can occasionally expand itself over an
+ * already-open Sidebery sidebar after startup/display changes, leaving only a
+ * blank grey strip visible until Sidebery or the sidebar is toggled. When the
+ * Sidebery webextension sidebar is the active sidebar, keep the native vertical
+ * tabs launcher/lane out of the stacking context and explicitly keep the
+ * Sidebery browser visible above the content area.
+ */
+#main-window:has(#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"][checked]:not([hidden])) {
+    #sidebar-main,
+    #sidebar-launcher-splitter {
+        display: none !important;
+        visibility: collapse !important;
+    }
+    #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+        z-index: 1001 !important;
+        background-color: var(--uc-sidebar-background) !important;
+    }
+    #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar {
+        opacity: 1 !important;
+        visibility: visible !important;
+        background-color: var(--uc-sidebar-background) !important;
+    }
+}
+
 
 /* sidebar splitter visibility ---------------------------------------------------------------------- */
 

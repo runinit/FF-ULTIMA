@@ -15,6 +15,7 @@
 -->
 
 ### <ins> Change Log
+- `fix • 🔴 •` Prevent Firefox's revamped native sidebar from covering active Sidebery with a blank grey strip after startup/display changes
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c
