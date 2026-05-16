@@ -15,6 +15,7 @@
 -->
 
 ### <ins> Change Log
+- `fix • 🔴 •` Restore FF Ultima context-menu theming by keeping Linux menus on the styleable Firefox chrome path
 - `fix • 🔴 •` Restore safer Linux GTK context-menu and leave-notify defaults to avoid delayed chrome click/right-click lockups
 - `fix • 🔴 •` Remove inactive urlbar/bookmark blur overlay surfaces from layout to preserve right-click/navbar interaction after long sessions
 - `fix • 🔴 •` Prevent Firefox's revamped native sidebar from covering active Sidebery with a blank grey strip after startup/display changes

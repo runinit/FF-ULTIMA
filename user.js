@@ -205,7 +205,7 @@ user_pref("svg.context-properties.content.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
 user_pref("widget.gtk.ignore-bogus-leave-notify", 0);
 user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
-user_pref("widget.gtk.native-context-menus", true);
+user_pref("widget.gtk.native-context-menus", false);
 
 /* extra recommended */
 // user_pref("browser.tabs.groups.enabled", true);
