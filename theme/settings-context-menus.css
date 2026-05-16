@@ -35,6 +35,33 @@ hide seperators
     }
 }
 
+/* context menu sizing guard -------------------------------------- */
+
+/*
+ * Firefox can occasionally wedge XUL context menu sizing after a long session:
+ * popupshowing/popupshown still fire, but #contentAreaContextMenu and its
+ * visible children collapse to padding-only width/0x0 host geometry. Keep the
+ * content/tab/toolbar/place context menus on a stable minimum sizing contract
+ * so the popup host has real geometry to display.
+ */
+#contentAreaContextMenu,
+#tabContextMenu,
+#toolbar-context-menu,
+#placesContext {
+    min-width: 18em !important;
+    width: max-content !important;
+    min-height: max-content !important;
+    height: max-content !important;
+}
+
+#contentAreaContextMenu > :is(menu, menuitem, menugroup),
+#tabContextMenu > :is(menu, menuitem, menugroup),
+#toolbar-context-menu > :is(menu, menuitem, menugroup),
+#placesContext > :is(menu, menuitem, menugroup) {
+    min-width: 18em !important;
+    width: 100% !important;
+}
+
 /* icon visibility ------------------------------------------------- */
 
 /* hide context menu icons (except for top navigation) */
