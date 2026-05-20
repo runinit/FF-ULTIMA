@@ -15,6 +15,7 @@
 -->
 
 ### <ins> Change Log
+- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system color tokens so Pywalfox icons and static theme header colors stay palette-correct
 - `fix • 🔴 •` Restore FF Ultima context-menu theming by keeping Linux menus on the styleable Firefox chrome path
 - `fix • 🔴 •` Restore safer Linux GTK context-menu and leave-notify defaults to avoid delayed chrome click/right-click lockups
 - `fix • 🔴 •` Remove inactive urlbar/bookmark blur overlay surfaces from layout to preserve right-click/navbar interaction after long sessions

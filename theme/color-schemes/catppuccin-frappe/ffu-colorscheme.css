@@ -24,6 +24,7 @@ Custom Icons
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-urlbar-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
+    --uc-toolbarbutton-icon-fill: var(--uc-accent-color-2);
     --uc-button-selected:    rgb(30, 30, 46);
     --uc-button-red:         color-mix(in srgb, #f54e4e 70%, var(--uc-accent-color-1));
     --uc-context-menu:       var(--uc-panel-background);
@@ -55,6 +56,7 @@ Custom Icons
     --uc-tab-background:     transparent;
     --uc-tab-selected:       var(--uc-urlbar-background);
     --uc-tab-selected-text:  var(--uc-accent-color-5);
+    --uc-toolbarbutton-icon-fill: var(--uc-accent-color-2);
     --uc-button-selected:    rgba(159, 156, 181, 0.5);
     --uc-button-red:         #f54e4e;
     --uc-context-menu:       var(--uc-layered-background);
