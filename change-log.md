@@ -15,6 +15,7 @@
 -->
 
 ### <ins> Change Log
+- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens so Pywalfox icons and static theme header colors stay palette-correct
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c
