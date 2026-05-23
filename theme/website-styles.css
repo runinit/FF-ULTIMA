@@ -13,7 +13,7 @@ bing declutter
 /* all scrollbars */
 :root {
     scrollbar-width: auto !important;
-    scrollbar-color: rgba(110, 110, 110, 0.3) rgba(255,255,255, 0) !important;
+    scrollbar-color: color-mix(in srgb, var(--uc-text) 30%, transparent) transparent !important;
 }
 
 @media -moz-pref("ultima.scrollbar.thin") {
@@ -25,12 +25,33 @@ bing declutter
     }
 }
 
+/* Universal FF Ultima selection/accent bridge.
+ * Active color schemes expose --uc-* here; dynamic schemes can fill those
+ * values from generated palette CSS when live browser variables are unavailable.
+ */
+::selection {
+    background-color: var(--uc-accent-color-1) !important;
+    color: var(--uc-browser-color) !important;
+}
+
+:root {
+    accent-color: var(--uc-accent-color-1) !important;
+    --color-accent-primary: var(--uc-accent-color-1) !important;
+    --color-accent-primary-hover: color-mix(in srgb, var(--uc-accent-color-1) 86%, var(--uc-text) 14%) !important;
+    --color-accent-primary-active: color-mix(in srgb, var(--uc-accent-color-1) 74%, var(--uc-browser-color) 26%) !important;
+    --color-accent-primary-selected: var(--uc-accent-color-1) !important;
+    --focus-outline-color: var(--uc-accent-color-1) !important;
+    --border-color-selected: var(--uc-accent-color-1) !important;
+    --text-color-accent-primary: var(--uc-browser-color) !important;
+    --text-color-accent-primary-selected: var(--uc-browser-color) !important;
+}
+
 /* PIP button */
-.pip-wrapper {transform: scale(0.6);}
+.pip-wrapper { transform: scale(0.6); }
 
 /*--------------------------------------------------------------------------------*/
 
-/*bing declutter*/
+/* bing declutter */
 @-moz-document domain("bing.com") {
     .vs_cont .vs,
     .vs_cont .mc_caro {
@@ -40,5 +61,4 @@ bing declutter
         opacity: 0.4 !important;
         border-radius: 10px !important;
     }
-
 }

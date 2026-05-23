@@ -228,7 +228,7 @@ pinned tabs transparent background
         left:5px;
         border: none;
         border-radius:30px;
-        background: linear-gradient(0.25turn, var(--uc-accent-color-2), #ebf8e1, var(--uc-accent-color-2));
+        background: linear-gradient(0.25turn, var(--uc-accent-color-1), color-mix(in srgb, var(--uc-accent-color-1) 58%, var(--uc-text) 42%), var(--uc-accent-color-1));
         box-shadow: var(--uc-box-shadow);
         transition: width 0.2s linear;
     }

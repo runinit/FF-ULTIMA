@@ -1,0 +1,12 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
+File Desc:         Matugen generated color scheme loader
+
+Do not generate or overwrite this loader file.
+Generate ffu-matugen-colors.css from ffu-matugen-colors.template.css and place it
+beside this file. The generated file owns FF Ultima's --uc-* color contract.
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+@import url("ffu-matugen-colors.css");

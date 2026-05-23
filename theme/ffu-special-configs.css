@@ -36,7 +36,7 @@ Nightly Configurations
     }
     /* Sidebar button states */
     #bmf-btn-sidebar.sb-collapsible .toolbarbutton-icon {
-        fill: var(--uc-accent-color-2) !important;
+        fill: var(--uc-accent-color-1) !important;
     }
     /* URL bar toggle button states */
     #bmf-btn-urlhide.state-default {
@@ -44,7 +44,7 @@ Nightly Configurations
     opacity: var(--toolbarbutton-disabled-opacity);
     }
     #bmf-btn-urlhide.state-simplified {
-    fill: var(--uc-accent-color-2) !important;
+    fill: var(--uc-accent-color-1) !important;
     opacity: 1;
     }
     #bmf-btn-urlhide.state-private {
@@ -206,4 +206,206 @@ Nightly Configurations
     border: 0 !important;
     box-shadow: none !important;
     outline: none !important;
+}
+
+/* Pywalfox late chrome corrections -------------------------------------------------------------------------
+ * Imported after the normal URL-bar modules so Pywalfox does not inherit the
+ * transparent URL-bar treatment or the generic icon/text swap for add-on themes.
+ * Consume FF Ultima's --uc-* contract here; the Pywalfox color scheme fills it
+ * from Firefox/LWT values or the generated ffu-pywal-colors.css fallback.
+ */
+@media -moz-pref("user.theme.pywalfox") {
+    #main-window[lwtheme] {
+        --uc-urlbar-solid-surface: var(--uc-urlbar-background) !important;
+        --uc-urlbar-solid-highlight: var(--uc-accent-color-1) !important;
+    }
+
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar[breakout],
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar[breakout][breakout-extend],
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar > #urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar > .urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > #urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > .urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #searchbar,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #searchbar:focus-within {
+        appearance: none !important;
+        background: var(--uc-urlbar-solid-surface) !important;
+        background-color: var(--uc-urlbar-solid-surface) !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        border: 0 !important;
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-urlbar-solid-highlight) 52%, transparent), var(--uc-box-shadow) !important;
+    }
+
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar .urlbar-input-container {
+        background: transparent !important;
+        opacity: 1 !important;
+    }
+
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar-searchmode-switcher,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #identity-icon-box,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #tracking-protection-icon-container,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #page-action-buttons .urlbar-page-action {
+        background-color: color-mix(in srgb, var(--uc-urlbar-solid-highlight) 18%, transparent) !important;
+    }
+
+    #main-window[lwtheme] #navigator-toolbox #nav-bar :is(#unified-extensions-button, #nav-bar-overflow-button, #alltabs-button, #back-button, #forward-button),
+    #main-window[lwtheme] #navigator-toolbox #nav-bar :is(#unified-extensions-button, #nav-bar-overflow-button, #alltabs-button, #back-button, #forward-button) > .toolbarbutton-icon,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar :is(#back-button, #forward-button) image,
+    #main-window[lwtheme] #navigator-toolbox #PersonalToolbar .bookmark-item[container="true"],
+    #main-window[lwtheme] #ublock0_raymondhill_net-BAP image {
+        -moz-context-properties: fill, stroke, fill-opacity, stroke-opacity !important;
+        color: var(--uc-accent-color-1) !important;
+        fill: var(--uc-accent-color-1) !important;
+        stroke: var(--uc-accent-color-1) !important;
+        fill-opacity: 1 !important;
+        stroke-opacity: 1 !important;
+    }
+}
+
+/* Late primary-accent chrome polish -------------------------------------------------------------------------
+ * Runs after the optional URL-bar modules. URLbar surfaces and switch-to-tab
+ * chiclets use the primary accent; less-prominent URL/result metadata uses the
+ * secondary accent instead of Firefox's native blue. XUL popup menus are forced
+ * onto FF Ultima panel variables when native GTK menus are disabled.
+ */
+#main-window {
+    --uc-urlbar-solid-surface: var(--uc-urlbar-accent-surface, color-mix(in srgb, var(--uc-accent-color-1) 16%, var(--uc-urlbar-background))) !important;
+    --uc-urlbar-solid-surface-strong: var(--uc-urlbar-accent-surface-strong, color-mix(in srgb, var(--uc-accent-color-1) 24%, var(--uc-urlbar-background))) !important;
+    --uc-urlbar-solid-highlight: var(--uc-accent-color-1) !important;
+}
+
+#main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar,
+#main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar,
+#main-window:not([lwtheme]) #navigator-toolbox #nav-bar #searchbar,
+#main-window[lwtheme] #navigator-toolbox #nav-bar #searchbar {
+    --link-color: var(--uc-urlbar-secondary-text, var(--uc-accent-color-2)) !important;
+    --urlbarView-secondary-text-color: var(--uc-urlbar-secondary-text, var(--uc-accent-color-2)) !important;
+    --urlbarview-text-color-action: var(--uc-urlbar-secondary-text, var(--uc-accent-color-2)) !important;
+    --urlbar-box-background-color: color-mix(in srgb, var(--uc-accent-color-1) 30%, transparent) !important;
+    --urlbar-box-background-color-focus: color-mix(in srgb, var(--uc-accent-color-1) 38%, transparent) !important;
+    --urlbar-box-background-color-hover: color-mix(in srgb, var(--uc-accent-color-1) 48%, transparent) !important;
+    --urlbar-box-background-color-active: var(--uc-accent-color-1) !important;
+    --urlbar-box-text-color: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    --urlbar-box-text-color-hover: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+}
+
+@media not -moz-pref("ultima.urlbar.transparent") {
+    #main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar,
+    #main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar[breakout],
+    #main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar > #urlbar-background,
+    #main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar > .urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar[breakout],
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar > #urlbar-background,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar > .urlbar-background,
+    #main-window:not([lwtheme]) #navigator-toolbox #nav-bar #searchbar,
+    #main-window[lwtheme] #navigator-toolbox #nav-bar #searchbar {
+        appearance: none !important;
+        background-color: var(--uc-urlbar-solid-surface) !important;
+        border: 0 !important;
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-urlbar-solid-highlight) 58%, transparent), var(--uc-box-shadow) !important;
+    }
+}
+
+#main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > #urlbar-background,
+#main-window:not([lwtheme]) #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > .urlbar-background,
+#main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > #urlbar-background,
+#main-window[lwtheme] #navigator-toolbox #nav-bar #urlbar:is([focused], [open], [usertyping]) > .urlbar-background,
+#main-window:not([lwtheme]) #navigator-toolbox #nav-bar #searchbar:focus-within,
+#main-window[lwtheme] #navigator-toolbox #nav-bar #searchbar:focus-within {
+    background-color: var(--uc-urlbar-solid-surface-strong) !important;
+}
+
+#main-window .urlbarView-row:not([selected]) :is(.urlbarView-url, .urlbarView-explanation, .urlbarView-tags, .urlbarView-tag),
+#main-window .urlbarView-row:not([selected]) > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action:not(.urlbarView-switchToTab) {
+    color: var(--uc-urlbar-secondary-text, var(--uc-accent-color-2)) !important;
+    fill: currentColor !important;
+}
+
+#main-window .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"]) > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action,
+#main-window .urlbarView-row > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action.urlbarView-switchToTab {
+    -moz-context-properties: fill, fill-opacity, stroke, stroke-opacity !important;
+    background-color: var(--uc-accent-color-1) !important;
+    border-color: color-mix(in srgb, var(--uc-accent-color-1) 76%, transparent) !important;
+    color: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    fill: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    stroke: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+}
+
+#main-window .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"]):is([selected], :hover) > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action,
+#main-window .urlbarView-row:is([selected], :hover) > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action.urlbarView-switchToTab {
+    background-color: var(--uc-accent-color-1) !important;
+    color: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    fill: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    stroke: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+}
+
+#main-window :is(#urlbar-search-mode-indicator, #urlbar-searchmode-switcher, .searchmode-switcher, #identity-icon-box, #tracking-protection-icon-container, #urlbar-zoom-button),
+#main-window #page-action-buttons .urlbar-page-action {
+    background-color: color-mix(in srgb, var(--uc-accent-color-1) 30%, transparent) !important;
+    color: var(--uc-text) !important;
+    fill: var(--uc-accent-color-1) !important;
+}
+
+#main-window :is(#urlbar-search-mode-indicator, #urlbar-searchmode-switcher, .searchmode-switcher, #identity-icon-box, #tracking-protection-icon-container, #urlbar-zoom-button, .urlbar-page-action):is(:hover, [open], [focused], :active) {
+    background-color: var(--uc-accent-color-1) !important;
+    color: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+    fill: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+}
+
+#main-window menupopup:not(#ContentSelectDropdownPopup),
+#contentAreaContextMenu,
+#tabContextMenu,
+#toolbar-context-menu,
+#placesContext,
+#placesContext_open_newcontainertab_popup,
+#downloadsContextMenu,
+#appMenu-popup,
+#unified-extensions-context-menu {
+    appearance: none !important;
+    --panel-background: var(--uc-context-menu) !important;
+    --panel-color: var(--uc-text) !important;
+    --panel-border-color: var(--uc-panel-border-2) !important;
+    --panel-border-radius: var(--uc-button-border-radius) !important;
+    --panel-shadow: var(--uc-box-shadow-panel) !important;
+    background-color: var(--uc-context-menu) !important;
+    color: var(--uc-text) !important;
+    border-color: var(--uc-panel-border-2) !important;
+}
+
+#main-window menupopup::part(content),
+#main-window menupopup::part(arrowscrollbox),
+#contentAreaContextMenu::part(content),
+#contentAreaContextMenu::part(arrowscrollbox) {
+    background-color: var(--uc-context-menu) !important;
+    color: var(--uc-text) !important;
+    border-color: var(--uc-panel-border-2) !important;
+}
+
+menupopup > arrowscrollbox,
+#contentAreaContextMenu > arrowscrollbox,
+#tabContextMenu > arrowscrollbox,
+#toolbar-context-menu > arrowscrollbox,
+#placesContext > arrowscrollbox,
+#downloadsContextMenu > arrowscrollbox {
+    background-color: var(--uc-context-menu) !important;
+    color: var(--uc-text) !important;
+}
+
+menupopup :is(menu, menuitem),
+#contentAreaContextMenu :is(menu, menuitem),
+#tabContextMenu :is(menu, menuitem),
+#toolbar-context-menu :is(menu, menuitem) {
+    color: var(--uc-text) !important;
+}
+
+menupopup :is(menu, menuitem):where([_moz-menuactive="true"]:not([disabled="true"]), :hover),
+#contentAreaContextMenu :is(menu, menuitem):where([_moz-menuactive="true"]:not([disabled="true"]), :hover),
+#tabContextMenu :is(menu, menuitem):where([_moz-menuactive="true"]:not([disabled="true"]), :hover),
+#toolbar-context-menu :is(menu, menuitem):where([_moz-menuactive="true"]:not([disabled="true"]), :hover) {
+    background-color: var(--uc-button-selected) !important;
+    color: var(--uc-text) !important;
+    border-radius: 7px !important;
 }

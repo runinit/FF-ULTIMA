@@ -112,7 +112,7 @@ with a visual indicator to slightly improve accessibility.
             height: 36px; width: 36px;
             background: url("icons/splitter.gif") center center no-repeat;
             background-size: contain;
-            background-color: var(--uc-accent-color-2);
+            background-color: var(--uc-accent-color-1);
             border-radius:100%;
             transition: opacity ease-in-out 1s, background-color ease 1s;
         }
@@ -128,7 +128,7 @@ with a visual indicator to slightly improve accessibility.
             height: 36px; width: 36px;
             background: url("icons/splitter-r.gif") center center no-repeat;
             background-size: contain;
-            background-color: var(--uc-accent-color-2);
+            background-color: var(--uc-accent-color-1);
             border-radius:100%;
             transition: opacity ease-in-out 1s, background-color ease 1s;
         }
@@ -277,7 +277,7 @@ with a visual indicator to slightly improve accessibility.
                 background: url("icons/splitter.gif") center center no-repeat;
                 background-size: contain;
                 pointer-events: none;
-                background-color: var(--uc-accent-color-2);
+                background-color: var(--uc-accent-color-1);
                 border-radius:100%;
                 transition: opacity ease-in-out 1s, background-color ease 1s;
             }
@@ -295,7 +295,7 @@ with a visual indicator to slightly improve accessibility.
                 background: url("icons/splitter-r.gif") center center no-repeat;
                 background-size: contain;
                 pointer-events: none;
-                background-color: var(--uc-accent-color-2);
+                background-color: var(--uc-accent-color-1);
                 border-radius:100%;
                 transition: opacity ease-in-out 1s, background-color ease 1s;
             }

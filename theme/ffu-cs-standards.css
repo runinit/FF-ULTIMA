@@ -59,62 +59,62 @@ this file/setting compiles some of those differences and brings them back to the
  * --toolbar-background-color and --toolbox-background-color. Keep FF Ultima's
  * active --uc-* color-scheme contract feeding both generations.
  */
-#main-window {
-    /* Break old scheme definitions like --uc-navbar-background: var(--toolbar-bgcolor)
-       before mapping toolbar tokens back to the active scheme surface. */
-    --uc-navbar-background: var(--uc-browser-color) !important;
-
-    /* Legacy Firefox chrome tokens. */
-    --toolbar-bgcolor: var(--uc-browser-color) !important;
-    --toolbar-color: var(--uc-text) !important;
-    --toolbox-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-bgcolor-inactive: var(--uc-browser-color) !important;
-    --toolbox-textcolor: var(--uc-text) !important;
-    --toolbox-textcolor-inactive: var(--uc-text) !important;
-    --toolbox-non-lwt-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
-    --toolbox-non-lwt-textcolor: var(--uc-text) !important;
-    --toolbox-non-lwt-textcolor-inactive: var(--uc-text) !important;
-
-    /* Firefox 152+ design-system chrome tokens. */
-    --toolbar-background-color: var(--uc-browser-color) !important;
-    --toolbar-text-color: var(--uc-text) !important;
-    --toolbox-background-color: var(--uc-browser-color) !important;
-    --toolbox-background-color-inactive: var(--uc-browser-color) !important;
-    --toolbox-text-color: var(--uc-text) !important;
-    --toolbox-text-color-inactive: var(--uc-text) !important;
-
-    /* Tabs and toolbar buttons across old and new token names. */
-    --tab-selected-bgcolor: var(--uc-tab-selected) !important;
-    --tab-background-color-selected: var(--uc-tab-selected) !important;
-    --tab-selected-textcolor: var(--uc-tab-selected-text, var(--uc-text)) !important;
-    --tab-hover-background-color: var(--uc-tab-selected) !important;
-    --toolbarbutton-icon-fill: var(--uc-toolbarbutton-icon-fill, var(--uc-text)) !important;
-    --button-background-color-ghost-hover: var(--uc-button-selected) !important;
-    --button-background-color: var(--uc-button-selected) !important;
-    --button-background-color-hover: var(--uc-button-selected) !important;
-    --button-background-color-active: var(--uc-button-selected) !important;
-    --button-hover-bgcolor: var(--uc-button-selected) !important;
-    --button-active-bgcolor: var(--uc-button-selected) !important;
-    --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-    --toolbarbutton-active-background: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-active: var(--uc-button-selected) !important;
-
-    /* URL/search field token spelling changed too. */
-    --toolbar-field-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-    --toolbar-field-background-color-focus: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-    --toolbar-field-focus-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-    --toolbar-field-color: var(--uc-text) !important;
-    --toolbar-field-text-color: var(--uc-text) !important;
-    --toolbar-field-focus-color: var(--uc-text) !important;
-    --toolbar-field-text-color-focus: var(--uc-text) !important;
-    --toolbar-field-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
-    --toolbar-field-focus-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
-    --toolbar-field-border-color-focus: var(--uc-accent-color-3, var(--uc-text)) !important;
-}
-
 @media not -moz-pref("user.theme.pywalfox") {
+    #main-window {
+        /* Break old scheme definitions like --uc-navbar-background: var(--toolbar-bgcolor)
+           before mapping toolbar tokens back to the active scheme surface. */
+        --uc-navbar-background: var(--uc-browser-color) !important;
+
+        /* Legacy Firefox chrome tokens. */
+        --toolbar-bgcolor: var(--uc-browser-color) !important;
+        --toolbar-color: var(--uc-text) !important;
+        --toolbox-bgcolor: var(--uc-browser-color) !important;
+        --toolbox-bgcolor-inactive: var(--uc-browser-color) !important;
+        --toolbox-textcolor: var(--uc-text) !important;
+        --toolbox-textcolor-inactive: var(--uc-text) !important;
+        --toolbox-non-lwt-bgcolor: var(--uc-browser-color) !important;
+        --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
+        --toolbox-non-lwt-textcolor: var(--uc-text) !important;
+        --toolbox-non-lwt-textcolor-inactive: var(--uc-text) !important;
+
+        /* Firefox 152+ design-system chrome tokens. */
+        --toolbar-background-color: var(--uc-browser-color) !important;
+        --toolbar-text-color: var(--uc-text) !important;
+        --toolbox-background-color: var(--uc-browser-color) !important;
+        --toolbox-background-color-inactive: var(--uc-browser-color) !important;
+        --toolbox-text-color: var(--uc-text) !important;
+        --toolbox-text-color-inactive: var(--uc-text) !important;
+
+        /* Tabs and toolbar buttons across old and new token names. */
+        --tab-selected-bgcolor: var(--uc-tab-selected) !important;
+        --tab-background-color-selected: var(--uc-tab-selected) !important;
+        --tab-selected-textcolor: var(--uc-tab-selected-text, var(--uc-text)) !important;
+        --tab-hover-background-color: var(--uc-tab-selected) !important;
+        --toolbarbutton-icon-fill: var(--uc-toolbarbutton-icon-fill, var(--uc-text)) !important;
+        --button-background-color-ghost-hover: var(--uc-button-selected) !important;
+        --button-background-color: var(--uc-button-selected) !important;
+        --button-background-color-hover: var(--uc-button-selected) !important;
+        --button-background-color-active: var(--uc-button-selected) !important;
+        --button-hover-bgcolor: var(--uc-button-selected) !important;
+        --button-active-bgcolor: var(--uc-button-selected) !important;
+        --toolbarbutton-hover-background: var(--uc-button-selected) !important;
+        --toolbarbutton-active-background: var(--uc-button-selected) !important;
+        --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
+        --toolbarbutton-background-color-active: var(--uc-button-selected) !important;
+
+        /* URL/search field token spelling changed too. */
+        --toolbar-field-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
+        --toolbar-field-background-color-focus: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
+        --toolbar-field-focus-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
+        --toolbar-field-color: var(--uc-text) !important;
+        --toolbar-field-text-color: var(--uc-text) !important;
+        --toolbar-field-focus-color: var(--uc-text) !important;
+        --toolbar-field-text-color-focus: var(--uc-text) !important;
+        --toolbar-field-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
+        --toolbar-field-focus-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
+        --toolbar-field-border-color-focus: var(--uc-accent-color-3, var(--uc-text)) !important;
+    }
+
     #main-window[lwtheme] {
         /* Static FF Ultima schemes should keep owning chrome even when Firefox
            routes the default theme through the lwtheme code path. Pywalfox is
@@ -128,6 +128,124 @@ this file/setting compiles some of those differences and brings them back to the
         --lwt-sidebar-text-color: var(--uc-text) !important;
         --lwt-sidebar-highlight-background-color: var(--uc-button-selected) !important;
     }
+}
+
+@media -moz-pref("user.theme.pywalfox") {
+    #main-window {
+        /* Publish Pywalfox's existing Theme API/LWT-backed --uc-* bridge to
+           legacy and Firefox 152+ chrome token names. */
+        --toolbar-bgcolor: var(--uc-navbar-background) !important;
+        --toolbar-color: var(--uc-text) !important;
+        --toolbox-bgcolor: var(--uc-browser-color) !important;
+        --toolbox-bgcolor-inactive: var(--uc-browser-color) !important;
+        --toolbox-textcolor: var(--uc-text) !important;
+        --toolbox-textcolor-inactive: var(--uc-text) !important;
+        --toolbar-background-color: var(--uc-navbar-background) !important;
+        --toolbox-background-color: var(--uc-browser-color) !important;
+        --toolbox-background-color-inactive: var(--uc-browser-color) !important;
+        --toolbox-text-color: var(--uc-text) !important;
+        --toolbox-text-color-inactive: var(--uc-text) !important;
+        --tab-selected-bgcolor: var(--uc-tab-selected) !important;
+        --tab-background-color-selected: var(--uc-tab-selected) !important;
+        --tab-selected-textcolor: var(--uc-tab-selected-text) !important;
+        --tab-hover-background-color: var(--uc-button-selected) !important;
+        --button-background-color-ghost-hover: var(--uc-button-selected) !important;
+        --button-background-color: var(--uc-button-selected) !important;
+        --button-background-color-hover: var(--uc-button-selected) !important;
+        --button-background-color-active: var(--uc-button-selected) !important;
+        --button-hover-bgcolor: var(--uc-button-selected) !important;
+        --button-active-bgcolor: var(--uc-button-selected) !important;
+        --toolbarbutton-hover-background: var(--uc-button-selected) !important;
+        --toolbarbutton-active-background: var(--uc-button-selected) !important;
+        --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
+        --toolbarbutton-background-color-active: var(--uc-button-selected) !important;
+        --toolbar-field-color: var(--uc-text) !important;
+        --toolbar-field-text-color: var(--uc-text) !important;
+        --toolbar-field-focus-color: var(--uc-tab-selected-text) !important;
+        --toolbar-field-border-color: var(--uc-accent-color-4) !important;
+        --toolbar-field-focus-border-color: var(--uc-accent-color-1) !important;
+        --toolbar-field-border-color-focus: var(--uc-accent-color-1) !important;
+        --lwt-toolbar-field-highlight: var(--uc-accent-color-1) !important;
+        --lwt-toolbar-field-highlight-text: var(--uc-browser-color) !important;
+        --urlbarview-background-color-selected: var(--uc-accent-color-1) !important;
+        --urlbarview-text-color-selected: var(--uc-browser-color) !important;
+        --color-accent-primary: var(--uc-accent-color-1) !important;
+        --color-accent-primary-hover: color-mix(in srgb, var(--uc-accent-color-1) 86%, var(--uc-text) 14%) !important;
+        --color-accent-primary-active: color-mix(in srgb, var(--uc-accent-color-1) 74%, var(--uc-browser-color) 26%) !important;
+        --color-accent-primary-selected: var(--uc-accent-color-1) !important;
+        --border-color-selected: var(--uc-accent-color-1) !important;
+        --focus-outline-color: var(--uc-accent-color-1) !important;
+        --text-color-accent-primary-selected: var(--uc-browser-color) !important;
+        --background-color-list-item-hover: var(--uc-button-selected) !important;
+        --text-color-list-item-hover: var(--uc-text) !important;
+        --urlbarView-highlight-background: var(--uc-button-selected) !important;
+        --urlbarView-hover-background: var(--uc-button-selected) !important;
+        --urlbar-box-hover-bgcolor: var(--uc-button-selected) !important;
+        --urlbar-box-focus-bgcolor: var(--uc-button-selected) !important;
+        --button-primary-bgcolor: var(--uc-accent-color-1) !important;
+        --button-primary-hover-bgcolor: var(--uc-accent-color-1) !important;
+    }
+}
+
+/* Primary-accent interaction bridge ----------------------------------------------------
+ * Firefox 152 URL bar/search mode tokens use new lowercase urlbarview/urlbar-box names
+ * and still have blue SelectedItem fallbacks in lwtheme mode. Route hover, selected,
+ * focus, URL pills, text selection, and attention icons through FF Ultima's primary
+ * accent so dynamic schemes do not leak native blue or secondary-accent green.
+ */
+#main-window {
+    --uc-hover-accent: var(--uc-accent-color-1) !important;
+    --uc-hover-accent-bg: color-mix(in srgb, var(--uc-hover-accent) 28%, transparent) !important;
+    --uc-hover-accent-bg-strong: color-mix(in srgb, var(--uc-hover-accent) 42%, transparent) !important;
+    --uc-button-selected: var(--uc-hover-accent-bg) !important;
+    --uc-urlbar-pill-background: color-mix(in srgb, var(--uc-hover-accent) 30%, transparent) !important;
+    --uc-urlbar-pill-background-hover: var(--uc-hover-accent) !important;
+    --uc-urlbar-accent-surface: color-mix(in srgb, var(--uc-hover-accent) 16%, var(--uc-urlbar-background, var(--uc-layered-background))) !important;
+    --uc-urlbar-accent-surface-strong: color-mix(in srgb, var(--uc-hover-accent) 24%, var(--uc-urlbar-background, var(--uc-layered-background))) !important;
+    --uc-urlbar-secondary-text: var(--uc-accent-color-2) !important;
+    --uc-urlbar-selected-background: color-mix(in srgb, var(--uc-hover-accent) 72%, var(--uc-urlbar-background, var(--uc-layered-background))) !important;
+    --uc-urlbar-selected-text: var(--uc-text) !important;
+
+    --button-background-color-ghost-hover: var(--uc-hover-accent-bg) !important;
+    --button-background-color-hover: var(--uc-hover-accent-bg) !important;
+    --button-background-color-active: var(--uc-hover-accent-bg-strong) !important;
+    --button-hover-bgcolor: var(--uc-hover-accent-bg) !important;
+    --button-active-bgcolor: var(--uc-hover-accent-bg-strong) !important;
+    --toolbarbutton-hover-background: var(--uc-hover-accent-bg) !important;
+    --toolbarbutton-active-background: var(--uc-hover-accent-bg-strong) !important;
+    --toolbarbutton-background-color-hover: var(--uc-hover-accent-bg) !important;
+    --toolbarbutton-background-color-active: var(--uc-hover-accent-bg-strong) !important;
+    --toolbarbutton-icon-fill-attention: var(--uc-hover-accent) !important;
+    --toolbarbutton-icon-fill-attention-text: var(--uc-browser-color) !important;
+    --toolbar-field-background-color: var(--uc-urlbar-accent-surface) !important;
+    --toolbar-field-background-color-focus: var(--uc-urlbar-accent-surface-strong) !important;
+    --toolbar-field-focus-background-color: var(--uc-urlbar-accent-surface-strong) !important;
+    --toolbar-field-focus-border-color: var(--uc-hover-accent) !important;
+    --toolbar-field-border-color-focus: var(--uc-hover-accent) !important;
+
+    --urlbar-box-background-color: var(--uc-urlbar-pill-background) !important;
+    --urlbar-box-background-color-focus: color-mix(in srgb, var(--uc-hover-accent) 30%, transparent) !important;
+    --urlbar-box-background-color-hover: color-mix(in srgb, var(--uc-hover-accent) 38%, transparent) !important;
+    --urlbar-box-background-color-active: var(--uc-urlbar-pill-background-hover) !important;
+    --urlbar-box-text-color: var(--uc-text) !important;
+    --urlbar-box-text-color-hover: var(--uc-urlbar-selected-text) !important;
+    --urlbarview-background-color-hover: var(--uc-hover-accent-bg) !important;
+    --urlbarview-background-color-selected: var(--uc-urlbar-selected-background) !important;
+    --urlbarview-text-color-action: var(--uc-hover-accent) !important;
+    --urlbarview-text-color-selected: var(--uc-urlbar-selected-text) !important;
+    --urlbarView-result-button-selected-color: var(--uc-urlbar-selected-text) !important;
+    --urlbarView-result-button-selected-background-color: color-mix(in srgb, var(--uc-hover-accent) 68%, transparent) !important;
+    --urlbarView-action-button-hover-background-color: var(--uc-hover-accent-bg) !important;
+
+    --lwt-toolbar-field-highlight: var(--uc-hover-accent) !important;
+    --lwt-toolbar-field-highlight-text: var(--uc-urlbar-selected-text) !important;
+    --color-accent-primary: var(--uc-hover-accent) !important;
+    --color-accent-primary-hover: color-mix(in srgb, var(--uc-hover-accent) 86%, var(--uc-text) 14%) !important;
+    --color-accent-primary-active: color-mix(in srgb, var(--uc-hover-accent) 74%, var(--uc-browser-color) 26%) !important;
+    --color-accent-primary-selected: var(--uc-hover-accent) !important;
+    --border-color-selected: var(--uc-hover-accent) !important;
+    --focus-outline-color: var(--uc-hover-accent) !important;
+    --text-color-accent-primary-selected: var(--uc-urlbar-selected-text) !important;
 }
 
 #main-window,
@@ -145,4 +263,3 @@ this file/setting compiles some of those differences and brings them back to the
     background-color: var(--uc-navbar-background) !important;
     color: var(--uc-text) !important;
 }
-

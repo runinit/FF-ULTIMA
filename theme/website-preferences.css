@@ -1,109 +1,19 @@
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/content/compact_addons_manager.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
+/*///////////////////////////////////////////////////////////////////////////////////////\
 
-/* Make the installed addons list more compact, title + only */
-/* Installed extensions list will be 3-6 columns wide, themes will be 2 columns wide. No effect on recommendations but those can be styled by adding two_column_html_addons.css */
-/* Compatible with addon_manage_buttons_without_popup.css */
+FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
+File Desc:         Firefox Preferences / Settings / Profiles page theming
 
-@media -moz-pref("ultima.spacing.compact.addonmanager") {
+about:preferences
+about:settings
+about:profiles
 
-    @-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url("about:addons") {
+\////////////////////////////////////////////////////////////////////////////////////////*/
 
-    :root { overflow-x: hidden; } /* Remove this if it causes horizontal scrolling problems */
-    addon-card .addon-name-link { font-size: 0.9em; }
-    .addon.card { min-height: 85px; }
-    @media (min-width: 420px) {
-        #main { max-width: unset !important; padding-right: 28px; }
-        addon-list > section {
-        padding: 1em;
-        display: grid;
-        grid-template-areas: "hd hd" "cd cd";
-        grid-auto-columns: 1fr;
-        column-gap: 1em;
-        }
-
-        addon-card .card-contents { width: unset !important; white-space: initial !important; }
-
-        addon-list[type="extension"] .addon-name-container {
-        display: grid !important;
-        grid-template-areas: "name badge opt" "name toggle toggle";
-        grid-row-gap: 6px;
-        grid-auto-columns: 1fr 24px auto;
-        }
-        .addon-icon { align-self: center; }
-        .addon-name-container > .addon-name { grid-area: name; }
-        .addon-name-container > :is(.toggle-button, moz-toggle) { grid-area: toggle; justify-self: end; }
-        .addon-name-container > .more-options-button { grid-area: opt; }
-        .addon-name-container > .addon-badge { grid-area: badge; }
-
-        addon-list[type="extension"] .more-options-button {
-        margin-inline: 0 !important;
-        }
-
-        .card-heading-image {
-        max-width: calc(100% + 32px);
-        object-position: left;
-        }
-
-        section > h2 { grid-area: hd; }
-        addon-card {
-        padding-bottom: 0 !important;
-        padding-top: 0 !important;
-        grid-area: auto;
-        }
-
-        addon-card .addon-description {
-        max-height: 3em;
-        scrollbar-width: thin;
-        }
-
-        addon-list[type="theme"] addon-card {
-        margin-right: auto;
-        }
-    }
-
-    @media (min-width: 640px) {
-        addon-list[type="extension"] > section { grid-template-areas: "hd hd hd" "cd cd cd"; }
-    }
-    @media (min-width: 960px) {
-        addon-list[type="extension"] > section { grid-template-areas: "hd hd hd hd" "cd cd cd cd"; }
-    }
-    @media (min-width: 1180px) {
-        addon-list[type="extension"] > section { grid-template-areas: "hd hd hd hd hd" "cd cd cd cd cd"; }
-    }
-    @media (min-width: 1420px) {
-        addon-list[type="extension"] > section { grid-template-areas: "hd hd hd hd hd hd" "cd cd cd cd cd cd"; }
-    }
-
-    /* Note: addon-card verified and recommended badges are hidden here. They should remain visible in the "manage" addon page though. */
-    addon-card:not([expanded]) .addon-badge-verified,
-    addon-card:not([expanded]) .addon-badge-recommended,
-    addon-card:not([expanded]) .addon-description,
-    addon-card:not([expanded]) .addon-card-message button[action] { display: none !important; }
-
-    addon-list[type="extension"] { --card-padding: 8px; }
-
-    }
-
-    @-moz-document url-prefix("about:addons") {
-    :root { --sidebar-width: 60px !important; }
-    #categories { width: var(--sidebar-width) !important; }
-    #categories > .category {
-        margin-left: 10px !important;
-        -moz-box-pack: center;
-    }
-    .sidebar-footer-list { margin-left: 18px !important; }
-    .sidebar-footer-label,
-    .category > .category-name { display: none; }
-    }
-
-}
-
-/* Universal Add-ons Manager theme bridge.
+/* Universal in-content Firefox page bridge.
  * Color schemes provide --uc-*; dynamic schemes can fill that contract from
  * generated palette CSS when Firefox does not expose live browser variables.
  */
-@-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url("about:addons") {
+@-moz-document url-prefix("about:preferences"), url-prefix("about:settings"), url-prefix("about:profiles") {
 
     :root {
         color-scheme: dark light !important;
@@ -165,48 +75,34 @@ See the above repository for updates as well as full license text. */
 
     html,
     body,
-    #main,
     main,
-    addon-page-header,
-    addon-list > section {
+    #main,
+    .main-content,
+    .pane-container,
+    .sticky-container,
+    .preferences-body,
+    .settings-body,
+    .profiles,
+    .profile {
         background-color: var(--uc-browser-color) !important;
         color: var(--uc-text) !important;
     }
 
-    #sidebar,
-    #categories,
-    .sidebar-footer-list,
-    .sidebar-footer-link {
-        background-color: var(--uc-layered-background) !important;
-        color: var(--uc-text) !important;
-        border-color: color-mix(in srgb, var(--uc-text) 12%, transparent) !important;
-    }
-
-    addon-card {
-        background-color: transparent !important;
-        color: var(--uc-text) !important;
-    }
-
-    .addon.card,
+    moz-card,
     .card,
+    section,
+    groupbox,
+    .info-box-container,
+    .extension-controlled,
+    .message-bar,
+    .spotlight,
+    dialog,
     panel-list,
-    recommended-addons-section,
-    recommended-addon-card {
+    named-deck,
+    .profile-card {
         background-color: var(--uc-layered-background) !important;
         color: var(--uc-text) !important;
         border-color: color-mix(in srgb, var(--uc-text) 14%, transparent) !important;
-    }
-
-    .addon.card:hover,
-    .card:hover,
-    recommended-addon-card:hover {
-        border-color: color-mix(in srgb, var(--uc-accent-color-1) 48%, transparent) !important;
-    }
-
-    .addon-name-link,
-    a,
-    .text-link {
-        color: var(--uc-accent-color-1) !important;
     }
 
     input,
@@ -214,7 +110,9 @@ See the above repository for updates as well as full license text. */
     select,
     search-textbox,
     search-textbox::part(input),
-    .search-textbox {
+    .search-textbox,
+    .search-container,
+    .search-bar {
         background-color: var(--uc-urlbar-background) !important;
         color: var(--uc-text) !important;
         border-color: color-mix(in srgb, var(--uc-accent-color-1) 46%, transparent) !important;
@@ -225,15 +123,15 @@ See the above repository for updates as well as full license text. */
     select,
     .category,
     .sidebar-footer-link,
-    .more-options-button,
-    .toggle-button,
-    moz-toggle {
+    .navigation-button,
+    .subviewbutton {
         color: var(--uc-text) !important;
     }
 
-    :is(.category, .sidebar-footer-link, button, moz-button, .more-options-button):hover,
-    :is(.category, .sidebar-footer-link, button, moz-button, .more-options-button)[selected],
-    :is(.category, .sidebar-footer-link, button, moz-button, .more-options-button)[aria-selected="true"] {
+    :is(button, moz-button, .category, .sidebar-footer-link, .navigation-button, .subviewbutton):hover,
+    :is(button, moz-button, .category, .sidebar-footer-link, .navigation-button, .subviewbutton)[selected],
+    :is(button, moz-button, .category, .sidebar-footer-link, .navigation-button, .subviewbutton)[aria-selected="true"],
+    :is(button, moz-button, .category, .sidebar-footer-link, .navigation-button, .subviewbutton)[current] {
         background-color: color-mix(in srgb, var(--uc-accent-color-1) 28%, transparent) !important;
         color: var(--uc-text) !important;
     }
@@ -241,6 +139,13 @@ See the above repository for updates as well as full license text. */
     :is(button.primary, moz-button[type="primary"], button[default]) {
         background-color: var(--uc-accent-color-1) !important;
         color: var(--uc-browser-color) !important;
+    }
+
+    a,
+    .text-link,
+    .learnMore,
+    .learn-more-link {
+        color: var(--uc-accent-color-1) !important;
     }
 
     ::selection {

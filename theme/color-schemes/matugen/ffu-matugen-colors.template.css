@@ -1,0 +1,80 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
+File Desc:         Matugen template for FF Ultima's generated color scheme
+Output Path:       <firefox-profile>/chrome/theme/color-schemes/matugen/ffu-matugen-colors.css
+
+This file is a template. The generated CSS should define FF Ultima's --uc-* color
+contract directly. Shared browser chrome, Sidebery, about pages, add-ons, and
+webpage selection should consume these variables instead of Pywalfox/LWT aliases.
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media (prefers-color-scheme: dark) { :root {
+    --uc-browser-color:      {{colors.background.dark.hex}};
+    --uc-text:               {{colors.on_surface.dark.hex}};
+    --uc-layered-background: {{colors.surface_container.dark.hex}};
+    --uc-navbar-background:  {{colors.surface_container.dark.hex}};
+    --uc-urlbar-background:  color-mix(in srgb, {{colors.primary.dark.hex}} 16%, {{colors.surface_container_high.dark.hex}});
+    --uc-findbar-background: var(--uc-layered-background);
+    --uc-sidebar-background: var(--uc-layered-background);
+    --uc-tabsbar-background: var(--uc-browser-color);
+    --uc-tab-background:     transparent;
+    --uc-tab-selected:       {{colors.surface_container_highest.dark.hex}};
+    --uc-tab-selected-text:  var(--uc-accent-color-5);
+    --uc-button-selected:    color-mix(in srgb, {{colors.primary.dark.hex}} 28%, transparent);
+    --uc-button-red:         color-mix(in srgb, {{colors.error.dark.hex}} 35%, var(--uc-accent-color-2));
+    --uc-context-menu:       {{colors.surface_container_high.dark.hex}};
+    --uc-panel-background:   var(--uc-layered-background);
+    --uc-panel-border:       color-mix(in srgb, var(--uc-text) 20%, transparent);
+    --uc-panel-border-2:     color-mix(in srgb, var(--uc-text) 12%, transparent);
+    --uc-panel-border-ii:    var(--uc-panel-border-2);
+    --uc-accent-color-1:     {{colors.primary.dark.hex}};
+    --uc-accent-color-2:     {{colors.secondary.dark.hex}};
+    --uc-accent-color-3:     {{colors.tertiary.dark.hex}};
+    --uc-accent-color-4:     color-mix(in srgb, {{colors.primary.dark.hex}} 18%, transparent);
+    --uc-accent-color-5:     {{colors.on_surface.dark.hex}};
+    --uc-accent-color-6:     {{colors.error.dark.hex}};
+    --uc-accent-color-7:     {{colors.surface_variant.dark.hex}};
+    --uc-toolbarbutton-icon-fill: var(--uc-accent-color-1);
+    --uc-transparent:        transparent;
+    --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem color-mix(in srgb, var(--uc-browser-color) 74%, transparent);
+    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem color-mix(in srgb, var(--uc-browser-color) 88%, transparent);
+    --uc-button-border-radius: 10px;
+    --uc-tab-border-radius: 8px;
+    --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
+}}
+@media (prefers-color-scheme: light) { :root {
+    --uc-browser-color:      {{colors.background.light.hex}};
+    --uc-text:               {{colors.on_surface.light.hex}};
+    --uc-layered-background: {{colors.surface_container.light.hex}};
+    --uc-navbar-background:  {{colors.surface_container.light.hex}};
+    --uc-urlbar-background:  {{colors.surface_container_high.light.hex}};
+    --uc-findbar-background: var(--uc-layered-background);
+    --uc-sidebar-background: var(--uc-layered-background);
+    --uc-tabsbar-background: var(--uc-browser-color);
+    --uc-tab-background:     transparent;
+    --uc-tab-selected:       {{colors.surface_container_highest.light.hex}};
+    --uc-tab-selected-text:  var(--uc-accent-color-5);
+    --uc-button-selected:    color-mix(in srgb, {{colors.primary.light.hex}} 28%, transparent);
+    --uc-button-red:         {{colors.error.light.hex}};
+    --uc-context-menu:       var(--uc-layered-background);
+    --uc-panel-background:   var(--uc-layered-background);
+    --uc-panel-border:       color-mix(in srgb, var(--uc-text) 20%, transparent);
+    --uc-panel-border-2:     color-mix(in srgb, var(--uc-text) 12%, transparent);
+    --uc-panel-border-ii:    var(--uc-panel-border-2);
+    --uc-accent-color-1:     {{colors.primary.light.hex}};
+    --uc-accent-color-2:     {{colors.secondary.light.hex}};
+    --uc-accent-color-3:     {{colors.tertiary.light.hex}};
+    --uc-accent-color-4:     color-mix(in srgb, {{colors.primary.light.hex}} 18%, transparent);
+    --uc-accent-color-5:     {{colors.on_surface.light.hex}};
+    --uc-accent-color-6:     {{colors.error.light.hex}};
+    --uc-accent-color-7:     {{colors.surface_variant.light.hex}};
+    --uc-toolbarbutton-icon-fill: var(--uc-accent-color-1);
+    --uc-transparent:        transparent;
+    --uc-box-shadow:         0.1rem 0.4rem 0.4rem -0.1rem color-mix(in srgb, var(--uc-browser-color) 74%, transparent);
+    --uc-box-shadow-panel:   0.1rem 0.3rem 0.4rem -0.1rem color-mix(in srgb, var(--uc-browser-color) 82%, transparent);
+    --uc-button-border-radius: 10px;
+    --uc-tab-border-radius: 8px;
+    --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
+}}

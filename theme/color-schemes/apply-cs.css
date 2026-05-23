@@ -32,12 +32,13 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')					-moz-pref("user.theme.rose-pine");
 @import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('matugen/ffu-colorscheme.css')            -moz-pref("user.theme.matugen");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Add your Theme (Above) for the Browser ------------------------------------------------------------------------ */
 
 
-@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing), url-prefix("file://"), regexp("moz-extension://.*") {
+@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing), url-prefix("about:preferences"), url-prefix("about:settings"), url-prefix("about:profiles"), url("about:addons"), url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url-prefix("file://"), regexp("moz-extension://.*") {
 
 @import url('default/ffu-colorscheme.css')            -moz-pref("user.theme.0.default");
 @import url('transparent/ffu-colorscheme.css')        -moz-pref("user.theme.transparent");
@@ -55,6 +56,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')          -moz-pref("user.theme.rose-pine");
 @import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('matugen/ffu-colorscheme.css')            -moz-pref("user.theme.matugen");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Adding your Theme (Above) makes the colors available to websites & extensions -------------------------------- */
@@ -139,6 +141,10 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 }
 
 @media -moz-pref("user.theme.pywalfox") {
+    --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
+}
+
+@media -moz-pref("user.theme.matugen") {
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 

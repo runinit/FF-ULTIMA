@@ -3,19 +3,19 @@
 - 🗨️ [Submit an issue](https://github.com/soulhotel/FF-ULTIMA/issues/new/choose) or ask questions not answered in [the Wiki](https://ff-ultima.github.io/docs/getting-started).
 - ⚙️ [Change settings](https://ff-ultima.github.io/docs/category/settings), tab size, autohiding, spacing, and more.
 - ⚙️ [How to Update](https://ff-ultima.github.io/docs/how-to/how-to-update) the theme to a new version.
-  
+
 ### <ins> Version Notes
 - ...
 - Firefox 138+ required.
 - User.js not required.
 <!--
-- User.js required. 
+- User.js required.
 - User.js not required.
-- User.js (recommended) not required. 
+- User.js (recommended) not required.
 -->
 
 ### <ins> Change Log
-- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens so Pywalfox icons and static theme header colors stay palette-correct
+- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens through FF Ultima color-scheme variables so Firefox chrome, URL bar, FF Ultima icons, Sidebery, text selection, Firefox Settings, Profiles, and the customized Add-ons Manager share the active color scheme palette roles
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c
@@ -35,7 +35,7 @@
 - `qol • 🟡 •` included the Ayu Color Scheme in wallpaper menu and override options #435 0cde2ff
 - `qol • 🟡 •` Ayu Color Scheme adjustments to menu panel options on hover
 - `qol • 🟡 •` extensions permission popup, downloads panel, backforward popup - added to navbar.autohide exclusion list b662b6d
-- `qol • 🟡 •` With the addition of a `customChrome.css` entry for your own personal modifications, there's now also a `customContent.css` entry for userContent.css (website styles) 
+- `qol • 🟡 •` With the addition of a `customChrome.css` entry for your own personal modifications, there's now also a `customContent.css` entry for userContent.css (website styles)
 - `qol • 🟡 •` Added `ultima.sidebery.indent.mode` so Sidebery indentation defaults compact, can switch to dense, or return to standard in about:config
 
 ### <ins> Update Preview ??
