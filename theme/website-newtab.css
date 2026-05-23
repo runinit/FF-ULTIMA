@@ -19,7 +19,7 @@ new tab rounded tweaks
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
 @import url('all-color-schemes-wallpapers.css');
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {
+@-moz-document url(about:newtab), url(about:home) {
 
 /* variables ------------------------------------------------------------------- */     
 

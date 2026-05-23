@@ -181,6 +181,7 @@ user_pref("user.theme.wallpaper.fluent.light", false);
 user_pref("user.theme.wallpaper.ayu", false);
 user_pref("user.theme.wallpaper.pywalfox", false);
 user_pref("user.theme.wallpaper.fluid-gradient", false);
+user_pref("user.theme.wallpaper.fluid-gradient.animated", false);
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 
@@ -203,7 +204,7 @@ user_pref("devtools.chrome.enabled", true);
 user_pref("devtools.debugger.prompt-connection", false);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
-user_pref("widget.gtk.ignore-bogus-leave-notify", 1);
+user_pref("widget.gtk.ignore-bogus-leave-notify", 0);
 user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
 user_pref("widget.gtk.native-context-menus", false);
 

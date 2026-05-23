@@ -65,6 +65,7 @@ enable bookmark url editting (add bookmark menu)
                 content:""; background:none; position:absolute;
                 height:20px; border-radius:10px; text-align:center;
                 left: 30%;right: 20%;
+                pointer-events: none;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
                     top: var(--uc-navbar-autohide-hover-offset);
                 }
@@ -77,6 +78,7 @@ enable bookmark url editting (add bookmark menu)
                 content:""; background:none; position:absolute;
                 left:0%;right:0%;
                 height:12px;
+                pointer-events: none;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
                     top:var(--uc-navbar-autohide-hover-offset);
                 }
@@ -168,6 +170,7 @@ enable bookmark url editting (add bookmark menu)
             &::after {
                 content:""; background:none; position:absolute;
                 left:0 ;right:0; height:30px; text-align:center;
+                pointer-events: none;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
                     top: var(--uc-topbars-combined-height);
                 }
@@ -179,6 +182,7 @@ enable bookmark url editting (add bookmark menu)
             &::before {
                 content:"";background:none;position:absolute;
                 left:0%;right:0%;; height:18px;
+                pointer-events: none;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
                     top: -15px;
                 }
@@ -434,6 +438,7 @@ enable bookmark url editting (add bookmark menu)
             /* edge detection */
             &::after {
                 content: "";background-color:none;position: absolute;
+                pointer-events: none;
                 z-index: 998;top: -10px; right: 0; width: 100%;height: 10px;
             }
             /* autohiding */
@@ -552,24 +557,22 @@ enable bookmark url editting (add bookmark menu)
 @media -moz-pref("ultima.navbar.bookmarks.focus.blur") {
     #tabbrowser-tabpanels::before {
         content: "";
-        backdrop-filter: blur(25px);
         background-color:rgba(1,1,1,0.1);
 
-        z-index: 999;
-        display: flex;
+        display: none;
         position: fixed;
         top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 999;
 
         border-radius: 10px;
         margin: var(--uc-content-margins);
 
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s linear;
+        pointer-events: none !important;
     }
     #main-window:has(.bookmark-item[open]) {
         #tabbrowser-tabpanels::before {
-            opacity: 1;
+            display: block;
+            backdrop-filter: blur(25px);
         }
         browser[type] {
             backdrop-filter: blur(25px);

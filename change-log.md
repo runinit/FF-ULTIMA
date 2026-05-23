@@ -16,6 +16,10 @@
 
 ### <ins> Change Log
 - `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens through FF Ultima color-scheme variables so Firefox chrome, URL bar, FF Ultima icons, Sidebery, text selection, Firefox Settings, Profiles, and the customized Add-ons Manager share the active color scheme palette roles
+- `fix • 🔴 •` Restore FF Ultima context-menu theming by keeping Linux menus on the styleable Firefox chrome path
+- `fix • 🔴 •` Restore safer Linux GTK context-menu and leave-notify defaults to avoid delayed chrome click/right-click lockups
+- `fix • 🔴 •` Remove inactive urlbar/bookmark blur overlay surfaces from layout to preserve right-click/navbar interaction after long sessions
+- `fix • 🔴 •` Prevent Firefox's revamped native sidebar from covering active Sidebery with a blank grey strip after startup/display changes
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c

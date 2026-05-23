@@ -10,7 +10,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {  :root {
+@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) {  :root {
 
 /* apply cs wallpapers --------------------------------------------------------------------------- */
     
@@ -53,10 +53,6 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
             --uc-fluid-gradient-edge-a: color-mix(in srgb, var(--uc-accent-color-1) 28%, var(--uc-fluid-gradient-surface));
             --uc-fluid-gradient-edge-b: color-mix(in srgb, var(--uc-accent-color-3) 24%, var(--uc-fluid-gradient-surface));
             --uc-fluid-gradient-highlight: color-mix(in srgb, var(--uc-text) 8%, var(--uc-fluid-gradient-field));
-            --uc-fluid-gradient-opacity: 0.42;
-            --uc-fluid-gradient-blur: 112px;
-            --uc-fluid-gradient-saturate: 108%;
-            --uc-fluid-gradient-duration: 140s;
             --uc-fluid-gradient-vignette: color-mix(in srgb, var(--uc-fluid-gradient-surface) 30%, black);
         }
 
@@ -66,10 +62,6 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
             --uc-fluid-gradient-edge-a: color-mix(in srgb, var(--uc-accent-color-1) 18%, var(--uc-fluid-gradient-base));
             --uc-fluid-gradient-edge-b: color-mix(in srgb, var(--uc-accent-color-3) 16%, var(--uc-fluid-gradient-base));
             --uc-fluid-gradient-highlight: color-mix(in srgb, var(--uc-text) 5%, var(--uc-fluid-gradient-field));
-            --uc-fluid-gradient-opacity: 0.28;
-            --uc-fluid-gradient-blur: 124px;
-            --uc-fluid-gradient-saturate: 96%;
-            --uc-fluid-gradient-duration: 170s;
             --uc-fluid-gradient-vignette: color-mix(in srgb, var(--uc-fluid-gradient-surface) 36%, white);
         }
 
@@ -81,6 +73,12 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
             radial-gradient(ellipse at center, transparent 0%, transparent 58%, color-mix(in srgb, var(--uc-fluid-gradient-vignette) 70%, transparent) 100%),
             linear-gradient(var(--uc-fluid-gradient-base), var(--uc-fluid-gradient-base)) !important;
 
+        --uc-fluid-gradient-overlay:
+            radial-gradient(ellipse 128% 96% at 68% 48%, color-mix(in srgb, var(--uc-fluid-gradient-field) 48%, transparent) 0%, transparent 72%),
+            radial-gradient(ellipse 82% 112% at -8% 54%, color-mix(in srgb, var(--uc-fluid-gradient-edge-a) 36%, transparent) 0%, transparent 76%),
+            radial-gradient(ellipse 64% 82% at 18% 18%, color-mix(in srgb, var(--uc-fluid-gradient-edge-b) 26%, transparent) 0%, transparent 72%),
+            radial-gradient(ellipse 96% 72% at 86% 22%, color-mix(in srgb, var(--uc-fluid-gradient-highlight) 20%, transparent) 0%, transparent 76%);
+
         body {
             background-color: var(--uc-fluid-gradient-base) !important;
             background-image: var(--uc-wallpaper) !important;
@@ -90,26 +88,31 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
         body::before {
             content: "";
             position: fixed;
-            inset: -24vmax;
+            inset: -22vmax;
             pointer-events: none;
-            background:
-                radial-gradient(ellipse 128% 96% at 68% 48%, color-mix(in srgb, var(--uc-fluid-gradient-field) 48%, transparent) 0%, transparent 72%),
-                radial-gradient(ellipse 82% 112% at -8% 54%, color-mix(in srgb, var(--uc-fluid-gradient-edge-a) 36%, transparent) 0%, transparent 76%),
-                radial-gradient(ellipse 64% 82% at 18% 18%, color-mix(in srgb, var(--uc-fluid-gradient-edge-b) 26%, transparent) 0%, transparent 72%),
-                radial-gradient(ellipse 96% 72% at 86% 22%, color-mix(in srgb, var(--uc-fluid-gradient-highlight) 20%, transparent) 0%, transparent 76%);
+            background: var(--uc-fluid-gradient-overlay);
             background-position: 52% 48%, 8% 52%, 20% 20%, 82% 24%;
             background-repeat: no-repeat;
             background-size: 132% 132%, 92% 126%, 86% 102%, 108% 90%;
-            filter: blur(var(--uc-fluid-gradient-blur)) saturate(var(--uc-fluid-gradient-saturate)) contrast(92%);
-            opacity: var(--uc-fluid-gradient-opacity);
-            transform: translate3d(-2%, -1%, 0) scale(1.06) rotate(0deg);
+            opacity: 0.34;
+            transform: translate3d(-0.3%, -0.2%, 0) scale(1.02);
             transform-origin: center;
-            animation: ffu-fluid-gradient-flow var(--uc-fluid-gradient-duration) ease-in-out infinite alternate !important;
-            will-change: transform, background-position;
+            filter: blur(54px) saturate(102%);
+            animation: none !important;
+            will-change: auto;
+        }
+
+        @media -moz-pref("user.theme.wallpaper.fluid-gradient.animated") {
+            body::before {
+                animation: ffu-fluid-gradient-flow 260s linear infinite alternate !important;
+                will-change: transform;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            body::before { animation: none !important; }
+            body::before {
+                animation: none !important;
+            }
         }
     }
 }
@@ -204,15 +207,12 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 
 @keyframes ffu-fluid-gradient-flow {
     0% {
-        background-position: 52% 48%, 8% 52%, 20% 20%, 82% 24%;
-        transform: translate3d(-2%, -1%, 0) scale(1.06) rotate(0deg);
+        transform: translate3d(-0.35%, -0.15%, 0) scale(1.02);
     }
-    45% {
-        background-position: 58% 48%, 14% 50%, 12% 28%, 78% 28%;
-        transform: translate3d(1.5%, -1%, 0) scale(1.08) rotate(2deg);
+    50% {
+        transform: translate3d(0.45%, 0.22%, 0) scale(1.03);
     }
     100% {
-        background-position: 48% 50%, 4% 48%, 26% 14%, 86% 20%;
-        transform: translate3d(-1%, 1.5%, 0) scale(1.07) rotate(-2deg);
+        transform: translate3d(-0.25%, -0.35%, 0) scale(1.02);
     }
 }
