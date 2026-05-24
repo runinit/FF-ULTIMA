@@ -11,7 +11,7 @@ about:profiles
 
 /* Universal in-content Firefox page bridge.
  * Color schemes provide --uc-*; dynamic schemes can fill that contract from
- * generated palette CSS when Firefox does not expose live browser variables.
+ * Firefox Theme API values before this content bridge consumes it.
  */
 @-moz-document url-prefix("about:preferences"), url-prefix("about:settings"), url-prefix("about:profiles") {
 

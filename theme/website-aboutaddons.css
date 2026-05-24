@@ -101,7 +101,7 @@ See the above repository for updates as well as full license text. */
 
 /* Universal Add-ons Manager theme bridge.
  * Color schemes provide --uc-*; dynamic schemes can fill that contract from
- * generated palette CSS when Firefox does not expose live browser variables.
+ * Firefox Theme API values before this content bridge consumes it.
  */
 @-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url("about:addons") {
 

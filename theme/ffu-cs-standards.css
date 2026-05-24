@@ -132,22 +132,10 @@ this file/setting compiles some of those differences and brings them back to the
 
 @media -moz-pref("user.theme.pywalfox") {
     #main-window {
-        /* Publish Pywalfox's existing Theme API/LWT-backed --uc-* bridge to
-           legacy and Firefox 152+ chrome token names. */
-        --toolbar-bgcolor: var(--uc-navbar-background) !important;
-        --toolbar-color: var(--uc-text) !important;
-        --toolbox-bgcolor: var(--uc-browser-color) !important;
-        --toolbox-bgcolor-inactive: var(--uc-browser-color) !important;
-        --toolbox-textcolor: var(--uc-text) !important;
-        --toolbox-textcolor-inactive: var(--uc-text) !important;
-        --toolbar-background-color: var(--uc-navbar-background) !important;
-        --toolbox-background-color: var(--uc-browser-color) !important;
-        --toolbox-background-color-inactive: var(--uc-browser-color) !important;
-        --toolbox-text-color: var(--uc-text) !important;
-        --toolbox-text-color-inactive: var(--uc-text) !important;
-        --tab-selected-bgcolor: var(--uc-tab-selected) !important;
-        --tab-background-color-selected: var(--uc-tab-selected) !important;
-        --tab-selected-textcolor: var(--uc-tab-selected-text) !important;
+        /* Pywalfox owns Firefox Theme API/LWT source tokens. Publish only
+           derived interaction tokens here so the bridge does not read a
+           toolbar/tab/urlbar token and then overwrite that same token. */
+        --toolbarbutton-icon-fill: var(--uc-text) !important;
         --tab-hover-background-color: var(--uc-button-selected) !important;
         --button-background-color-ghost-hover: var(--uc-button-selected) !important;
         --button-background-color: var(--uc-button-selected) !important;
@@ -159,16 +147,8 @@ this file/setting compiles some of those differences and brings them back to the
         --toolbarbutton-active-background: var(--uc-button-selected) !important;
         --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
         --toolbarbutton-background-color-active: var(--uc-button-selected) !important;
-        --toolbar-field-color: var(--uc-text) !important;
-        --toolbar-field-text-color: var(--uc-text) !important;
-        --toolbar-field-focus-color: var(--uc-tab-selected-text) !important;
-        --toolbar-field-border-color: var(--uc-accent-color-4) !important;
-        --toolbar-field-focus-border-color: var(--uc-accent-color-1) !important;
-        --toolbar-field-border-color-focus: var(--uc-accent-color-1) !important;
-        --lwt-toolbar-field-highlight: var(--uc-accent-color-1) !important;
-        --lwt-toolbar-field-highlight-text: var(--uc-browser-color) !important;
         --urlbarview-background-color-selected: var(--uc-accent-color-1) !important;
-        --urlbarview-text-color-selected: var(--uc-browser-color) !important;
+        --urlbarview-text-color-selected: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
         --color-accent-primary: var(--uc-accent-color-1) !important;
         --color-accent-primary-hover: color-mix(in srgb, var(--uc-accent-color-1) 86%, var(--uc-text) 14%) !important;
         --color-accent-primary-active: color-mix(in srgb, var(--uc-accent-color-1) 74%, var(--uc-browser-color) 26%) !important;
@@ -217,11 +197,6 @@ this file/setting compiles some of those differences and brings them back to the
     --toolbarbutton-background-color-active: var(--uc-hover-accent-bg-strong) !important;
     --toolbarbutton-icon-fill-attention: var(--uc-hover-accent) !important;
     --toolbarbutton-icon-fill-attention-text: var(--uc-browser-color) !important;
-    --toolbar-field-background-color: var(--uc-urlbar-accent-surface) !important;
-    --toolbar-field-background-color-focus: var(--uc-urlbar-accent-surface-strong) !important;
-    --toolbar-field-focus-background-color: var(--uc-urlbar-accent-surface-strong) !important;
-    --toolbar-field-focus-border-color: var(--uc-hover-accent) !important;
-    --toolbar-field-border-color-focus: var(--uc-hover-accent) !important;
 
     --urlbar-box-background-color: var(--uc-urlbar-pill-background) !important;
     --urlbar-box-background-color-focus: color-mix(in srgb, var(--uc-hover-accent) 30%, transparent) !important;
@@ -237,8 +212,6 @@ this file/setting compiles some of those differences and brings them back to the
     --urlbarView-result-button-selected-background-color: color-mix(in srgb, var(--uc-hover-accent) 68%, transparent) !important;
     --urlbarView-action-button-hover-background-color: var(--uc-hover-accent-bg) !important;
 
-    --lwt-toolbar-field-highlight: var(--uc-hover-accent) !important;
-    --lwt-toolbar-field-highlight-text: var(--uc-urlbar-selected-text) !important;
     --color-accent-primary: var(--uc-hover-accent) !important;
     --color-accent-primary-hover: color-mix(in srgb, var(--uc-hover-accent) 86%, var(--uc-text) 14%) !important;
     --color-accent-primary-active: color-mix(in srgb, var(--uc-hover-accent) 74%, var(--uc-browser-color) 26%) !important;
@@ -246,6 +219,18 @@ this file/setting compiles some of those differences and brings them back to the
     --border-color-selected: var(--uc-hover-accent) !important;
     --focus-outline-color: var(--uc-hover-accent) !important;
     --text-color-accent-primary-selected: var(--uc-urlbar-selected-text) !important;
+}
+
+@media not -moz-pref("user.theme.pywalfox") {
+    #main-window {
+        --toolbar-field-background-color: var(--uc-urlbar-accent-surface) !important;
+        --toolbar-field-background-color-focus: var(--uc-urlbar-accent-surface-strong) !important;
+        --toolbar-field-focus-background-color: var(--uc-urlbar-accent-surface-strong) !important;
+        --toolbar-field-focus-border-color: var(--uc-hover-accent) !important;
+        --toolbar-field-border-color-focus: var(--uc-hover-accent) !important;
+        --lwt-toolbar-field-highlight: var(--uc-hover-accent) !important;
+        --lwt-toolbar-field-highlight-text: var(--uc-urlbar-selected-text) !important;
+    }
 }
 
 #main-window,

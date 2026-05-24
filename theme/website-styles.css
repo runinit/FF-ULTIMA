@@ -27,7 +27,7 @@ bing declutter
 
 /* Universal FF Ultima selection/accent bridge.
  * Active color schemes expose --uc-* here; dynamic schemes can fill those
- * values from generated palette CSS when live browser variables are unavailable.
+ * values from Firefox Theme API values before this bridge consumes them.
  */
 ::selection {
     background-color: var(--uc-accent-color-1) !important;

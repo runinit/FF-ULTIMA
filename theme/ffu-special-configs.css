@@ -212,7 +212,7 @@ Nightly Configurations
  * Imported after the normal URL-bar modules so Pywalfox does not inherit the
  * transparent URL-bar treatment or the generic icon/text swap for add-on themes.
  * Consume FF Ultima's --uc-* contract here; the Pywalfox color scheme fills it
- * from Firefox/LWT values or the generated ffu-pywal-colors.css fallback.
+ * from Firefox Theme API/LWT values.
  */
 @media -moz-pref("user.theme.pywalfox") {
     #main-window[lwtheme] {

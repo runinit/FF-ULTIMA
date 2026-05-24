@@ -11,34 +11,35 @@ FF Ultima's --uc-* color contract.
 
 /* Pywalfox / Firefox theme variables -> FF Ultima variables ----------------------------- */
 
-:root {
-    --uc-browser-color:      var(--lwt-accent-color, rgb(35, 35, 42));
-    --uc-text:               var(--lwt-text-color, var(--toolbar-color, CanvasText));
-    --uc-layered-background: color-mix(in srgb, var(--uc-browser-color) 88%, black);
-    --uc-navbar-background:  var(--uc-browser-color);
-    --uc-urlbar-background:  var(--toolbar-field-background-color, var(--uc-layered-background));
-    --uc-findbar-background: var(--uc-layered-background);
-    --uc-sidebar-background: var(--lwt-sidebar-background-color, var(--uc-layered-background));
+:root,
+#main-window[lwtheme] {
+    --uc-browser-color:      var(--lwt-accent-color, var(--toolbox-bgcolor, var(--toolbar-bgcolor)));
+    --uc-text:               var(--lwt-text-color, var(--toolbox-textcolor, var(--toolbar-color)));
+    --uc-layered-background: color-mix(in srgb, var(--uc-browser-color) 88%, var(--uc-text) 12%);
+    --uc-navbar-background:  var(--toolbar-bgcolor, var(--toolbar-background-color, var(--uc-browser-color)));
+    --uc-urlbar-background:  var(--toolbar-field-background-color, var(--toolbar-field-focus-background-color, var(--uc-layered-background)));
+    --uc-findbar-background: var(--uc-urlbar-background);
+    --uc-sidebar-background: var(--sidebar-background-color, var(--lwt-sidebar-background-color, var(--uc-layered-background)));
     --uc-tabsbar-background: var(--uc-browser-color);
     --uc-tab-background:     transparent;
-    --uc-tab-selected:       var(--tab-selected-bgcolor, var(--uc-layered-background));
+    --uc-tab-selected:       var(--tab-selected-bgcolor, var(--tab-background-color-selected, var(--lwt-selected-tab-background-color, var(--uc-layered-background))));
     --uc-tab-selected-text:  var(--tab-selected-textcolor, var(--uc-text));
-    --uc-button-selected:    var(--button-background-color-hover, color-mix(in srgb, var(--uc-text) 12%, transparent));
-    --uc-button-red:         #f54e4e;
-    --uc-context-menu:       var(--arrowpanel-background, var(--uc-layered-background));
-    --uc-panel-background:   var(--arrowpanel-background, var(--uc-layered-background));
+    --uc-button-selected:    color-mix(in srgb, var(--uc-accent-color-1) 28%, transparent);
+    --uc-button-red:         var(--uc-accent-color-1);
+    --uc-context-menu:       var(--arrowpanel-background, var(--panel-background, var(--uc-layered-background)));
+    --uc-panel-background:   var(--arrowpanel-background, var(--panel-background, var(--uc-layered-background)));
     --uc-panel-border:       var(--arrowpanel-border-color, color-mix(in srgb, var(--uc-text) 20%, transparent));
     --uc-panel-border-2:     color-mix(in srgb, var(--uc-text) 12%, transparent);
     --uc-panel-border-ii:    var(--uc-panel-border-2);
-    --uc-accent-color-1:     var(--tab-loading-fill, var(--lwt-sidebar-highlight-background-color, AccentColor));
-    --uc-accent-color-2:     var(--lwt-sidebar-highlight-background-color, var(--uc-accent-color-1));
-    --uc-accent-color-3:     var(--toolbar-field-focus-border-color, var(--uc-text));
-    --uc-accent-color-4:     color-mix(in srgb, var(--uc-text) 8%, transparent);
-    --uc-accent-color-5:     var(--toolbar-color, var(--uc-text));
-    --uc-accent-color-6:     var(--lwt-sidebar-highlight-background-color, var(--uc-accent-color-1));
-    --uc-transparent:        rgba(0,0,0,0);
-    --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
-    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem rgba(25,25,25,1);
+    --uc-accent-color-1:     var(--lwt-toolbar-field-highlight, var(--toolbar-field-focus-border-color, var(--tab-loading-fill, var(--lwt-sidebar-highlight-background-color))));
+    --uc-accent-color-2:     var(--lwt-sidebar-highlight-background-color, var(--toolbar-field-border-color, var(--uc-accent-color-1)));
+    --uc-accent-color-3:     var(--toolbar-field-focus-border-color, var(--toolbar-field-border-color, var(--uc-text)));
+    --uc-accent-color-4:     color-mix(in srgb, var(--uc-accent-color-1) 16%, transparent);
+    --uc-accent-color-5:     var(--toolbar-field-color, var(--toolbar-field-text-color, var(--toolbar-color, var(--uc-text))));
+    --uc-accent-color-6:     var(--lwt-toolbar-field-highlight, var(--uc-accent-color-1));
+    --uc-transparent:        transparent;
+    --uc-box-shadow:         0.15rem 0.3rem 0.3rem -0.1rem color-mix(in srgb, var(--uc-text) 18%, transparent);
+    --uc-box-shadow-panel:   0.15rem 0.3rem 0.3rem -0.1rem color-mix(in srgb, var(--uc-text) 22%, transparent);
     --uc-button-border-radius: 10px;
     --uc-tab-border-radius: 8px;
 
@@ -47,12 +48,6 @@ FF Ultima's --uc-* color contract.
 }
 
 /* Minimal surface nudges; Pywalfox keeps owning the Firefox Theme API palette. */
-
-#main-window {
-    --toolbar-bgcolor: var(--uc-navbar-background) !important;
-    --toolbox-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
-}
 
 #main-window,
 #main-window #navigator-toolbox,

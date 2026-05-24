@@ -92,22 +92,8 @@ try {
     }
   }
 
-  try {
-    const liveScript = Services.dirsvc.get('UChrm', Ci.nsIFile);
-    liveScript.append('scripts');
-    liveScript.append('ffu-matugen-live.uc.js');
-    Services.prefs.setCharPref('ultima.autoconfig.matugen_live_script', liveScript.path);
-
-    if (liveScript.exists() && !userChromeScriptsLoaded) {
-      Services.scriptloader.loadSubScript(Services.io.newFileURI(liveScript).spec);
-      mark('matugen-live-loaded');
-    } else if (liveScript.exists()) {
-      mark('matugen-live-userchromejs');
-    } else {
-      mark('matugen-live-missing');
-    }
-  } catch (liveError) {
-    markError('matugen-live', liveError);
+  if (userChromeScriptsLoaded) {
+    mark('userchromejs-ready');
   }
 } catch (ex) {
   try {

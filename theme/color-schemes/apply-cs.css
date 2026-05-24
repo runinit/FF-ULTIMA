@@ -32,13 +32,12 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')					-moz-pref("user.theme.rose-pine");
 @import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
-@import url('matugen/ffu-colorscheme.css')            -moz-pref("user.theme.matugen");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Add your Theme (Above) for the Browser ------------------------------------------------------------------------ */
 
 
-@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing), url-prefix("about:preferences"), url-prefix("about:settings"), url-prefix("about:profiles"), url("about:addons"), url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url-prefix("file://"), regexp("moz-extension://.*") {
+@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing), url("about:config"), url-prefix("about:preferences"), url-prefix("about:settings"), url-prefix("about:profiles"), url("about:addons"), url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url-prefix("chrome://devtools/content/"), url-prefix("file://"), regexp("moz-extension://.*") {
 
 @import url('default/ffu-colorscheme.css')            -moz-pref("user.theme.0.default");
 @import url('transparent/ffu-colorscheme.css')        -moz-pref("user.theme.transparent");
@@ -56,10 +55,64 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')          -moz-pref("user.theme.rose-pine");
 @import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
-@import url('matugen/ffu-colorscheme.css')            -moz-pref("user.theme.matugen");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Adding your Theme (Above) makes the colors available to websites & extensions -------------------------------- */
+}
+
+@-moz-document url-prefix("chrome://devtools/content/") {
+    :root {
+        color-scheme: dark light !important;
+        accent-color: var(--uc-accent-color-1) !important;
+
+        --theme-body-background: var(--uc-browser-color) !important;
+        --theme-body-emphasized-background: var(--uc-layered-background) !important;
+        --theme-sidebar-background: var(--uc-sidebar-background) !important;
+        --theme-contrast-background: var(--uc-panel-background) !important;
+        --theme-tab-toolbar-background: var(--uc-navbar-background) !important;
+        --theme-toolbar-background: var(--uc-navbar-background) !important;
+        --theme-toolbar-color: var(--uc-text) !important;
+        --theme-toolbar-hover: color-mix(in srgb, var(--uc-accent-color-1) 20%, transparent) !important;
+        --theme-toolbar-hover-active: color-mix(in srgb, var(--uc-accent-color-1) 32%, transparent) !important;
+        --theme-toolbar-selected-color: var(--uc-accent-color-1) !important;
+
+        --theme-body-color: var(--uc-text) !important;
+        --theme-body-color-alt: color-mix(in srgb, var(--uc-text) 72%, transparent) !important;
+        --theme-content-color1: var(--uc-text) !important;
+        --theme-content-color2: color-mix(in srgb, var(--uc-text) 82%, transparent) !important;
+        --theme-content-color3: color-mix(in srgb, var(--uc-text) 64%, transparent) !important;
+        --theme-comment: color-mix(in srgb, var(--uc-text) 58%, transparent) !important;
+        --theme-icon-color: var(--uc-text) !important;
+        --theme-icon-dimmed-color: color-mix(in srgb, var(--uc-text) 56%, transparent) !important;
+
+        --theme-splitter-color: var(--uc-panel-border-2) !important;
+        --theme-emphasized-splitter-color: var(--uc-accent-color-1) !important;
+        --theme-focus-outline-color: var(--uc-accent-color-1) !important;
+        --theme-selection-background: var(--uc-accent-color-1) !important;
+        --theme-selection-color: var(--uc-urlbar-selected-text, var(--uc-text)) !important;
+
+        --theme-input-background: var(--uc-urlbar-background) !important;
+        --theme-input-color: var(--uc-text) !important;
+        --theme-input-border-color: var(--uc-accent-color-3) !important;
+        --theme-button-background: var(--uc-button-selected) !important;
+        --theme-button-hover-background: color-mix(in srgb, var(--uc-accent-color-1) 26%, var(--uc-layered-background)) !important;
+        --theme-button-active-background: color-mix(in srgb, var(--uc-accent-color-1) 38%, var(--uc-layered-background)) !important;
+        --theme-link-color: var(--uc-accent-color-1) !important;
+
+        --theme-highlight-blue: var(--uc-accent-color-1) !important;
+        --theme-highlight-purple: var(--uc-accent-color-6, var(--uc-accent-color-1)) !important;
+        --theme-highlight-red: var(--uc-button-red) !important;
+        --theme-highlight-green: var(--uc-accent-color-2) !important;
+        --theme-highlight-orange: var(--uc-accent-color-5) !important;
+        --theme-highlight-yellow: var(--uc-accent-color-3) !important;
+        --theme-highlight-pink: var(--uc-accent-color-1) !important;
+        --theme-highlight-gray: color-mix(in srgb, var(--uc-text) 44%, transparent) !important;
+    }
+
+    ::selection {
+        background-color: var(--theme-selection-background) !important;
+        color: var(--theme-selection-color) !important;
+    }
 }
 
 @-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) { :root {
@@ -141,10 +194,6 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 }
 
 @media -moz-pref("user.theme.pywalfox") {
-    --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
-}
-
-@media -moz-pref("user.theme.matugen") {
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 
