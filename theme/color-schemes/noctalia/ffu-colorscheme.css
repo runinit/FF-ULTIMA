@@ -20,8 +20,9 @@ wal palette as browser chrome.
     --uc-text:               var(--foreground, var(--color15, var(--lwt-text-color, CanvasText)));
     --uc-noctalia-primary-accent: var(--color10, var(--lwt-sidebar-highlight-background-color, var(--color-accent-primary, AccentColor)));
     --uc-noctalia-secondary-accent: var(--color13, var(--uc-noctalia-primary-accent));
-    --uc-noctalia-hover-surface: color-mix(in srgb, var(--uc-noctalia-primary-accent) 30%, var(--uc-browser-color));
-    --uc-noctalia-active-surface: color-mix(in srgb, var(--uc-noctalia-primary-accent) 38%, var(--uc-browser-color));
+    --uc-noctalia-hover-surface: var(--uc-noctalia-primary-accent);
+    --uc-noctalia-active-surface: var(--uc-noctalia-primary-accent);
+    --uc-noctalia-accent-foreground: var(--uc-browser-color);
     --uc-noctalia-panel-surface: var(--background, var(--color0, var(--uc-browser-color)));
     --uc-accent-color-1:     var(--uc-noctalia-primary-accent);
     --uc-accent-i:           var(--foreground, var(--color15, var(--lwt-sidebar-highlight-text-color, var(--toolbar-field-focus-color, var(--toolbar-field-color, var(--uc-text))))));
@@ -51,7 +52,7 @@ wal palette as browser chrome.
     --uc-transparent:        transparent;
     --uc-selection-background: var(--uc-accent-color-1);
     --uc-selection-background-muted: rgb(from var(--uc-selection-background) r g b / 50%);
-    --uc-selection-color:    var(--uc-accent-i);
+    --uc-selection-color:    var(--uc-noctalia-accent-foreground);
     --uc-box-shadow:         0 0 0 1px var(--uc-panel-border-2), 0 1px 8px 0 color-mix(in srgb, var(--uc-browser-color) 52%, transparent);
     --uc-box-shadow-panel:   0 0 0 1px var(--uc-panel-border-2), 0 1px 16px 0 color-mix(in srgb, var(--uc-browser-color) 64%, transparent);
     --uc-button-border-radius: 10px;
@@ -151,11 +152,16 @@ wal palette as browser chrome.
 #main-window :is(.toolbarbutton-1, toolbarbutton):not([disabled]):is(:hover, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack),
 #main-window #TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon {
     background-color: var(--uc-button-selected) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
+    stroke: var(--uc-noctalia-accent-foreground) !important;
     border-radius: var(--uc-button-border-radius) !important;
 }
 
 #main-window .titlebar-button:hover {
     background-color: var(--uc-button-selected) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
 }
 
 #main-window #urlbar {
@@ -222,24 +228,39 @@ wal palette as browser chrome.
 
 #main-window #urlbar :is(.urlbar-page-action, .identity-box-button, #tracking-protection-icon-container, #trust-icon-container, #urlbar-searchmode-switcher):is(:hover, [open]) {
     background-color: var(--uc-button-selected) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
     border-radius: var(--uc-button-border-radius) !important;
 }
 
 #main-window #urlbar-searchmode-switcher:is(:hover, [open], [focused]),
 #main-window #urlbar[focused] #urlbar-searchmode-switcher {
     background-color: var(--uc-button-selected) !important;
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-accent-color-1) 34%, transparent) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
+    box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
 }
 
 #main-window .urlbarView-row:is(:hover, [selected]) {
     background-color: var(--uc-button-selected) !important;
-    color: var(--uc-text) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
+}
+
+#main-window .urlbarView-row:is(:hover, [selected]) :is(.urlbarView-title, .urlbarView-url, .urlbarView-title-separator, .urlbarView-action) {
+    color: var(--uc-noctalia-accent-foreground) !important;
 }
 
 #main-window .urlbarView-url,
 #main-window .urlbarView-title-separator,
 #main-window #urlbar .urlbarView-url {
     color: var(--uc-urlbar-url-color) !important;
+}
+
+#main-window .urlbarView-row:is(:hover, [selected]) :is(.urlbarView-title, .urlbarView-url, .urlbarView-title-separator, .urlbarView-action),
+#main-window #urlbar .urlbarView-row:is(:hover, [selected]) .urlbarView-url {
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
 }
 
 @media -moz-pref("ultima.urlbar.hide.buttons") {
@@ -276,7 +297,8 @@ panelview,
 menupopup menu[_moz-menuactive="true"]:not([disabled="true"]),
 menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
     background-color: var(--menuitem-hover-background-color, var(--panel-item-hover-bgcolor, var(--uc-button-selected))) !important;
-    color: var(--uc-text) !important;
+    color: var(--uc-noctalia-accent-foreground) !important;
+    fill: var(--uc-noctalia-accent-foreground) !important;
 }
 
 #main-window ::selection {
@@ -310,6 +332,7 @@ menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
     --uc-newtab-panel-background: var(--uc-panel-background);
     --uc-newtab-hover-background: var(--uc-button-selected);
     --uc-newtab-active-background: var(--uc-noctalia-active-surface);
+    --uc-newtab-accent-foreground: var(--uc-noctalia-accent-foreground);
     --uc-newtab-outline-rest: rgb(from var(--uc-accent-color-1) r g b / 50%);
     --uc-newtab-outline-active: var(--uc-accent-color-1);
     --uc-newtab-radius: var(--uc-button-border-radius);
@@ -434,6 +457,8 @@ body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
          .ds-card-grid .ds-card:is(:hover, :focus-within):not(.placeholder),
          .ds-card:is(:hover, :focus-within) .meta) {
     background-color: var(--uc-newtab-hover-background) !important;
+    color: var(--uc-newtab-accent-foreground) !important;
+    fill: var(--uc-newtab-accent-foreground) !important;
     border-color: var(--uc-newtab-outline-active) !important;
     box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active), var(--uc-newtab-shadow) !important;
     transform: none !important;
@@ -501,8 +526,8 @@ body :is(.top-site-outer .context-menu-button,
 body .open-customization-button:is(:hover, :focus-within)::part(button) {
     background-color: var(--uc-newtab-hover-background) !important;
     border-color: var(--uc-newtab-outline-active) !important;
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
+    color: var(--uc-newtab-accent-foreground) !important;
+    fill: var(--uc-newtab-accent-foreground) !important;
     box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active) !important;
     transform: none !important;
 }
@@ -532,4 +557,15 @@ body :is(.top-site-outer .title,
          .context-menu > ul > li > button) {
     color: var(--uc-text) !important;
     text-shadow: none !important;
+}
+
+body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .title,
+         .top-site-outer:is(:hover, :focus, :focus-within, .active) .title span,
+         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title,
+         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-host-name,
+         .ds-card:is(:hover, :focus-within) .meta,
+         .context-menu > ul > li > a:is(:hover, :focus),
+         .context-menu > ul > li > button:is(:hover, :focus)) {
+    color: var(--uc-newtab-accent-foreground) !important;
+    fill: var(--uc-newtab-accent-foreground) !important;
 }
