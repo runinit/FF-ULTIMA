@@ -22,7 +22,7 @@ wal palette as browser chrome.
     --uc-noctalia-secondary-accent: var(--color13, var(--uc-noctalia-primary-accent));
     --uc-noctalia-hover-surface: var(--uc-noctalia-primary-accent);
     --uc-noctalia-active-surface: var(--uc-noctalia-primary-accent);
-    --uc-noctalia-accent-foreground: var(--uc-browser-color);
+    --uc-noctalia-accent-foreground: var(--uc-noctalia-wal-field, var(--background, var(--uc-browser-color)));
     --uc-noctalia-panel-surface: var(--background, var(--color0, var(--uc-browser-color)));
     --uc-accent-color-1:     var(--uc-noctalia-primary-accent);
     --uc-accent-i:           var(--foreground, var(--color15, var(--lwt-sidebar-highlight-text-color, var(--toolbar-field-focus-color, var(--toolbar-field-color, var(--uc-text))))));
@@ -410,8 +410,6 @@ body .search-wrapper:not(:active) input:focus {
 
 body :is(.top-site-outer .tile,
          .weatherCard,
-         .context-menu,
-         .customize-menu,
          .home-section .section .selector,
          .card-outer .card,
          .ds-onboarding-container:not(.placeholder),
@@ -431,7 +429,6 @@ body :is(.top-site-outer .tile,
 
 body :is(.top-site-outer .tile,
          .weatherCard,
-         .customize-menu,
          .home-section .section .selector,
          .card-outer .card,
          .ds-onboarding-container:not(.placeholder),
@@ -476,6 +473,44 @@ body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
     border-color: var(--uc-newtab-outline-active) !important;
 }
 
+body .context-menu,
+body .customize-menu {
+    background-color: var(--uc-newtab-panel-background) !important;
+    color: var(--uc-text) !important;
+    border: 1px solid var(--uc-newtab-outline-rest) !important;
+    border-radius: var(--uc-newtab-radius) !important;
+    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-rest), var(--uc-newtab-shadow) !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+}
+
+body .context-menu {
+    position: absolute !important;
+    z-index: 1000 !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    min-width: 180px !important;
+    max-width: min(320px, calc(100vw - 32px)) !important;
+    line-height: normal !important;
+}
+
+body .customize-menu {
+    position: fixed !important;
+    inset-block-end: 72px !important;
+    inset-inline-end: 24px !important;
+    z-index: 1001 !important;
+    max-width: min(420px, calc(100vw - 48px)) !important;
+    max-height: min(680px, calc(100vh - 96px)) !important;
+    overflow: auto !important;
+}
+
+body .context-menu > ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body :is(.top-site-outer .context-menu-button,
          .card-outer .context-menu-button,
          .ds-card .context-menu-button,
@@ -490,6 +525,32 @@ body :is(.top-site-outer .context-menu-button,
     border-radius: var(--uc-newtab-radius-inner) !important;
     outline: none !important;
     box-shadow: none !important;
+}
+
+body :is(.top-site-outer .context-menu-button,
+         .card-outer .context-menu-button,
+         .ds-card .context-menu-button,
+         .ds-signup .context-menu-button,
+         .customize-menu .close-button) {
+    inline-size: 28px !important;
+    block-size: 28px !important;
+    min-inline-size: 28px !important;
+    min-block-size: 28px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+body :is(.context-menu > ul > li > button,
+         .context-menu > ul > li > a) {
+    min-height: 28px !important;
+    padding: 4px 10px !important;
+    line-height: 20px !important;
+    text-align: start !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 body .personalize-button,

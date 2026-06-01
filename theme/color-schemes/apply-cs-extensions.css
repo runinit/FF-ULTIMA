@@ -302,6 +302,14 @@ Another - applying colors to extension
         #root.root .Tab[data-pin="true"][data-selected="true"] .body::before {
             box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
         }
+        #root.root .Tab:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img),
+        #root.root .PinnedTabsBar .Tab:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img),
+        #root.root .Tab[data-pin="true"]:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img) {
+            color: var(--uc-noctalia-accent-foreground) !important;
+            fill: var(--uc-noctalia-accent-foreground) !important;
+            stroke: var(--uc-noctalia-accent-foreground) !important;
+        }
+
         #root.root .popup {
             background-color: var(--uc-urlbar-background) !important;
         }
