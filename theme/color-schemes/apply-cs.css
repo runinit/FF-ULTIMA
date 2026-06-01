@@ -120,7 +120,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 
 @media -moz-pref("user.theme.catppuccin-mocha-variant") {
     @media (prefers-color-scheme: dark) {--uc-wallpaper: url("walls/catppuccin-mocha.jpg");}
-    @media (prefers-color-scheme: light) {--uc-wallpaper: url("walls/catppuccin-frappe2.jpg");}
+    @media (prefers-color-scheme: light) {--uc-wallpaper: url("walls/catppuccin-frappe.jpg");}
 }
 
 @media -moz-pref("user.theme.brave") {

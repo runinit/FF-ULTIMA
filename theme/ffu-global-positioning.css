@@ -466,7 +466,7 @@ Vertical Tabs Hidden in Private
     border-radius: 10px !important;
 }
 #menubar-items {
-    background: var(--uc-ultima-window) !important;
+    background: var(--uc-ultima-window, var(--uc-browser-color)) !important;
     border-radius: 10px !important;
     justify-content: center !important;
     color: var(--uc-text) !important;
@@ -486,7 +486,7 @@ menubar > menu[open] {
         right:0;
     }
     #toolbar-menubar:not([inactive="true"]) .titlebar-buttonbox-container {
-        background:var(--uc-ultima-window) !important;
+        background: var(--uc-ultima-window, var(--uc-browser-color)) !important;
     }
 }}
 

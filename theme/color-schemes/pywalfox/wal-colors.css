@@ -1,0 +1,16 @@
+/* Generated from /home/chris/.cache/wal/colors.json for FF Ultima's Pywalfox bridge. */
+
+:root {
+    --background: #1d1d20;
+    --foreground: #eceff4;
+    --color0: #1d1d20;
+    --color3: #88c0d0;
+    --color5: #b48ead;
+    --color7: #35353c;
+    --color10: #88c0d0;
+    --color13: #a3be8c;
+    --color15: #eceff4;
+
+    --uc-pywalfox-wal-surface: #35353c;
+    --uc-pywalfox-wal-field: #35353c;
+}

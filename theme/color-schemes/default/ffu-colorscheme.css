@@ -126,7 +126,7 @@ Custom Icons
     --toolbar-field-focus-color: var(--uc-text) !important;
     --sidebar-text-color: var(--uc-text) !important;
     --arrowpanel-background: var(--uc-panel-background) !important;
-    --arrowpanel-border-color: var(---uc-panel-border-ii) !important;
+    --arrowpanel-border-color: var(--uc-panel-border-ii) !important;
     --arrowpanel-color: var(--uc-text) !important;
     --newtab-background-color: var(--uc-tabsbar-background) !important;
     --panel-background: var(--uc-panel-background) !important;

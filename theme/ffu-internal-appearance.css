@@ -197,7 +197,7 @@ Border Hunter
     --toolbar-field-focus-color: var(--uc-text) !important;
     --sidebar-text-color: var(--uc-text) !important;
     --arrowpanel-background: var(--uc-panel-background) !important;
-    --arrowpanel-border-color: var(---uc-panel-border-ii) !important;
+    --arrowpanel-border-color: var(--uc-panel-border-ii) !important;
     --arrowpanel-color: var(--uc-text) !important;
     --newtab-background-color: var(--uc-tabsbar-background) !important;
     --panel-background: var(--uc-panel-background) !important;
@@ -396,10 +396,10 @@ spacer[part="overflow-start-indicator"] {
 /* add on */
 #main-window[lwtheme] {
     & #urlbar[open] > #urlbar-background {
-        border-color: color-mix(in srgb, var(--lwt-accent-color) 15%, rgba(0,0,0,0.4)) !important;
+        border-color: var(--uc-accent-color-3) !important;
     }
     & #urlbar[open] > .urlbar-background {
-        border-color: color-mix(in srgb, var(--lwt-accent-color) 15%, rgba(0,0,0,0.4)) !important;
+        border-color: var(--uc-accent-color-3) !important;
     }
 }
 /* visibility cursors */
@@ -1097,8 +1097,9 @@ button[part="dialog-button"] {
 #main-window[lwtheme] {
     menupopup, panel:not(.autoscroller) {
         color-scheme: light dark;
-        --panel-background: var(--lwt-accent-color) !important;
-        --panel-color: color-mix(in srgb, var(--lwt-text-color) 75%, var(--lwt-accent-color)) !important;
+        --panel-background: var(--uc-context-menu) !important;
+        --panel-color: var(--uc-text) !important;
+        --panel-border-color: var(--uc-panel-border-2) !important;
         --panel-shadow: none !important;
     }
 }
