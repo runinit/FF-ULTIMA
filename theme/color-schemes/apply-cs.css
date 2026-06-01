@@ -31,7 +31,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('brave/ffu-colorscheme.css')              -moz-pref("user.theme.brave");
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')					-moz-pref("user.theme.rose-pine");
-@import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.noctalia");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Add your Theme (Above) for the Browser ------------------------------------------------------------------------ */
@@ -54,7 +54,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('brave/ffu-colorscheme.css')              -moz-pref("user.theme.brave");
 @import url('ayu/ffu-colorscheme.css')                -moz-pref("user.theme.ayu");
 @import url('rose-pine/ffu-colorscheme.css')          -moz-pref("user.theme.rose-pine");
-@import url('pywalfox/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.noctalia");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Adding your Theme (Above) makes the colors available to websites & extensions -------------------------------- */
@@ -138,7 +138,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     @media (prefers-color-scheme: light) {--uc-wallpaper: url("walls/rose-pine-dawn.jpg");}
 }
 
-@media -moz-pref("user.theme.pywalfox") {
+@media -moz-pref("user.theme.noctalia") {
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 

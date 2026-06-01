@@ -114,7 +114,7 @@ this file/setting compiles some of those differences and brings them back to the
     --toolbar-field-border-color-focus: var(--uc-accent-color-3, var(--uc-text)) !important;
 }
 
-@media not -moz-pref("user.theme.pywalfox") {
+@media not -moz-pref("user.theme.noctalia") {
     #main-window[lwtheme] {
         /* Static FF Ultima schemes should keep owning chrome even when Firefox
            routes the default theme through the lwtheme code path. Pywalfox is

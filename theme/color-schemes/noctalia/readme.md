@@ -1,6 +1,6 @@
 ```
 FF ULTIMA
-Pywalfox Bridge
+Noctalia Bridge
 By FF ULTIMA
 ```
 
@@ -9,11 +9,11 @@ To use this color scheme:
 - Generate Pywal colors so `colors.json` exists.
 - Use Pywalfox to fetch/apply the generated colors to Firefox.
 - Navigate to `about:config`.
-- Turn on `user.theme.pywalfox`.
+- Turn on `user.theme.noctalia`.
 
 Optional wallpaper:
-- Turn on `user.theme.wallpaper.pywalfox` to use the animated Pywalfox starfield wallpaper.
-- The wallpaper is CSS-only, not an image asset; it derives its stars, nebula glow, and dark background from FF Ultima's Pywalfox/wal color tokens.
+- Turn on `user.theme.wallpaper.noctalia` to use the animated Noctalia starfield wallpaper.
+- The wallpaper is CSS-only, not an image asset; it derives its stars, nebula glow, and dark background from FF Ultima's Noctalia/wal color tokens.
 
 Notes:
 - `wal-colors.css` provides the wal palette to userContent targets such as Sidebery, where Firefox/LWT theme variables are not reliable.
