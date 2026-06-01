@@ -306,6 +306,15 @@ menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
     --newtab-element-hover-color: var(--uc-button-selected) !important;
     --newtab-element-secondary-hover-color: var(--uc-button-selected) !important;
     --button-active-bgcolor: var(--uc-accent-color-1) !important;
+    --uc-newtab-surface-background: var(--uc-pywalfox-active-surface);
+    --uc-newtab-panel-background: var(--uc-panel-background);
+    --uc-newtab-hover-background: var(--uc-button-selected);
+    --uc-newtab-active-background: var(--uc-pywalfox-active-surface);
+    --uc-newtab-outline-rest: rgb(from var(--uc-accent-color-1) r g b / 50%);
+    --uc-newtab-outline-active: var(--uc-accent-color-1);
+    --uc-newtab-radius: var(--uc-button-border-radius);
+    --uc-newtab-radius-inner: calc(var(--uc-newtab-radius) - 2px);
+    --uc-newtab-shadow: var(--uc-box-shadow);
 }
 
 body .search-wrapper .search-inner-wrapper,
@@ -354,4 +363,141 @@ body .search-wrapper:not(:active) input:focus {
     outline: none !important;
     box-shadow: inset 0 0 0 1px var(--uc-accent-color-1), var(--uc-box-shadow) !important;
     filter: none !important;
+}
+
+body :is(.top-site-outer .tile,
+         .weatherCard,
+         .context-menu,
+         .customize-menu,
+         .home-section .section .selector,
+         .card-outer .card,
+         .ds-onboarding-container:not(.placeholder),
+         .ds-card-grid .ds-card:not(.placeholder),
+         .ds-card .meta) {
+    position: relative !important;
+    background-color: var(--uc-newtab-surface-background) !important;
+    color: var(--uc-text) !important;
+    border-radius: var(--uc-newtab-radius) !important;
+    border: 1px solid var(--uc-newtab-outline-rest) !important;
+    outline: none !important;
+    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-rest), var(--uc-newtab-shadow) !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    box-sizing: border-box !important;
+}
+
+body :is(.top-site-outer .tile,
+         .weatherCard,
+         .customize-menu,
+         .home-section .section .selector,
+         .card-outer .card,
+         .ds-onboarding-container:not(.placeholder),
+         .ds-card-grid .ds-card:not(.placeholder),
+         .ds-card .meta)::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--uc-newtab-outline-rest) !important;
+    border-radius: inherit !important;
+}
+
+body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
+         .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) .tile,
+         .weatherCard:is(:hover, :focus-within),
+         .customize-menu:is(:hover, :focus-within),
+         .home-section .section .selector:is(:hover, :focus, :focus-within),
+         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card,
+         .ds-onboarding-container:is(:hover, :focus-within):not(.placeholder),
+         .ds-card-grid .ds-card:is(:hover, :focus-within):not(.placeholder),
+         .ds-card:is(:hover, :focus-within) .meta) {
+    background-color: var(--uc-newtab-hover-background) !important;
+    border-color: var(--uc-newtab-outline-active) !important;
+    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active), var(--uc-newtab-shadow) !important;
+    transform: none !important;
+}
+
+body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
+         .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) .tile,
+         .weatherCard:is(:hover, :focus-within),
+         .customize-menu:is(:hover, :focus-within),
+         .home-section .section .selector:is(:hover, :focus, :focus-within),
+         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card,
+         .ds-onboarding-container:is(:hover, :focus-within):not(.placeholder),
+         .ds-card-grid .ds-card:is(:hover, :focus-within):not(.placeholder),
+         .ds-card:is(:hover, :focus-within) .meta)::before {
+    border-color: var(--uc-newtab-outline-active) !important;
+}
+
+body :is(.top-site-outer .context-menu-button,
+         .card-outer .context-menu-button,
+         .ds-card .context-menu-button,
+         .ds-signup .context-menu-button,
+         .personalize-button,
+         .customize-menu .close-button,
+         .context-menu > ul > li > button,
+         .context-menu > ul > li > a) {
+    color: var(--uc-text) !important;
+    fill: var(--uc-text) !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--uc-newtab-radius-inner) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body .open-customization-button::part(button) {
+    color: var(--uc-text) !important;
+    fill: var(--uc-text) !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: var(--uc-newtab-radius-inner) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body :is(.top-site-outer .context-menu-button,
+         .card-outer .context-menu-button,
+         .ds-card .context-menu-button,
+         .ds-signup .context-menu-button,
+         .personalize-button,
+         .customize-menu .close-button,
+         .context-menu > ul > li > button,
+         .context-menu > ul > li > a):is(:hover, :focus, :focus-visible),
+body .open-customization-button:is(:hover, :focus-within)::part(button) {
+    background-color: var(--uc-newtab-hover-background) !important;
+    border-color: var(--uc-newtab-outline-active) !important;
+    color: var(--uc-text) !important;
+    fill: var(--uc-text) !important;
+    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active) !important;
+    transform: none !important;
+}
+
+body :is(.top-site-outer .tile .icon-wrapper,
+         .top-site-outer .top-site-icon,
+         .top-site-outer .default-icon) {
+    border-radius: var(--uc-newtab-radius-inner) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body :is(.ds-onboarding-container:not(.placeholder) .img-wrapper .img img,
+         .ds-onboarding-container:not(.placeholder) .img-wrapper .img .placeholder-image,
+         .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img img,
+         .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img .placeholder-image) {
+    border-radius: var(--uc-newtab-radius-inner) !important;
+    outline: none !important;
+}
+
+body :is(.top-site-outer .title,
+         .top-site-outer .title span,
+         .card-outer:not(.placeholder) .card-title,
+         .ds-highlights .section .section-list .card-outer .card-host-name,
+         .ds-card .meta,
+         .context-menu > ul > li > a,
+         .context-menu > ul > li > button) {
+    color: var(--uc-text) !important;
+    text-shadow: none !important;
 }
