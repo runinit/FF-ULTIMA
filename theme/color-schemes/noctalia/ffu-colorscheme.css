@@ -475,11 +475,11 @@ body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
 
 body .context-menu,
 body .customize-menu {
-    background-color: var(--uc-newtab-panel-background) !important;
+    background-color: color-mix(in srgb, var(--uc-newtab-panel-background) 94%, transparent) !important;
     color: var(--uc-text) !important;
-    border: 1px solid var(--uc-newtab-outline-rest) !important;
+    border: 1px solid var(--uc-panel-border) !important;
     border-radius: var(--uc-newtab-radius) !important;
-    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-rest), var(--uc-newtab-shadow) !important;
+    box-shadow: var(--uc-box-shadow-panel) !important;
     backdrop-filter: none !important;
     filter: none !important;
     box-sizing: border-box !important;
@@ -491,7 +491,7 @@ body .context-menu {
     z-index: 1000 !important;
     margin: 0 !important;
     padding: 6px !important;
-    min-width: 180px !important;
+    min-width: 220px !important;
     max-width: min(320px, calc(100vw - 32px)) !important;
     line-height: normal !important;
 }
@@ -545,12 +545,22 @@ body :is(.top-site-outer .context-menu-button,
 
 body :is(.context-menu > ul > li > button,
          .context-menu > ul > li > a) {
-    min-height: 28px !important;
-    padding: 4px 10px !important;
+    min-height: 30px !important;
+    padding: 5px 10px !important;
     line-height: 20px !important;
     text-align: start !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+}
+
+body .context-menu > ul > li.separator {
+    border-block-end: 1px solid color-mix(in srgb, var(--uc-panel-border) 70%, transparent) !important;
+    margin: 4px 6px !important;
+    min-height: 0 !important;
 }
 
 body .personalize-button,
@@ -581,15 +591,23 @@ body :is(.top-site-outer .context-menu-button,
          .card-outer .context-menu-button,
          .ds-card .context-menu-button,
          .ds-signup .context-menu-button,
-         .customize-menu .close-button,
-         .context-menu > ul > li > button,
-         .context-menu > ul > li > a):is(:hover, :focus, :focus-visible),
+         .customize-menu .close-button):is(:hover, :focus, :focus-visible),
 body .open-customization-button:is(:hover, :focus-within)::part(button) {
     background-color: var(--uc-newtab-hover-background) !important;
     border-color: var(--uc-newtab-outline-active) !important;
     color: var(--uc-newtab-accent-foreground) !important;
     fill: var(--uc-newtab-accent-foreground) !important;
     box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active) !important;
+    transform: none !important;
+}
+
+body :is(.context-menu > ul > li > button,
+         .context-menu > ul > li > a):is(:hover, :focus, :focus-visible) {
+    background-color: var(--uc-newtab-hover-background) !important;
+    color: var(--uc-newtab-accent-foreground) !important;
+    fill: var(--uc-newtab-accent-foreground) !important;
+    border: 0 !important;
+    box-shadow: none !important;
     transform: none !important;
 }
 
@@ -624,9 +642,7 @@ body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .title,
          .top-site-outer:is(:hover, :focus, :focus-within, .active) .title span,
          .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title,
          .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-host-name,
-         .ds-card:is(:hover, :focus-within) .meta,
-         .context-menu > ul > li > a:is(:hover, :focus),
-         .context-menu > ul > li > button:is(:hover, :focus)) {
+         .ds-card:is(:hover, :focus-within) .meta) {
     color: var(--uc-newtab-accent-foreground) !important;
     fill: var(--uc-newtab-accent-foreground) !important;
 }
