@@ -12,8 +12,8 @@ To use this color scheme:
 - Turn on `user.theme.pywalfox`.
 
 Optional wallpaper:
-- Turn on `user.theme.wallpaper.pywalfox` to force a solid Pywalfox wallpaper.
-- The wallpaper is not an image asset; it uses FF Ultima's darkest Pywalfox bridge surface color.
+- Turn on `user.theme.wallpaper.pywalfox` to use the animated Pywalfox starfield wallpaper.
+- The wallpaper is CSS-only, not an image asset; it derives its stars, nebula glow, and dark background from FF Ultima's Pywalfox/wal color tokens.
 
 Notes:
 - `wal-colors.css` provides the wal palette to userContent targets such as Sidebery, where Firefox/LWT theme variables are not reliable.

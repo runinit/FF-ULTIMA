@@ -315,6 +315,16 @@ menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
     --uc-newtab-radius: var(--uc-button-border-radius);
     --uc-newtab-radius-inner: calc(var(--uc-newtab-radius) - 2px);
     --uc-newtab-shadow: var(--uc-box-shadow);
+    --uc-newtab-search-width: clamp(420px, 44vw, 720px);
+}
+
+body .search-wrapper,
+body:not(.inline-onboarding) .fixed-search .search-wrapper {
+    width: var(--uc-newtab-search-width) !important;
+    max-width: calc(100vw - 48px) !important;
+    min-width: min(320px, calc(100vw - 48px)) !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
 }
 
 body .search-wrapper .search-inner-wrapper,
@@ -326,6 +336,16 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     box-shadow: none !important;
     backdrop-filter: none !important;
     filter: none !important;
+}
+
+body .search-wrapper .search-inner-wrapper,
+body .search-wrapper content-search-handoff-ui,
+body .search-wrapper .search-handoff-button,
+body .search-wrapper input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
 }
 
 body .search-wrapper content-search-handoff-ui {
@@ -435,7 +455,6 @@ body :is(.top-site-outer .context-menu-button,
          .card-outer .context-menu-button,
          .ds-card .context-menu-button,
          .ds-signup .context-menu-button,
-         .personalize-button,
          .customize-menu .close-button,
          .context-menu > ul > li > button,
          .context-menu > ul > li > a) {
@@ -446,6 +465,20 @@ body :is(.top-site-outer .context-menu-button,
     border-radius: var(--uc-newtab-radius-inner) !important;
     outline: none !important;
     box-shadow: none !important;
+}
+
+body .personalize-button,
+body .open-customization-button {
+    position: fixed !important;
+    inset-block-end: 24px !important;
+    inset-inline-end: 24px !important;
+    z-index: 1000 !important;
+    transform: none !important;
+}
+
+body .personalize-button:is(:hover, :focus, :focus-visible),
+body .open-customization-button:is(:hover, :focus-within) {
+    transform: none !important;
 }
 
 body .open-customization-button::part(button) {
@@ -462,7 +495,6 @@ body :is(.top-site-outer .context-menu-button,
          .card-outer .context-menu-button,
          .ds-card .context-menu-button,
          .ds-signup .context-menu-button,
-         .personalize-button,
          .customize-menu .close-button,
          .context-menu > ul > li > button,
          .context-menu > ul > li > a):is(:hover, :focus, :focus-visible),
