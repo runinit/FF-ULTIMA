@@ -18,7 +18,6 @@ new tab rounded tweaks
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-@import url('all-color-schemes-wallpapers.css');
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {
 
 /* variables ------------------------------------------------------------------- */     
@@ -159,7 +158,9 @@ body {
 .logo {display: none !important;}
     
 /* spacing */  
-.search-wrapper .search-handoff-button, .search-wrapper input {
+.search-wrapper .search-handoff-button,
+.search-wrapper input,
+.search-wrapper content-search-handoff-ui {
     padding-inline-start: 0px !important;
     padding-inline-end: 0px !important;
 }    
@@ -195,6 +196,21 @@ body {
     backdrop-filter: blur(33px) !important;
     filter: saturate(100%) !important;
 }}
+
+.search-wrapper content-search-handoff-ui {
+    --content-search-handoff-ui-background-color: transparent !important;
+    --content-search-handoff-ui-color: var(--mode-color) !important;
+    --content-search-handoff-ui-fill: var(--mode-color) !important;
+    --content-search-handoff-ui-caret-color: var(--mode-color) !important;
+    --content-search-handoff-ui-border-width: 1px !important;
+    --content-search-handoff-ui-border-radius: 34px !important;
+    --content-search-handoff-ui-unfocused-border-color: transparent !important;
+    --content-search-handoff-ui-fakefocus-border-color: var(--button-active-bgcolor) !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-inner: transparent !important;
+    --content-search-handoff-ui-fakefocus-box-shadow-outer: transparent !important;
+    filter: grayscale(100%);
+}
+
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
     background-color: transparent !important;
     backdrop-filter: blur(33px) !important;
@@ -241,12 +257,31 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
 /* widgets --------------------------------------------------------------------- */ 
 
 .icon.icon-settings {opacity: 85% !important; color:var(--mod-color) !important}
-.personalize-button { /*! padding: 8px !important; */ border-radius:100% !important;}
-.personalize-button:hover {
+.personalize-button,
+.open-customization-button {
+    /*! padding: 8px !important; */
+    border-radius:100% !important;
+}
+.open-customization-button::part(button) {
+    background-color: transparent !important;
+    border-radius: 100% !important;
+    color: var(--mode-color) !important;
+    fill: var(--mode-color) !important;
+}
+.open-customization-button::part(moz-button-label) {
+    color: var(--mode-color) !important;
+}
+.personalize-button:hover,
+.open-customization-button:hover,
+.open-customization-button:focus-within {
     background-color: transparent !important;
     transform: scale(1.3);
     cursor: pointer;
 }  
+.open-customization-button:hover::part(button),
+.open-customization-button:focus-within::part(button) {
+    background-color: transparent !important;
+}
 .weatherCard {
     border-radius: var(--uc-fixed-rounding) !important;
     background: var(--newtab-background-color-secondary) !important;
@@ -471,7 +506,9 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     } 
     }
     /* style awesome bar */
-    .search-wrapper .search-handoff-button, .search-wrapper input {
+    .search-wrapper .search-handoff-button,
+    .search-wrapper input,
+    .search-wrapper content-search-handoff-ui {
         background: var(--newtab-background-color-secondary) !important;
         width: 100% !important;
         margin-left: 0% !important;

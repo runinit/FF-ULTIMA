@@ -21,8 +21,8 @@ Another - applying colors to extension
         --popup-power-ink: var(--uc-accent-color-5) !important;
     }
     .toolRibbon .tool:hover {
-        color: var(--uc-accent-i) !important;
-        fill: var(--uc-accent-i) !important;
+        color: var(--uc-accent-i, var(--uc-text)) !important;
+        fill: var(--uc-accent-i, var(--uc-text)) !important;
         border-radius: var(--uc-button-border-radius) !important;
     }
 }}
@@ -52,17 +52,17 @@ Another - applying colors to extension
     }
     /* Header Panel ------------------------------------------------*/
     #root.root {
-        --toolbar-scrollbar-color: var(--uc-accent-i) !important;
+        --toolbar-scrollbar-color: var(--uc-accent-i, var(--uc-text)) !important;
         --frame-el-overlay-selected-bg: var(--uc-button-selected) !important;
         --frame-el-overlay-selected-border: var(--uc-accent-color-1) !important;
         --frame-el-overlay-hover-bg: var(--uc-button-selected) !important;
-        --frame-scrollbar-color: var(--uc-accent-i) !important;
+        --frame-scrollbar-color: var(--uc-accent-i, var(--uc-text)) !important;
         --toolbar-el-overlay-selected-bg: var(--uc-button-selected) !important;
         --toolbar-el-overlay-hover-bg: var(--uc-button-selected) !important;
         --toolbar-el-overlay-active-bg: var(--uc-button-selected) !important;
         --toolbar-el-overlay-active-border: var(--uc-accent-color-1) !important;
         --nav-btn-fg: var(--uc-text) !important;
-        --nav-btn-accent: color-mix(in srgb, var(--uc-accent-color-5) 40%, black 60%) !important;
+        --nav-btn-accent: var(--uc-accent-color-1) !important;
         --nav-btn-active-shadow: var(--uc-box-shadow) !important;
     }
     .NavigationBar .nav-item .audio { display: none !important; }
@@ -157,23 +157,151 @@ Another - applying colors to extension
 
         --popup-bg: var(--uc-context-menu) !important;
         --popup-fg: var(--uc-text) !important;
-        --popup-scrollbar-color: var(--uc-accent-color-1)
+        --popup-scrollbar-color: var(--uc-accent-color-1);
 
         --notification-bg: var(--uc-context-menu) !important;
         --notification-fg: var(--uc-text) !important;
 
         --btn-border-radius: var(--uc-button-border-radius) !important;
-        --scroll-color:  color-mix(in srgb, var(--uc-accent-color-1) 40%, transparent 60%) !important;
+        --scroll-color: var(--uc-accent-color-1) !important;
     }
-    @media -moz-pref("user.theme.dark.a"), @media -moz-pref("user.theme.dark.midnight") {
+    @media (-moz-pref("user.theme.dark.a")), (-moz-pref("user.theme.dark.midnight")) {
         #root.root {
                 --ctx-menu-shadow: 0 0 0 1px rgb(56, 60, 64), 0 1px 16px 0 rgba(0,0,0,0.282) !important;
             }
     }
-    @media -moz-pref("user.theme.light.a"), @media -moz-pref("user.theme.light.gruvbox") {
+    @media (-moz-pref("user.theme.light.a")), (-moz-pref("user.theme.light.gruvbox")) {
         #root.root {
                 --ctx-menu-shadow: 0 0 0 1px var(--uc-accent-color-1), 0 1px 16px 0 rgba(100,100,100,0.282) !important;
             }
+    }
+    @media -moz-pref("user.theme.pywalfox") {
+        #root.root {
+            --frame-bg: var(--uc-browser-color) !important;
+            --toolbar-bg: var(--uc-browser-color) !important;
+            --frame-fg: var(--uc-text) !important;
+            --toolbar-fg: var(--uc-text) !important;
+
+            --toolbar-scrollbar-color: var(--uc-accent-color-1) !important;
+            --frame-scrollbar-color: var(--uc-accent-color-1) !important;
+            --frame-el-overlay-selected-bg: var(--uc-urlbar-background) !important;
+            --frame-el-overlay-selected-border: var(--uc-accent-color-1) !important;
+            --frame-el-overlay-hover-bg: var(--uc-button-selected) !important;
+            --toolbar-el-overlay-selected-bg: var(--uc-button-selected) !important;
+            --toolbar-el-overlay-hover-bg: var(--uc-button-selected) !important;
+            --toolbar-el-overlay-active-bg: var(--uc-button-selected) !important;
+            --toolbar-el-overlay-active-border: var(--uc-accent-color-1) !important;
+            --nav-btn-accent: var(--uc-accent-color-1) !important;
+            --nav-btn-active-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-accent-color-1) 48%, transparent) !important;
+
+            --tabs-normal-bg: transparent !important;
+            --tabs-normal-fg: var(--uc-text) !important;
+            --tabs-active-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-active-fg: var(--uc-text) !important;
+            --tabs-active-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            --tabs-selected-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-selected-fg: var(--uc-text) !important;
+            --tabs-selected-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            --tabs-activated-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-activated-fg: var(--uc-text) !important;
+            --tabs-activated-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            --tabs-progress-bg: var(--uc-accent-color-1) !important;
+            --tabs-pinned-bg: var(--uc-browser-color) !important;
+            --tabs-pinned-fg: var(--uc-text) !important;
+            --tabs-pinned-shadow: none !important;
+            --tabs-close-btn-bg: var(--uc-button-selected) !important;
+            --tabs-close-btn-fg: var(--uc-text) !important;
+
+            --bookmarks-node-hover-bg: var(--uc-button-selected) !important;
+            --bookmarks-node-active-bg: var(--uc-urlbar-background) !important;
+            --bookmarks-node-active-fg: var(--uc-text) !important;
+
+            --ctx-menu-bg: var(--uc-panel-background) !important;
+            --ctx-menu-fg: var(--uc-text) !important;
+            --ctx-menu-separator: color-mix(in srgb, var(--uc-accent-color-1) 22%, transparent) !important;
+            --ctx-menu-shadow: 0 0 0 1px var(--uc-panel-border), 0 1px 16px 0 color-mix(in srgb, var(--uc-browser-color) 64%, transparent) !important;
+            --ctx-menu-opt-hover-bg: var(--uc-button-selected) !important;
+            --ctx-menu-opt-hover-fg: var(--uc-text) !important;
+
+            --popup-bg: var(--uc-panel-background) !important;
+            --popup-fg: var(--uc-text) !important;
+            --popup-scrollbar-color: var(--uc-accent-color-1) !important;
+            --notification-bg: var(--uc-panel-background) !important;
+            --notification-fg: var(--uc-text) !important;
+            --notification-border: var(--uc-panel-border) !important;
+            --scroll-color: var(--uc-accent-color-1) !important;
+        }
+
+        #root.root .Tab .body {
+            box-shadow: none !important;
+            border-color: transparent !important;
+        }
+        #root.root .Tab:hover .body {
+            background-color: var(--uc-button-selected) !important;
+        }
+        #root.root .Tab[data-active="true"] .body,
+        #root.root .Tab[data-selected="true"] .body {
+            background-color: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            border-color: var(--uc-accent-color-1) !important;
+        }
+        #root.root .PinnedTabsBar,
+        #root.root .PinnedTabsBar .tab-wrapper {
+            border-color: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        #root.root .PinnedTabsBar .Tab .body,
+        #root.root .Tab[data-pin="true"] .body {
+            background-color: var(--uc-browser-color) !important;
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            border-color: var(--uc-accent-color-1) !important;
+        }
+        #root.root .PinnedTabsBar .tab-wrapper:hover,
+        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab,
+        #root.root .PinnedTabsBar .Tab:hover {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        #root.root .PinnedTabsBar .Tab:hover .body,
+        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab .body,
+        #root.root .PinnedTabsBar .tab-wrapper:hover .body,
+        #root.root .Tab[data-pin="true"]:hover .body {
+            background-color: var(--uc-button-selected) !important;
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            border-color: var(--uc-accent-color-1) !important;
+        }
+        #root.root .PinnedTabsBar .Tab:hover .body::before,
+        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab .body::before,
+        #root.root .PinnedTabsBar .tab-wrapper:hover .body::before,
+        #root.root .Tab[data-pin="true"]:hover .body::before {
+            background-color: var(--uc-button-selected) !important;
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+        }
+        #root.root .PinnedTabsBar .Tab[data-active="true"] .body,
+        #root.root .PinnedTabsBar .Tab[data-selected="true"] .body,
+        #root.root .Tab[data-pin="true"][data-active="true"] .body,
+        #root.root .Tab[data-pin="true"][data-selected="true"] .body {
+            position: relative !important;
+            z-index: 1 !important;
+            background-color: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+            border-color: var(--uc-accent-color-1) !important;
+        }
+        #root.root .PinnedTabsBar .Tab[data-active="true"] .body::before,
+        #root.root .PinnedTabsBar .Tab[data-selected="true"] .body::before,
+        #root.root .Tab[data-pin="true"][data-active="true"] .body::before,
+        #root.root .Tab[data-pin="true"][data-selected="true"] .body::before {
+            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
+        }
+        #root.root .popup {
+            background-color: var(--uc-urlbar-background) !important;
+        }
+        #root.root .ctx-menu,
+        #root.root .popup,
+        #root.root .notification {
+            border-color: var(--uc-panel-border) !important;
+        }
     }
 
 }}

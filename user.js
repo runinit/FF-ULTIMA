@@ -17,6 +17,7 @@ user_pref("user.theme.transparent", false);
 user_pref("user.theme.catppuccin", false);
 user_pref("user.theme.catppuccin-frappe", false);
 user_pref("user.theme.catppuccin-mocha", false);
+user_pref("user.theme.catppuccin-mocha-variant", false);
 user_pref("user.theme.gruvbox", false);
 user_pref("user.theme.kanagawa-wave", false);
 user_pref("user.theme.midnight", false);
@@ -173,6 +174,8 @@ user_pref("user.theme.wallpaper.gruvbox", false);
 user_pref("user.theme.wallpaper.gruvbox.flowers", false);
 user_pref("user.theme.wallpaper.gruvbox.light", false);
 user_pref("user.theme.wallpaper.kanagawa-wave", false);
+user_pref("user.theme.wallpaper.rose-pine", false);
+user_pref("user.theme.wallpaper.rose-pine-dawn", false);
 user_pref("user.theme.wallpaper.midnight", false);
 user_pref("user.theme.wallpaper.midnight2", false);
 user_pref("user.theme.wallpaper.fluent.dark", false);
@@ -180,6 +183,13 @@ user_pref("user.theme.wallpaper.fluent.light", false);
 user_pref("user.theme.wallpaper.ayu", false);
 user_pref("user.theme.wallpaper.pywalfox", false);
 user_pref("user.theme.wallpaper.fluid-gradient", false);
+
+/* firefox new tab content */
+user_pref("browser.newtabpage.enabled", true);
+user_pref("browser.newtabpage.activity-stream.showSearch", true);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", true);
+user_pref("browser.newtabpage.activity-stream.feeds.system.topsites", true);
+user_pref("browser.newtabpage.activity-stream.feeds.places", true);
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 

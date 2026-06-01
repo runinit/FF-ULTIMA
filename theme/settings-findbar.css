@@ -15,8 +15,19 @@ ultima.findbar.disable.background.image
     /* Show searchbox at the top */
     .browserContainer > findbar {
         order: -1;
-        /* Firefox 150+ no longer needs the old spacer; keep the top findbar flush with the toolbar. */
-        margin-top: 0;
+        /* Keep top findbar controls clear of rounded/titlebar chrome without adding a new pref. */
+        padding-block: var(--uc-findbar-top-clearance, 16px) 6px !important;
+    }
+
+    .browserContainer > findbar .findbar-container {
+        height: auto !important;
+        min-height: 38px !important;
+        margin-top: 0 !important;
+        align-items: center;
+    }
+
+    .browserContainer > findbar .findbar-closebutton {
+        margin-block: 0 !important;
     }
 
     /* Limit the searchbox width */
@@ -57,4 +68,3 @@ ultima.findbar.disable.background.image
 }
 
 /* --------------------------------------------------------------------------- */
-

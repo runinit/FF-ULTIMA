@@ -45,6 +45,59 @@ ultima.urlbar.hide.trackingprotection.icon
     }
 }
 
+@media -moz-pref("user.theme.pywalfox") {
+    #main-window #urlbar,
+    #main-window #urlbar[open],
+    #main-window #urlbar[breakout],
+    #main-window #urlbar[breakout][breakout-extend],
+    :root:has(#urlbar-searchmode-switcher[open]) #urlbar {
+        background: var(--uc-urlbar-background) !important;
+        background-color: var(--uc-urlbar-background) !important;
+        border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
+        border-radius: var(--uc-button-border-radius) !important;
+        outline: none !important;
+        box-shadow: none !important;
+        box-sizing: border-box !important;
+    }
+
+    #main-window #urlbar > #urlbar-background,
+    #main-window #urlbar > .urlbar-background,
+    #main-window #urlbar .urlbar-input-container,
+    #main-window .urlbarView,
+    #main-window .urlbarView-body-inner,
+    #main-window #urlbar-results,
+    #main-window #searchbar {
+        opacity: 1 !important;
+        background: var(--uc-urlbar-background) !important;
+        background-color: var(--uc-urlbar-background) !important;
+        backdrop-filter: none !important;
+    }
+
+    #main-window #urlbar > #urlbar-background,
+    #main-window #urlbar > .urlbar-background {
+        border: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    #main-window #searchbar {
+        border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    #main-window .urlbarView-row:is(:hover, [selected]) {
+        background-color: var(--uc-button-selected) !important;
+    }
+
+    #main-window #urlbar:is(:hover, [focused="true"], [focused], [open]),
+    #main-window #searchbar:focus-within {
+        border: 1px solid var(--uc-accent-color-1) !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
 @media -moz-pref("ultima.urlbar.hide.searchsuggestions") {
     #urlbar .search-one-offs:not([hidden]) {
         display: none !important;
