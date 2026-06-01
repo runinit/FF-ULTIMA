@@ -62,7 +62,7 @@ wal palette as browser chrome.
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 
-/* Minimal surface nudges; Pywalfox keeps owning the Firefox Theme API palette. */
+/* Minimal surface nudges; Pywal/Pywalfox keep owning the Firefox Theme API palette source. */
 
 #main-window {
     --toolbar-bgcolor: var(--uc-navbar-background) !important;

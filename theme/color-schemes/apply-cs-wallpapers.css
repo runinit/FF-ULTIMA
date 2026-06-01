@@ -43,7 +43,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     @media -moz-pref("user.theme.wallpaper.kanagawa-wave"){--uc-wallpaper: url("walls/kanagawa-wave.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine"){--uc-wallpaper: url("walls/rose-pine.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine-dawn"){--uc-wallpaper: url("walls/rose-pine-dawn.jpg") !important;}
-    @media -moz-pref("user.theme.wallpaper.noctalia") {
+    @media -moz-pref("user.theme.wallpaper.noctalia"), -moz-pref("user.theme.wallpaper.pywalfox") {
         --uc-noctalia-space-base: color-mix(in srgb, var(--uc-browser-color) 42%, black);
         --uc-noctalia-space-depth: color-mix(in srgb, var(--uc-noctalia-wal-surface, var(--uc-layered-background)) 34%, black);
         --uc-noctalia-space-core: color-mix(in srgb, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)) 18%, black);

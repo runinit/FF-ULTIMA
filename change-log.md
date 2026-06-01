@@ -15,13 +15,13 @@
 -->
 
 ### <ins> Change Log
-- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens so Pywalfox icons and static theme header colors stay palette-correct
+- `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens so Noctalia icons and static theme header colors stay palette-correct
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc
 - `fix • 🔴 •` Split tab - horizontal tabs, spacing correction #440 5591cdc c5a649c
 - `fix • 🔴 •` Removed the custom selected indicator for [collapsed][hasactivetab] tab groups, replaced with a subtle highlight on the default # indicator #453
-- `new • 🟢 •` New `user.theme.pywalfox` bridge color scheme with solid `user.theme.wallpaper.pywalfox` support
-- `new • 🟢 •` New `user.theme.wallpaper.fluid-gradient` animated Pywalfox-aware new-tab wallpaper
+- `new • 🟢 •` New `user.theme.noctalia` bridge color scheme with animated `user.theme.wallpaper.noctalia` starfield support
+- `new • 🟢 •` New `user.theme.wallpaper.fluid-gradient` animated Noctalia-aware new-tab wallpaper
 - `new • 🟢 •` New [`Rose Pine Color Scheme`](https://ff-ultima.github.io/docs/color-schemes/rose-pine) by @neyfua! #422 22640ef
 - `new • 🟢 •` Setting `ultima.tabs.focus.unblur` reduces the visibiliy of tabs unless they are hovered, selected, playing audio, or loading.
 - `new • 🟢 •` Setting `ultima.sidebar.compact.treeviews` compacts the tree view of the bookmarks/history sidebars ed9f73d

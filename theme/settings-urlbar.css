@@ -45,7 +45,7 @@ ultima.urlbar.hide.trackingprotection.icon
     }
 }
 
-@media -moz-pref("user.theme.noctalia") {
+@media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
     #main-window #urlbar,
     #main-window #urlbar[open],
     #main-window #urlbar[breakout],

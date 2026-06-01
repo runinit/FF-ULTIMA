@@ -29,6 +29,8 @@ user_pref("user.theme.brave", false);
 user_pref("user.theme.ayu", false);
 user_pref("user.theme.rose-pine", false);
 user_pref("user.theme.noctalia", false);
+// Legacy alias: existing profiles with Pywalfox enabled still load Noctalia. Prefer user.theme.noctalia for new setups.
+user_pref("user.theme.pywalfox", false);
 user_pref("user.theme.xtras.color-scheme.force.consistency", false);
 
 /* nav bar */
@@ -182,6 +184,8 @@ user_pref("user.theme.wallpaper.fluent.dark", false);
 user_pref("user.theme.wallpaper.fluent.light", false);
 user_pref("user.theme.wallpaper.ayu", false);
 user_pref("user.theme.wallpaper.noctalia", false);
+// Legacy alias for existing profiles. Prefer user.theme.wallpaper.noctalia for new setups.
+user_pref("user.theme.wallpaper.pywalfox", false);
 user_pref("user.theme.wallpaper.fluid-gradient", false);
 
 /* firefox new tab content */
