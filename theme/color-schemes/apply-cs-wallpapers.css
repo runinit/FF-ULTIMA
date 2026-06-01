@@ -44,24 +44,24 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     @media -moz-pref("user.theme.wallpaper.rose-pine"){--uc-wallpaper: url("walls/rose-pine.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.rose-pine-dawn"){--uc-wallpaper: url("walls/rose-pine-dawn.jpg") !important;}
     @media -moz-pref("user.theme.wallpaper.noctalia") {
-        --uc-pywalfox-space-base: color-mix(in srgb, var(--uc-browser-color) 42%, black);
-        --uc-pywalfox-space-depth: color-mix(in srgb, var(--uc-pywalfox-wal-surface, var(--uc-layered-background)) 34%, black);
-        --uc-pywalfox-space-core: color-mix(in srgb, var(--uc-pywalfox-primary-accent, var(--uc-accent-color-1)) 18%, black);
-        --uc-pywalfox-space-nebula-a: color-mix(in srgb, var(--uc-pywalfox-primary-accent, var(--uc-accent-color-1)) 48%, transparent);
-        --uc-pywalfox-space-nebula-b: color-mix(in srgb, var(--uc-pywalfox-secondary-accent, var(--uc-accent-color-3)) 42%, transparent);
-        --uc-pywalfox-space-star-cool: color-mix(in srgb, var(--uc-pywalfox-primary-accent, var(--uc-accent-color-1)) 72%, var(--uc-text));
-        --uc-pywalfox-space-star-warm: color-mix(in srgb, var(--uc-pywalfox-secondary-accent, var(--uc-accent-color-3)) 68%, var(--uc-text));
-        --uc-pywalfox-space-star-white: color-mix(in srgb, var(--uc-text) 86%, var(--uc-pywalfox-primary-accent, var(--uc-accent-color-1)));
+        --uc-noctalia-space-base: color-mix(in srgb, var(--uc-browser-color) 42%, black);
+        --uc-noctalia-space-depth: color-mix(in srgb, var(--uc-noctalia-wal-surface, var(--uc-layered-background)) 34%, black);
+        --uc-noctalia-space-core: color-mix(in srgb, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)) 18%, black);
+        --uc-noctalia-space-nebula-a: color-mix(in srgb, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)) 48%, transparent);
+        --uc-noctalia-space-nebula-b: color-mix(in srgb, var(--uc-noctalia-secondary-accent, var(--uc-accent-color-3)) 42%, transparent);
+        --uc-noctalia-space-star-cool: color-mix(in srgb, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)) 72%, var(--uc-text));
+        --uc-noctalia-space-star-warm: color-mix(in srgb, var(--uc-noctalia-secondary-accent, var(--uc-accent-color-3)) 68%, var(--uc-text));
+        --uc-noctalia-space-star-white: color-mix(in srgb, var(--uc-text) 86%, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)));
         --uc-wallpaper:
-            radial-gradient(ellipse 46% 34% at 50% 72%, color-mix(in srgb, black 58%, transparent) 0%, color-mix(in srgb, var(--uc-pywalfox-space-core) 38%, transparent) 42%, transparent 74%),
-            radial-gradient(ellipse 82% 54% at 72% 38%, var(--uc-pywalfox-space-nebula-a) 0%, color-mix(in srgb, var(--uc-pywalfox-space-nebula-a) 40%, transparent) 34%, transparent 72%),
-            radial-gradient(ellipse 68% 50% at 22% 28%, var(--uc-pywalfox-space-nebula-b) 0%, color-mix(in srgb, var(--uc-pywalfox-space-nebula-b) 34%, transparent) 38%, transparent 76%),
+            radial-gradient(ellipse 46% 34% at 50% 72%, color-mix(in srgb, black 58%, transparent) 0%, color-mix(in srgb, var(--uc-noctalia-space-core) 38%, transparent) 42%, transparent 74%),
+            radial-gradient(ellipse 82% 54% at 72% 38%, var(--uc-noctalia-space-nebula-a) 0%, color-mix(in srgb, var(--uc-noctalia-space-nebula-a) 40%, transparent) 34%, transparent 72%),
+            radial-gradient(ellipse 68% 50% at 22% 28%, var(--uc-noctalia-space-nebula-b) 0%, color-mix(in srgb, var(--uc-noctalia-space-nebula-b) 34%, transparent) 38%, transparent 76%),
             radial-gradient(ellipse 120% 92% at 50% 108%, color-mix(in srgb, black 70%, transparent) 0%, transparent 58%),
-            radial-gradient(ellipse at bottom, var(--uc-pywalfox-space-depth) 0%, var(--uc-pywalfox-space-base) 54%, color-mix(in srgb, black 78%, var(--uc-pywalfox-space-base)) 100%) !important;
+            radial-gradient(ellipse at bottom, var(--uc-noctalia-space-depth) 0%, var(--uc-noctalia-space-base) 54%, color-mix(in srgb, black 78%, var(--uc-noctalia-space-base)) 100%) !important;
 
         body {
             position: relative !important;
-            background-color: var(--uc-pywalfox-space-base) !important;
+            background-color: var(--uc-noctalia-space-base) !important;
             background-image: var(--uc-wallpaper) !important;
             overflow-x: hidden !important;
         }
@@ -86,25 +86,25 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
             z-index: 0;
             opacity: 0.72;
             background-image:
-                radial-gradient(circle, var(--uc-pywalfox-space-star-warm) 0 1px, transparent 1.7px),
-                radial-gradient(circle, var(--uc-pywalfox-space-star-cool) 0 1px, transparent 1.6px),
-                radial-gradient(circle, var(--uc-pywalfox-space-star-white) 0 1.4px, transparent 2px);
+                radial-gradient(circle, var(--uc-noctalia-space-star-warm) 0 1px, transparent 1.7px),
+                radial-gradient(circle, var(--uc-noctalia-space-star-cool) 0 1px, transparent 1.6px),
+                radial-gradient(circle, var(--uc-noctalia-space-star-white) 0 1.4px, transparent 2px);
             background-size: 173px 211px, 257px 307px, 389px 431px;
             background-position: 10px 18px, 74px 112px, 132px 58px;
-            filter: drop-shadow(0 0 5px color-mix(in srgb, var(--uc-pywalfox-primary-accent, var(--uc-accent-color-1)) 42%, transparent));
-            animation: ffu-pywalfox-starfield-drift 150s linear infinite;
+            filter: drop-shadow(0 0 5px color-mix(in srgb, var(--uc-noctalia-primary-accent, var(--uc-accent-color-1)) 42%, transparent));
+            animation: ffu-noctalia-starfield-drift 150s linear infinite;
         }
 
         body::after {
             z-index: 0;
             opacity: 0.42;
             background:
-                radial-gradient(ellipse 48% 36% at 66% 42%, color-mix(in srgb, var(--uc-pywalfox-space-nebula-a) 58%, transparent) 0%, transparent 70%),
-                radial-gradient(ellipse 42% 34% at 30% 30%, color-mix(in srgb, var(--uc-pywalfox-space-nebula-b) 52%, transparent) 0%, transparent 72%),
+                radial-gradient(ellipse 48% 36% at 66% 42%, color-mix(in srgb, var(--uc-noctalia-space-nebula-a) 58%, transparent) 0%, transparent 70%),
+                radial-gradient(ellipse 42% 34% at 30% 30%, color-mix(in srgb, var(--uc-noctalia-space-nebula-b) 52%, transparent) 0%, transparent 72%),
                 radial-gradient(ellipse 36% 28% at 50% 76%, color-mix(in srgb, black 68%, transparent) 0%, transparent 74%);
             background-repeat: no-repeat;
             filter: blur(46px) saturate(118%) contrast(104%);
-            animation: ffu-pywalfox-nebula-drift 120s ease-in-out infinite alternate;
+            animation: ffu-noctalia-nebula-drift 120s ease-in-out infinite alternate;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -291,7 +291,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 }
 
 
-@keyframes ffu-pywalfox-starfield-drift {
+@keyframes ffu-noctalia-starfield-drift {
     from {
         transform: translate3d(0, 0, 0);
     }
@@ -300,7 +300,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
     }
 }
 
-@keyframes ffu-pywalfox-nebula-drift {
+@keyframes ffu-noctalia-nebula-drift {
     0% {
         opacity: 0.34;
         transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(0deg);

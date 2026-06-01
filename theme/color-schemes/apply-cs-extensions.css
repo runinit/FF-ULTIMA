@@ -196,13 +196,13 @@ Another - applying colors to extension
 
             --tabs-normal-bg: transparent !important;
             --tabs-normal-fg: var(--uc-text) !important;
-            --tabs-active-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-active-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
             --tabs-active-fg: var(--uc-text) !important;
             --tabs-active-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            --tabs-selected-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-selected-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
             --tabs-selected-fg: var(--uc-text) !important;
             --tabs-selected-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            --tabs-activated-bg: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            --tabs-activated-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
             --tabs-activated-fg: var(--uc-text) !important;
             --tabs-activated-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
             --tabs-progress-bg: var(--uc-accent-color-1) !important;
@@ -241,7 +241,7 @@ Another - applying colors to extension
         }
         #root.root .Tab[data-active="true"] .body,
         #root.root .Tab[data-selected="true"] .body {
-            background-color: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            background-color: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
             box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
             border-color: var(--uc-accent-color-1) !important;
         }
@@ -284,7 +284,7 @@ Another - applying colors to extension
         #root.root .Tab[data-pin="true"][data-selected="true"] .body {
             position: relative !important;
             z-index: 1 !important;
-            background-color: var(--uc-pywalfox-active-surface, var(--uc-button-selected)) !important;
+            background-color: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
             box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
             border-color: var(--uc-accent-color-1) !important;
         }

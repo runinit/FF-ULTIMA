@@ -18,35 +18,35 @@ wal palette as browser chrome.
 #main-window[lwtheme] {
     --uc-browser-color:      var(--background, var(--color0, var(--lwt-accent-color, Canvas)));
     --uc-text:               var(--foreground, var(--color15, var(--lwt-text-color, CanvasText)));
-    --uc-pywalfox-primary-accent: var(--color10, var(--lwt-sidebar-highlight-background-color, var(--color-accent-primary, AccentColor)));
-    --uc-pywalfox-secondary-accent: var(--color13, var(--uc-pywalfox-primary-accent));
-    --uc-pywalfox-hover-surface: color-mix(in srgb, var(--uc-pywalfox-primary-accent) 30%, var(--uc-browser-color));
-    --uc-pywalfox-active-surface: color-mix(in srgb, var(--uc-pywalfox-primary-accent) 38%, var(--uc-browser-color));
-    --uc-pywalfox-panel-surface: var(--background, var(--color0, var(--uc-browser-color)));
-    --uc-accent-color-1:     var(--uc-pywalfox-primary-accent);
+    --uc-noctalia-primary-accent: var(--color10, var(--lwt-sidebar-highlight-background-color, var(--color-accent-primary, AccentColor)));
+    --uc-noctalia-secondary-accent: var(--color13, var(--uc-noctalia-primary-accent));
+    --uc-noctalia-hover-surface: color-mix(in srgb, var(--uc-noctalia-primary-accent) 30%, var(--uc-browser-color));
+    --uc-noctalia-active-surface: color-mix(in srgb, var(--uc-noctalia-primary-accent) 38%, var(--uc-browser-color));
+    --uc-noctalia-panel-surface: var(--background, var(--color0, var(--uc-browser-color)));
+    --uc-accent-color-1:     var(--uc-noctalia-primary-accent);
     --uc-accent-i:           var(--foreground, var(--color15, var(--lwt-sidebar-highlight-text-color, var(--toolbar-field-focus-color, var(--toolbar-field-color, var(--uc-text))))));
-    --uc-layered-background: var(--uc-pywalfox-wal-surface, var(--color7, var(--lwt-sidebar-background-color, color-mix(in srgb, var(--uc-browser-color) 85%, var(--uc-text)))));
+    --uc-layered-background: var(--uc-noctalia-wal-surface, var(--color7, var(--lwt-sidebar-background-color, color-mix(in srgb, var(--uc-browser-color) 85%, var(--uc-text)))));
     --uc-navbar-background:  var(--uc-browser-color);
-    --uc-urlbar-background:  color-mix(in srgb, var(--uc-pywalfox-primary-accent) 6%, var(--uc-pywalfox-wal-field, var(--color7, var(--uc-layered-background))));
+    --uc-urlbar-background:  color-mix(in srgb, var(--uc-noctalia-primary-accent) 6%, var(--uc-noctalia-wal-field, var(--color7, var(--uc-layered-background))));
     --uc-findbar-background: var(--uc-layered-background);
     --uc-sidebar-background: var(--color0, var(--lwt-sidebar-background-color, var(--uc-layered-background)));
     --uc-tabsbar-background: var(--uc-browser-color);
     --uc-tab-background:     transparent;
-    --uc-tab-selected:       var(--uc-pywalfox-wal-surface, var(--color7, var(--tab-selected-bgcolor, var(--uc-layered-background))));
+    --uc-tab-selected:       var(--uc-noctalia-wal-surface, var(--color7, var(--tab-selected-bgcolor, var(--uc-layered-background))));
     --uc-tab-selected-text:  var(--color15, var(--tab-selected-textcolor, var(--uc-text)));
-    --uc-button-selected:    var(--uc-pywalfox-hover-surface);
+    --uc-button-selected:    var(--uc-noctalia-hover-surface);
     --uc-button-red:         var(--uc-accent-color-1);
     --uc-context-menu:       var(--uc-panel-background);
-    --uc-panel-background:   var(--uc-pywalfox-panel-surface);
-    --uc-panel-border:       color-mix(in srgb, var(--uc-pywalfox-primary-accent) 55%, var(--uc-browser-color));
-    --uc-panel-border-2:     color-mix(in srgb, var(--uc-pywalfox-primary-accent) 42%, transparent);
+    --uc-panel-background:   var(--uc-noctalia-panel-surface);
+    --uc-panel-border:       color-mix(in srgb, var(--uc-noctalia-primary-accent) 55%, var(--uc-browser-color));
+    --uc-panel-border-2:     color-mix(in srgb, var(--uc-noctalia-primary-accent) 42%, transparent);
     --uc-panel-border-ii:    var(--uc-panel-border-2);
-    --uc-accent-color-2:     var(--uc-pywalfox-primary-accent);
-    --uc-urlbar-url-color:   var(--uc-pywalfox-secondary-accent);
-    --uc-accent-color-3:     var(--uc-pywalfox-primary-accent);
-    --uc-accent-color-4:     var(--uc-pywalfox-wal-field, var(--color7, var(--uc-layered-background)));
+    --uc-accent-color-2:     var(--uc-noctalia-primary-accent);
+    --uc-urlbar-url-color:   var(--uc-noctalia-secondary-accent);
+    --uc-accent-color-3:     var(--uc-noctalia-primary-accent);
+    --uc-accent-color-4:     var(--uc-noctalia-wal-field, var(--color7, var(--uc-layered-background)));
     --uc-accent-color-5:     var(--color15, var(--toolbar-color, var(--uc-text)));
-    --uc-accent-color-6:     var(--uc-pywalfox-primary-accent);
+    --uc-accent-color-6:     var(--uc-noctalia-primary-accent);
     --uc-toolbarbutton-icon-fill: var(--uc-text);
     --uc-transparent:        transparent;
     --uc-selection-background: var(--uc-accent-color-1);
@@ -88,22 +88,22 @@ wal palette as browser chrome.
 }
 
 #main-window[lwtheme] {
-    --uc-accent-color-1: var(--uc-pywalfox-primary-accent) !important;
-    --uc-accent-color-2: var(--uc-pywalfox-primary-accent) !important;
-    --tab-loading-fill: var(--uc-pywalfox-primary-accent) !important;
+    --uc-accent-color-1: var(--uc-noctalia-primary-accent) !important;
+    --uc-accent-color-2: var(--uc-noctalia-primary-accent) !important;
+    --tab-loading-fill: var(--uc-noctalia-primary-accent) !important;
 }
 
 #main-window {
-    --tab-loading-fill: var(--uc-pywalfox-primary-accent) !important;
+    --tab-loading-fill: var(--uc-noctalia-primary-accent) !important;
     --lwt-tab-line-color: var(--uc-accent-color-1) !important;
     --toolbarbutton-icon-fill: var(--uc-toolbarbutton-icon-fill) !important;
     --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-    --toolbarbutton-active-background: var(--uc-pywalfox-active-surface) !important;
+    --toolbarbutton-active-background: var(--uc-noctalia-active-surface) !important;
     --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-active: var(--uc-pywalfox-active-surface) !important;
+    --toolbarbutton-background-color-active: var(--uc-noctalia-active-surface) !important;
     --button-background-color-ghost-hover: var(--uc-button-selected) !important;
     --button-background-color-hover: var(--uc-button-selected) !important;
-    --button-background-color-active: var(--uc-pywalfox-active-surface) !important;
+    --button-background-color-active: var(--uc-noctalia-active-surface) !important;
     --button-primary-bgcolor: var(--uc-accent-color-1) !important;
     --button-primary-hover-bgcolor: color-mix(in srgb, var(--uc-accent-color-1) 82%, var(--uc-text)) !important;
     --toolbar-field-background-color: var(--uc-urlbar-background) !important;
@@ -116,11 +116,11 @@ wal palette as browser chrome.
     --text-highlight-foreground: var(--uc-selection-color) !important;
     --toolbar-field-border-color: rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
     --toolbar-field-focus-border-color: var(--uc-accent-color-1) !important;
-    --urlbarView-highlight-background: var(--uc-pywalfox-active-surface) !important;
+    --urlbarView-highlight-background: var(--uc-noctalia-active-surface) !important;
     --urlbarView-hover-background: var(--uc-button-selected) !important;
     --urlbar-box-bgcolor: var(--uc-urlbar-background) !important;
     --urlbar-box-hover-bgcolor: var(--uc-button-selected) !important;
-    --urlbar-box-focus-bgcolor: var(--uc-pywalfox-active-surface) !important;
+    --urlbar-box-focus-bgcolor: var(--uc-noctalia-active-surface) !important;
     --arrowpanel-background: var(--uc-panel-background) !important;
     --arrowpanel-border-color: var(--uc-panel-border) !important;
     --arrowpanel-color: var(--uc-text) !important;
@@ -129,8 +129,8 @@ wal palette as browser chrome.
     --panel-color: var(--uc-text) !important;
     --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
     --arrowpanel-dimmed: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed-further: var(--uc-pywalfox-active-surface) !important;
-    --arrowpanel-dimmed-even-further: var(--uc-pywalfox-active-surface) !important;
+    --arrowpanel-dimmed-further: var(--uc-noctalia-active-surface) !important;
+    --arrowpanel-dimmed-even-further: var(--uc-noctalia-active-surface) !important;
     --menuitem-hover-background-color: var(--uc-button-selected) !important;
     --menuitem-disabled-hover-background-color: transparent !important;
     --panel-separator-color: color-mix(in srgb, var(--uc-accent-color-1) 22%, transparent) !important;
@@ -268,8 +268,8 @@ panelview,
 #unified-extensions-view #unified-extensions-area {
     --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
     --arrowpanel-dimmed: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed-further: var(--uc-pywalfox-active-surface) !important;
-    --arrowpanel-dimmed-even-further: var(--uc-pywalfox-active-surface) !important;
+    --arrowpanel-dimmed-further: var(--uc-noctalia-active-surface) !important;
+    --arrowpanel-dimmed-even-further: var(--uc-noctalia-active-surface) !important;
     --menuitem-hover-background-color: var(--uc-button-selected) !important;
 }
 
@@ -306,10 +306,10 @@ menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
     --newtab-element-hover-color: var(--uc-button-selected) !important;
     --newtab-element-secondary-hover-color: var(--uc-button-selected) !important;
     --button-active-bgcolor: var(--uc-accent-color-1) !important;
-    --uc-newtab-surface-background: var(--uc-pywalfox-active-surface);
+    --uc-newtab-surface-background: var(--uc-noctalia-active-surface);
     --uc-newtab-panel-background: var(--uc-panel-background);
     --uc-newtab-hover-background: var(--uc-button-selected);
-    --uc-newtab-active-background: var(--uc-pywalfox-active-surface);
+    --uc-newtab-active-background: var(--uc-noctalia-active-surface);
     --uc-newtab-outline-rest: rgb(from var(--uc-accent-color-1) r g b / 50%);
     --uc-newtab-outline-active: var(--uc-accent-color-1);
     --uc-newtab-radius: var(--uc-button-border-radius);
