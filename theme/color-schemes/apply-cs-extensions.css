@@ -103,6 +103,11 @@ Another - applying colors to extension
         --tabs-audio-btn-width: 30px !important;
         --ntb-border-radius: var(--uc-button-border-radius) !important;
     }
+    /* Balance the active/selected pill: mirror the right scrollbar gutter on the left
+       so .Tab (symmetric margins) is visually centered; scrollbar stays visible. */
+    .ScrollBox > .scroll-container {
+        scrollbar-gutter: stable both-edges !important;
+    }
     /* center favicon when collapsed */
     .Tab[data-pin="false"] .fav {margin-left: 10px !important;}
     /* correct spacing of tab text label */
@@ -118,6 +123,7 @@ Another - applying colors to extension
         }
         .ScrollBox > .scroll-container {
             overflow: hidden !important;
+            scrollbar-gutter: auto !important;   /* no gutter when collapsed */
         }
         .Tab .body::after {
             display: none !important;
