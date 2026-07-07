@@ -31,6 +31,8 @@ user_pref("user.theme.rose-pine", false);
 user_pref("user.theme.noctalia", false);
 // Legacy alias: existing profiles with Pywalfox enabled still load Noctalia. Prefer user.theme.noctalia for new setups.
 user_pref("user.theme.pywalfox", false);
+// Additive Nova overlay. Restyles surfaces on top of the active base scheme when native browser.nova.enabled restructures the chrome.
+user_pref("user.theme.nova", false);
 user_pref("user.theme.xtras.color-scheme.force.consistency", false);
 
 /* nav bar */

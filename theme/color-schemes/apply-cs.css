@@ -33,6 +33,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('rose-pine/ffu-colorscheme.css')					-moz-pref("user.theme.rose-pine");
 @import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.noctalia");
 @import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('nova/ffu-colorscheme.css')               -moz-pref("user.theme.nova");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Add your Theme (Above) for the Browser ------------------------------------------------------------------------ */
@@ -57,6 +58,7 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 @import url('rose-pine/ffu-colorscheme.css')          -moz-pref("user.theme.rose-pine");
 @import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.noctalia");
 @import url('noctalia/ffu-colorscheme.css')           -moz-pref("user.theme.pywalfox");
+@import url('nova/ffu-colorscheme.css')               -moz-pref("user.theme.nova");
 @import url('YourName/ffu-colorscheme.css')           -moz-pref("user.theme.YourName");
 
 /* Adding your Theme (Above) makes the colors available to websites & extensions -------------------------------- */
