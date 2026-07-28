@@ -252,8 +252,8 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 }
 .wallpaper-list.category {
     padding-top: 5px !important;
-    background-color: transparent !important;
-    border-radius: 10px;
+    background-color: var(--newtab-background-color-secondary) !important;
+    border-radius: var(--uc-nova-card-radius, 12px);
 }
 .home-section:has(.wallpaper-list.category) {
     .wallpapers-section div .category-header,
@@ -274,6 +274,12 @@ Tutorial:          https://github.com/soulhotel/FF-ULTIMA/wiki/Create-a-Color-Sc
 }
 
 } /*END*/
+
+@-moz-document url(about:newtab), url(about:home) {
+    .logo-and-wordmark-wrapper {
+        display: none !important;
+    }
+}
 
 @keyframes ffu-fluid-gradient-flow {
     0% {

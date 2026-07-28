@@ -10,6 +10,118 @@ warning messages
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
 @-moz-document url("about:config") {
+@media (not -moz-pref("user.theme.noctalia")) and (not -moz-pref("user.theme.pywalfox")) {
+    :root {
+        --in-content-page-background: var(--uc-browser-color) !important;
+        --in-content-page-color: var(--uc-text) !important;
+        --in-content-box-background: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --in-content-box-border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        --in-content-button-background: transparent !important;
+        --in-content-button-background-hover: var(--uc-nova-hover-surface) !important;
+        --in-content-button-background-active: var(--uc-nova-content-active-surface) !important;
+    }
+
+    :is(input, button, .button-reset, .button-edit, .button-toggle) {
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+    }
+
+    #prefs {
+        border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        border-radius: var(--uc-nova-card-radius, 16px) !important;
+    }
+
+    /* Table cells must stay square internally. Rounding .cell-value creates a
+       second pill and breaks the row ring between the name and value columns. */
+    #prefs > tr > :is(th, td) {
+        border-radius: 0 !important;
+    }
+
+    #prefs > tr:not(.locked):hover > :is(th, td) {
+        background-color: var(--uc-nova-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    #prefs > tr:not(.locked):hover > :is(th, td):first-child {
+        border-start-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow: none !important;
+    }
+
+    #prefs > tr:not(.locked):hover > :is(th, td):last-child {
+        border-start-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow: none !important;
+    }
+
+    #prefs > tr:not(.locked):active > :is(th, td) {
+        background-color: var(--uc-nova-content-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    #prefs > tr:not(.locked):active > :is(th, td):first-child {
+        border-start-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow: none !important;
+    }
+
+    #prefs > tr:not(.locked):active > :is(th, td):last-child {
+        border-start-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow: none !important;
+    }
+
+    #prefs > tr:not(.locked):focus-within > :is(th, td) {
+        box-shadow:
+            inset 0 2px 0 var(--uc-nova-focus-ring),
+            inset 0 -2px 0 var(--uc-nova-focus-ring) !important;
+    }
+
+    #prefs > tr:not(.locked):focus-within > :is(th, td):first-child {
+        border-start-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-start-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow:
+            inset 2px 0 0 var(--uc-nova-focus-ring),
+            inset 0 2px 0 var(--uc-nova-focus-ring),
+            inset 0 -2px 0 var(--uc-nova-focus-ring) !important;
+    }
+
+    #prefs > tr:not(.locked):focus-within > :is(th, td):last-child {
+        border-start-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-end-end-radius: var(--uc-nova-control-radius, 24px) !important;
+        box-shadow:
+            inset -2px 0 0 var(--uc-nova-focus-ring),
+            inset 0 2px 0 var(--uc-nova-focus-ring),
+            inset 0 -2px 0 var(--uc-nova-focus-ring) !important;
+    }
+
+    :focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
+    }
+}
+
+@media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
+    /* Firefox 154 owns the table rows, alternating surfaces, action buttons,
+       and focus geometry. Supply only palette-bearing legacy aliases. */
+    :root {
+        --in-content-page-background: var(--uc-nova-canvas-surface) !important;
+        --in-content-page-color: var(--uc-nova-text) !important;
+        --in-content-box-background: var(--uc-nova-box-surface) !important;
+        --in-content-box-border-color: var(--uc-nova-border) !important;
+        --in-content-button-background: transparent !important;
+        --in-content-button-background-hover: var(--uc-nova-button-hover-surface) !important;
+        --in-content-button-background-active: var(--uc-nova-button-active-surface) !important;
+        --in-content-primary-button-background: var(--uc-nova-primary-surface) !important;
+        --in-content-primary-button-background-hover: var(--uc-nova-primary-hover-surface) !important;
+        --in-content-primary-button-background-active: var(--uc-nova-primary-active-surface) !important;
+        --in-content-primary-button-text-color: var(--uc-nova-on-accent) !important;
+    }
+}
+}
+
+@-moz-document url("about:config") {
 @media -moz-pref("ultima.xstyle.highlight.aboutconfig") {
 
 /* style ------------------------------------------------------------------------------*/
@@ -17,8 +129,11 @@ warning messages
     --in-content-page-background: var(--uc-browser-color) !important;
     --in-content-box-border-color: var(--uc-accent-color-2) !important;
 }
-input, #prefs {
-    border-radius: 8px !important;
+input {
+    border-radius: var(--uc-nova-control-radius, 10px) !important;
+}
+#prefs {
+    border-radius: var(--uc-nova-card-radius, 12px) !important;
 }
 
 /* if you see this text --------------------------------------------------------------------------*/
@@ -30,7 +145,7 @@ body::before {
     margin: 10px 10px 0px 10px;
     padding:12px 32px;
     border: var(--prefs-table-border);
-    border-radius: 8px;
+    border-radius: var(--uc-nova-card-radius, 12px);
     white-space: pre-line;
     line-height: 1.5;
     font-size: var(--font-size-root);
@@ -59,7 +174,7 @@ body::after {
     min-width: 200px;
     padding: 22px 32px;
     border: 1px solid rgb(255,150,50);
-    border-radius: 8px;
+    border-radius: var(--uc-nova-card-radius, 12px);
     white-space: pre-line;
     line-height: 1.3;
     font-size: 1.1em;
@@ -81,7 +196,7 @@ body::after {
     min-width: 200px;
     padding: 22px 32px;
     border: 1px solid rgb(50,150,255);
-    border-radius: 8px;
+    border-radius: var(--uc-nova-card-radius, 12px);
     white-space: pre-line;
     line-height: 1;
     font-size: 1.1em;
@@ -180,18 +295,18 @@ body::after {
         background-image: url(icons/aboutconfig.gif);
     } 
 }
-@media -moz-pref("user.theme.transparent") {
+@media -moz-pref("user.theme.style.glass") {
     @media not -moz-pref("browser.tabs.allow_transparent_browser") {
         body::after {
-            content: "\ Both of these settings should be on or off \A \A  user.theme.transparent \A browser.tabs.allow_transparent_browser \A ";
+            content: "\ Glass requires Firefox's native transparent browser support. \A \A Enable both settings: \A \A user.theme.style.glass \A browser.tabs.allow_transparent_browser \A ";
             display: block;
         }
     }
 }
 @media -moz-pref("browser.tabs.allow_transparent_browser") {
-    @media not -moz-pref("user.theme.transparent") {
+    @media not -moz-pref("user.theme.style.glass") {
         body::after {
-            content: "\ Both of these settings should be on or off \A \A  user.theme.transparent \A browser.tabs.allow_transparent_browser \A ";
+            content: "\ Firefox's native transparent browser support is enabled without the Glass style. \A \A Review these settings: \A \A user.theme.style.glass \A browser.tabs.allow_transparent_browser \A ";
             display: block;
         }
     }

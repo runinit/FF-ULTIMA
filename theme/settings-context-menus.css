@@ -56,8 +56,10 @@ hide seperators
 
 /* restore unload tab option --------------------------------------- */
 
-#context_unloadTab {
-  display: initial !important;
+@media -moz-pref("ultima.contextmenu.restore.unload.tab") {
+    #context_unloadTab {
+      display: initial !important;
+    }
 }
 
 /* remove excess options ------------------------------------------- */

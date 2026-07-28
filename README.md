@@ -28,6 +28,11 @@
 
 FF Ultima is a theme for everyone and anyone. Not only are <ins>all Operating Systems</ins> supported.. but you can use this theme in multiple layouts. `Tabs on top`, `under the Url bar`, `Vertical tabs`, `Sidebery`, `Hidden`, etc. And configure the theme in multiple ways; with [settings](https://ff-ultima.github.io/docs/category/theme-settings) for spacing, autohiding, accessibility, colors, and more. FF Ultima fully supports use with add-on themes and trys to support extensions like [Sidebery](https://ff-ultima.github.io/docs/configurations/sidebery) and [Auto Tab Color](https://ff-ultima.github.io/docs/configurations/adaptive-tab-color) automatically, so Users are not restricted in what they want to use and how they want to use it. Autoconfig is somewhat supported as well. But most importantly.. almost everything you see or don't see is an optional setting that can be turned on or off. Learn more by [Getting Started](https://ff-ultima.github.io/docs/getting-started).
 
+Firefox 154 Nova is the current design baseline. Firefox owns the default layout,
+the selected `user.theme.*` scheme owns colors, optional `user.theme.style.*`
+preferences modify their presentation, and FF Ultima's layout-changing features
+remain optional.
+
 ## Getting Started
 
 You can install the theme with any one of these methods, choose one (video tutorials included).
@@ -177,7 +182,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "iex (irm 'https://raw.gi
 </details>
 
 </details>
-
-
 
 

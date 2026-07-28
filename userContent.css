@@ -15,15 +15,20 @@ License:           https://github.com/soulhotel/FF-ULTIMA/blob/main/LICENSE MPL 
 - Dont like a websites styling? remove the line associated below.
 */
 
+@import url(theme/color-schemes/apply-cs.css); /* palette sources */
+@import url(theme/ffu-nova-tokens.css); /* required Firefox Nova semantics */
+@import url(theme/ffu-theme-styles.css); /* additive colour and glass modifiers */
+@import url(theme/ffu-cs-standards.css); /* Firefox compatibility aliases */
+
 @import url(theme/website-aboutconfig.css); /*        styling for aboutconfig */
 @import url(theme/website-aboutaddons.css); /*        styling for aboutaddons */
 @import url(theme/website-styles.css); /*       styling for multiple websites */
-@import url(theme/website-newtab.css); /*                        new tab page */
+/* Firefox 154 Nova owns about:newtab/about:home structure and component styling.
+   Palette sources and the optional wallpaper module remain imported below. */
 @import url(theme/website-reddit.css); /*                              reddit */
 @import url(theme/website-yt.css); /*                                 youtube */
 @import url(theme/website-private.css); /*               private new tab page */
 
-@import url(theme/color-schemes/apply-cs.css);            /* import color scheme colors */
 @import url(theme/color-schemes/apply-cs-extensions.css); /* apply colors to extensions */
 @import url(theme/color-schemes/apply-cs-wallpapers.css); /* apply colors to wallpapers */
 

@@ -6,7 +6,7 @@
   
 ### <ins> Version Notes
 - ...
-- Firefox 138+ required.
+- Firefox 154+ required.
 - User.js not required.
 <!--
 - User.js required. 
@@ -15,6 +15,11 @@
 -->
 
 ### <ins> Change Log
+- `new • 🟢 •` Pin the shared design foundation to Firefox Developer Edition 154.0b2 and check in a reproducible 307-token Nova source snapshot
+- `qol • 🟡 •` Adopt Firefox Nova's source-defined 4/8/12/16/24px geometry, translucent hover/active strengths, selected-tab accents, focus rings, and elevation while retaining every `user.theme.*` palette
+- `qol • 🟡 •` Remove the temporary `ultima.theme.corner.radius` interface; component radii now follow the pinned Firefox Nova token source
+- `qol • 🟡 •` Return `about:newtab` and `about:home` component layout and styling to Firefox 154 Nova; FF Ultima now supplies only palette/accessibility tokens and the independent wallpaper layer
+- `new • 🟢 •` Make Firefox 154 Nova the required FF Ultima foundation, with palette-owned colors, Nova-owned geometry, near-stock defaults, and opt-in layout features across chrome and userContent surfaces
 - `fix • 🔴 •` Bridge Firefox 152+ toolbar/toolbox design-system and LWT color tokens so Noctalia icons and static theme header colors stay palette-correct
 - `fix • 🔴 •` Enforce consistent colors for sidebar tree view icons/text/expansion arrow #434 4c02620
 - `fix • 🔴 •` queries for the url bars Tracking protection button (now #trust-container) #438 5591cdc

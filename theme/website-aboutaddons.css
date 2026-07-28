@@ -5,6 +5,74 @@ See the above repository for updates as well as full license text. */
 /* Installed extensions list will be 3-6 columns wide, themes will be 2 columns wide. No effect on recommendations but those can be styled by adding two_column_html_addons.css */
 /* Compatible with addon_manage_buttons_without_popup.css */
 
+@-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url("about:addons") {
+@media (not -moz-pref("user.theme.noctalia")) and (not -moz-pref("user.theme.pywalfox")) {
+    :root {
+        --in-content-page-background: var(--uc-browser-color) !important;
+        --in-content-page-color: var(--uc-text) !important;
+        --in-content-box-background: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --in-content-box-border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        --in-content-button-background: transparent !important;
+        --in-content-button-background-hover: var(--uc-nova-hover-surface) !important;
+        --in-content-button-background-active: var(--uc-nova-content-active-surface) !important;
+        --in-content-primary-button-background: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --card-outline-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+    }
+
+    :is(.card, addon-card, recommended-addon-card, .addon-detail-row, button, moz-button, moz-toggle) {
+        border-radius: var(--uc-nova-card-radius, 16px) !important;
+    }
+
+    :is(button, moz-button, moz-toggle, .more-options-button) {
+        --in-content-button-border-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+    }
+
+    :is(button, moz-button, moz-toggle, .more-options-button, .category):not([disabled]):hover {
+        background-color: var(--uc-nova-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    :is(button, moz-button, moz-toggle, .more-options-button, .category):is(
+        :active,
+        [pressed],
+        [checked],
+        [selected],
+        [aria-pressed="true"],
+        [aria-selected="true"]
+    ):not([disabled]) {
+        background-color: var(--uc-nova-content-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    :focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
+    }
+}
+
+@media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
+    /* Retain Firefox 154's native cards, navigation, toggles, and button
+       geometry; only bridge the legacy in-content palette aliases. */
+    :root {
+        --in-content-page-background: var(--uc-nova-canvas-surface) !important;
+        --in-content-page-color: var(--uc-nova-text) !important;
+        --in-content-box-background: var(--uc-nova-box-surface) !important;
+        --in-content-box-border-color: var(--uc-nova-border) !important;
+        --in-content-button-background: transparent !important;
+        --in-content-button-background-hover: var(--uc-nova-button-hover-surface) !important;
+        --in-content-button-background-active: var(--uc-nova-button-active-surface) !important;
+        --in-content-primary-button-background: var(--uc-nova-primary-surface) !important;
+        --in-content-primary-button-background-hover: var(--uc-nova-primary-hover-surface) !important;
+        --in-content-primary-button-background-active: var(--uc-nova-primary-active-surface) !important;
+        --in-content-primary-button-text-color: var(--uc-nova-on-accent) !important;
+        --card-outline-color: var(--uc-nova-border) !important;
+    }
+}
+}
+
 @media -moz-pref("ultima.spacing.compact.addonmanager") {
 
     @-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"), url("about:addons"){

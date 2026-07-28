@@ -11,13 +11,13 @@ License:           https://github.com/soulhotel/FF-ULTIMA/blob/main/LICENSE MPL 
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-@import url(theme/ffu-global-positioning.css);
+@import url(theme/color-schemes/apply-cs.css); /* palette sources */
+@import url(theme/ffu-nova-tokens.css); /* required Firefox Nova semantics */
+@import url(theme/ffu-theme-styles.css); /* additive colour and glass modifiers */
+@import url(theme/ffu-cs-standards.css); /* Firefox compatibility aliases */
 @import url(theme/ffu-internal-appearance.css);
+@import url(theme/ffu-global-positioning.css);
 @import url(theme/ffu-private-browsing.css);
-
-@import url(theme/color-schemes/apply-cs.css); /*color schemes*/
-
-@import url(theme/ffu-cs-standards.css);
 
 @import url(theme/settings-context-menus.css);
 @import url(theme/settings-extensions-panel.css);

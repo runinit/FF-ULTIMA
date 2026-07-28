@@ -50,15 +50,12 @@ pinned tabs transparent background
     #pinned-tabs-container[orient="vertical"],#vertical-pinned-tabs-container {
         height: -moz-fit-content !important;
         min-height: -moz-fit-content !important;
+        margin-bottom: 6px !important;
     }
     #pinned-tabs-container[orient="horizontal"] {
         min-width: fit-content !important;
     }
 }
-#pinned-tabs-container[orient="vertical"],#vertical-pinned-tabs-container {
-    margin-bottom: 6px !important;
-}
-
 /* new tab button ----------------------------------------------------------------------------------------------- */
 @media -moz-pref("ultima.tabs.newtabbutton.ontop.1") {
     #vertical-tabs-newtab-button {order: -1 !important;}
@@ -108,14 +105,14 @@ pinned tabs transparent background
 /* multiline tabs ----------------------------------------------------------------------------------------------- */
 
 @media -moz-pref("ultima.tabs.multiline.labels") {
-    #sidebar-main .tab-label {
+    :is(#sidebar-main, sidebar-main) .tab-label {
         white-space: wrap !important;
         word-wrap: break-word;
         max-height: 118px !important;
         margin-right: 15px !important;
     }
     @media not -moz-pref("ultima.tabs.closetabbutton.on.icon") {
-        #sidebar-main {
+        :is(#sidebar-main, sidebar-main) {
             .tab-close-button {
                 position: absolute;
                 @media not -moz-pref("ultima.tabs.reverse.content.order") {
@@ -227,7 +224,7 @@ pinned tabs transparent background
         bottom:5px; /* bottom positioning is "out of the way", for when a website implements there own page loading indicator and header content */
         left:5px;
         border: none;
-        border-radius:30px;
+        border-radius: var(--uc-nova-control-radius, 24px);
         background: linear-gradient(0.25turn, var(--uc-accent-color-2), #ebf8e1, var(--uc-accent-color-2));
         box-shadow: var(--uc-box-shadow);
         transition: width 0.2s linear;
@@ -315,7 +312,7 @@ pinned tabs transparent background
         }
     }
     /* adjustment for collapsed tabs */
-    #sidebar-main:not([sidebar-launcher-expanded=""]) {
+    :is(#sidebar-main, sidebar-main):not([sidebar-launcher-expanded=""]) {
         #tabbrowser-arrowscrollbox[orient="vertical"] {
             #tabbrowser-arrowscrollbox-periphery::after {
                 bottom: -36px;
@@ -361,35 +358,16 @@ pinned tabs transparent background
 /* split view modifications started 10/17/2025 via Nightly 146 */
 /* split view content outline ----------------------------------------------------------------------------------- */
 
-/* toggle the visibility of default splitview content outline */
-@media not -moz-pref("ultima.tabs.splitview.content.outline") {
-    #tabbrowser-tabpanels[splitview] {
-        & .browserStack {
-            .deck-selected > .browserContainer > & {
-                outline: none !important;
-            }
-        }
-    }
-}
-#tabbrowser-tabpanels {
-  &[splitview] {
-    & .browserStack {
-      outline: none !important;
-    }
-  }
-}
-
-
 /* split view seperator line ------------------------------------------------------------------------------------ */
 
-/* toggle the visibility of the splitview tab seperator line */
-@media not -moz-pref("ultima.tabs.splitview.tab.seperator") {
+/* Optional custom split-view tab separator. Firefox owns the default when disabled. */
+@media -moz-pref("ultima.tabs.splitview.tab.seperator") {
     #tabbrowser-tabs tab-split-view-wrapper {
         &:not([hasactivetab]) {
             & .tabbrowser-tab {
-                border-block-end: 0px solid var(--uc-accent-color-2) !important;
+                border-block-end: 1px solid var(--uc-accent-color-2) !important;
                 &:last-child {
-                    border-inline-start: 0px solid var(--uc-accent-color-2) !important;
+                    border-inline-start: 1px solid var(--uc-accent-color-2) !important;
                 }
             }
         }

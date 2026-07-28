@@ -53,8 +53,8 @@ Sourced:           https://github.com/datguypiko/Firefox-Mod-Blur (and modified)
         padding-bottom: 3px !important;
         border-bottom: 1px solid #aeaeae33 !important;
     }
-    #wrapper-edit-controls:is([place="palette"],
-    [place="panel"]) > #edit-controls, #wrapper-zoom-controls:is([place="palette"],
+    #wrapper-edit-controls:is([place="palette"], [place="panel"]) > #edit-controls,
+    #wrapper-zoom-controls:is([place="palette"], [place="panel"]) > #zoom-controls,
     :is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
         margin: 0px !important;
     }

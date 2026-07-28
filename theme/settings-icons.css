@@ -1,11 +1,10 @@
 /*///////////////////////////////////////////////////////////////////////////////////////\
 
 FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
-File Desc:         Setting to override ultima.theme.icons
+File Desc:         Optional icon overrides
 
-With ultima.theme.icons custom icons are setup via the colorscheme files,
-every color scheme can have different icons if it chooses to, but with this file...
-themed icons can be overridden with either default icons or other icon sets
+The shared Nova foundation owns the FF Ultima icon set. These explicit preferences
+restore selected Firefox or extension-provided icons without changing layout.
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 

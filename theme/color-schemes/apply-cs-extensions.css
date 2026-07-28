@@ -1,334 +1,540 @@
 /*///////////////////////////////////////////////////////////////////////////////////////\
 
 FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
-File Desc:         Automatically apply color scheme colors to extensions
+File Desc:         Firefox Nova palette adapters for supported extension pages
 
-Ublock Origin - applying colors to extension
-Sidebery - applying colors to extension
-Another - applying colors to extension
+The active user.theme.* palette supplies color sources. Shared --uc-nova-* semantics
+supply component geometry, translucent states, borders, focus, and elevation.
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-
-/* Ublock Origin - applying colors to extension ---------------------------------------- */
+/* uBlock Origin ------------------------------------------------------------------------ */
 
 @-moz-document regexp("moz-extension://.*/popup-fenix.html") {
 @media -moz-pref("user.theme.xtension.ublock") {
     :root {
-        --surface-1: var(--uc-layered-background) !important;
-        --popup-toolbar-surface: color-mix(in srgb, black 10%, var(--surface-1))  !important;
-        --popup-toolbar-surface-hover: color-mix(in srgb, black 40%, var(--surface-1)) !important;
-        --popup-power-ink: var(--uc-accent-color-5) !important;
+        --surface-1: var(--uc-nova-panel-surface, var(--uc-layered-background)) !important;
+        --popup-toolbar-surface: var(--uc-nova-panel-surface, var(--surface-1)) !important;
+        --popup-toolbar-surface-hover: var(--uc-nova-hover-surface) !important;
+        --popup-power-ink: var(--uc-accent-color-5, var(--uc-nova-accent-leading)) !important;
     }
-    .toolRibbon .tool:hover {
-        color: var(--uc-accent-i, var(--uc-text)) !important;
-        fill: var(--uc-accent-i, var(--uc-text)) !important;
-        border-radius: var(--uc-button-border-radius) !important;
+
+    :is(button, .toolRibbon .tool) {
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+    }
+
+    :is(button, .toolRibbon .tool):not(:disabled):hover {
+        background-color: var(--uc-nova-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    :is(button, .toolRibbon .tool):is(:active, [aria-pressed="true"], [aria-expanded="true"]):not(:disabled) {
+        background-color: var(--uc-nova-panel-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    :focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
     }
 }}
 
-
-/* Sidebery - applying colors to extension --------------------------------------------- */
+/* Sidebery ----------------------------------------------------------------------------- */
 
 @-moz-document regexp("moz-extension://.*/sidebar/sidebar.html") {
 @media -moz-pref("user.theme.xtension.sidebery") {
+    #root.root {
+        --frame-bg: var(--uc-nova-extension-frame-surface, var(--uc-layered-background)) !important;
+        --toolbar-bg: var(--uc-nova-extension-toolbar-surface, var(--uc-layered-background)) !important;
+        --frame-fg: var(--uc-text) !important;
+        --toolbar-fg: var(--uc-text) !important;
+        --uc-sidebery-pill-surface: var(--uc-nova-box-info-surface, var(--uc-nova-chip-surface));
 
-    @media (prefers-color-scheme: dark) { #root.root {
-        --frame-bg: var(--uc-layered-background) !important;
-        --toolbar-bg: var(--uc-layered-background) !important;
-        --frame-fg: var(--uc-text) !important;
-        --toolbar-fg: var(--uc-text) !important;
-    }}
-    @media (prefers-color-scheme: light) { #root.root {
-        --frame-bg: var(--uc-layered-background) !important;
-        --toolbar-bg: var(--uc-layered-background) !important;
-        --frame-fg: var(--uc-text) !important;
-        --toolbar-fg: var(--uc-text) !important;
-    }}
-    /* Global (to Sidebery) Styles ---------------------------------*/
-    #root.root {
-        --general-margin: 2px !important;
-        --general-border-radius: var(--uc-button-border-radius) !important;
-    }
-    /* Header Panel ------------------------------------------------*/
-    #root.root {
-        --toolbar-scrollbar-color: var(--uc-accent-i, var(--uc-text)) !important;
-        --frame-el-overlay-selected-bg: var(--uc-button-selected) !important;
-        --frame-el-overlay-selected-border: var(--uc-accent-color-1) !important;
-        --frame-el-overlay-hover-bg: var(--uc-button-selected) !important;
-        --frame-scrollbar-color: var(--uc-accent-i, var(--uc-text)) !important;
-        --toolbar-el-overlay-selected-bg: var(--uc-button-selected) !important;
-        --toolbar-el-overlay-hover-bg: var(--uc-button-selected) !important;
-        --toolbar-el-overlay-active-bg: var(--uc-button-selected) !important;
-        --toolbar-el-overlay-active-border: var(--uc-accent-color-1) !important;
+        --general-margin: var(--uc-nova-chrome-gap, 8px) !important;
+        --general-border-radius: var(--uc-nova-control-radius, 24px) !important;
+        --toolbar-scrollbar-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --frame-scrollbar-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --scroll-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+
+        --frame-el-overlay-selected-bg: var(--uc-nova-sidebar-active-surface) !important;
+        --frame-el-overlay-selected-border: transparent !important;
+        --frame-el-overlay-hover-bg: var(--uc-nova-sidebar-hover-surface) !important;
+        --toolbar-el-overlay-selected-bg: var(--uc-nova-sidebar-active-surface) !important;
+        --toolbar-el-overlay-hover-bg: var(--uc-nova-sidebar-hover-surface) !important;
+        --toolbar-el-overlay-active-bg: var(--uc-nova-sidebar-active-surface) !important;
+        --toolbar-el-overlay-active-border: transparent !important;
         --nav-btn-fg: var(--uc-text) !important;
-        --nav-btn-accent: var(--uc-accent-color-1) !important;
-        --nav-btn-active-shadow: var(--uc-box-shadow) !important;
-    }
-    .NavigationBar .nav-item .audio { display: none !important; }
-    @media (max-width: 50px) { .BottomBar{padding-left:1px !important;}.static-btns{padding-left:3px !important;} }
-    /* Pinned Tabs -----------------------------------------------*/
-    #root.root {--tabs-pinned-width: 24vw !important; --tabs-pinned-height: 40px !important;}
-    @media (max-width: 250px) {
-        #root.root {--tabs-pinned-width: 23.5vw !important; --tabs-pinned-height: 40px !important;}
-    }
-    @media (max-width: 165px) {
-        #root.root {--tabs-pinned-width: 23vw !important; --tabs-pinned-height: 40px !important;}
-    }
-    @media (max-width: 125px) {
-        #root.root {--tabs-pinned-width: 22vw !important; --tabs-pinned-height: 40px !important;}
-    }
-    @media (max-width: 84px) {
-        #root.root {--tabs-pinned-width: 20.5vw !important; --tabs-pinned-height: 19px !important;}
-        .PinnedTabsBar .tab-wrapper .fav {transform: scale(0.6) !important;} /* even smaller */
-    }
-    @media (max-width: 42px) {
-        #root.root {--tabs-pinned-width: 15px !important; --tabs-pinned-height: 19px !important;}
-        .PinnedTabsBar[data-audible] svg.-loud, .PinnedTabsBar[data-muted] svg.-mute {display: none !important;} /* even smaller than smaller */
-    }
-    /* Tabs ----------------------------------------------------*/
-    #root.root {
-        --tabs-normal-fg: var(--uc-text) !important;
-        --tabs-normal-bg: transparent;
-        --tabs-activated-bg: var(--uc-button-selected) !important;
-        --tabs-activated-fg: var(--uc-accent-color-5) !important;
-        --tabs-border-radius: var(--uc-button-border-radius) !important;
-        --tabs-activated-shadow: var(--uc-box-shadow) !important;
-        --tabs-progress-bg: var(--uc-accent-color-5) !important;
-        --tabs-height: 35px !important;
+        --nav-btn-accent: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --nav-btn-active-shadow: none !important;
 
+        --tabs-normal-bg: transparent !important;
+        --tabs-normal-fg: var(--uc-text) !important;
+        --tabs-active-bg: var(--uc-nova-tab-active-surface) !important;
+        --tabs-active-fg: var(--uc-nova-tab-selected-text, var(--uc-text)) !important;
+        --tabs-active-shadow: none !important;
+        --tabs-selected-bg: var(--uc-nova-tab-active-surface) !important;
+        --tabs-selected-fg: var(--uc-nova-tab-selected-text, var(--uc-text)) !important;
+        --tabs-selected-shadow: none !important;
+        --tabs-activated-bg: var(--uc-nova-tab-active-surface) !important;
+        --tabs-activated-fg: var(--uc-nova-tab-selected-text, var(--uc-text)) !important;
+        --tabs-activated-shadow: none !important;
+        --tabs-border-radius: var(--uc-nova-control-radius, 24px) !important;
+        --tabs-height: var(--uc-nova-tab-row-height, 32px) !important;
+        --tabs-pinned-height: var(--uc-nova-tab-row-height, 32px) !important;
+        --tabs-progress-bg: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
         --tabs-discarded-favicon-opacity: 0.55 !important;
         --tabs-discarded-title-opacity: 0.8 !important;
-        @media not -moz-pref("ultima.sidebery.indent.mode", "standard") {--tabs-indent: 16px !important;}
-        @media -moz-pref("ultima.sidebery.indent.mode", "dense") {--tabs-indent: 12px !important;}
-        @media -moz-pref("ultima.sidebery.indent.mode", "standard") {--tabs-indent: 30px !important;}
-        --tabs-audio-btn-width: 30px !important;
-        --ntb-border-radius: var(--uc-button-border-radius) !important;
-    }
-    /* keep sleeping / discarded tabs readable */
-    .Tab[data-discarded="true"] .fav {opacity: var(--tabs-discarded-favicon-opacity) !important;}
-    .Tab[data-discarded="true"] .t-box {opacity: 1 !important;}
-    .Tab[data-discarded="true"] .title {opacity: var(--tabs-discarded-title-opacity) !important;}
-    /* center favicon when collapsed */
-    .Tab[data-pin="false"] .fav {margin-left: 10px !important;}
-    /* correct spacing of tab text label */
-    .Tab .t-box {margin: 0 10px 0 4px !important;}
-    /* hide tab text label when collapsed */ 
-    @media screen and (max-width: 50px) {
-        .Tab .t-box {opacity: 0 !important;}
-    }
-    /* Fix Tabs Tree --------------------------------------------*/
-    @media screen and (max-width: 42px) {
-        #root.root {
-            --tabs-indent: unset !important;
+        --ntb-border-radius: var(--uc-nova-control-radius, 24px) !important;
+
+        --ctx-menu-bg: var(--uc-nova-context-menu-surface, var(--uc-context-menu)) !important;
+        --ctx-menu-fg: var(--uc-text) !important;
+        --ctx-menu-border: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        --ctx-menu-border-radius: var(--uc-nova-panel-radius, 16px) !important;
+        --ctx-menu-padding: var(--uc-nova-chrome-gap, 8px) !important;
+        --ctx-menu-text-opt-inner-gap: var(--uc-nova-chrome-gap, 8px) !important;
+        --ctx-menu-separator: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        --ctx-menu-opt-hover-bg: var(--uc-nova-panel-hover-surface) !important;
+        --ctx-menu-opt-hover-fg: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        --ctx-menu-shadow: var(--uc-nova-panel-elevation, none) !important;
+
+        --popup-bg: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --popup-fg: var(--uc-text) !important;
+        --popup-scrollbar-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --notification-bg: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --notification-fg: var(--uc-text) !important;
+        --notification-border: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        --btn-border-radius: var(--uc-nova-control-radius, 24px) !important;
+
+        @media not -moz-pref("ultima.sidebery.indent.mode", "standard") {
+            --tabs-indent: 16px !important;
         }
+        @media -moz-pref("ultima.sidebery.indent.mode", "dense") {
+            --tabs-indent: 12px !important;
+        }
+    }
+
+    .Tab[data-discarded="true"] .fav {
+        opacity: var(--tabs-discarded-favicon-opacity) !important;
+    }
+
+    .Tab[data-discarded="true"] .t-box {
+        opacity: 1 !important;
+    }
+
+    .Tab[data-discarded="true"] .title {
+        opacity: var(--tabs-discarded-title-opacity) !important;
+    }
+
+    #root.root .Tab .body {
+        box-sizing: border-box !important;
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .Tab:not([data-active="true"], [data-selected="true"]):hover .body {
+        background-color: var(--uc-nova-tab-hover-surface) !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .Tab:is([data-active="true"], [data-selected="true"]) .body {
+        background:
+            linear-gradient(
+                var(--uc-nova-tab-active-surface),
+                var(--uc-nova-tab-active-surface)
+            ) padding-box,
+            var(
+                --uc-nova-sidebery-selected-border,
+                var(--uc-nova-selected-border)
+            ) border-box !important;
+        color: var(--uc-nova-tab-selected-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-tab-selected-text, var(--uc-text)) !important;
+        border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;
+        box-shadow: none !important;
+    }
+
+    @media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
+        #root.root .Tab:is([data-active="true"], [data-selected="true"]):hover .body {
+            background:
+                linear-gradient(
+                    var(--uc-nova-tab-selected-hover-surface),
+                    var(--uc-nova-tab-selected-hover-surface)
+                ) padding-box,
+                var(
+                    --uc-nova-sidebery-selected-border,
+                    var(--uc-nova-selected-border)
+                ) border-box !important;
+            border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;
+        }
+    }
+
+    #root.root :is(.PinnedTabsBar .Tab, .Tab[data-pin="true"]) .body {
+        box-sizing: border-box !important;
+    }
+
+    #root.root :is(.PinnedTabsBar .Tab, .Tab[data-pin="true"]):not(
+        :hover,
+        [data-active="true"],
+        [data-selected="true"]
+    ) .body {
+        background-color: var(--uc-sidebery-pill-surface) !important;
+        border: 1px solid var(--uc-nova-chrome-border, var(--uc-panel-border)) !important;
+    }
+
+    #root.root :is(.PinnedTabsBar .Tab, .Tab[data-pin="true"]):is(:hover, [data-active="true"], [data-selected="true"]) .body {
+        border-color: transparent !important;
+    }
+
+    #root.root .Tab:focus-visible .body,
+    #root.root .Tab .body:focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
+    }
+
+    #root.root .NavigationBar .nav-item:not(
+        [data-class="space"],
+        [data-disabled="true"],
+        [data-active="true"],
+        [data-sel="true"]
+    ) {
+        background-color: var(--uc-sidebery-pill-surface) !important;
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+    }
+
+    #root.root .NavigationBar .nav-item:not(
+        [data-class="space"],
+        [data-disabled="true"],
+        [data-active="true"],
+        [data-sel="true"]
+    ):hover {
+        background-color: var(--uc-nova-sidebar-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    #root.root .NavigationBar .nav-item:is([data-active="true"], [data-sel="true"]):not([data-disabled="true"]) {
+        background-color: var(--uc-nova-sidebar-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+        fill: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    #root.root .TabsPanel .new-tab-btn:not([data-disabled="true"]):hover::before,
+    #root.root .Sidebar .tool-btn:not([data-disabled="true"]):hover::before {
+        background-color: var(--uc-nova-sidebar-hover-surface) !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .TabsPanel .new-tab-btn:not([data-disabled="true"]):active::before,
+    #root.root .TabsPanel .new-tab-btns[data-sel="true"] .new-tab-btn::before,
+    #root.root .Sidebar .tool-btn:not([data-disabled="true"]):active::before {
+        background-color: var(--uc-nova-sidebar-active-surface) !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .Tab :is(.tag, .container, .ctx, .len) {
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
+        background-color: var(--uc-nova-chip-surface) !important;
+        color: var(--uc-text) !important;
+    }
+
+    #root.root .Tab .badge {
+        border-radius: 9999px !important;
+        background-color: var(--uc-nova-chip-surface) !important;
+        color: var(--uc-text) !important;
+    }
+
+    #root.root .Tab:is([data-active="true"], [data-selected="true"])
+        :is(.tag, .badge, .container, .ctx, .len) {
+        background-color: var(--uc-nova-active-surface) !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    #root.root :is(.ctx-menu, .CtxMenu .box, .CtxMenu .sub-menu, .popup, .notification) {
+        border: 1px solid var(--uc-nova-border, var(--uc-panel-border)) !important;
+        border-radius: var(--uc-nova-panel-radius, 16px) !important;
+        box-shadow: var(--uc-nova-panel-elevation, none) !important;
+    }
+
+    #root.root :is(.ctx-menu, .popup) :is(.opt, .option, [role="menuitem"]):not([disabled]):hover {
+        background-color: var(--uc-nova-panel-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    #root.root :is(.ctx-menu, .popup) :is(.opt, .option, [role="menuitem"]):is(:active, [aria-checked="true"]):not([disabled]) {
+        background-color: var(--uc-nova-panel-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    #root.root :is(.ctx-menu, .popup) :is(.opt, .option, [role="menuitem"]):focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
+    }
+
+    #root.root .CtxMenu :is(.opt, .icon-opt):not([data-inactive="true"]):hover::before {
+        background-color: var(--uc-nova-panel-hover-surface) !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+    }
+
+    #root.root .CtxMenu :is(.opt, .icon-opt)[data-selected="true"]:not([data-inactive="true"])::before,
+    #root.root .CtxMenu :is(.opt, .icon-opt):not([data-inactive="true"]):active::before {
+        background-color: var(--uc-nova-panel-active-surface) !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+    }
+
+    #root.root :is(.separator, .Separator) {
+        border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+    }
+
+    @media (forced-colors: active) {
+        #root.root .Tab:not([data-active="true"], [data-selected="true"]):hover .body {
+            background-color: Highlight !important;
+            color: HighlightText !important;
+            fill: HighlightText !important;
+            box-shadow: none !important;
+        }
+
+        #root.root .Tab:is([data-active="true"], [data-selected="true"]) .body,
+        #root.root .Tab:focus-visible .body,
+        #root.root .Tab .body:focus-visible {
+            border-color: Highlight !important;
+            outline-color: Highlight !important;
+            box-shadow: none !important;
+        }
+    }
+}}
+
+/* Sidebery autohide geometry -----------------------------------------------------------
+   This is extension-content sizing, not palette styling. It follows only the
+   owning autohide pref so the collapsed Firefox rail remains usable even when
+   user.theme.xtension.sidebery is disabled. */
+
+@-moz-document regexp("moz-extension://.*/sidebar/sidebar.html") {
+@media -moz-pref("ultima.sidebery.autohide") {
+    #root.root {
+        --tabs-audio-btn-width: 30px !important;
+        --tabs-pinned-height: 40px !important;
+    }
+
+    .Tab .t-box {
+        margin-inline: 4px 10px !important;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar {
+        --uc-sidebery-pinned-columns: 1;
+        box-sizing: border-box !important;
+        display: grid !important;
+        grid-template-columns: repeat(
+            var(--uc-sidebery-pinned-columns),
+            minmax(0, 1fr)
+        ) !important;
+        padding-inline: calc(
+            var(--tabs-margin) + var(--uc-nova-chrome-gap, 8px)
+        ) !important;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar:has(> .tab-wrapper:nth-child(2)) {
+        --uc-sidebery-pinned-columns: 2;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar:has(> .tab-wrapper:nth-child(3)) {
+        --uc-sidebery-pinned-columns: 3;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar:has(> .tab-wrapper:nth-child(4)) {
+        --uc-sidebery-pinned-columns: 4;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar:has(> .tab-wrapper:nth-child(5)) {
+        --uc-sidebery-pinned-columns: 5;
+    }
+
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar > .tab-wrapper,
+    #root.root:is(
+        [data-pinned-tabs-position="panel"],
+        [data-pinned-tabs-position="top"]
+    ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar > .tab-wrapper > .Tab {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    @media (max-width: 50px) {
+        #root.root {
+            --tabs-indent: 0px !important;
+            --tabs-pinned-width: 32px !important;
+            --tabs-pinned-height: 32px !important;
+        }
+
         .ScrollBox > .scroll-container {
             overflow: hidden !important;
         }
-        .Tab .body::after {
+
+        .Tab {
+            box-sizing: border-box !important;
+            width: 100vw !important;
+            margin-inline: 0 !important;
+            padding-inline: max(calc((100vw - 32px) / 2), 0px) !important;
+        }
+
+        .Tab .body {
+            box-sizing: border-box !important;
+            width: 32px !important;
+            min-width: 32px !important;
+            max-width: 32px !important;
+            margin-inline: 0 !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+        }
+
+        .Tab .fav {
+            margin-inline: 0 !important;
+        }
+
+        .Tab :is(.t-box, .ctx, .close, .branch-btn, .exp, .audio),
+        .Tab .body::after,
+        .PinnedTabsBar[data-audible] svg.-loud,
+        .PinnedTabsBar[data-muted] svg.-mute {
             display: none !important;
         }
-        .Tab .audio {
-            left: 10px !important;
-            transform: scale(0.8) !important;
-            transform: translateY(6px) translateX(-15px) !important;
-            z-index: 99 !important;
-        }
-        .Tab[data-audible] svg.-loud,
-        .Tab[data-muted] svg.-mute {
-            transform: translateY(0px) translateX(0px) !important;
-        }
-    }
-    /* Bookmarks ------------------------------------------------*/
-    #root.root {
-        --bookmarks-indent: 0px !important;
-    }
-    /* Popups ---------------------------------------------------*/
-    #root.root {
-        --ctx-menu-bg: var(--uc-context-menu) !important;
-        --ctx-menu-fg: var(--uc-text) !important;
 
-        --ctx-menu-padding: 5px !important;
-        --ctx-menu-border-radius: 8px !important;
-        --ctx-menu-text-opt-inner-gap: 5px !important;
-
-        --ctx-menu-separator: var(--uc-layered-background) !important;
-        --ctx-menu-shadow: 0 0 0 2px var(--uc-accent-color-1), 0 1px 16px 0 rgba(0,0,0,0.5) !important;
-
-        --popup-bg: var(--uc-context-menu) !important;
-        --popup-fg: var(--uc-text) !important;
-        --popup-scrollbar-color: var(--uc-accent-color-1);
-
-        --notification-bg: var(--uc-context-menu) !important;
-        --notification-fg: var(--uc-text) !important;
-
-        --btn-border-radius: var(--uc-button-border-radius) !important;
-        --scroll-color: var(--uc-accent-color-1) !important;
-    }
-    @media (-moz-pref("user.theme.dark.a")), (-moz-pref("user.theme.dark.midnight")) {
-        #root.root {
-                --ctx-menu-shadow: 0 0 0 1px rgb(56, 60, 64), 0 1px 16px 0 rgba(0,0,0,0.282) !important;
-            }
-    }
-    @media (-moz-pref("user.theme.light.a")), (-moz-pref("user.theme.light.gruvbox")) {
-        #root.root {
-                --ctx-menu-shadow: 0 0 0 1px var(--uc-accent-color-1), 0 1px 16px 0 rgba(100,100,100,0.282) !important;
-            }
-    }
-    @media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
-        #root.root {
-            --frame-bg: var(--uc-browser-color) !important;
-            --toolbar-bg: var(--uc-browser-color) !important;
-            --frame-fg: var(--uc-text) !important;
-            --toolbar-fg: var(--uc-text) !important;
-
-            --toolbar-scrollbar-color: var(--uc-accent-color-1) !important;
-            --frame-scrollbar-color: var(--uc-accent-color-1) !important;
-            --frame-el-overlay-selected-bg: var(--uc-urlbar-background) !important;
-            --frame-el-overlay-selected-border: var(--uc-accent-color-1) !important;
-            --frame-el-overlay-hover-bg: var(--uc-button-selected) !important;
-            --toolbar-el-overlay-selected-bg: var(--uc-button-selected) !important;
-            --toolbar-el-overlay-hover-bg: var(--uc-button-selected) !important;
-            --toolbar-el-overlay-active-bg: var(--uc-button-selected) !important;
-            --toolbar-el-overlay-active-border: var(--uc-accent-color-1) !important;
-            --nav-btn-accent: var(--uc-accent-color-1) !important;
-            --nav-btn-active-shadow: inset 0 0 0 1px color-mix(in srgb, var(--uc-accent-color-1) 48%, transparent) !important;
-
-            --tabs-normal-bg: transparent !important;
-            --tabs-normal-fg: var(--uc-text) !important;
-            --tabs-active-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
-            --tabs-active-fg: var(--uc-noctalia-accent-foreground) !important;
-            --tabs-active-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            --tabs-selected-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
-            --tabs-selected-fg: var(--uc-noctalia-accent-foreground) !important;
-            --tabs-selected-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            --tabs-activated-bg: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
-            --tabs-activated-fg: var(--uc-noctalia-accent-foreground) !important;
-            --tabs-activated-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            --tabs-progress-bg: var(--uc-accent-color-1) !important;
-            --tabs-pinned-bg: var(--uc-browser-color) !important;
-            --tabs-pinned-fg: var(--uc-text) !important;
-            --tabs-pinned-shadow: none !important;
-            --tabs-close-btn-bg: var(--uc-button-selected) !important;
-            --tabs-close-btn-fg: var(--uc-text) !important;
-
-            --bookmarks-node-hover-bg: var(--uc-button-selected) !important;
-            --bookmarks-node-active-bg: var(--uc-urlbar-background) !important;
-            --bookmarks-node-active-fg: var(--uc-text) !important;
-
-            --ctx-menu-bg: var(--uc-panel-background) !important;
-            --ctx-menu-fg: var(--uc-text) !important;
-            --ctx-menu-separator: color-mix(in srgb, var(--uc-accent-color-1) 22%, transparent) !important;
-            --ctx-menu-shadow: 0 0 0 1px var(--uc-panel-border), 0 1px 16px 0 color-mix(in srgb, var(--uc-browser-color) 64%, transparent) !important;
-            --ctx-menu-opt-hover-bg: var(--uc-button-selected) !important;
-            --ctx-menu-opt-hover-fg: var(--uc-noctalia-accent-foreground) !important;
-
-            --popup-bg: var(--uc-panel-background) !important;
-            --popup-fg: var(--uc-text) !important;
-            --popup-scrollbar-color: var(--uc-accent-color-1) !important;
-            --notification-bg: var(--uc-panel-background) !important;
-            --notification-fg: var(--uc-text) !important;
-            --notification-border: var(--uc-panel-border) !important;
-            --scroll-color: var(--uc-accent-color-1) !important;
+        .PinnedTabsBar {
+            --uc-sidebery-pinned-columns: 2 !important;
+            --uc-sidebery-pinned-size: 16px;
+            --uc-sidebery-pinned-gap: 2px;
+            box-sizing: border-box !important;
+            width: 100vw !important;
+            gap: var(--uc-sidebery-pinned-gap) !important;
+            justify-content: center !important;
+            justify-items: center !important;
+            padding-inline: 0 !important;
         }
 
-        #root.root .Tab .body {
-            box-shadow: none !important;
-            border-color: transparent !important;
-        }
-        #root.root .Tab:hover .body {
-            background-color: var(--uc-button-selected) !important;
-        }
-        #root.root .Tab[data-active="true"] .body,
-        #root.root .Tab[data-selected="true"] .body {
-            background-color: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
-            color: var(--uc-noctalia-accent-foreground) !important;
-            fill: var(--uc-noctalia-accent-foreground) !important;
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            border-color: var(--uc-accent-color-1) !important;
-        }
-        #root.root .PinnedTabsBar,
-        #root.root .PinnedTabsBar .tab-wrapper {
-            border-color: transparent !important;
-            box-shadow: none !important;
-            outline: none !important;
-        }
-        #root.root .PinnedTabsBar .Tab .body,
-        #root.root .Tab[data-pin="true"] .body {
-            background-color: var(--uc-browser-color) !important;
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            border-color: var(--uc-accent-color-1) !important;
-        }
-        #root.root .PinnedTabsBar .tab-wrapper:hover,
-        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab,
-        #root.root .PinnedTabsBar .Tab:hover {
-            position: relative !important;
-            z-index: 1 !important;
-        }
-        #root.root .PinnedTabsBar .Tab:hover .body,
-        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab .body,
-        #root.root .PinnedTabsBar .tab-wrapper:hover .body,
-        #root.root .Tab[data-pin="true"]:hover .body {
-            background-color: var(--uc-button-selected) !important;
-            color: var(--uc-noctalia-accent-foreground) !important;
-            fill: var(--uc-noctalia-accent-foreground) !important;
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            border-color: var(--uc-accent-color-1) !important;
-        }
-        #root.root .PinnedTabsBar .Tab:hover .body::before,
-        #root.root .PinnedTabsBar .tab-wrapper:hover .Tab .body::before,
-        #root.root .PinnedTabsBar .tab-wrapper:hover .body::before,
-        #root.root .Tab[data-pin="true"]:hover .body::before {
-            background-color: var(--uc-button-selected) !important;
-            color: var(--uc-noctalia-accent-foreground) !important;
-            fill: var(--uc-noctalia-accent-foreground) !important;
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-        }
-        #root.root .PinnedTabsBar .Tab[data-active="true"] .body,
-        #root.root .PinnedTabsBar .Tab[data-selected="true"] .body,
-        #root.root .Tab[data-pin="true"][data-active="true"] .body,
-        #root.root .Tab[data-pin="true"][data-selected="true"] .body {
-            position: relative !important;
-            z-index: 1 !important;
-            background-color: var(--uc-noctalia-active-surface, var(--uc-button-selected)) !important;
-            color: var(--uc-noctalia-accent-foreground) !important;
-            fill: var(--uc-noctalia-accent-foreground) !important;
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-            border-color: var(--uc-accent-color-1) !important;
-        }
-        #root.root .PinnedTabsBar .Tab[data-active="true"] .body::before,
-        #root.root .PinnedTabsBar .Tab[data-selected="true"] .body::before,
-        #root.root .Tab[data-pin="true"][data-active="true"] .body::before,
-        #root.root .Tab[data-pin="true"][data-selected="true"] .body::before {
-            box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-        }
-        #root.root .Tab:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img),
-        #root.root .PinnedTabsBar .Tab:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img),
-        #root.root .Tab[data-pin="true"]:is(:hover, [data-active="true"], [data-selected="true"]) .body :is(.title, .fav, .audio, .ctx, .len, svg, img) {
-            color: var(--uc-noctalia-accent-foreground) !important;
-            fill: var(--uc-noctalia-accent-foreground) !important;
-            stroke: var(--uc-noctalia-accent-foreground) !important;
+        #root.root:is(
+            [data-pinned-tabs-position="panel"],
+            [data-pinned-tabs-position="top"]
+        ):not([data-pinned-tabs-list="true"]) .PinnedTabsBar {
+            grid-template-columns: repeat(
+                var(--uc-sidebery-pinned-columns),
+                var(--uc-sidebery-pinned-size)
+            ) !important;
+            grid-auto-rows: var(--uc-sidebery-pinned-size) !important;
         }
 
-        #root.root .popup {
-            background-color: var(--uc-urlbar-background) !important;
+        .PinnedTabsBar .tab-wrapper,
+        .PinnedTabsBar .Tab {
+            box-sizing: border-box !important;
+            width: var(--uc-sidebery-pinned-size) !important;
+            min-width: var(--uc-sidebery-pinned-size) !important;
+            max-width: var(--uc-sidebery-pinned-size) !important;
+            height: var(--uc-sidebery-pinned-size) !important;
+            padding-inline: 0 !important;
         }
-        #root.root .ctx-menu,
-        #root.root .popup,
-        #root.root .notification {
-            border-color: var(--uc-panel-border) !important;
+
+        .PinnedTabsBar .Tab .body {
+            width: var(--uc-sidebery-pinned-size) !important;
+            min-width: var(--uc-sidebery-pinned-size) !important;
+            max-width: var(--uc-sidebery-pinned-size) !important;
+            height: var(--uc-sidebery-pinned-size) !important;
+        }
+
+        /* Sidebery 5.6.x gives these full-width bars their own inline padding.
+           Remove it only in the collapsed viewport so toolbar, new-tab, and
+           footer controls share the tab column's true center line. */
+        .NavigationBar.-vert,
+        .NavigationBar.-vert .main-items,
+        .NavigationBar.-top,
+        .PanelViewSwitcherBar,
+        .PanelViewSwitcherBar .view-btn,
+        .TabsPanel .new-tab-btns,
+        .BottomBar {
+            box-sizing: border-box !important;
+            width: 100vw !important;
+            margin-inline: 0 !important;
+            padding-inline: 0 !important;
+        }
+
+        .NavigationBar.-vert,
+        .NavigationBar.-vert .main-items {
+            align-items: center !important;
+        }
+
+        .NavigationBar.-top {
+            align-items: center !important;
+        }
+
+        /* Horizontal inline navigation keeps panel items in .main-items and
+           overflow/settings controls in a separate .static-btns container.
+           Center that collapsed owner, not both containers as one wide row. */
+        .NavigationBar.-top[data-layout="inline"] .static-btns {
+            box-sizing: border-box !important;
+            width: 100vw !important;
+            margin-inline: 0 !important;
+            padding-inline: 0 !important;
+            flex: 0 0 100vw !important;
+            justify-content: center !important;
+        }
+
+        /* At this width Sidebery exposes [data-type="hidden"] as the overflow
+           entry point. Keep one complete 30px control at rest; the remaining
+           static controls return when the autohidden sidebar expands. */
+        .NavigationBar.-top[data-layout="inline"]
+            .static-btns:has(.nav-item[data-type="hidden"])
+            .nav-item:not([data-type="hidden"]) {
+            display: none !important;
+        }
+
+        .PanelViewSwitcherBar,
+        .PanelViewSwitcherBar .view-btn {
+            justify-content: center !important;
+        }
+
+        .NavigationBar.-vert .nav-item {
+            align-self: center !important;
+            margin-inline: 0 !important;
+        }
+
+        .TabsPanel .new-tab-btns,
+        .BottomBar {
+            justify-content: center !important;
         }
     }
 
+    @media (forced-colors: active) {
+        #root.root .Tab:is([data-active="true"], [data-selected="true"]) .body {
+            background: Canvas !important;
+            border-color: Highlight !important;
+        }
+    }
 }}
 
-
-/* Another - applying colors to extension ---------------------------------------------- */
-/*
-@-moz-document regexp("moz-extension://") {
-@media -moz-pref("user.theme.9.extension") {
-
-
-
-}}
-*/
+/* Add another extension adapter above this line. */

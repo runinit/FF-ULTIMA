@@ -1,10 +1,11 @@
 /*///////////////////////////////////////////////////////////////////////////////////////\
 
 FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
-File Desc:
+File Desc:         Firefox 153/154 compatibility aliases
 
-some color-schemes stray away from the default theme appearance in a variety of ways,
-this file/setting compiles some of those differences and brings them back to the standard appearance
+The active palette and shared Nova semantics are declared before this file. This
+layer keeps Firefox's legacy/current token spellings connected to those semantics;
+it does not define palette sources or component selectors.
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -23,12 +24,12 @@ this file/setting compiles some of those differences and brings them back to the
             box-shadow: var(--uc-box-shadow) !important;
         }
         & #urlbar-container * {
-            --uc-button-border-radius: var(--uc-all-border-radius) !important;
+            --uc-button-border-radius: var(--uc-nova-control-radius, var(--uc-all-border-radius)) !important;
         }
         & #urlbar {
             margin-top: 0px !important;
         }
-        & .urlbar-background, & #urlbar-background, & .searchmode-switcher, & #identity-icon-box,
+        & .urlbar-background, & #urlbar-background, & :is(#urlbar-searchmode-switcher, .searchmode-switcher), & #identity-icon-box,
         & #page-action-buttons .urlbar-page-action {
             border-radius: var(--uc-button-border-radius) !important;
         }
@@ -60,48 +61,28 @@ this file/setting compiles some of those differences and brings them back to the
  * active --uc-* color-scheme contract feeding both generations.
  */
 #main-window {
-    /* Break old scheme definitions like --uc-navbar-background: var(--toolbar-bgcolor)
-       before mapping toolbar tokens back to the active scheme surface. */
-    --uc-navbar-background: var(--uc-browser-color) !important;
-
     /* Legacy Firefox chrome tokens. */
-    --toolbar-bgcolor: var(--uc-browser-color) !important;
+    --toolbar-bgcolor: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
     --toolbar-color: var(--uc-text) !important;
-    --toolbox-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-bgcolor-inactive: var(--uc-browser-color) !important;
+    --toolbox-bgcolor: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
+    --toolbox-bgcolor-inactive: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
     --toolbox-textcolor: var(--uc-text) !important;
     --toolbox-textcolor-inactive: var(--uc-text) !important;
-    --toolbox-non-lwt-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
+    --toolbox-non-lwt-bgcolor: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
+    --toolbox-non-lwt-bgcolor-inactive: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
     --toolbox-non-lwt-textcolor: var(--uc-text) !important;
     --toolbox-non-lwt-textcolor-inactive: var(--uc-text) !important;
 
     /* Firefox 152+ design-system chrome tokens. */
-    --toolbar-background-color: var(--uc-browser-color) !important;
+    --toolbar-background-color: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
     --toolbar-text-color: var(--uc-text) !important;
-    --toolbox-background-color: var(--uc-browser-color) !important;
-    --toolbox-background-color-inactive: var(--uc-browser-color) !important;
+    --toolbox-background-color: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
+    --toolbox-background-color-inactive: var(--uc-nova-chrome-block-surface, var(--uc-navbar-background)) !important;
     --toolbox-text-color: var(--uc-text) !important;
     --toolbox-text-color-inactive: var(--uc-text) !important;
 
-    /* Tabs and toolbar buttons across old and new token names. */
-    --tab-selected-bgcolor: var(--uc-tab-selected) !important;
-    --tab-background-color-selected: var(--uc-tab-selected) !important;
-    --tab-selected-textcolor: var(--uc-tab-selected-text, var(--uc-text)) !important;
-    --tab-hover-background-color: var(--uc-tab-selected) !important;
+    /* Icon and field aliases used outside Firefox's Nova-pref block. */
     --toolbarbutton-icon-fill: var(--uc-toolbarbutton-icon-fill, var(--uc-text)) !important;
-    --button-background-color-ghost-hover: var(--uc-button-selected) !important;
-    --button-background-color: var(--uc-button-selected) !important;
-    --button-background-color-hover: var(--uc-button-selected) !important;
-    --button-background-color-active: var(--uc-button-selected) !important;
-    --button-hover-bgcolor: var(--uc-button-selected) !important;
-    --button-active-bgcolor: var(--uc-button-selected) !important;
-    --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-    --toolbarbutton-active-background: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-active: var(--uc-button-selected) !important;
-
-    /* URL/search field token spelling changed too. */
     --toolbar-field-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
     --toolbar-field-background-color-focus: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
     --toolbar-field-focus-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
@@ -109,30 +90,47 @@ this file/setting compiles some of those differences and brings them back to the
     --toolbar-field-text-color: var(--uc-text) !important;
     --toolbar-field-focus-color: var(--uc-text) !important;
     --toolbar-field-text-color-focus: var(--uc-text) !important;
-    --toolbar-field-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
-    --toolbar-field-focus-border-color: var(--uc-accent-color-3, var(--uc-text)) !important;
-    --toolbar-field-border-color-focus: var(--uc-accent-color-3, var(--uc-text)) !important;
+    --toolbar-field-border-color: var(--uc-nova-field-border, var(--uc-panel-border)) !important;
+    --toolbar-field-focus-border-color: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
+    --toolbar-field-border-color-focus: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
 }
 
 /* Firefox Nova token bridge -------------------------------------------------------------
- * Nova is still moving through Firefox Nightly token layers. Keep this block narrow
- * and pref-gated: it maps Nova-era aliases back to the active FF Ultima `--uc-*`
- * contract for both FF Ultima's optional overlay and Firefox's native Nova pref.
- * The two prefs are treated as a pair: when native browser.nova.enabled restructures
- * the chrome, the rescue fires automatically.
+ * Firefox 154 Nova is FF Ultima's required structural baseline. Keep the aliases
+ * pref-scoped to Firefox's native switch, with all consumer colors flowing from
+ * the active FF Ultima `--uc-*` palette.
  */
-@media -moz-pref("user.theme.nova"), -moz-pref("browser.nova.enabled") {
+@media -moz-pref("browser.nova.enabled") {
     :root,
     #main-window {
+        /* Firefox 154 Nova geometry. These values come from the pinned token snapshot. */
+        --border-radius-xsmall: var(--uc-nova-radius-xsmall) !important;
+        --border-radius-small: var(--uc-nova-radius-small) !important;
+        --border-radius-medium: var(--uc-nova-radius-medium) !important;
+        --border-radius-large: var(--uc-nova-radius-large) !important;
+        --border-radius-xlarge: var(--uc-nova-radius-xlarge) !important;
+        --button-border-radius: var(--uc-nova-control-radius) !important;
+        --toolbarbutton-border-radius: var(--uc-nova-control-radius) !important;
+        --urlbar-icon-border-radius: var(--uc-nova-control-radius) !important;
+        --panel-border-radius: var(--uc-nova-panel-radius) !important;
+        --panel-menuitem-border-radius: var(--uc-nova-menuitem-radius) !important;
+        --arrowpanel-border-radius: var(--uc-nova-panel-radius) !important;
+        --arrowpanel-menuitem-border-radius: var(--uc-nova-menuitem-radius) !important;
+        --menuitem-border-radius: var(--uc-nova-menuitem-radius) !important;
+        --card-border-radius: var(--uc-nova-card-radius) !important;
+        --in-content-button-border-radius: var(--uc-nova-control-radius) !important;
+        --in-content-border-radius: var(--uc-nova-card-radius) !important;
+        --toolbar-padding-inline: var(--uc-nova-toolbar-padding-inline) !important;
+
         /* Input tokens renamed during Nova token work. Keep old and new spellings alive. */
         --input-color: var(--uc-text) !important;
         --input-text-color: var(--uc-text) !important;
         --input-bgcolor: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
         --input-text-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-        --input-border-color: var(--uc-panel-border, var(--uc-accent-color-3)) !important;
-        --input-text-border-color: var(--uc-panel-border, var(--uc-accent-color-3)) !important;
-        --input-focus-border-color: var(--uc-nova-border-strong, var(--uc-accent-color-3)) !important;
-        --input-text-focus-border-color: var(--uc-nova-border-strong, var(--uc-accent-color-3)) !important;
+        --input-border-color: var(--uc-nova-field-border, var(--uc-panel-border)) !important;
+        --input-text-border-color: var(--uc-nova-field-border, var(--uc-panel-border)) !important;
+        --input-focus-border-color: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
+        --input-text-focus-border-color: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
 
         /* Current Firefox Nova urlbar tokens route the visible field surface
            through urlbar-specific aliases instead of only toolbar-field colors. */
@@ -143,100 +141,326 @@ this file/setting compiles some of those differences and brings them back to the
         --toolbar-field-text-color: var(--uc-text) !important;
         --toolbar-field-focus-color: var(--uc-text) !important;
         --toolbar-field-text-color-focus: var(--uc-text) !important;
-        --toolbar-field-border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
-        --toolbar-field-focus-border-color: var(--uc-nova-border-strong, var(--uc-accent-color-1)) !important;
-        --toolbar-field-border-color-focus: var(--uc-nova-border-strong, var(--uc-accent-color-1)) !important;
-        --urlbar-background-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-        --urlbar-background-background-color-focused: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-        --urlbar-background-border: 1px solid var(--uc-nova-border, var(--uc-panel-border)) !important;
-        --urlbar-background-border-breakout: 1px solid var(--uc-nova-border-strong, var(--uc-accent-color-1)) !important;
-        --urlbar-background-outline-focused: none !important;
-        --urlbar-input-container-border: 1px solid var(--uc-nova-border, var(--uc-panel-border)) !important;
-        --urlbar-box-bgcolor: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-        --urlbar-box-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
-        --urlbar-box-background-color-focus: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --urlbar-box-background-color-hover: var(--uc-button-selected) !important;
-        --urlbar-box-background-color-active: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --urlbar-box-hover-bgcolor: var(--uc-button-selected) !important;
-        --urlbar-box-focus-bgcolor: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
+        --toolbar-field-border-color: var(--uc-nova-field-border, var(--uc-panel-border)) !important;
+        --toolbar-field-focus-border-color: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
+        --toolbar-field-border-color-focus: var(--uc-nova-focus-ring, var(--uc-accent-color-1)) !important;
+        --urlbar-background-color: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
+        --urlbar-background-color-focus: var(--uc-urlbar-background, var(--uc-layered-background)) !important;
+        --urlbar-border-radius: var(--uc-nova-control-radius) !important;
+        --urlbar-margin-inline: var(--uc-nova-urlbar-margin-inline) !important;
+        --urlbar-padding-block: var(--uc-nova-urlbar-padding-block) !important;
+        --urlbar-box-bgcolor: var(--uc-nova-urlbar-box-surface) !important;
+        --urlbar-box-background-color: var(--uc-nova-urlbar-box-surface) !important;
+        --urlbar-box-background-color-focus: var(--uc-nova-urlbar-surface) !important;
+        --urlbar-box-background-color-hover: var(--uc-nova-urlbar-box-hover-surface) !important;
+        --urlbar-box-background-color-active: var(--uc-nova-urlbar-box-active-surface) !important;
+        --urlbar-box-hover-bgcolor: var(--uc-nova-urlbar-box-hover-surface) !important;
+        --urlbar-box-focus-bgcolor: var(--uc-nova-urlbar-surface) !important;
         --urlbar-box-text-color: var(--uc-text) !important;
-        --urlbar-box-text-color-hover: var(--uc-text) !important;
-        --urlbarView-highlight-background: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --urlbarView-hover-background: var(--uc-button-selected) !important;
-        --urlbarView-result-button-selected-color: var(--uc-text) !important;
-        --urlbarView-result-button-selected-background-color: var(--uc-button-selected) !important;
-        --urlbarview-background-color-hover: var(--uc-button-selected) !important;
-        --urlbarview-background-color-selected: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --urlbarview-text-color-action: var(--uc-nova-accent, var(--uc-accent-color-1)) !important;
-        --urlbarview-text-color-selected: var(--uc-text) !important;
-        --urlbarview-separator-color: color-mix(in srgb, var(--uc-nova-accent, var(--uc-accent-color-1)) 18%, transparent) !important;
+        --urlbar-box-text-color-hover: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        --urlbarView-highlight-background: var(--uc-nova-tab-hover-surface) !important;
+        --urlbarView-hover-background: var(--uc-nova-tab-hover-surface) !important;
+        --urlbarView-result-button-selected-color: var(--uc-nova-active-text, var(--uc-text)) !important;
+        --urlbarView-result-button-selected-background-color: var(--uc-nova-urlbar-box-active-surface) !important;
+        --urlbarview-background-color-hover: var(--uc-nova-tab-hover-surface) !important;
+        --urlbarview-background-color-selected: var(--uc-nova-tab-hover-surface) !important;
+        /* Keep both Firefox 153/154 row-padding spellings alive. The required
+           Nova foundation supplies geometry while the active scheme supplies color. */
+        --urlbarView-row-gutter: var(--uc-nova-urlbar-row-gutter, var(--space-xsmall)) !important;
+        --urlbarView-row-padding-block: var(--uc-nova-urlbar-row-padding-block, var(--space-small)) !important;
+        --urlbarview-row-padding-block: var(--uc-nova-urlbar-row-padding-block, var(--space-small)) !important;
+        --urlbarView-row-padding-inline: var(--uc-nova-urlbar-row-padding-inline, var(--urlbar-icon-padding)) !important;
+        --urlbarview-row-padding-inline: var(--uc-nova-urlbar-row-padding-inline, var(--urlbar-icon-padding)) !important;
+        --urlbarview-row-min-height: var(--uc-nova-urlbar-row-min-height) !important;
+        --urlbarview-border-radius: var(--uc-nova-control-radius) !important;
+        --urlbarView-row-border-radius: var(--uc-nova-control-radius) !important;
+        --urlbarview-text-color-action: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --urlbarview-text-color-secondary: color-mix(in srgb, var(--uc-text) 73%, transparent) !important;
+        --urlbarview-text-color-selected: var(--uc-nova-active-text, var(--uc-text)) !important;
+        --urlbarview-separator-color: color-mix(in srgb, var(--uc-nova-accent-leading, var(--uc-accent-color-1)) 18%, transparent) !important;
+
+        /* Firefox 153/154 tab tokens. Nova otherwise bypasses legacy
+           --tab-selected-bgcolor and introduces its own spacing. */
+        --tab-background-color-hover: var(--uc-nova-tab-hover-surface) !important;
+        --tab-background-color-selected: var(--uc-nova-tab-active-surface) !important;
+        --tab-selected-bgcolor: var(--uc-nova-tab-active-surface) !important;
+        --tab-border-radius: var(--uc-nova-tab-radius) !important;
+        --tab-border-color-selected-leading: var(--uc-nova-selected-border-leading) !important;
+        --tab-border-color-selected-trailing: var(--uc-nova-selected-border-trailing) !important;
+        --tab-border-color-accent: var(--uc-nova-selected-border) !important;
+        --tab-box-shadow-selected: var(--uc-nova-control-elevation) !important;
+        --tab-loading-fill: var(--uc-accent-color-1) !important;
+        --tab-margin-block: var(--uc-nova-tab-margin-block) !important;
+        --tab-hover-outline-color: transparent !important;
+        --tab-selected-outline-color: transparent !important;
+        --tab-selected-textcolor: var(--uc-nova-tab-selected-text) !important;
 
         /* Sidebar tokens are used by Firefox vertical tabs and native sidebars. */
-        --sidebar-background-color: var(--uc-sidebar-background, var(--uc-layered-background)) !important;
+        --sidebar-background-color: var(--uc-nova-chrome-block-surface, var(--uc-sidebar-background)) !important;
         --sidebar-text-color: var(--uc-text) !important;
-        --sidebar-border-color: var(--uc-panel-border, var(--uc-nova-border, transparent)) !important;
-        --lwt-sidebar-background-color: var(--uc-sidebar-background, var(--uc-layered-background)) !important;
-        --lwt-sidebar-text-color: var(--uc-text) !important;
-        --lwt-sidebar-border-color: var(--uc-panel-border, var(--uc-nova-border, transparent)) !important;
-        --lwt-sidebar-highlight-background-color: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --lwt-sidebar-highlight-text-color: var(--uc-selection-color, var(--uc-text)) !important;
+        --sidebar-border-color: var(--uc-nova-chrome-border, var(--uc-panel-border)) !important;
 
-        /* Nova makes rounded controls more prominent; keep button aliases in sync.
-           Keep default control backgrounds neutral so menus do not inherit the
-           accent hover surface for every row. */
+        /* Keep renamed button aliases on the active scheme's existing states.
+           Normal/resting backgrounds are intentionally left to that scheme. */
         --button-text-color: var(--uc-text) !important;
-        --button-text-color-hover: var(--uc-text) !important;
-        --button-text-color-active: var(--uc-text) !important;
+        --button-text-color-hover: var(--uc-nova-hover-text) !important;
+        --button-text-color-active: var(--uc-nova-active-text) !important;
         --button-text-color-ghost: var(--uc-text) !important;
-        --button-text-color-ghost-hover: var(--uc-text) !important;
-        --button-text-color-ghost-active: var(--uc-text) !important;
+        --button-text-color-ghost-hover: var(--uc-nova-hover-text) !important;
+        --button-text-color-ghost-active: var(--uc-nova-active-text) !important;
+        --button-text-color-primary: var(--uc-nova-on-accent) !important;
         --button-icon-fill: var(--uc-text) !important;
         --button-border-color: var(--uc-nova-border, transparent) !important;
-        --button-border-color-hover: var(--uc-nova-border-strong, var(--uc-panel-border)) !important;
-        --button-border-color-active: var(--uc-nova-border-strong, var(--uc-panel-border)) !important;
+        --button-border-color-hover: var(--uc-nova-hover-ring, var(--uc-nova-border)) !important;
+        --button-border-color-active: var(--uc-nova-active-ring, var(--uc-nova-border-interactive)) !important;
+        --button-background-color-ghost-hover: var(--uc-nova-button-hover-surface) !important;
         --button-background-color: transparent !important;
-        --button-background-color-ghost: transparent !important;
-        --button-background-color-ghost-hover: var(--uc-button-selected) !important;
-        --button-background-color-hover: var(--uc-button-selected) !important;
-        --button-background-color-ghost-active: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --button-background-color-active: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --button-hover-bgcolor: var(--uc-button-selected) !important;
-        --button-active-bgcolor: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-        --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
-        --toolbarbutton-active-background: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --toolbarbutton-background-color-active: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
-        --panel-banner-item-hover-bgcolor: var(--uc-button-selected) !important;
+        --button-background-color-hover: var(--uc-nova-button-hover-surface) !important;
+        --button-background-color-ghost-active: var(--uc-nova-button-active-surface) !important;
+        --button-background-color-active: var(--uc-nova-button-active-surface) !important;
+        --button-background-color-primary: var(--uc-nova-primary-surface) !important;
+        --button-background-color-primary-hover: var(--uc-nova-primary-hover-surface) !important;
+        --button-background-color-primary-active: var(--uc-nova-primary-active-surface) !important;
+        --button-hover-bgcolor: var(--uc-nova-button-hover-surface) !important;
+        --button-active-bgcolor: var(--uc-nova-button-active-surface) !important;
+        --toolbarbutton-hover-background: var(--uc-nova-toolbar-hover-surface) !important;
+        --toolbarbutton-background-color-hover: var(--uc-nova-toolbar-hover-surface) !important;
+        --toolbarbutton-active-background: var(--uc-nova-toolbar-active-surface) !important;
+        --toolbarbutton-background-color-active: var(--uc-nova-toolbar-active-surface) !important;
+        --toolbarbutton-outline-color-hover: transparent !important;
+        --toolbarbutton-outline-color-active: transparent !important;
+        --toolbarbutton-outline-color-selected: transparent !important;
+        --panel-item-hover-bgcolor: var(--uc-nova-panel-hover-surface) !important;
+        --panel-banner-item-hover-bgcolor: var(--uc-nova-panel-hover-surface) !important;
         --panel-banner-item-color: var(--uc-text) !important;
-        --panel-banner-item-background-color: transparent !important;
-        --panel-banner-item-active-bgcolor: var(--uc-nova-active-surface, var(--uc-button-selected)) !important;
-        --panel-background: var(--uc-panel-background) !important;
-        --panel-background-color: var(--uc-panel-background) !important;
+        --panel-banner-item-active-bgcolor: var(--uc-nova-panel-active-surface) !important;
+        --panel-background: var(--uc-nova-panel-surface) !important;
+        --panel-background-color: var(--uc-nova-panel-surface) !important;
         --panel-color: var(--uc-text) !important;
         --panel-text-color: var(--uc-text) !important;
         --panel-border-color: var(--uc-panel-border) !important;
-        --panel-list-background-color: var(--uc-panel-background) !important;
-        --panel-background-color-dimmed: var(--uc-button-selected) !important;
-        --arrowpanel-background: var(--uc-panel-background) !important;
+        --panel-shadow: var(--uc-nova-panel-elevation) !important;
+        --panel-list-background-color: var(--uc-nova-panel-surface) !important;
+        --panel-background-color-dimmed: var(--uc-nova-chip-surface) !important;
+        --arrowpanel-background: var(--uc-nova-panel-surface) !important;
         --arrowpanel-border-color: var(--uc-panel-border) !important;
         --arrowpanel-color: var(--uc-text) !important;
-        --menuitem-hover-background-color: var(--uc-button-selected) !important;
-        --menuitem-hover-color: var(--uc-text) !important;
+        --menuitem-hover-background-color: var(--uc-nova-tab-hover-surface) !important;
+        --menuitem-hover-color: var(--uc-nova-hover-text, var(--uc-text)) !important;
         --menuitem-disabled-hover-background-color: transparent !important;
-        --menu-background-color: var(--uc-panel-background) !important;
+        --menu-background-color: var(--uc-nova-context-menu-surface) !important;
         --menu-color: var(--uc-text) !important;
         --menu-border-color: var(--uc-panel-border) !important;
-        --panel-separator-color: color-mix(in srgb, var(--uc-nova-accent, var(--uc-accent-color-1)) 22%, transparent) !important;
+        --panel-separator-color: color-mix(in srgb, var(--uc-nova-accent-leading, var(--uc-accent-color-1)) 22%, transparent) !important;
 
         /* Tab/sidebar separators and focus states seen in Nova token work. */
-        --tabs-navbar-separator-color: color-mix(in srgb, var(--uc-nova-accent, var(--uc-accent-color-1)) 28%, transparent) !important;
+        --tabs-navbar-separator-color: transparent !important;
         --tabs-navbar-separator-style: solid !important;
-        --focus-outline-color: var(--uc-nova-border-strong, var(--uc-accent-color-3)) !important;
-        --focus-outline: 1px solid var(--focus-outline-color) !important;
-        --link-color: var(--uc-nova-accent, var(--uc-accent-color-1)) !important;
+        --focus-outline-color: var(--uc-nova-focus-ring) !important;
+        --focus-outline: var(--uc-nova-focus-outline) !important;
+        --toolbar-field-highlight: var(--uc-nova-selection-surface) !important;
+        --toolbar-field-highlight-text: var(--uc-nova-selection-text) !important;
+        --text-highlight-background: var(--uc-nova-selection-surface) !important;
+        --text-highlight-foreground: var(--uc-nova-selection-text) !important;
+        --link-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
 
-        --chrome-content-separator-color: var(--uc-panel-border, transparent) !important;
+        --chrome-content-separator-color: var(--uc-nova-page-frame-border, var(--uc-panel-border)) !important;
+        --content-area-shadow: var(--uc-nova-page-frame-elevation, none) !important;
+        --tabpanel-background-color: var(--uc-nova-page-frame-surface, var(--uc-layered-background)) !important;
+    }
+
+    /* Noctalia/Pywalfox palette roles feed Firefox's own Nova consumers. Other
+       user.theme.* palettes retain the shared aliases above unchanged. */
+    @media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
+        :root,
+        #main-window {
+            /* Canvas, boxes, cards, tables, and status containers. */
+            --background-color-canvas: var(--uc-nova-canvas-surface) !important;
+            --background-color-box: var(--uc-nova-box-surface) !important;
+            --background-color-box-info: var(--uc-nova-box-info-surface) !important;
+            --background-color-dimmed: var(--uc-nova-button-hover-surface) !important;
+            --background-color-dimmed-further: var(--uc-nova-button-active-surface) !important;
+            --background-color-list-item-hover: var(--uc-nova-list-hover-surface) !important;
+            --background-color-critical: var(--uc-nova-critical-container) !important;
+            --background-color-information: var(--uc-nova-information-container) !important;
+            --background-color-success: var(--uc-nova-success-container) !important;
+            --background-color-warning: var(--uc-nova-warning-container) !important;
+            --card-background-color: var(--uc-nova-box-surface) !important;
+            --card-border-color: var(--uc-nova-border) !important;
+            --card-header-background-color: transparent !important;
+            --card-header-border-color: transparent !important;
+            --table-row-background-color: var(--uc-nova-canvas-surface) !important;
+            --table-row-background-color-alternate: var(--uc-nova-box-surface) !important;
+
+            /* Borders and focus. */
+            --border-color: var(--uc-nova-border) !important;
+            --border-color-deemphasized: var(--uc-nova-border-deemphasized) !important;
+            --border-color-error: var(--uc-nova-border-error) !important;
+            --border-color-interactive: var(--uc-nova-border-interactive) !important;
+            --border-color-interactive-hover: var(--uc-nova-border-interactive) !important;
+            --border-color-interactive-active: var(--uc-nova-border-interactive) !important;
+            --border-color-interactive-disabled: var(--uc-nova-border-disabled) !important;
+            --border-color-selected: var(--uc-nova-primary-surface) !important;
+            --focus-outline-color: var(--uc-nova-focus-ring) !important;
+            --focus-outline: var(--uc-nova-focus-outline) !important;
+            --tab-hover-outline-color: transparent !important;
+            --tab-selected-outline-color: var(--uc-nova-primary-surface) !important;
+
+            /* Accent, text, links, and semantic icons. */
+            --color-accent-attention: var(--uc-nova-icon-attention) !important;
+            --color-accent-primary: var(--uc-nova-primary-surface) !important;
+            --color-accent-primary-hover: var(--uc-nova-primary-hover-surface) !important;
+            --color-accent-primary-active: var(--uc-nova-primary-active-surface) !important;
+            --color-accent-primary-selected: var(--uc-nova-primary-active-surface) !important;
+            --text-color: var(--uc-nova-text) !important;
+            --text-color-deemphasized: var(--uc-nova-text-muted) !important;
+            --text-color-disabled: var(--uc-nova-text-disabled) !important;
+            --text-color-error: var(--uc-nova-icon-critical) !important;
+            --text-color-list-item-hover: var(--uc-nova-text) !important;
+            --text-color-accent-primary-selected: var(--uc-nova-on-accent) !important;
+            --icon-color: var(--uc-nova-icon-color) !important;
+            --icon-color-accent-primary-desaturated: var(--uc-nova-attention-desaturated) !important;
+            --icon-color-critical: var(--uc-nova-icon-critical) !important;
+            --icon-color-information: var(--uc-nova-icon-information) !important;
+            --icon-color-success: var(--uc-nova-icon-success) !important;
+            --icon-color-warning: var(--uc-nova-icon-warning) !important;
+            --link-color: var(--uc-nova-primary-surface) !important;
+            --link-color-hover: var(--uc-nova-primary-hover-surface) !important;
+
+            /* Generic, ghost, muted, menu, primary, and destructive buttons. */
+            --button-attention-dot-color: var(--uc-nova-icon-attention) !important;
+            --button-badge-background-color: var(--uc-nova-icon-attention) !important;
+            --button-icon-fill: var(--uc-nova-icon-color) !important;
+            --button-background-color: transparent !important;
+            --button-background-color-hover: var(--uc-nova-button-hover-surface) !important;
+            --button-background-color-active: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-selected: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-disabled: transparent !important;
+            --button-background-color-ghost: transparent !important;
+            --button-background-color-ghost-hover: var(--uc-nova-button-hover-surface) !important;
+            --button-background-color-ghost-active: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-ghost-selected: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-menu: transparent !important;
+            --button-background-color-menu-hover: var(--uc-nova-button-hover-surface) !important;
+            --button-background-color-menu-active: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-menu-selected: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-muted: var(--uc-nova-box-info-surface) !important;
+            --button-background-color-muted-hover: var(--uc-nova-button-hover-surface) !important;
+            --button-background-color-muted-active: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-muted-selected: var(--uc-nova-button-active-surface) !important;
+            --button-background-color-primary: var(--uc-nova-primary-surface) !important;
+            --button-background-color-primary-hover: var(--uc-nova-primary-hover-surface) !important;
+            --button-background-color-primary-active: var(--uc-nova-primary-active-surface) !important;
+            --button-background-color-primary-selected: var(--uc-nova-primary-active-surface) !important;
+            --button-background-color-destructive: var(--uc-nova-icon-critical) !important;
+            --button-background-color-destructive-hover:
+                color-mix(
+                    in srgb,
+                    var(--uc-nova-icon-critical) 85%,
+                    var(--uc-nova-text)
+                ) !important;
+            --button-background-color-destructive-active:
+                color-mix(
+                    in srgb,
+                    var(--uc-nova-icon-critical) 70%,
+                    var(--uc-nova-text)
+                ) !important;
+            --button-border-color: var(--uc-nova-border-deemphasized) !important;
+            --button-border-color-hover: var(--uc-nova-border-interactive) !important;
+            --button-border-color-active: var(--uc-nova-border-interactive) !important;
+            --button-border-color-disabled: var(--uc-nova-border-disabled) !important;
+            --button-border-color-ghost: transparent !important;
+            --button-border-color-primary: transparent !important;
+            --button-border-color-destructive: transparent !important;
+            --button-text-color: var(--uc-nova-text) !important;
+            --button-text-color-hover: var(--uc-nova-text) !important;
+            --button-text-color-active: var(--uc-nova-text) !important;
+            --button-text-color-selected: var(--uc-nova-text) !important;
+            --button-text-color-disabled: var(--uc-nova-text-disabled) !important;
+            --button-text-color-ghost: var(--uc-nova-text) !important;
+            --button-text-color-ghost-hover: var(--uc-nova-text) !important;
+            --button-text-color-ghost-active: var(--uc-nova-text) !important;
+            --button-text-color-menu-hover: var(--uc-nova-text) !important;
+            --button-text-color-menu-active: var(--uc-nova-text) !important;
+            --button-text-color-menu-selected: var(--uc-nova-text) !important;
+            --button-text-color-muted: var(--uc-nova-text) !important;
+            --button-text-color-muted-hover: var(--uc-nova-text) !important;
+            --button-text-color-muted-active: var(--uc-nova-text) !important;
+            --button-text-color-primary: var(--uc-nova-on-accent) !important;
+            --button-text-color-primary-active: var(--uc-nova-on-accent) !important;
+            --button-text-color-destructive: var(--uc-nova-on-accent) !important;
+            --button-text-color-destructive-selected: var(--uc-nova-on-accent) !important;
+
+            /* Settings/about:addons navigation: primary-filled only when selected. */
+            --page-nav-button-background-color: transparent !important;
+            --page-nav-button-background-color-hover: var(--uc-nova-button-hover-surface) !important;
+            --page-nav-button-background-color-active: var(--uc-nova-button-active-surface) !important;
+            --page-nav-button-background-color-selected: var(--uc-nova-primary-surface) !important;
+            --page-nav-button-border-color: transparent !important;
+            --page-nav-button-border-color-hover: transparent !important;
+            --page-nav-button-border-color-active: transparent !important;
+            --page-nav-button-indicator-background-color: var(--uc-nova-primary-surface) !important;
+            --page-nav-button-text-color: var(--uc-nova-text) !important;
+            --page-nav-button-text-color-hover: var(--uc-nova-text) !important;
+            --page-nav-button-text-color-active: var(--uc-nova-text) !important;
+            --page-nav-button-text-color-selected: var(--uc-nova-on-accent) !important;
+            --page-nav-hr-background-color: var(--uc-nova-border-deemphasized) !important;
+
+            /* Native panels and toolbar components. */
+            --panel-background-color: var(--uc-nova-box-surface) !important;
+            --panel-background: var(--uc-nova-box-surface) !important;
+            --panel-list-background-color: var(--uc-nova-box-surface) !important;
+            --panel-background-color-dimmed: var(--uc-nova-box-info-surface) !important;
+            --panel-border-color: var(--uc-nova-border) !important;
+            --panel-text-color: var(--uc-nova-text) !important;
+            --panel-color: var(--uc-nova-text) !important;
+            --panel-separator-color: var(--uc-nova-border-deemphasized) !important;
+            --panel-item-hover-bgcolor: var(--uc-nova-panel-hover-surface) !important;
+            --panel-banner-item-hover-bgcolor: var(--uc-nova-panel-hover-surface) !important;
+            --panel-banner-item-active-bgcolor: var(--uc-nova-panel-active-surface) !important;
+            --arrowpanel-background: var(--uc-nova-box-surface) !important;
+            --arrowpanel-border-color: var(--uc-nova-border) !important;
+            --arrowpanel-color: var(--uc-nova-text) !important;
+            --menu-background-color: var(--uc-nova-context-menu-surface) !important;
+            --menu-color: var(--uc-nova-text) !important;
+            --menu-border-color: var(--uc-nova-border) !important;
+            --menuitem-hover-background-color: var(--uc-nova-tab-hover-surface) !important;
+            --menuitem-hover-color: var(--uc-nova-text) !important;
+            --toolbar-background-color: var(--uc-nova-chrome-block-surface) !important;
+            --toolbar-text-color: var(--uc-nova-text) !important;
+            --toolbarbutton-icon-fill: var(--uc-nova-icon-color) !important;
+            --toolbarbutton-icon-fill-attention: var(--uc-nova-icon-attention) !important;
+            --toolbarbutton-hover-background: var(--uc-nova-toolbar-hover-surface) !important;
+            --toolbarbutton-background-color-hover: var(--uc-nova-toolbar-hover-surface) !important;
+            --toolbarbutton-active-background: var(--uc-nova-toolbar-active-surface) !important;
+            --toolbarbutton-background-color-active: var(--uc-nova-toolbar-active-surface) !important;
+
+            /* Legacy in-content aliases still consumed by a few 154 about pages. */
+            --in-content-page-background: var(--uc-nova-canvas-surface) !important;
+            --in-content-page-color: var(--uc-nova-text) !important;
+            --in-content-box-background: var(--uc-nova-box-surface) !important;
+            --in-content-box-border-color: var(--uc-nova-border) !important;
+            --in-content-border-color: var(--uc-nova-border) !important;
+            --in-content-button-background: transparent !important;
+            --in-content-button-background-hover: var(--uc-nova-button-hover-surface) !important;
+            --in-content-button-background-active: var(--uc-nova-button-active-surface) !important;
+            --in-content-primary-button-background: var(--uc-nova-primary-surface) !important;
+            --in-content-primary-button-background-hover: var(--uc-nova-primary-hover-surface) !important;
+            --in-content-primary-button-background-active: var(--uc-nova-primary-active-surface) !important;
+            --in-content-primary-button-text-color: var(--uc-nova-on-accent) !important;
+            --in-content-accent-color: var(--uc-nova-primary-surface) !important;
+            --in-content-link-color: var(--uc-nova-primary-surface) !important;
+        }
+    }
+
+    @media (prefers-contrast) {
+        :root,
+        #main-window {
+            --urlbar-icon-fill-opacity: 1 !important;
+            --urlbarview-text-color-secondary: currentColor !important;
+            --urlbarview-separator-color:
+                color-mix(in srgb, currentColor 86%, transparent) !important;
+        }
     }
 
     @media (forced-colors: active) {
@@ -259,14 +483,30 @@ this file/setting compiles some of those differences and brings them back to the
             --toolbar-field-border-color: ButtonBorder !important;
             --toolbar-field-focus-border-color: Highlight !important;
             --toolbar-field-border-color-focus: Highlight !important;
-            --urlbar-background-background-color: Field !important;
-            --urlbar-background-background-color-focused: Field !important;
-            --urlbar-background-border: 1px solid ButtonBorder !important;
-            --urlbar-background-border-breakout: 1px solid Highlight !important;
-            --urlbar-input-container-border: 1px solid ButtonBorder !important;
+            --urlbar-background-color: Field !important;
+            --urlbar-background-color-focus: Field !important;
+            --urlbar-box-background-color: ButtonFace !important;
+            --urlbar-box-background-color-focus: ButtonFace !important;
+            --urlbar-box-background-color-hover: Highlight !important;
+            --urlbar-box-background-color-active: Highlight !important;
+            --urlbar-box-text-color: ButtonText !important;
+            --urlbar-box-text-color-hover: HighlightText !important;
+            --urlbarview-background-color-hover: Highlight !important;
+            --urlbarview-background-color-selected: Highlight !important;
+            --urlbarview-separator-color: ButtonBorder !important;
+            --urlbarview-text-color-action: LinkText !important;
+            --urlbarview-text-color-secondary: CanvasText !important;
+            --urlbarview-text-color-selected: HighlightText !important;
+            --tab-background-color-hover: Highlight !important;
+            --tab-background-color-selected: Highlight !important;
+            --tab-box-shadow-selected: none !important;
+            --tab-loading-fill: Highlight !important;
+            --tab-selected-outline-color: Highlight !important;
+            --tab-selected-textcolor: HighlightText !important;
             --sidebar-background-color: Canvas !important;
             --sidebar-text-color: CanvasText !important;
             --sidebar-border-color: ButtonBorder !important;
+            --chrome-content-separator-color: ButtonBorder !important;
             --button-text-color: ButtonText !important;
             --button-text-color-hover: HighlightText !important;
             --button-text-color-active: HighlightText !important;
@@ -289,35 +529,24 @@ this file/setting compiles some of those differences and brings them back to the
     }
 }
 
-@media not -moz-pref("user.theme.noctalia") and not -moz-pref("user.theme.pywalfox") {
+/* Static palettes may still run through Firefox's lwtheme code path when the
+   built-in System theme is active. Feed those Firefox consumers from the
+   selected FF Ultima palette. Noctalia/Pywalfox are excluded because they read
+   Theme API/LWT values as source inputs. */
+@media (not -moz-pref("user.theme.noctalia")) and (not -moz-pref("user.theme.pywalfox")) {
     #main-window[lwtheme] {
-        /* Static FF Ultima schemes should keep owning chrome even when Firefox
-           routes the default theme through the lwtheme code path. Noctalia is
-           excluded because it intentionally sources these values from Firefox's
-           Theme API. */
         --lwt-accent-color: var(--uc-browser-color) !important;
         --lwt-accent-color-inactive: var(--uc-browser-color) !important;
         --lwt-text-color: var(--uc-text) !important;
-        --lwt-tab-line-color: var(--uc-accent-color-1, var(--uc-text)) !important;
-        --lwt-sidebar-background-color: var(--uc-sidebar-background, var(--uc-layered-background)) !important;
+        --lwt-tab-text: var(--uc-text) !important;
+        --lwt-tab-line-color: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --lwt-toolbar-field-background-color: var(--uc-urlbar-background) !important;
+        --lwt-toolbar-field-color: var(--uc-text) !important;
+        --lwt-toolbar-field-border-color: var(--uc-nova-field-border, var(--uc-panel-border)) !important;
+        --lwt-sidebar-background-color: var(--uc-nova-chrome-block-surface, var(--uc-sidebar-background)) !important;
         --lwt-sidebar-text-color: var(--uc-text) !important;
-        --lwt-sidebar-highlight-background-color: var(--uc-button-selected) !important;
+        --lwt-sidebar-border-color: var(--uc-nova-chrome-border, var(--uc-panel-border)) !important;
+        --lwt-sidebar-highlight-background-color: var(--uc-nova-sidebar-active-surface) !important;
+        --lwt-sidebar-highlight-text-color: var(--uc-nova-active-text) !important;
     }
 }
-
-#main-window,
-#main-window #navigator-toolbox,
-#main-window #navigator-toolbox > toolbar,
-#main-window #titlebar,
-#main-window #TabsToolbar,
-#main-window #TabsToolbar-customization-target {
-    background-color: var(--uc-browser-color) !important;
-    color: var(--uc-text) !important;
-}
-
-#main-window #nav-bar,
-#main-window #PersonalToolbar {
-    background-color: var(--uc-navbar-background) !important;
-    color: var(--uc-text) !important;
-}
-

@@ -63,7 +63,7 @@ enable bookmark url editting (add bookmark menu)
             /* hover zone - hot zone */
             &::after {
                 content:""; background:none; position:absolute;
-                height:20px; border-radius:10px; text-align:center;
+                height:20px; border-radius:var(--uc-nova-control-radius, 24px); text-align:center;
                 left: 30%;right: 20%;
                 @media not -moz-pref("ultima.navbar.position","bottom") {
                     top: var(--uc-navbar-autohide-hover-offset);
@@ -134,7 +134,7 @@ enable bookmark url editting (add bookmark menu)
         /* absolute positioning */
         #navigator-toolbox {
             position: absolute !important;
-            border-radius: 18px !important;
+            border-radius: var(--uc-nova-panel-radius, 16px) !important;
             z-index: 99999999999 !important;
             box-shadow: var(--uc-box-shadow) !important;
             padding: 4px !important;
@@ -143,7 +143,7 @@ enable bookmark url editting (add bookmark menu)
             @media (max-width: 1250px) {left: 1.5%; right: 1.5%;}
             @media -moz-pref("ultima.navbar.float.fullsize") {left: 12px; right: 12px;}
             & #nav-bar {
-                border-radius: 18px !important;
+                border-radius: var(--uc-nova-panel-radius, 16px) !important;
             }
             @media not -moz-pref("ultima.navbar.position","bottom") {
                 top: 14px; bottom: unset;
@@ -272,7 +272,7 @@ enable bookmark url editting (add bookmark menu)
             :root:has(#downloadsPanel[panelopen="true"]) #downloads-button,
             :root:has(#customizationui-widget-panel[panelopen="true"]) #alltabs-button,
             #nav-bar:not(:focus-within):not(:hover) #downloads-button[progress="true"],
-            #nav-bar:not(:focus-within):not(:hover) #urlbar-searchmode-switcher[open] {
+            #nav-bar:not(:focus-within):not(:hover) :is(#urlbar-searchmode-switcher, .searchmode-switcher)[open] {
                 opacity: 1 !important;
             }
         }
@@ -302,151 +302,203 @@ enable bookmark url editting (add bookmark menu)
 /* bookmarks float ---------------------------------------------------------------------------------- */
 
 @media -moz-pref("ultima.navbar.bookmarks.float") {
+    :root {
+        --uc-bookmarks-float-gap: 6px;
+    }
+
+    /* Firefox 154 Nova paints #tabbrowser-tabbox above #navigator-toolbox.
+       Lift the owning toolbox while this floating child is enabled; the
+       toolbar's own z-index cannot escape its parent's stacking context. */
+    #navigator-toolbox {
+        z-index: calc(var(--browser-area-z-index-sidebar-expand-on-hover, 4) + 1) !important;
+        overflow: visible !important;
+    }
+
+    #nav-bar {
+        anchor-name: --uc-bookmarks-float-anchor;
+    }
+
     @media not -moz-pref("ultima.navbar.float") {
         @media not -moz-pref("ultima.navbar.float.fullsize") {
-            :root {--uc-bookbar-height:0px !important;}
-            #main-window, #main-window:not([lwtheme]) {
-                /* floating setup */
-                & #PersonalToolbar {
-                    z-index: 1 !important;
-                    background: var(--uc-browser-color) !important;
-                    border-radius: calc(var(--uc-button-border) + 8px) !important;
-                    box-shadow: var(--uc-box-shadow) !important;
-                    padding:0 !important;
-                    position:fixed !important;
-                    top: calc(var(--uc-topbars-combined-height) + 5px) !important;
-                    @media not -moz-pref("sidebar.VerticalTabs"){
-                        top: calc(var(--uc-topbars-combined-height) + 10px) !important;
-                    }
-                    /*
-                    @media not -moz-pref("ultima.navbar.bookmarks.centered") {
-                        @media not -moz-pref("ultima.navbar.bookmarks.float.right") {
-                            left: 5px !important; top: 1px !important; z-index:999999 !important;
-                        }
-                    }*/
-    /*                 left: 245px !important; */
-                    left: 55px !important;
-                    width: 800px !important; height: 40px !important;
-                    @media -moz-pref("ultima.navbar.bookmarks.position","right") {
-                        left: unset !important; transform: translateX(0) !important;
-                        right: 17px !important;
-                    }
-                }
-                &:has(#tabbrowser-tabs[orient="horizontal"]) #PersonalToolbar {
-                    width: fit-content !important;
-                    max-width: calc(100vw - 34px) !important;
-                }
+            :root {
+                --uc-bookbar-height: 0px !important;
+                --uc-bookmarks-float-top:
+                    calc(
+                        var(--uc-menubar-height) +
+                        var(--uc-navbar-height) +
+                        var(--uc-tabbar-height) +
+                        var(--uc-nova-chrome-gap, 8px)
+                    );
+                --uc-bookmarks-float-inline-shift: 0%;
+                --uc-bookmarks-float-block-shift: 0px;
             }
-            #main-window[lwtheme] { & #PersonalToolbar{ background: var(--lwt-accent-color) !important;} }
+
+            #PersonalToolbar:not([collapsed]) {
+                position: fixed !important;
+                position-anchor: --uc-bookmarks-float-anchor;
+                z-index: 100 !important;
+                inset-block-start: var(--uc-bookmarks-float-top) !important;
+                inset-block-start:
+                    calc(anchor(end) + var(--uc-bookmarks-float-gap, 6px)) !important;
+                inset-inline-start:
+                    calc(
+                        var(--uc-vertical-collapsed-width, 55px) +
+                        var(--uc-nova-chrome-gap, 8px)
+                    ) !important;
+                width:
+                    min(
+                        800px,
+                        calc(
+                            100vw -
+                            var(--uc-vertical-collapsed-width, 55px) -
+                            20px
+                        )
+                    ) !important;
+                min-height: 36px !important;
+                height: 36px !important;
+                max-height: 36px !important;
+                padding-inline: var(--space-small, 8px) !important;
+                overflow: visible !important;
+                opacity: 1;
+                transform:
+                    translate(
+                        var(--uc-bookmarks-float-inline-shift),
+                        var(--uc-bookmarks-float-block-shift)
+                    ) !important;
+                background: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+                border: 1px solid var(--uc-nova-border-deemphasized, var(--uc-panel-border)) !important;
+                border-radius: var(--uc-nova-card-radius, 16px) !important;
+                box-shadow: var(--uc-nova-panel-elevation, var(--uc-box-shadow-panel)) !important;
+            }
         }
     }
 }
+
+@media (-moz-pref("ultima.tabs.belowURLbar")) or
+       (-moz-pref("ultima.tabs.horizontal.under.navbar")) {
+    @media -moz-pref("ultima.navbar.bookmarks.float") {
+        #nav-bar {
+            anchor-name: none;
+        }
+
+        #TabsToolbar {
+            anchor-name: --uc-bookmarks-float-anchor;
+        }
+    }
+}
+
+@media -moz-pref("ultima.navbar.bookmarks.float") {
+    @media -moz-pref("ultima.tabs.tabbar.disabled"), -moz-pref("sidebar.verticalTabs") {
+        :root {
+            --uc-bookmarks-float-top:
+                calc(
+                    var(--uc-menubar-height) +
+                    var(--uc-navbar-height) +
+                    var(--uc-nova-chrome-gap, 8px)
+                );
+        }
+    }
+}
+
 /* bookmarks centered ------------------------------------------------------------------------------- */
 
-/* relying on the collapsed state of the chevron seems like a stable indicator of when bm can be centered now */
-@media -moz-pref("ultima.navbar.bookmarks.position","center") { 
-    @media not -moz-pref("ultima.navbar.bookmarks.float") { 
-        @media not -moz-pref("ultima.navbar.float") {
-            @media not -moz-pref("ultima.navbar.float.fullsize") {
-                #main-window, #main-window:not([lwtheme]) {
-                    :has(#PlacesToolbar #PlacesChevron[collapsed]) {
-                        #PlacesToolbarItems {
-                            justify-content: center !important;
-                        }
-                    }
-                }
-            }
+@media -moz-pref("ultima.navbar.bookmarks.position","center") {
+    #PlacesToolbarItems {
+        justify-content: flex-start !important;
+    }
+
+    #PlacesToolbar:has(#PlacesChevron[collapsed]) #PlacesToolbarItems {
+        justify-content: center !important;
+    }
+
+    @media -moz-pref("ultima.navbar.bookmarks.float") {
+        #PersonalToolbar:not([collapsed]) {
+            inset-inline-start: 50% !important;
+            inset-inline-end: auto !important;
+            --uc-bookmarks-float-inline-shift: -50%;
+        }
+
+        #personal-bookmarks,
+        #PlacesToolbar {
+            width: 100% !important;
+            max-width: none !important;
+            min-width: 0 !important;
         }
     }
-}
-@media -moz-pref("ultima.navbar.bookmarks.position","center") { 
-    @media not -moz-pref("ultima.navbar.bookmarks.float") { 
-        @media not -moz-pref("ultima.navbar.bookmarks.position","right") { 
-            @media not -moz-pref("ultima.navbar.float") {
-                @media not -moz-pref("ultima.navbar.float.fullsize") {
-                    #main-window, #main-window:not([lwtheme]) {
-                        :has(#PlacesToolbar #PlacesChevron[collapsed]) {
-                            #PlacesToolbarItems {
-                                justify-content: center !important;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media -moz-pref("ultima.navbar.bookmarks.position","center") { 
-    @media -moz-pref("ultima.navbar.bookmarks.float") { 
-        @media not -moz-pref("ultima.navbar.bookmarks.position","right") { 
-            @media not -moz-pref("ultima.navbar.float") {
-                @media not -moz-pref("ultima.navbar.float.fullsize") {
-                     #main-window, #main-window:not([lwtheme]) {
-                        #PersonalToolbar {
-                            left:50vw !important; transform: translateX(-50%);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-#personal-toolbar-empty {
-    width: 5px !important;
 }
 
-
+@media -moz-pref("ultima.navbar.bookmarks.position","right") {
+    @media -moz-pref("ultima.navbar.bookmarks.float") {
+        #PersonalToolbar:not([collapsed]) {
+            inset-inline-start: auto !important;
+            inset-inline-end: var(--uc-nova-chrome-gap, 8px) !important;
+            --uc-bookmarks-float-inline-shift: 0%;
+        }
+    }
+}
 /* bookmarks autohide ------------------------------------------------------------------------------- */
 
-@media -moz-pref("ultima.navbar.bookmarks.autohide") { @media not -moz-pref("ultima.navbar.bookmarks.float") {  @media not -moz-pref("ultima.navbar.autohide") {
-    :root:has(#navigator-toolbox:hover) {
-        #navigator-toolbox {transition: max-height, height, 0.5s ease !important;}
-        #PersonalToolbar {transition: max-height, height, 0.1s ease;}
-    }
-    :root:has(#PersonalToolbar[collapsed="false"]):not(:has(#navigator-toolbox:hover)):has(#placesContext:not(:hover)):not(:has(.bookmark-item[open])),
-    :root:has(#PersonalToolbar:not([collapsed])):not(:has(#navigator-toolbox:hover)):has(#placesContext:not(:hover)):not(:has(.bookmark-item[open])) {
-        &#main-window:not([inFullscreen="true"]) {
-            /* hide --uc-bookbar-height:1px !important;*/
-            --uc-bookbar-height:0px !important;
-            #navigator-toolbox {transition: max-height, height, 0.9s ease 0.9s !important;}
-            #PersonalToolbar {transition: max-height, height, 0.3s ease 0.9s !important;}
-            /* visibility */
-            #PlacesToolbarItems {
-                /* default */
-                overflow:visible !important;
-                opacity: 1 !important;
-                transition: opacity 0.3s ease-out;
-                /* display */
-                &:hover {
-                    opacity: 1 !important;
-                    transition: opacity 0.2s ease-in;
-                }
+@media -moz-pref("ultima.navbar.bookmarks.autohide") {
+    @media not -moz-pref("ultima.navbar.bookmarks.float") {
+        @media not -moz-pref("ultima.navbar.autohide") {
+            #PersonalToolbar:not([collapsed]) {
+                max-height: 4px !important;
+                opacity: 0;
+                overflow: clip !important;
+                transition:
+                    max-height 180ms ease 350ms,
+                    opacity 140ms ease 350ms !important;
+            }
+
+            :is(
+                #navigator-toolbox:hover #PersonalToolbar:not([collapsed]),
+                #PersonalToolbar:not([collapsed]):focus-within,
+                #PersonalToolbar:not([collapsed]):has([open]),
+                #PersonalToolbar[customizing]
+            ),
+            #main-window:has(#placesContext:hover) #PersonalToolbar:not([collapsed]) {
+                max-height: 4em !important;
+                opacity: 1;
+                overflow: visible !important;
+                transition-delay: 0ms !important;
             }
         }
     }
-}}}
-@media -moz-pref("ultima.navbar.bookmarks.autohide") { @media -moz-pref("ultima.navbar.bookmarks.float") {
-    #main-window, #main-window:not([lwtheme]) {
-        /* initial setup */
-        & #PersonalToolbar {
-            overflow:visible !important;
-            :root[sessionrestored] &:not(.instant) {transition: height ease 0.1s, opacity ease 0.3s !important;}
-            /* edge detection */
-            &::after {
-                content: "";background-color:none;position: absolute;
-                z-index: 998;top: -10px; right: 0; width: 100%;height: 10px;
-            }
-            /* autohiding */
-            &:not(:hover):not(:has([open])) {
-                transition: height ease 0.9s, opacity ease 0.8s !important;
-                height: 5px !important; opacity: 0 !important;
-            }
-            &:hover {opacity: 1 !important;}
+}
+
+@media -moz-pref("ultima.navbar.bookmarks.autohide") {
+    @media -moz-pref("ultima.navbar.bookmarks.float") {
+        #PersonalToolbar:not([collapsed]) {
+            --uc-bookmarks-float-block-shift: calc(-100% + 6px);
+            opacity: 0;
+            transition:
+                transform 180ms ease 350ms,
+                opacity 140ms ease 350ms !important;
+        }
+
+        :is(
+            #navigator-toolbox:hover #PersonalToolbar:not([collapsed]),
+            #navigator-toolbox:focus-within #PersonalToolbar:not([collapsed]),
+            #PersonalToolbar:not([collapsed]):hover,
+            #PersonalToolbar:not([collapsed]):focus-within,
+            #PersonalToolbar:not([collapsed]):has([open]),
+            #PersonalToolbar[customizing]
+        ),
+        #main-window:has(#placesContext:hover) #PersonalToolbar:not([collapsed]) {
+            --uc-bookmarks-float-block-shift: 0px;
+            opacity: 1;
+            transition-delay: 0ms !important;
         }
     }
-}}
+}
 
-
+@media (prefers-reduced-motion: reduce) {
+    @media -moz-pref("ultima.navbar.bookmarks.autohide") {
+        #PersonalToolbar {
+            transition: none !important;
+        }
+    }
+}
 
 /* bookmarks compact -------------------------------------------------------------------------------- */
 
@@ -560,7 +612,7 @@ enable bookmark url editting (add bookmark menu)
         position: fixed;
         top: 0; bottom: 0; left: 0; right: 0;
 
-        border-radius: 10px;
+        border-radius: var(--uc-nova-chrome-block-radius, 10px);
         margin: var(--uc-content-margins);
 
         opacity: 0;
@@ -580,6 +632,8 @@ enable bookmark url editting (add bookmark menu)
 /* enable bookmark url editting (add bookmark menu) ------------------------------------------------- */
 
 /* Enable option to edit bookmark URLs under Add Bookmark (blue star) menu */
-.editBMPanel_locationRow {
-    display: initial !important;
+@media -moz-pref("ultima.navbar.bookmarks.edit.url") {
+    .editBMPanel_locationRow {
+        display: initial !important;
+    }
 }

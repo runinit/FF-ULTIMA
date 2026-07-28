@@ -108,19 +108,6 @@ we set these outlines with ultima.tabs.tab.outline.color, then manipulate them w
     }
 }
 
-/* left empty ----------------------------------------------------------------------------------------------------- */
-
-/* simply leave it transparent when not empty or full */
-
-@media not -moz-pref("ultima.tabs.tab.outline","full"),
-@media not -moz-pref("ultima.tabs.tab.outline") {
-    .tab-background {
-        &:is([selected]) {
-            outline-color: transparent !important;
-        }
-    }
-}
-
 /* full ---------------------------------------------------------------------------------------------------------- */
 
 /* nothing to do, --tab-selected-outline-color simply gets applied with 'outline' */
@@ -183,7 +170,7 @@ recommended by @AuRiMaS666 https://github.com/soulhotel/FF-ULTIMA/issues/445
         100% { filter: hue-rotate(60deg); }
     }
     /* vertical tabs expanded */
-    #sidebar-main[sidebar-launcher-expanded=""] #tabbrowser-tabs[orient="vertical"] {
+    :is(#sidebar-main, sidebar-main)[sidebar-launcher-expanded=""] #tabbrowser-tabs[orient="vertical"] {
         .tabbrowser-tab[selected] .tab-background::before {
             margin-inline: 5%;
             width: calc(100% - 10%);
@@ -196,7 +183,7 @@ recommended by @AuRiMaS666 https://github.com/soulhotel/FF-ULTIMA/issues/445
         }
     }
     /* vertical tabs collapsed */
-    #sidebar-main:not([sidebar-launcher-expanded=""]) #tabbrowser-tabs[orient="vertical"] {
+    :is(#sidebar-main, sidebar-main):not([sidebar-launcher-expanded=""]) #tabbrowser-tabs[orient="vertical"] {
         .tabbrowser-tab[selected] .tab-background::before {
             margin-inline: 20%;
             width: calc(100% - 40%);

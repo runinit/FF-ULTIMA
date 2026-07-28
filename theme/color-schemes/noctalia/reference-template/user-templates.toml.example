@@ -1,0 +1,10 @@
+# Copy the JSON template to a stable path under your Noctalia configuration,
+# then merge this block into ~/.config/noctalia/user-templates.toml.
+#
+# The output is the standard Pywal colors.json transport consumed by Pywalfox.
+# Add the post_hook used by your local Pywalfox installation if you want
+# automatic browser-theme refreshes after Noctalia regenerates the palette.
+
+[templates.ff_ultima_pywalfox]
+input_path = "~/.config/noctalia/templates/ff-ultima-pywalfox.json"
+output_path = "~/.cache/wal/colors.json"

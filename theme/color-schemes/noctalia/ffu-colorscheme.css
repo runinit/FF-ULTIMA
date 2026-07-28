@@ -3,646 +3,122 @@
 FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
 File Desc:         Noctalia Bridge Color Scheme
 
-This scheme reads pywal's generated CSS first, then falls back to Firefox/LWT
-theme variables. That keeps Sidebery and other userContent targets on the same
-wal palette as browser chrome.
+This narrow source adapter reads pywal's generated CSS first, then Firefox/LWT
+theme inputs. Shared Nova consumers carry that palette across chrome and content.
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
 @import url("wal-colors.css");
 
-/* Pywal / Pywalfox / Firefox theme variables -> FF Ultima variables --------------------- */
+/* Generated Pywal values -> Noctalia roles -> FF Ultima palette sources -----------------
+ *
+ * The full reference template supplies color0-color15. Older Pywal/Pywalfox
+ * files can remain sparse: every missing role is derived here from color0,
+ * color5, color7, color10, color13, and color15 before the narrow LWT/system
+ * fallbacks are considered.
+ */
 
 :root,
 #main-window,
 #main-window[lwtheme] {
-    --uc-browser-color:      var(--background, var(--color0, var(--lwt-accent-color, Canvas)));
-    --uc-text:               var(--foreground, var(--color15, var(--lwt-text-color, CanvasText)));
-    --uc-noctalia-primary-accent: var(--color10, var(--lwt-sidebar-highlight-background-color, var(--color-accent-primary, AccentColor)));
-    --uc-noctalia-secondary-accent: var(--color13, var(--uc-noctalia-primary-accent));
-    --uc-noctalia-hover-surface: var(--uc-noctalia-primary-accent);
-    --uc-noctalia-active-surface: var(--uc-noctalia-primary-accent);
-    --uc-noctalia-accent-foreground: var(--uc-noctalia-wal-field, var(--background, var(--uc-browser-color)));
-    --uc-noctalia-panel-surface: var(--background, var(--color0, var(--uc-browser-color)));
-    --uc-accent-color-1:     var(--uc-noctalia-primary-accent);
-    --uc-accent-i:           var(--foreground, var(--color15, var(--lwt-sidebar-highlight-text-color, var(--toolbar-field-focus-color, var(--toolbar-field-color, var(--uc-text))))));
-    --uc-layered-background: var(--uc-noctalia-wal-surface, var(--color7, var(--lwt-sidebar-background-color, color-mix(in srgb, var(--uc-browser-color) 85%, var(--uc-text)))));
-    --uc-navbar-background:  var(--uc-browser-color);
-    --uc-urlbar-background:  color-mix(in srgb, var(--uc-noctalia-primary-accent) 6%, var(--uc-noctalia-wal-field, var(--color7, var(--uc-layered-background))));
-    --uc-findbar-background: var(--uc-layered-background);
-    --uc-sidebar-background: var(--color0, var(--lwt-sidebar-background-color, var(--uc-layered-background)));
-    --uc-tabsbar-background: var(--uc-browser-color);
-    --uc-tab-background:     transparent;
-    --uc-tab-selected:       var(--uc-noctalia-wal-surface, var(--color7, var(--tab-selected-bgcolor, var(--uc-layered-background))));
-    --uc-tab-selected-text:  var(--color15, var(--tab-selected-textcolor, var(--uc-text)));
-    --uc-button-selected:    var(--uc-noctalia-hover-surface);
-    --uc-button-red:         var(--uc-accent-color-1);
-    --uc-context-menu:       var(--uc-panel-background);
-    --uc-panel-background:   var(--uc-noctalia-panel-surface);
-    --uc-panel-border:       color-mix(in srgb, var(--uc-noctalia-primary-accent) 55%, var(--uc-browser-color));
-    --uc-panel-border-2:     color-mix(in srgb, var(--uc-noctalia-primary-accent) 42%, transparent);
-    --uc-panel-border-ii:    var(--uc-panel-border-2);
-    --uc-accent-color-2:     var(--uc-noctalia-primary-accent);
-    --uc-urlbar-url-color:   var(--uc-noctalia-secondary-accent);
-    --uc-accent-color-3:     var(--uc-noctalia-primary-accent);
-    --uc-accent-color-4:     var(--uc-noctalia-wal-field, var(--color7, var(--uc-layered-background)));
-    --uc-accent-color-5:     var(--color15, var(--toolbar-color, var(--uc-text)));
-    --uc-accent-color-6:     var(--uc-noctalia-primary-accent);
-    --uc-toolbarbutton-icon-fill: var(--uc-text);
-    --uc-transparent:        transparent;
-    --uc-selection-background: var(--uc-accent-color-1);
-    --uc-selection-background-muted: rgb(from var(--uc-selection-background) r g b / 50%);
-    --uc-selection-color:    var(--uc-noctalia-accent-foreground);
-    --uc-box-shadow:         0 0 0 1px var(--uc-panel-border-2), 0 1px 8px 0 color-mix(in srgb, var(--uc-browser-color) 52%, transparent);
-    --uc-box-shadow-panel:   0 0 0 1px var(--uc-panel-border-2), 0 1px 16px 0 color-mix(in srgb, var(--uc-browser-color) 64%, transparent);
-    --uc-button-border-radius: 10px;
-    --uc-tab-border-radius: 8px;
+    /* Role-complete Noctalia contract. */
+    --uc-noctalia-canvas: var(--color0, var(--background, var(--lwt-accent-color, Canvas)));
+    --uc-noctalia-main-text: var(--color15, var(--foreground, var(--lwt-text-color, CanvasText)));
+    --uc-noctalia-raised: var(
+        --color7,
+        var(--uc-noctalia-wal-surface, var(--lwt-sidebar-background-color, var(--uc-noctalia-canvas)))
+    );
+    --uc-noctalia-box: var(
+        --color8,
+        color-mix(in srgb, var(--uc-noctalia-canvas) 70%, var(--uc-noctalia-raised) 30%)
+    );
+    --uc-noctalia-box-info: var(--color7, var(--uc-noctalia-box));
+    --uc-noctalia-primary: var(
+        --color10,
+        var(--color3, var(--lwt-sidebar-highlight-background-color, AccentColor))
+    );
+    --uc-noctalia-secondary: var(--color13, var(--color3, var(--uc-noctalia-primary)));
+    --uc-noctalia-tertiary: var(--color5, var(--uc-noctalia-secondary));
+    --uc-noctalia-error: var(
+        --color1,
+        color-mix(in srgb, var(--uc-noctalia-tertiary) 70%, var(--uc-noctalia-main-text))
+    );
+    --uc-noctalia-outline: var(
+        --color11,
+        color-mix(in srgb, var(--uc-noctalia-main-text) 22%, var(--uc-noctalia-box))
+    );
+    --uc-noctalia-attention-desaturated: var(
+        --color12,
+        color-mix(in srgb, var(--uc-noctalia-primary) 55%, var(--uc-noctalia-box))
+    );
+    --uc-noctalia-on-accent: var(
+        --color14,
+        var(--lwt-sidebar-highlight-text-color, var(--uc-noctalia-canvas, AccentColorText))
+    );
 
-    /* Solid new-tab wallpaper from the darkest bridge surface. */
+    /* Status-container slots use generated colors when present and remain
+       readable with legacy sparse palettes. */
+    --uc-noctalia-information-container: var(
+        --color2,
+        color-mix(in srgb, var(--uc-noctalia-primary) 18%, var(--uc-noctalia-box))
+    );
+    --uc-noctalia-success-container: var(
+        --color4,
+        color-mix(in srgb, var(--uc-noctalia-secondary) 18%, var(--uc-noctalia-box))
+    );
+    --uc-noctalia-warning-container: var(
+        --color6,
+        color-mix(in srgb, var(--uc-noctalia-tertiary) 18%, var(--uc-noctalia-box))
+    );
+    --uc-noctalia-critical-container: var(
+        --color9,
+        color-mix(in srgb, var(--uc-noctalia-error) 18%, var(--uc-noctalia-box))
+    );
+
+    /* Compatibility names retained for existing custom CSS. */
+    --uc-noctalia-primary-accent: var(--uc-noctalia-primary);
+    --uc-noctalia-secondary-accent: var(--uc-noctalia-secondary);
+    --uc-noctalia-accent-foreground: var(--uc-noctalia-on-accent);
+    --uc-noctalia-raised-source: var(--uc-noctalia-raised);
+    --uc-noctalia-chrome-surface: var(--uc-noctalia-box);
+    --uc-noctalia-panel-surface: var(--uc-noctalia-box);
+
+    /* FF Ultima palette sources. Shared Nova semantics only consume these. */
+    --uc-browser-color:      var(--uc-noctalia-canvas);
+    --uc-text:               var(--uc-noctalia-main-text);
+    --uc-accent-color-1:     var(--uc-noctalia-primary);
+    --uc-accent-i:           var(--uc-noctalia-on-accent);
+    --uc-layered-background: var(--uc-noctalia-raised);
+    --uc-navbar-background:  var(--uc-noctalia-box);
+    --uc-urlbar-background:  var(--uc-noctalia-box);
+    --uc-findbar-background: var(--uc-noctalia-box);
+    --uc-sidebar-background: var(--uc-noctalia-box);
+    --uc-tabsbar-background: var(--uc-noctalia-box);
+    --uc-tab-background:     transparent;
+    --uc-tab-selected:       var(--uc-noctalia-box);
+    --uc-tab-selected-text:  var(--uc-noctalia-main-text);
+    --uc-button-selected:    color-mix(in srgb, var(--uc-noctalia-primary) 30%, transparent);
+    --uc-button-red:         var(--uc-noctalia-error);
+    --uc-context-menu:       var(--uc-noctalia-box);
+    --uc-panel-background:   var(--uc-noctalia-box);
+    --uc-panel-border:       var(--uc-noctalia-outline);
+    --uc-panel-border-2:     color-mix(in srgb, var(--uc-noctalia-main-text) 32%, var(--uc-noctalia-box));
+    --uc-panel-border-ii:    var(--uc-panel-border-2);
+    --uc-accent-color-2:     var(--uc-noctalia-secondary);
+    --uc-urlbar-url-color:   var(--uc-noctalia-primary);
+    --uc-accent-color-3:     var(--uc-noctalia-tertiary);
+    --uc-accent-color-4:     var(--uc-noctalia-box-info);
+    --uc-accent-color-5:     var(--uc-noctalia-main-text);
+    --uc-accent-color-6:     var(--uc-noctalia-error);
+    --uc-accent-color-7:     var(--uc-noctalia-attention-desaturated);
+    --uc-toolbarbutton-icon-fill: var(--uc-noctalia-main-text);
+    --uc-transparent:        transparent;
+    --uc-selection-background: var(--uc-noctalia-primary);
+    --uc-selection-background-muted: rgb(from var(--uc-selection-background) r g b / 50%);
+    --uc-selection-color:    var(--uc-noctalia-on-accent);
+
+    /* Preserve the existing solid fallback wallpaper source. */
     --uc-wallpaper: linear-gradient(var(--uc-layered-background), var(--uc-layered-background));
 }
 
-/* Minimal surface nudges; Pywal/Pywalfox keep owning the Firefox Theme API palette source. */
-
-#main-window {
-    --toolbar-bgcolor: var(--uc-navbar-background) !important;
-    --toolbox-bgcolor: var(--uc-browser-color) !important;
-    --toolbox-non-lwt-bgcolor-inactive: var(--uc-browser-color) !important;
-}
-
-#main-window,
-#main-window #navigator-toolbox,
-#main-window #navigator-toolbox > toolbar,
-#main-window #titlebar,
-#main-window #TabsToolbar,
-#main-window #TabsToolbar-customization-target {
-    background-color: var(--uc-browser-color) !important;
-}
-
-#main-window #nav-bar,
-#main-window #PersonalToolbar {
-    background-color: var(--uc-navbar-background) !important;
-}
-
-#main-window #browser {
-    background: var(--uc-browser-color) !important;
-}
-
-#main-window[lwtheme] {
-    --uc-accent-color-1: var(--uc-noctalia-primary-accent) !important;
-    --uc-accent-color-2: var(--uc-noctalia-primary-accent) !important;
-    --tab-loading-fill: var(--uc-noctalia-primary-accent) !important;
-}
-
-#main-window {
-    --tab-loading-fill: var(--uc-noctalia-primary-accent) !important;
-    --lwt-tab-line-color: var(--uc-accent-color-1) !important;
-    --toolbarbutton-icon-fill: var(--uc-toolbarbutton-icon-fill) !important;
-    --toolbarbutton-hover-background: var(--uc-button-selected) !important;
-    --toolbarbutton-active-background: var(--uc-noctalia-active-surface) !important;
-    --toolbarbutton-background-color-hover: var(--uc-button-selected) !important;
-    --toolbarbutton-background-color-active: var(--uc-noctalia-active-surface) !important;
-    --button-background-color-ghost-hover: var(--uc-button-selected) !important;
-    --button-background-color-hover: var(--uc-button-selected) !important;
-    --button-background-color-active: var(--uc-noctalia-active-surface) !important;
-    --button-primary-bgcolor: var(--uc-accent-color-1) !important;
-    --button-primary-hover-bgcolor: color-mix(in srgb, var(--uc-accent-color-1) 82%, var(--uc-text)) !important;
-    --toolbar-field-background-color: var(--uc-urlbar-background) !important;
-    --toolbar-field-focus-background-color: var(--uc-urlbar-background) !important;
-    --toolbar-field-color: var(--uc-text) !important;
-    --toolbar-field-focus-color: var(--uc-text) !important;
-    --toolbar-field-highlight: var(--uc-selection-background) !important;
-    --toolbar-field-highlight-text: var(--uc-selection-color) !important;
-    --text-highlight-background: var(--uc-selection-background) !important;
-    --text-highlight-foreground: var(--uc-selection-color) !important;
-    --toolbar-field-border-color: rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    --toolbar-field-focus-border-color: var(--uc-accent-color-1) !important;
-    --urlbarView-highlight-background: var(--uc-noctalia-active-surface) !important;
-    --urlbarView-hover-background: var(--uc-button-selected) !important;
-    --urlbar-box-bgcolor: var(--uc-urlbar-background) !important;
-    --urlbar-box-hover-bgcolor: var(--uc-button-selected) !important;
-    --urlbar-box-focus-bgcolor: var(--uc-noctalia-active-surface) !important;
-    --arrowpanel-background: var(--uc-panel-background) !important;
-    --arrowpanel-border-color: var(--uc-panel-border) !important;
-    --arrowpanel-color: var(--uc-text) !important;
-    --panel-background: var(--uc-panel-background) !important;
-    --panel-border-color: var(--uc-panel-border) !important;
-    --panel-color: var(--uc-text) !important;
-    --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed-further: var(--uc-noctalia-active-surface) !important;
-    --arrowpanel-dimmed-even-further: var(--uc-noctalia-active-surface) !important;
-    --menuitem-hover-background-color: var(--uc-button-selected) !important;
-    --menuitem-disabled-hover-background-color: transparent !important;
-    --panel-separator-color: color-mix(in srgb, var(--uc-accent-color-1) 22%, transparent) !important;
-    --newtab-background-color: var(--uc-browser-color) !important;
-    --newtab-primary-action-background: var(--uc-accent-color-1) !important;
-}
-
-#main-window :is(toolbarbutton, .toolbarbutton-1, .toolbarbutton-icon, .toolbarbutton-badge-stack, .toolbarbutton-text),
-#main-window :is(#nav-bar, #TabsToolbar, #PersonalToolbar, #toolbar-menubar, #urlbar) :is(image, toolbarbutton, .toolbarbutton-icon, .urlbar-icon, .urlbar-page-action),
-#main-window :is(#unified-extensions-button, #PanelUI-menu-button, #nav-bar-overflow-button),
-#main-window :is(#unified-extensions-button, #PanelUI-menu-button, #nav-bar-overflow-button) image {
-    -moz-context-properties: fill, stroke, fill-opacity !important;
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
-    stroke: var(--uc-text) !important;
-}
-
-#main-window :is(.toolbarbutton-1, toolbarbutton):not([disabled]):is(:hover, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack),
-#main-window #TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon {
-    background-color: var(--uc-button-selected) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-    stroke: var(--uc-noctalia-accent-foreground) !important;
-    border-radius: var(--uc-button-border-radius) !important;
-}
-
-#main-window .titlebar-button:hover {
-    background-color: var(--uc-button-selected) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-}
-
-#main-window #urlbar {
-    color: var(--uc-text) !important;
-    background: var(--uc-urlbar-background) !important;
-    background-color: var(--uc-urlbar-background) !important;
-    border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    border-radius: var(--uc-button-border-radius) !important;
-    outline: none !important;
-    box-shadow: none !important;
-    box-sizing: border-box !important;
-    --urlbarView-separator-color: color-mix(in srgb, var(--uc-accent-color-1) 18%, transparent) !important;
-}
-
-#main-window #urlbar-background,
-#main-window .urlbar-background,
-#main-window #urlbar .urlbar-input-container,
-#main-window .urlbarView,
-#main-window #urlbar-results,
-#main-window #searchbar {
-    opacity: 1 !important;
-    background: var(--uc-urlbar-background) !important;
-    background-color: var(--uc-urlbar-background) !important;
-    backdrop-filter: none !important;
-}
-
-#main-window #urlbar-background,
-#main-window .urlbar-background {
-    border: 0 !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-#main-window #searchbar {
-    border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-#main-window #urlbar .urlbar-input-container,
-#main-window #searchbar:not(:focus-within) {
-    background-color: var(--uc-urlbar-background) !important;
-    border-radius: var(--uc-button-border-radius) !important;
-}
-
-#main-window #urlbar:is(:hover, [focused="true"], [focused], [open]),
-#main-window #searchbar:focus-within {
-    border: 1px solid var(--uc-accent-color-1) !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-#main-window #urlbar:is([open], [breakout][breakout-extend]) {
-    background: var(--uc-urlbar-background) !important;
-    background-color: var(--uc-urlbar-background) !important;
-}
-
-#main-window #urlbar :is(.urlbar-icon, .urlbar-page-action, .identity-box-button, #identity-icon, #tracking-protection-icon, #trust-icon, #urlbar-go-button, #urlbar-revert-button),
-#main-window #urlbar :is(#identity-box, #page-action-buttons, #tracking-protection-icon-container, #trust-icon-container) {
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
-    opacity: 1;
-}
-
-#main-window #urlbar :is(.urlbar-page-action, .identity-box-button, #tracking-protection-icon-container, #trust-icon-container, #urlbar-searchmode-switcher):is(:hover, [open]) {
-    background-color: var(--uc-button-selected) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-    border-radius: var(--uc-button-border-radius) !important;
-}
-
-#main-window #urlbar-searchmode-switcher:is(:hover, [open], [focused]),
-#main-window #urlbar[focused] #urlbar-searchmode-switcher {
-    background-color: var(--uc-button-selected) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-    box-shadow: inset 0 0 0 1px var(--uc-accent-color-1) !important;
-}
-
-#main-window .urlbarView-row:is(:hover, [selected]) {
-    background-color: var(--uc-button-selected) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-}
-
-#main-window .urlbarView-row:is(:hover, [selected]) :is(.urlbarView-title, .urlbarView-url, .urlbarView-title-separator, .urlbarView-action) {
-    color: var(--uc-noctalia-accent-foreground) !important;
-}
-
-#main-window .urlbarView-url,
-#main-window .urlbarView-title-separator,
-#main-window #urlbar .urlbarView-url {
-    color: var(--uc-urlbar-url-color) !important;
-}
-
-#main-window .urlbarView-row:is(:hover, [selected]) :is(.urlbarView-title, .urlbarView-url, .urlbarView-title-separator, .urlbarView-action),
-#main-window #urlbar .urlbarView-row:is(:hover, [selected]) .urlbarView-url {
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-}
-
-@media -moz-pref("ultima.urlbar.hide.buttons") {
-    #main-window #urlbar:hover :is(#identity-box, #page-action-buttons, .urlbar-revert-button-container, #tracking-protection-icon-container, #trust-icon-container),
-    #main-window #urlbar:is([focused], [focused="true"], [open]) :is(#identity-box, #page-action-buttons, .urlbar-revert-button-container, #tracking-protection-icon-container, #trust-icon-container) {
-        color: var(--uc-text) !important;
-        fill: var(--uc-text) !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-}
-
-menupopup:not(#ContentSelectDropdownPopup),
-panel:not(.autoscroller),
-panelview,
-#appMenu-popup,
-#unified-extensions-panel,
-#widget-overflow,
-#downloadsPanel,
-#protections-popup,
-#permission-popup,
-#notification-popup,
-.panel-subview-body,
-.menupopup-arrowscrollbox,
-#unified-extensions-view,
-#unified-extensions-view #unified-extensions-area {
-    --panel-item-hover-bgcolor: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed: var(--uc-button-selected) !important;
-    --arrowpanel-dimmed-further: var(--uc-noctalia-active-surface) !important;
-    --arrowpanel-dimmed-even-further: var(--uc-noctalia-active-surface) !important;
-    --menuitem-hover-background-color: var(--uc-button-selected) !important;
-}
-
-menupopup menu[_moz-menuactive="true"]:not([disabled="true"]),
-menupopup menuitem[_moz-menuactive="true"]:not([disabled="true"]) {
-    background-color: var(--menuitem-hover-background-color, var(--panel-item-hover-bgcolor, var(--uc-button-selected))) !important;
-    color: var(--uc-noctalia-accent-foreground) !important;
-    fill: var(--uc-noctalia-accent-foreground) !important;
-}
-
-#main-window ::selection {
-    background-color: var(--uc-selection-background) !important;
-    color: var(--uc-selection-color) !important;
-}
-
-@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) {
-    ::selection {
-        background-color: var(--uc-selection-background) !important;
-        color: var(--uc-selection-color) !important;
-    }
-}
-
-:root {
-    --newtab-background-color: var(--uc-browser-color) !important;
-    --newtab-background-color-secondary: var(--uc-urlbar-background) !important;
-    --text-highlight-background: var(--uc-selection-background) !important;
-    --text-highlight-foreground: var(--uc-selection-color) !important;
-    --toolbar-field-highlight: var(--uc-selection-background) !important;
-    --toolbar-field-highlight-text: var(--uc-selection-color) !important;
-    --newtab-primary-action-background: var(--uc-accent-color-1) !important;
-    --newtab-primary-action-background-dimmed: rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    --newtab-button-focus-border: var(--uc-accent-color-1) !important;
-    --focus-outline-color: var(--uc-accent-color-1) !important;
-    --focus-outline: 1px solid var(--focus-outline-color) !important;
-    --newtab-element-hover-color: var(--uc-button-selected) !important;
-    --newtab-element-secondary-hover-color: var(--uc-button-selected) !important;
-    --button-active-bgcolor: var(--uc-accent-color-1) !important;
-    --uc-newtab-surface-background: var(--uc-noctalia-active-surface);
-    --uc-newtab-panel-background: var(--uc-panel-background);
-    --uc-newtab-hover-background: var(--uc-button-selected);
-    --uc-newtab-active-background: var(--uc-noctalia-active-surface);
-    --uc-newtab-accent-foreground: var(--uc-noctalia-accent-foreground);
-    --uc-newtab-outline-rest: rgb(from var(--uc-accent-color-1) r g b / 50%);
-    --uc-newtab-outline-active: var(--uc-accent-color-1);
-    --uc-newtab-radius: var(--uc-button-border-radius);
-    --uc-newtab-radius-inner: calc(var(--uc-newtab-radius) - 2px);
-    --uc-newtab-shadow: var(--uc-box-shadow);
-    --uc-newtab-search-width: clamp(420px, 44vw, 720px);
-}
-
-body .search-wrapper,
-body:not(.inline-onboarding) .fixed-search .search-wrapper {
-    width: var(--uc-newtab-search-width) !important;
-    max-width: calc(100vw - 48px) !important;
-    min-width: min(320px, calc(100vw - 48px)) !important;
-    margin-inline: auto !important;
-    box-sizing: border-box !important;
-}
-
-body .search-wrapper .search-inner-wrapper,
-body .search-wrapper .search-inner-wrapper:not(:focus),
-body:not(.inline-onboarding) .fixed-search .search-wrapper {
-    background: transparent !important;
-    border: 0 !important;
-    outline: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    filter: none !important;
-}
-
-body .search-wrapper .search-inner-wrapper,
-body .search-wrapper content-search-handoff-ui,
-body .search-wrapper .search-handoff-button,
-body .search-wrapper input {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body .search-wrapper content-search-handoff-ui {
-    filter: none !important;
-    --content-search-handoff-ui-background-color: var(--uc-urlbar-background) !important;
-    --content-search-handoff-ui-color: var(--uc-text) !important;
-    --content-search-handoff-ui-fill: var(--uc-text) !important;
-    --content-search-handoff-ui-caret-color: var(--uc-accent-color-1) !important;
-    --content-search-handoff-ui-border-width: 1px !important;
-    --content-search-handoff-ui-border-radius: var(--uc-button-border-radius) !important;
-    --content-search-handoff-ui-unfocused-border-color: rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    --content-search-handoff-ui-fakefocus-border-color: var(--focus-outline-color) !important;
-    --content-search-handoff-ui-fakefocus-box-shadow-inner: transparent !important;
-    --content-search-handoff-ui-fakefocus-box-shadow-outer: transparent !important;
-}
-
-body .search-wrapper .search-handoff-button,
-body .search-wrapper input,
-body .search-wrapper .search-inner-wrapper:not(:focus) input {
-    background: var(--uc-urlbar-background) !important;
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
-    border-radius: var(--uc-button-border-radius) !important;
-    border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-    outline: none !important;
-    box-shadow: inset 0 0 0 1px rgb(from var(--uc-accent-color-1) r g b / 50%), var(--uc-box-shadow) !important;
-    filter: none !important;
-}
-
-body .search-wrapper.fake-focus .search-handoff-button,
-body .search-wrapper .search-inner-wrapper:active input,
-body .search-wrapper input:focus,
-body .search-wrapper:not(:active) input:focus {
-    border: 1px solid var(--uc-accent-color-1) !important;
-    outline: none !important;
-    box-shadow: inset 0 0 0 1px var(--uc-accent-color-1), var(--uc-box-shadow) !important;
-    filter: none !important;
-}
-
-body :is(.top-site-outer .tile,
-         .weatherCard,
-         .home-section .section .selector,
-         .card-outer .card,
-         .ds-onboarding-container:not(.placeholder),
-         .ds-card-grid .ds-card:not(.placeholder),
-         .ds-card .meta) {
-    position: relative !important;
-    background-color: var(--uc-newtab-surface-background) !important;
-    color: var(--uc-text) !important;
-    border-radius: var(--uc-newtab-radius) !important;
-    border: 1px solid var(--uc-newtab-outline-rest) !important;
-    outline: none !important;
-    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-rest), var(--uc-newtab-shadow) !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    box-sizing: border-box !important;
-}
-
-body :is(.top-site-outer .tile,
-         .weatherCard,
-         .home-section .section .selector,
-         .card-outer .card,
-         .ds-onboarding-container:not(.placeholder),
-         .ds-card-grid .ds-card:not(.placeholder),
-         .ds-card .meta)::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 2 !important;
-    pointer-events: none !important;
-    box-sizing: border-box !important;
-    border: 1px solid var(--uc-newtab-outline-rest) !important;
-    border-radius: inherit !important;
-}
-
-body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
-         .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) .tile,
-         .weatherCard:is(:hover, :focus-within),
-         .customize-menu:is(:hover, :focus-within),
-         .home-section .section .selector:is(:hover, :focus, :focus-within),
-         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card,
-         .ds-onboarding-container:is(:hover, :focus-within):not(.placeholder),
-         .ds-card-grid .ds-card:is(:hover, :focus-within):not(.placeholder),
-         .ds-card:is(:hover, :focus-within) .meta) {
-    background-color: var(--uc-newtab-hover-background) !important;
-    color: var(--uc-newtab-accent-foreground) !important;
-    fill: var(--uc-newtab-accent-foreground) !important;
-    border-color: var(--uc-newtab-outline-active) !important;
-    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active), var(--uc-newtab-shadow) !important;
-    transform: none !important;
-}
-
-body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .tile,
-         .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) .tile,
-         .weatherCard:is(:hover, :focus-within),
-         .customize-menu:is(:hover, :focus-within),
-         .home-section .section .selector:is(:hover, :focus, :focus-within),
-         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card,
-         .ds-onboarding-container:is(:hover, :focus-within):not(.placeholder),
-         .ds-card-grid .ds-card:is(:hover, :focus-within):not(.placeholder),
-         .ds-card:is(:hover, :focus-within) .meta)::before {
-    border-color: var(--uc-newtab-outline-active) !important;
-}
-
-body .context-menu,
-body .customize-menu {
-    background-color: color-mix(in srgb, var(--uc-newtab-panel-background) 94%, transparent) !important;
-    color: var(--uc-text) !important;
-    border: 1px solid var(--uc-panel-border) !important;
-    border-radius: var(--uc-newtab-radius) !important;
-    box-shadow: var(--uc-box-shadow-panel) !important;
-    backdrop-filter: none !important;
-    filter: none !important;
-    box-sizing: border-box !important;
-    transform: none !important;
-}
-
-body .context-menu {
-    position: absolute !important;
-    z-index: 1000 !important;
-    margin: 0 !important;
-    padding: 6px !important;
-    min-width: 220px !important;
-    max-width: min(320px, calc(100vw - 32px)) !important;
-    line-height: normal !important;
-}
-
-body .customize-menu {
-    position: fixed !important;
-    inset-block-end: 72px !important;
-    inset-inline-end: 24px !important;
-    z-index: 1001 !important;
-    max-width: min(420px, calc(100vw - 48px)) !important;
-    max-height: min(680px, calc(100vh - 96px)) !important;
-    overflow: auto !important;
-}
-
-body .context-menu > ul {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-body :is(.top-site-outer .context-menu-button,
-         .card-outer .context-menu-button,
-         .ds-card .context-menu-button,
-         .ds-signup .context-menu-button,
-         .customize-menu .close-button,
-         .context-menu > ul > li > button,
-         .context-menu > ul > li > a) {
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
-    background-color: transparent !important;
-    border: 1px solid transparent !important;
-    border-radius: var(--uc-newtab-radius-inner) !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-body :is(.top-site-outer .context-menu-button,
-         .card-outer .context-menu-button,
-         .ds-card .context-menu-button,
-         .ds-signup .context-menu-button,
-         .customize-menu .close-button) {
-    inline-size: 28px !important;
-    block-size: 28px !important;
-    min-inline-size: 28px !important;
-    min-block-size: 28px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transform: none !important;
-    opacity: 1 !important;
-}
-
-body :is(.context-menu > ul > li > button,
-         .context-menu > ul > li > a) {
-    min-height: 30px !important;
-    padding: 5px 10px !important;
-    line-height: 20px !important;
-    text-align: start !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    border: 0 !important;
-    border-radius: 7px !important;
-    box-shadow: none !important;
-    white-space: nowrap !important;
-}
-
-body .context-menu > ul > li.separator {
-    border-block-end: 1px solid color-mix(in srgb, var(--uc-panel-border) 70%, transparent) !important;
-    margin: 4px 6px !important;
-    min-height: 0 !important;
-}
-
-body .personalize-button,
-body .open-customization-button {
-    position: fixed !important;
-    inset-block-end: 24px !important;
-    inset-inline-end: 24px !important;
-    z-index: 1000 !important;
-    transform: none !important;
-}
-
-body .personalize-button:is(:hover, :focus, :focus-visible),
-body .open-customization-button:is(:hover, :focus-within) {
-    transform: none !important;
-}
-
-body .open-customization-button::part(button) {
-    color: var(--uc-text) !important;
-    fill: var(--uc-text) !important;
-    background-color: transparent !important;
-    border: 1px solid transparent !important;
-    border-radius: var(--uc-newtab-radius-inner) !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-body :is(.top-site-outer .context-menu-button,
-         .card-outer .context-menu-button,
-         .ds-card .context-menu-button,
-         .ds-signup .context-menu-button,
-         .customize-menu .close-button):is(:hover, :focus, :focus-visible),
-body .open-customization-button:is(:hover, :focus-within)::part(button) {
-    background-color: var(--uc-newtab-hover-background) !important;
-    border-color: var(--uc-newtab-outline-active) !important;
-    color: var(--uc-newtab-accent-foreground) !important;
-    fill: var(--uc-newtab-accent-foreground) !important;
-    box-shadow: inset 0 0 0 1px var(--uc-newtab-outline-active) !important;
-    transform: none !important;
-}
-
-body :is(.context-menu > ul > li > button,
-         .context-menu > ul > li > a):is(:hover, :focus, :focus-visible) {
-    background-color: var(--uc-newtab-hover-background) !important;
-    color: var(--uc-newtab-accent-foreground) !important;
-    fill: var(--uc-newtab-accent-foreground) !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    transform: none !important;
-}
-
-body :is(.top-site-outer .tile .icon-wrapper,
-         .top-site-outer .top-site-icon,
-         .top-site-outer .default-icon) {
-    border-radius: var(--uc-newtab-radius-inner) !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-body :is(.ds-onboarding-container:not(.placeholder) .img-wrapper .img img,
-         .ds-onboarding-container:not(.placeholder) .img-wrapper .img .placeholder-image,
-         .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img img,
-         .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img .placeholder-image) {
-    border-radius: var(--uc-newtab-radius-inner) !important;
-    outline: none !important;
-}
-
-body :is(.top-site-outer .title,
-         .top-site-outer .title span,
-         .card-outer:not(.placeholder) .card-title,
-         .ds-highlights .section .section-list .card-outer .card-host-name,
-         .ds-card .meta,
-         .context-menu > ul > li > a,
-         .context-menu > ul > li > button) {
-    color: var(--uc-text) !important;
-    text-shadow: none !important;
-}
-
-body :is(.top-site-outer:is(:hover, :focus, :focus-within, .active) .title,
-         .top-site-outer:is(:hover, :focus, :focus-within, .active) .title span,
-         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title,
-         .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-host-name,
-         .ds-card:is(:hover, :focus-within) .meta) {
-    color: var(--uc-newtab-accent-foreground) !important;
-    fill: var(--uc-newtab-accent-foreground) !important;
-}
+/* Browser and content consumers live in the shared Nova foundation. */

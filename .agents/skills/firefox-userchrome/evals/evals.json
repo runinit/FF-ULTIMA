@@ -1,0 +1,100 @@
+{
+  "skill_name": "firefox-userchrome",
+  "evals": [
+    {
+      "id": 1,
+      "name": "firefox-153-sidebery-autohide",
+      "prompt": "Firefox 153 changed something and FF Ultima now leaves a black gutter beside every page. Sidebery no longer collapses to its 38 px rail, and Firefox's own sidebar launcher icons are visible. We are not using the Nova theme. Diagnose and implement the smallest compatibility fix, then copy only the corrected files to the explicitly supplied {{PROFILE_PATH}} profile and state what still needs live verification.",
+      "expected_output": "Uses Firefox-version and live-state evidence, keeps the legacy Sidebery selector while adding a narrowly pref-gated fallback, removes native launcher space only in the Sidebery-only configuration, avoids Nova/global/color-scheme edits, installs only requested files to the explicit fixture profile, and distinguishes source, installed, and live status.",
+      "files": [],
+      "expectations": [
+        "The response identifies Firefox sidebar markup or state as the likely regression boundary and treats candidate selectors as hypotheses requiring version-matched or live evidence.",
+        "The implementation preserves the legacy Sidebery sidebarcommand selector while adding a fallback scoped to the existing Sidebery autohide preference.",
+        "The implementation removes Firefox native launcher space only in the Sidebery-only tabbar-disabled or tabbar-autohide configuration.",
+        "No Nova, Noctalia, global positioning, or unrelated theme file is changed.",
+        "Only the explicit fixture profile is used, requested files are compared byte-for-byte, and live Firefox status is not claimed without observation."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "diagnose-only-selector-regression",
+      "prompt": "After a Firefox update, the tracking-protection control is visible again even though my FF Ultima setting should hide it. Diagnose the cause and tell me the safest fix, but do not edit any files or restart Firefox.",
+      "expected_output": "Inspects the owning urlbar block, current Firefox baseline, existing and replacement selectors, and working-tree state; produces an evidence-backed diagnosis and proposed verification without mutating files or restarting Firefox.",
+      "files": [],
+      "expectations": [
+        "No repository or profile file is changed.",
+        "The response maps the issue to the narrow urlbar/tracking-protection owner instead of proposing a broad refactor.",
+        "The response asks for or derives the Firefox version and validates selector changes against repository usage and Mozilla or live UI evidence.",
+        "The response clearly separates confirmed findings from the proposed fix and does not claim installed or live success."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "pref-gated-urlbar-setting",
+      "prompt": "In FF Ultima, add a disabled-by-default setting that hides the urlbar extension label only while the urlbar is not focused. Put it in the right existing module, update preference defaults and any local settings index, and verify the repository change. Do not install it into a Firefox profile.",
+      "expected_output": "Changes the narrow urlbar module and user.js, uses a literal ultima.urlbar preference, preserves focused/open behavior, updates an existing settings index if present, performs static checks, and reports that profile installation and live verification were not requested.",
+      "files": [],
+      "expectations": [
+        "Only the owning urlbar module, user.js, and an existing related settings index if present are changed.",
+        "The new literal ultima.urlbar preference defaults to false and gates the behavior.",
+        "Focused or open urlbar behavior remains visible through a narrow state selector.",
+        "Imports, preference occurrences, and diff whitespace are checked.",
+        "The response explicitly reports that profile installation was not requested and does not claim live verification."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "sidebery-native-sidebar-separation",
+      "prompt": "Add a 38 px wide choice to the existing ultima.sidebery.indent.mode setting while keeping compact as the default and preserving dense and standard choices. This controls Sidebery's internal tab tree, not Firefox native vertical-tab indentation. Put it in the actual owning module and explain which spacing combinations need checking.",
+      "expected_output": "Uses the Sidebery extension-content owner and existing literal pref/default, keeps Firefox native vertical tabs outside the selector scope, preserves compact/dense/standard while adding wide, and provides a focused compatibility matrix.",
+      "files": [],
+      "expectations": [
+        "Sidebery styling is changed only in the Sidebery extension-content owner and related preference comment/index.",
+        "Firefox native vertical-tab selectors are not reused or modified for Sidebery indentation.",
+        "Compact, dense, standard, and wide choices remain independently selectable, with compact still documented as the default.",
+        "The verification covers relevant Sidebery spacing and tabbar combinations without claiming every Firefox layout was tested."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "explicit-profile-installation",
+      "prompt": "I have two Firefox profiles in {{FIXTURE_ROOT}}/profiles. Copy the changed FF Ultima urlbar file only to {{PROFILE_PATH}}. Preserve that profile's customChrome.css and everything in the other profile, make a recoverable backup of the replaced file, and verify the installed copy. Do not restart Firefox.",
+      "expected_output": "Uses only the explicit absolute profile, backs up and copies the single requested file, leaves the other profile and unrelated custom files unchanged, compares the result byte-for-byte, and reports live Firefox as not run.",
+      "files": [],
+      "expectations": [
+        "The explicitly supplied profile is the only profile modified.",
+        "Only the requested destination file is backed up and replaced; customChrome.css and unrelated files remain unchanged.",
+        "The backup is recoverable and the installed file matches the repository source byte-for-byte.",
+        "The response reports repository, installed-profile, and live-Firefox status separately and does not restart Firefox."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "nova-equal-gutters-and-sidebery-centering",
+      "prompt": "Firefox Nova with the Noctalia palette and Sidebery autohide should use one 8 px dark app-canvas gutter around the header, Sidebery rail, and webpage. The collapsed rail is 38 px: its outer and inner gutters look unequal, tabs are centered, but the top navigation, new-tab, and bottom buttons sit to the right. The header also appears to lack bottom corner rounding. Diagnose from live bounds and version-matched Firefox and Sidebery CSS, implement the smallest compatibility-safe change, then back up and install only the changed files into the explicitly supplied {{PROFILE_PATH}}. Do not close or restart Firefox, and state what remains unverified.",
+      "expected_output": "Maps the native and extension coordinate boxes, measures exact edge gaps, accounts for existing Nova toolbox margins and browser padding once, traces the shared spacing owner, separates app-canvas paint from geometry, centers Sidebery full-width bars independently from tabs using version-confirmed selectors, preserves fullscreen/compact/right-side/hover behavior, performs a narrow profile installation, and does not claim live success before reload.",
+      "files": [],
+      "expectations": [
+        "The response maps and measures the window/app canvas, navigator toolbox, browser padding, Sidebery rail, page frame, and extension viewport instead of relying on screenshot appearance alone.",
+        "Version-matched Firefox Nova rules are inspected so existing toolbox margins, browser padding, flex gap, borders, and clipping are accounted for exactly once.",
+        "The implementation traces equal spacing to the shared gap owner, treats a correctly sized but visually blended gap as a surface-paint problem, and scopes border/radius changes around fullscreen and compact behavior.",
+        "The installed Sidebery version or live extension markup is inspected, and its tab column is kept separate from full-width navigation, new-tab, and footer alignment owners.",
+        "Only the narrow owning files are backed up and installed into the explicit profile, byte equality is checked, Firefox is not restarted, and predicted geometry is not reported as live verification."
+      ]
+    },
+    {
+      "id": 7,
+      "name": "diagnose-painted-gap-versus-geometry",
+      "prompt": "In my Nova-adjusted Firefox theme, the top and side gutter around the navbar looks missing because it blends into the header, while the Sidebery and webpage gaps look darker. Diagnose whether the 8 px geometry is actually absent or whether the wrong surface is painting it. Use the live UI and version-matched Firefox CSS, but do not edit repository files, copy anything to a profile, or restart Firefox.",
+      "expected_output": "Performs a read-only geometry and cascade diagnosis, measures the relevant bounds and scale, checks native Nova margin/padding ownership, distinguishes physical spacing from the body/app-canvas paint beneath it, and reports confirmed findings separately from any proposed CSS fix.",
+      "files": [],
+      "expectations": [
+        "No repository, profile, preference, or live Firefox state is mutated.",
+        "The response measures relevant live bounds and derives the physical gaps with border and scale accounting rather than diagnosing from color contrast alone.",
+        "Version-matched Firefox CSS is inspected to determine whether native Nova already supplies toolbox margins and browser padding.",
+        "The response distinguishes geometry ownership from the body or app-canvas surface that paints the exposed gutter and avoids recommending a larger gap when the measured spacing is already correct.",
+        "Confirmed measurements, remaining hypotheses, and the manual or live checks needed before implementation are reported separately."
+      ]
+    }
+  ]
+}

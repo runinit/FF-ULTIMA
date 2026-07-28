@@ -30,7 +30,6 @@ File Desc:         userContent theming Reddit
             --color-neutral-background-selected: #37445e4d !important;
             /* theme specific */
             @media -moz-pref("user.theme.0.default") {--color-neutral-background: #090913 !important;}
-            @media -moz-pref("user.theme.transparent") {--color-neutral-background-weak: var(--uc-layered-background) !important;}
             @media -moz-pref("user.theme.kanagawa-wave") {--color-neutral-background: #090913 !important;}
         }
         /* notify */
@@ -42,7 +41,7 @@ File Desc:         userContent theming Reddit
         .rounded-\[1\.25rem\] {border-radius: 1.25rem !important;}
         .bg-neutral-background-strong {background-color: #0b0d17 !important;}
         .py-xs {padding-top: 0 !important;} /*previously 1.5rem*/
-        .rounded-sm {border-radius: 10px !important;}
+        .rounded-sm {border-radius: var(--uc-nova-control-radius, 10px) !important;}
         :host([faceplate-validity="valid"][novalidate]) .label-container,
         .label-container, :host([faceplate-validity="invalid"]) .label-container,
         :host([faceplate-validity="valid"]) .label-container {
@@ -52,22 +51,22 @@ File Desc:         userContent theming Reddit
         .embedded-page {background: #828299 !important;}
         .embedded-page #header {background-color: #828299 !important;}
         .content .menuarea {
-            border-top-right-radius: 10px !important;
-            border-top-left-radius: 10px !important;
+            border-top-right-radius: var(--uc-nova-card-radius, 12px) !important;
+            border-top-left-radius: var(--uc-nova-card-radius, 12px) !important;
             padding-top: 10px !important;
             background-color: transparent !important;
         } .embedded-page .content {
             margin: 2% !important;
             background: transparent !important;
-            border-radius: 10px !important;
+            border-radius: var(--uc-nova-card-radius, 12px) !important;
         } .embedded-page .flat-list {margin-left: 60px !important;}
         #siteTable .thing {
-            border-radius: 20px !important;
+            border-radius: var(--uc-nova-card-radius, 12px) !important;
             margin-bottom: 20px !important;
         }
         .footer-parent .footer {background: #1a1a1b !important;}
-        .md pre {border-radius: 20px !important;}
-        #credential_picker_container iframe {border-radius: 20px !important;}
+        .md pre {border-radius: var(--uc-nova-card-radius, 12px) !important;}
+        #credential_picker_container iframe {border-radius: var(--uc-nova-card-radius, 12px) !important;}
         /* individual accent colors ----------------- */
         :root, * {--uc-i-hate-orange: #5268bb;}
         /* notification badge color */
@@ -106,6 +105,65 @@ File Desc:         userContent theming Reddit
         .label-container.without-label  {
             box-shadow: 0.0rem 0.1rem 0.4rem -0.1rem rgba(62, 73, 130, 1) !important;
         }
+    }
+
+    /* Shared appearance only; Reddit continues to own page structure and placement. */
+    :root,
+    :root:not(.theme-light) .theme-beta,
+    :root:not(.theme-light).theme-beta {
+        --color-neutral-background: var(--uc-browser-color) !important;
+        --color-neutral-background-weak: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --color-neutral-background-medium: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --color-neutral-background-strong: var(--uc-nova-urlbar-surface, var(--uc-urlbar-background)) !important;
+        --color-secondary-background: var(--uc-nova-panel-surface, var(--uc-panel-background)) !important;
+        --color-secondary-background-hover: var(--uc-nova-hover-surface) !important;
+        --color-neutral-background-hover: var(--uc-nova-hover-surface) !important;
+        --color-neutral-background-selected: var(--uc-nova-content-active-surface) !important;
+        --color-brand-background: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --color-global-orangered: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+        --color-global-brand-orangered: var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
+    }
+
+    :is(
+        button,
+        input,
+        select,
+        .rounded-\[1\.25rem\],
+        .rounded-sm
+    ) {
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
+    }
+
+    .label-container {
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
+    }
+
+    :is(article, shreddit-post, .thing, .embedded-page .content, .md pre) {
+        border-radius: var(--uc-nova-card-radius, 16px) !important;
+        border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+        box-shadow: var(--uc-nova-card-elevation, none) !important;
+    }
+
+    :is(button, input, select, [role="button"]):not(:disabled):hover {
+        background-color: var(--uc-nova-hover-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+    }
+
+    :is(button, input, select, [role="button"]):is(
+        :active,
+        [aria-pressed="true"],
+        [aria-selected="true"],
+        [aria-expanded="true"]
+    ):not(:disabled) {
+        background-color: var(--uc-nova-content-active-surface) !important;
+        box-shadow: none !important;
+        color: var(--uc-nova-active-text, var(--uc-text)) !important;
+    }
+
+    :is(button, input, select, a, [role="button"]):focus-visible {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
     }
 
 }

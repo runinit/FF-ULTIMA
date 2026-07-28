@@ -2,7 +2,11 @@
 # ── GSD baseline (auto-generated) ──
 .gsd
 .gsd-id
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/firefox-userchrome/
+!.agents/skills/firefox-userchrome/**
 skills-lock.json
 .mcp.json
 .bg-shell/

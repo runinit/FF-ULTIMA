@@ -5,13 +5,16 @@ File Desc:         Private Browsing Modifications
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 
-/* menu button becomes private window indicator */
-:root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
-    list-style-image: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
-}
-/* and remove the original */
-.private-browsing-indicator, .private-browsing-indicator-with-label {
-    display: none !important;
+@media -moz-pref("ultima.xstyle.private") {
+    /* Optional compact private-window indicator. */
+    :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
+        list-style-image: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
+    }
+
+    .private-browsing-indicator,
+    .private-browsing-indicator-with-label {
+        display: none !important;
+    }
 }
 
 /* cool little gradient border for private windows , suprisingly discreet, by https://github.com/he23251 */

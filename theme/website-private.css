@@ -17,13 +17,27 @@ File Desc:         userContent - Private window home page declutter
         }
         .search-handoff-button, .search-handoff-button:active, .search-handoff-button:enabled:hover:active {
             filter: saturate(140%) !important;
-            border-radius: 18px !important;
-            box-shadow: 0 10px 15px rgb(0 0 0 / 20%) !important;
+            border-radius: var(--uc-nova-control-radius, 24px) !important;
+            box-shadow: var(--uc-nova-card-elevation, none) !important;
             backdrop-filter: blur(33px);
             background-blend-mode: overlay;
         }
         .search-handoff-button, .search-handoff-button:active, .search-handoff-button:enabled:hover:active {
             background: transparent !important;
+        }
+        .search-handoff-button:enabled:hover:not(:active) {
+            background: var(--uc-nova-hover-surface) !important;
+            box-shadow: var(--uc-nova-card-elevation, none) !important;
+            color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+        }
+        .search-handoff-button:enabled:active {
+            background: var(--uc-nova-content-active-surface) !important;
+            box-shadow: var(--uc-nova-card-elevation, none) !important;
+            color: var(--uc-nova-active-text, var(--uc-text)) !important;
+        }
+        .search-handoff-button:focus-visible {
+            outline: var(--uc-nova-focus-outline) !important;
+            outline-offset: -2px !important;
         }
         /*wallpaper for dark mode*/
         @media (prefers-color-scheme: dark) {

@@ -124,7 +124,7 @@ fine adjustments for specific themes
                  background-position: center !important;
                  width: 12px !important;
                  height: 12px !important;
-                 border-radius: 10px !important;
+                 border-radius: var(--uc-nova-control-radius, 24px) !important;
                  margin-top:-1px !important;
                  margin-left: -1px !important;
             }
@@ -141,7 +141,7 @@ fine adjustments for specific themes
                  background-position: center !important;
                  width: 20px !important;
                  height: 20px !important;
-                 border-radius: 10px !important;
+                 border-radius: var(--uc-nova-control-radius, 24px) !important;
             }
         }
     }

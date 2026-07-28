@@ -6,8 +6,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 USER_CHROME="$REPO_ROOT/userChrome.css"
+USER_CONTENT="$REPO_ROOT/userContent.css"
 USER_JS="$REPO_ROOT/user.js"
 APPEARANCE="$REPO_ROOT/theme/ffu-internal-appearance.css"
+NOVA_TOKENS="$REPO_ROOT/theme/ffu-nova-tokens.css"
+THEME_STYLES="$REPO_ROOT/theme/ffu-theme-styles.css"
+STANDARDS="$REPO_ROOT/theme/ffu-cs-standards.css"
+EXTENSION_COLORS="$REPO_ROOT/theme/color-schemes/apply-cs-extensions.css"
 URLBAR="$REPO_ROOT/theme/settings-urlbar.css"
 FINDBAR="$REPO_ROOT/theme/settings-findbar.css"
 SPECIAL_CONFIGS="$REPO_ROOT/theme/ffu-special-configs.css"
@@ -156,8 +161,13 @@ extract_css_block() {
 }
 
 assert_file "$USER_CHROME" "userChrome.css is present"
+assert_file "$USER_CONTENT" "userContent.css is present"
 assert_file "$USER_JS" "user.js is present"
 assert_file "$APPEARANCE" "internal appearance module is present"
+assert_file "$NOVA_TOKENS" "Nova token module is present"
+assert_file "$THEME_STYLES" "theme style modifier module is present"
+assert_file "$STANDARDS" "Firefox compatibility alias module is present"
+assert_file "$EXTENSION_COLORS" "extension color adapter is present"
 assert_file "$URLBAR" "urlbar settings module is present"
 assert_file "$FINDBAR" "findbar settings module is present"
 assert_file "$SPECIAL_CONFIGS" "special configs module is present"
@@ -173,20 +183,54 @@ done < <(
         | grep '^theme/'
 )
 
+while IFS= read -r import_path; do
+    [[ -n "$import_path" ]] || continue
+    assert_file "$REPO_ROOT/$import_path" "userContent import resolves: $import_path"
+done < <(
+    grep -Eo '@import url\([^)]+\)' "$USER_CONTENT" \
+        | sed -E 's/@import url\(([^)]+)\).*/\1/' \
+        | grep '^theme/'
+)
+
+assert_contains "$USER_CHROME" '@import url(theme/ffu-theme-styles.css);' "userChrome imports additive theme styles"
 assert_contains "$USER_CHROME" '@import url(theme/ffu-internal-appearance.css);' "userChrome imports internal appearance"
 assert_contains "$USER_CHROME" '@import url(theme/settings-urlbar.css);' "userChrome imports urlbar settings"
 assert_contains "$USER_CHROME" '@import url(theme/settings-findbar.css);' "userChrome imports findbar settings"
 assert_contains "$USER_CHROME" '@import url(theme/ffu-special-configs.css);' "userChrome imports special configs"
 assert_contains "$USER_CHROME" '@import url(customChrome.css);' "userChrome keeps customChrome as optional user import"
+assert_line_order "$USER_CHROME" '@import url(theme/ffu-nova-tokens.css);' '@import url(theme/ffu-theme-styles.css);' "Nova semantics load before theme styles"
+assert_line_order "$USER_CHROME" '@import url(theme/ffu-theme-styles.css);' '@import url(theme/ffu-cs-standards.css);' "theme styles load before Firefox aliases"
 assert_line_order "$USER_CHROME" '@import url(theme/ffu-internal-appearance.css);' '@import url(theme/settings-urlbar.css);' "internal appearance loads before urlbar settings"
 assert_line_order "$USER_CHROME" '@import url(theme/settings-urlbar.css);' '@import url(theme/settings-findbar.css);' "urlbar settings load before findbar settings"
 assert_line_order "$USER_CHROME" '@import url(theme/settings-findbar.css);' '@import url(theme/ffu-special-configs.css);' "settings load before special configs"
 assert_line_order "$USER_CHROME" '@import url(theme/ffu-special-configs.css);' '@import url(customChrome.css);' "customChrome remains the final optional override"
 
-assert_contains "$USER_JS" 'user_pref("user.theme.transparent", false);' "user.js defaults global theme transparency off"
+assert_contains "$USER_CONTENT" '@import url(theme/ffu-theme-styles.css);' "userContent imports additive theme styles"
+assert_line_order "$USER_CONTENT" '@import url(theme/ffu-nova-tokens.css);' '@import url(theme/ffu-theme-styles.css);' "content Nova semantics load before theme styles"
+assert_line_order "$USER_CONTENT" '@import url(theme/ffu-theme-styles.css);' '@import url(theme/ffu-cs-standards.css);' "content theme styles load before Firefox aliases"
+
+assert_contains "$USER_JS" 'user_pref("user.theme.style.colourful", false);' "user.js defaults colourful style off"
+assert_contains "$USER_JS" 'user_pref("user.theme.style.glass", false);' "user.js defaults glass style off"
+assert_regex_count "$USER_JS" 'user_pref\("user\.theme\.transparent"' 0 "retired global transparent theme pref is absent"
 assert_contains "$USER_JS" 'user_pref("browser.tabs.allow_transparent_browser", false);' "user.js defaults Firefox transparent browser support off"
 assert_contains "$USER_JS" 'user_pref("ultima.urlbar.transparent", false);' "user.js defaults urlbar transparency off"
-assert_contains "$USER_JS" 'user_pref("ultima.findbar.position.top", true);' "user.js defaults top findbar on"
+assert_contains "$USER_JS" 'user_pref("ultima.findbar.position.top", false);' "user.js defaults native findbar position"
+
+assert_contains "$NOVA_TOKENS" '--uc-nova-selected-border-width: 2px;' "selected tab border width is shared at 2px"
+assert_contains "$THEME_STYLES" '@media -moz-pref("user.theme.style.colourful")' "colourful style is pref gated"
+assert_contains "$THEME_STYLES" 'var(--uc-nova-accent-leading) 70%, black' "colourful tab border darkens the primary accent"
+assert_contains "$THEME_STYLES" 'var(--uc-nova-accent-leading) 55%, black' "Sidebery colourful border has a stronger dark endpoint"
+assert_contains "$THEME_STYLES" 'var(--uc-nova-accent-leading) 55%,' "colourful toolbox uses the balanced primary tint"
+assert_contains "$THEME_STYLES" 'var(--uc-nova-chrome-block-base-surface) 82%,' "glass keeps one dark window backing"
+assert_contains "$THEME_STYLES" 'var(--uc-nova-chrome-block-base-surface) 64%,' "glass uses the balanced shell opacity"
+assert_contains "$THEME_STYLES" '@media -moz-pref("browser.tabs.allow_transparent_browser")' "glass requires Firefox native transparency"
+assert_contains "$THEME_STYLES" '--uc-nova-sidebar-box-surface: transparent;' "glass avoids double tinting sidebar browsers"
+assert_contains "$THEME_STYLES" '--uc-nova-extension-frame-surface: var(--uc-nova-chrome-block-surface);' "Sidebery paints one glass frame surface"
+assert_contains "$THEME_STYLES" '--uc-nova-extension-toolbar-surface: transparent;' "Sidebery toolbar avoids a second glass tint"
+assert_regex_count "$THEME_STYLES" 'backdrop-filter' 0 "theme styles rely on native/compositor transparency"
+assert_contains "$APPEARANCE" 'border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;' "native selected tabs consume the shared 2px width"
+assert_contains "$EXTENSION_COLORS" 'border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;' "Sidebery selected tabs consume the shared 2px width"
+assert_contains "$EXTENSION_COLORS" '--uc-nova-sidebery-selected-border' "Sidebery selected tabs consume their darker gradient role"
 
 unexpected_s02_prefs="$(
     grep -En 'user_pref\("ultima\.(urlbar|tabs?|findbar)\.[^"]*(color|background|transparent|solid|geometry|flush|gap|margin|offset)' "$USER_JS" \
@@ -224,44 +268,15 @@ assert_block_not_contains "$transparent_urlbar_block" 'background-color: transpa
 assert_block_not_contains "$transparent_urlbar_block" 'box-shadow: none !important;' "transparent urlbar block avoids bare shadowless chrome"
 assert_regex_count "$URLBAR" '^[[:space:]]*background(-color)?:[[:space:]]*transparent[[:space:]]*!important;' 0 "urlbar settings define no bare transparent backgrounds"
 
-urlbar_appearance_section="$(awk '/\/\* Url Bar / { capture = 1 } /\/\* Browser Content adjustments/ { capture = 0 } capture { print }' "$APPEARANCE")"
-assert_block_contains "$urlbar_appearance_section" '#main-window:not([lwtheme]), #main-window[lwtheme]' "solid urlbar section covers default and lwtheme paths"
-assert_block_contains "$urlbar_appearance_section" '& #urlbar-background,' "solid urlbar section targets urlbar background id"
-assert_block_contains "$urlbar_appearance_section" '& .urlbar-background, & #searchbar' "solid urlbar section targets urlbar class and searchbar"
-assert_block_contains "$urlbar_appearance_section" 'background-color: var(--uc-urlbar-background) !important;' "solid urlbar section applies uc urlbar background"
-assert_block_contains "$urlbar_appearance_section" 'box-shadow: var(--uc-box-shadow) !important;' "solid urlbar section applies uc urlbar shadow"
-assert_block_contains "$urlbar_appearance_section" '& #urlbar:is([focused="true"], & [open]) > #urlbar-background,' "solid urlbar focus/open id selector remains in internal appearance"
-assert_block_contains "$urlbar_appearance_section" '& #urlbar:is([focused="true"], & [open]) > .urlbar-background,' "solid urlbar focus/open class selector remains in internal appearance"
-
-assert_contains "$APPEARANCE" '--uc-urlbar-background:  var(--uc-layered-background);' "default path defines solid urlbar background variable"
-assert_contains "$APPEARANCE" '--uc-tabsbar-background: var(--uc-browser-color);' "default path defines tab-strip background variable"
-assert_contains "$APPEARANCE" '--uc-tab-selected:       color-mix(in srgb, var(--toolbar-bgcolor) 90%, black);' "default path defines selected tab color variable"
-assert_contains "$APPEARANCE" '--tab-selected-bgcolor: var(--uc-tab-selected) !important;' "non-lwtheme path exports selected tab bgcolor variable"
-assert_min_count "$APPEARANCE" '--uc-urlbar-background:  color-mix(in srgb, var(--lwt-accent-color)' 2 "lwtheme paths define urlbar background variables"
-assert_min_count "$APPEARANCE" '--uc-tabsbar-background: var(--uc-browser-color);' 3 "default and lwtheme paths define tab-strip variables"
-assert_min_count "$APPEARANCE" '--uc-tab-selected:       var(--uc-layered-background);' 2 "lwtheme paths define selected tab color variables"
-assert_min_count "$APPEARANCE" '--tab-selected-bgcolor: var(--uc-tab-selected) !important;' 3 "default and lwtheme paths export selected tab bgcolor"
-
-tabs_appearance_section="$(awk '/\/\* Overall Tabs Appearance/ { capture = 1 } /\/\* Vertical Tabs Appearance/ { capture = 0 } capture { print }' "$APPEARANCE")"
-assert_block_contains "$tabs_appearance_section" '#main-window:not([lwtheme]), #main-window[lwtheme]' "tab appearance section covers default and lwtheme paths"
-assert_block_contains "$tabs_appearance_section" '& #TabsToolbar,' "tab appearance section covers tabs toolbar surface"
-assert_block_contains "$tabs_appearance_section" '& #TabsToolbar-customization-target,' "tab appearance section covers tabs customization target surface"
-assert_block_contains "$tabs_appearance_section" '& #tabbrowser-tabs' "tab appearance section covers tabbrowser tabs surface"
-assert_block_contains "$tabs_appearance_section" 'background-color: var(--uc-tabsbar-background) !important;' "tab-strip surfaces use uc tabsbar background"
-assert_block_contains "$tabs_appearance_section" '& .tab-label-container[selected]' "tab appearance section styles selected tab label"
-assert_block_contains "$tabs_appearance_section" 'color: var(--uc-tab-selected-text) !important;' "selected tab label uses selected tab text variable"
-assert_block_contains "$tabs_appearance_section" '& .tab-background[selected]' "tab appearance section styles selected tab background"
-assert_block_contains "$tabs_appearance_section" 'background-color: var(--tab-selected-bgcolor) !important;' "selected and active tab backgrounds use selected tab variable"
-assert_block_contains "$tabs_appearance_section" '--tab-selected-background: var(--tab-selected-bgcolor) !important;' "lwtheme selected tab background variable remains solid"
-assert_block_not_contains "$tabs_appearance_section" 'background: transparent !important;' "tab appearance section avoids transparent tab-strip surfaces"
-assert_block_not_contains "$tabs_appearance_section" 'background-color: transparent !important;' "tab appearance section avoids transparent tab-strip colors"
-assert_block_not_contains "$tabs_appearance_section" '--tab-selected-background: red !important;' "tab appearance section avoids debug selected-tab color"
-
-vertical_tabs_appearance_section="$(awk '/\/\* Vertical Tabs Appearance/ { capture = 1 } /\/\* Split View Tabs/ { capture = 0 } capture { print }' "$APPEARANCE")"
-assert_block_contains "$vertical_tabs_appearance_section" '#main-window:not([lwtheme])' "vertical tabs default path is scoped"
-assert_block_contains "$vertical_tabs_appearance_section" '#main-window[lwtheme]' "vertical tabs lwtheme path is scoped"
-assert_block_contains "$vertical_tabs_appearance_section" 'background:var(--uc-tabsbar-background) !important;' "vertical tabs default surface uses tabsbar variable"
-assert_block_contains "$vertical_tabs_appearance_section" 'background: var(--uc-tabsbar-background) !important;' "vertical tabs lwtheme surface uses tabsbar variable"
-assert_block_not_contains "$vertical_tabs_appearance_section" 'background: var(--lwt-accent-color) !important;' "vertical tabs lwtheme surface avoids raw accent-color leak"
+assert_contains "$APPEARANCE" ':is(#urlbar-background, .urlbar-background)' "urlbar surface covers current id and class"
+assert_contains "$APPEARANCE" 'background-color: var(--uc-urlbar-background) !important;' "urlbar and search surfaces use the active palette"
+assert_contains "$APPEARANCE" '--urlbar-background-border-breakout:' "expanded Nova urlbar keeps its outer border"
+assert_contains "$APPEARANCE" '.urlbarView {' "urlbar result view has an explicit surface owner"
+assert_contains "$APPEARANCE" 'background-color: transparent !important;' "urlbar result view preserves rounded background clipping"
+assert_contains "$APPEARANCE" 'margin-inline: var(--uc-nova-urlbar-row-gutter, 6px) !important;' "urlbar rows retain their Nova inset"
+assert_contains "$STANDARDS" '--tab-background-color-selected: var(--uc-nova-tab-active-surface) !important;' "selected native tabs use Nova palette semantics"
+assert_contains "$STANDARDS" '--tab-border-color-accent: var(--uc-nova-selected-border) !important;' "native tabs export the shared selected border"
+assert_contains "$APPEARANCE" '--tab-min-height: var(--uc-nova-tab-row-height, 32px) !important;' "vertical native tabs retain Nova row geometry"
+assert_regex_count "$APPEARANCE" '--tab-selected-background:[[:space:]]*red' 0 "native tabs contain no debug selected color"
 
 printf 'All %d urlbar/findbar state checks passed.\n' "$checks"

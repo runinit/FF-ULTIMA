@@ -45,64 +45,11 @@ ultima.urlbar.hide.trackingprotection.icon
     }
 }
 
-@media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
-    #main-window #urlbar,
-    #main-window #urlbar[open],
-    #main-window #urlbar[breakout],
-    #main-window #urlbar[breakout][breakout-extend],
-    :root:has(#urlbar-searchmode-switcher[open]) #urlbar {
-        background: var(--uc-urlbar-background) !important;
-        background-color: var(--uc-urlbar-background) !important;
-        border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-        border-radius: var(--uc-button-border-radius) !important;
-        outline: none !important;
-        box-shadow: none !important;
-        box-sizing: border-box !important;
-    }
-
-    #main-window #urlbar > #urlbar-background,
-    #main-window #urlbar > .urlbar-background,
-    #main-window #urlbar .urlbar-input-container,
-    #main-window .urlbarView,
-    #main-window .urlbarView-body-inner,
-    #main-window #urlbar-results,
-    #main-window #searchbar {
-        opacity: 1 !important;
-        background: var(--uc-urlbar-background) !important;
-        background-color: var(--uc-urlbar-background) !important;
-        backdrop-filter: none !important;
-    }
-
-    #main-window #urlbar > #urlbar-background,
-    #main-window #urlbar > .urlbar-background {
-        border: 0 !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
-
-    #main-window #searchbar {
-        border: 1px solid rgb(from var(--uc-accent-color-1) r g b / 50%) !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
-
-    #main-window .urlbarView-row:is(:hover, [selected]) {
-        background-color: var(--uc-button-selected) !important;
-    }
-
-    #main-window #urlbar:is(:hover, [focused="true"], [focused], [open]),
-    #main-window #searchbar:focus-within {
-        border: 1px solid var(--uc-accent-color-1) !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
-}
-
 @media -moz-pref("ultima.urlbar.hide.searchsuggestions") {
     #urlbar .search-one-offs:not([hidden]) {
         display: none !important;
     }
-    #urlbar-searchmode-switcher {
+    :is(#urlbar-searchmode-switcher, .searchmode-switcher) {
         display: none !important;
     }
 }
@@ -185,13 +132,13 @@ ultima.urlbar.hide.trackingprotection.icon
             @media not -moz-pref("ultima.navbar.float.fullsize") {
                 @media not -moz-pref("ultima.urlbar.float") {
                     #urlbar[breakout-extend],
-                    :root:has(#urlbar-searchmode-switcher[open]) #urlbar {
+                    :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar {
                         top: unset !important;
                         bottom: var(--uc-bottom-navbar-urlbar-offset, 24px) !important;
                         margin-bottom: var(--uc-bottom-navbar-urlbar-margin, 36px) !important;
                     }
                     #urlbar[breakout-extend] .search-one-offs:not([hidden]),
-                    :root:has(#urlbar-searchmode-switcher[open]) #urlbar .search-one-offs:not([hidden]) {
+                    :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar .search-one-offs:not([hidden]) {
                         margin-bottom: var(--uc-bottom-navbar-search-one-offs-margin, 6px) !important;
                     }
                 }
@@ -203,7 +150,7 @@ ultima.urlbar.hide.trackingprotection.icon
 @media -moz-pref("ultima.urlbar.float") {
 @media not -moz-pref("ultima.urlbar.limit.popout") {
 
-      #urlbar, :root:has(#urlbar-searchmode-switcher[open]) #urlbar {
+      #urlbar, :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar {
           /* baseline transition */
           transition: all 0.3s ease-in-out !important;
           &[open] {
@@ -238,7 +185,7 @@ ultima.urlbar.hide.trackingprotection.icon
           }
       }
       /*situational transition */
-      :root:has(#urlbar-searchmode-switcher[open]) {
+      :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) {
           & #urlbar  {
               padding-bottom: 0px !important;
               transition: all 0.3s ease-in-out 5s !important;
@@ -254,7 +201,7 @@ ultima.urlbar.hide.trackingprotection.icon
     #urlbar[pageproxystate="valid"] {
         height: 36px !important;
     }    
-    #urlbar[pageproxystate="valid"], :root:has(#urlbar-searchmode-switcher[open]) #urlbar[pageproxystate="valid"] {
+    #urlbar[pageproxystate="valid"], :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar[pageproxystate="valid"] {
         /* baseline transition */
         transition: all 0.3s ease-in-out !important;
         &[open] {
@@ -289,7 +236,7 @@ ultima.urlbar.hide.trackingprotection.icon
         }
     }
     /*situational transition */
-    :root:has(#urlbar-searchmode-switcher[open]) {
+    :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) {
         & #urlbar  {
             padding-bottom: 0px !important;
             transition: all 0.3s ease-in-out 5s !important;
@@ -319,6 +266,19 @@ ultima.urlbar.hide.trackingprotection.icon
         scrollbar-color: var(--urlbar-separator-color,currentColor) transparent;
         scrollbar-width: thin
     }
+    .urlbarView {
+        margin-inline-end: 0 !important;
+        margin-block-end: 0 !important;
+        /* The rounded breakout background is a sibling, so mirror its
+           inline-end corners onto the native clipping wrapper. */
+        border-start-end-radius:
+            var(--urlbar-background-border-radius, var(--urlbarview-border-radius)) !important;
+        border-end-end-radius:
+            var(--urlbar-background-border-radius, var(--urlbarview-border-radius)) !important;
+    }
+    .urlbarView-row-inner {
+        position: relative;
+    }
     .urlbarView-no-wrap{
         position: relative;
     }
@@ -335,7 +295,7 @@ ultima.urlbar.hide.trackingprotection.icon
         position: fixed;
         top: 0; bottom: 0; left: 0; right: 0;
 
-        border-radius: 10px;
+        border-radius: var(--uc-nova-chrome-block-radius, 10px);
         margin: var(--uc-content-margins);
 
         opacity: 0;

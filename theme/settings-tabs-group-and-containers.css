@@ -13,6 +13,20 @@ tab containers
 
 /* tab groups adjustments --------------------------------------------------------------------------------------- */
 
+/* Firefox owns the default tab-group presentation. Load FF Ultima's group/container
+   adjustments only when one of its explicit styles is selected. */
+@media (-moz-pref("ultima.tabs.tabgroups.label.1")) or
+       (-moz-pref("ultima.tabs.tabgroups.label.2")) or
+       (-moz-pref("ultima.tabs.tabgroups.label.3")) or
+       (-moz-pref("ultima.tabs.tabgroups.label.tthornton")) or
+       (-moz-pref("ultima.tabs.tabgroups.background.1")) or
+       (-moz-pref("ultima.tabs.tabgroups.background.2")) or
+       (-moz-pref("ultima.tabs.tabgroups.background.3")) or
+       (-moz-pref("ultima.tabs.tabgroups.background.4")) or
+       (-moz-pref("ultima.tabs.tabContainer.1")) or
+       (-moz-pref("ultima.tabs.tabContainer.2")) or
+       (-moz-pref("ultima.tabs.tabContainer.3")) {
+
 /*force collapsing, cursor*/
 tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
 
@@ -28,14 +42,6 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
         outline: 1px solid light-dark(var(--tab-group-color), rgba(0,0,0,0.3)) !important;
     }
 }
-/* new default label spacing */
-@media not -moz-pref("ultima.tabs.tabgroups.label.1"),
-@media not -moz-pref("ultima.tabs.tabgroups.label.2"),
-@media not -moz-pref("ultima.tabs.tabgroups.label.tthornton") {
-    .tab-group-label {
-        margin-left:15px !important;
-    }
-}
 /* new default indentation */
 #tabbrowser-tabs[orient="vertical"][expanded] {
     & tab-group > :is(.tab-group-label-container, .tabbrowser-tab),
@@ -47,10 +53,10 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
 /* horizontal version border */
 #main-window:has(#tabbrowser-tabs[orient="horizontal"]) {
     tab-group .tabbrowser-tab:first-of-type {
-        border-radius: 8px 0px 0px 8px !important;
+        border-radius: var(--uc-nova-tab-radius, 8px) 0 0 var(--uc-nova-tab-radius, 8px) !important;
     }
     tab-group .tabbrowser-tab:last-of-type {
-        border-radius: 0px 8px 8px 0px !important;
+        border-radius: 0 var(--uc-nova-tab-radius, 8px) var(--uc-nova-tab-radius, 8px) 0 !important;
     }
 }
 /* group line adjust */
@@ -78,7 +84,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
 .tab-group-overflow-count {
     margin-left:10px !important;
 }
-#sidebar-main[sidebar-launcher-expanded] .tab-group-overflow-count {
+:is(#sidebar-main, sidebar-main)[sidebar-launcher-expanded] .tab-group-overflow-count {
     margin-left:-1px !important;
 }
 
@@ -115,8 +121,8 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
     .tab-group-label::after {
         content: ""; position: absolute;
         top: 0; left: 0;width: 85%; height: 100%;
-        border-radius: 6px; margin-left: 10%;
-        background: var(--uc-tab-selected) !important;
+        border-radius: var(--uc-nova-chip-radius, 6px); margin-left: 10%;
+        background: var(--uc-nova-selected-surface) !important;
         box-shadow: var(--uc-box-shadow) !important;
     }
     .tab-group-overflow-count {
@@ -125,9 +131,9 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
 }
 #tabbrowser-tabs[orient="vertical"] tab-group[collapsed][hasactivetab] {
     .tab-group-label-hover-highlight {
-        background: var(--uc-tab-selected) !important;
+        background: var(--uc-nova-selected-surface) !important;
         box-shadow: var(--uc-box-shadow) !important;
-        border-radius: 10px !important;
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
         height: 100%;
         padding:15px 0 10px 0;
         margin-inline: 5px !important;
@@ -149,7 +155,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
     .tab-group-label {
         min-width:20px !important;
         max-width:150px !important;
-        border-radius:2px !important;
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
         margin-left:15px !important;
     }
 }
@@ -159,7 +165,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
     .tab-group-label {
         min-width:20px !important;
         max-width:150px !important;
-        border-radius:17px !important;
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
         margin-left:15px !important;
     }
     .tab-group-label[aria-description="Unnamed Group — Tab Group"] {
@@ -177,7 +183,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
             min-width:18px !important; max-width:150px !important;
         }
         .tab-group-label {
-            border-radius:17px !important;
+            border-radius: var(--uc-nova-chip-radius, 6px) !important;
             line-height:0.7 !important;
             z-index:5 !important;
             margin-top: -2px !important;
@@ -186,7 +192,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
             }
             &:hover {transform:scale(1.05); transition: transform ease 0.4s;}
         }
-        #sidebar-main:not([sidebar-launcher-expanded]) .tab-group-label {
+        :is(#sidebar-main, sidebar-main):not([sidebar-launcher-expanded]) .tab-group-label {
             color: transparent !important;
         }
         .tab-group-label {
@@ -202,7 +208,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
             min-width:55px !important; max-width:200px !important;
         }
         .tab-group-label {
-            border-radius:17px !important;
+            border-radius: var(--uc-nova-chip-radius, 6px) !important;
             margin-top: 30px !important;
             line-height:0.8 !important;
             z-index:5 !important;
@@ -224,7 +230,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
         }
         /* visibility */
         .tab-group-label {
-            border-radius: 17px !important;
+            border-radius: var(--uc-nova-chip-radius, 6px) !important;
             line-height: 0.9 !important;
             z-index: 5 !important;
             margin-top: 5px !important;
@@ -246,7 +252,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
         tab-group[collapsed] .tab-group-label {
             background-image: url("chrome://global/skin/icons/arrow-down-12.svg");
         }
-        #sidebar-main:not([sidebar-launcher-expanded]) .tab-group-label {
+        :is(#sidebar-main, sidebar-main):not([sidebar-launcher-expanded]) .tab-group-label {
             color: transparent !important;
             margin-left: 15px !important;
         }
@@ -268,7 +274,7 @@ tab-group { &[collapsed] > .tabbrowser-tab {visibility:collapse !important;}}
         }
         /* visibility */
         .tab-group-label {
-            border-radius:17px !important;
+            border-radius: var(--uc-nova-chip-radius, 6px) !important;
             margin-top: 30px !important;
             line-height:0.8 !important;
             z-index:5 !important;
@@ -343,7 +349,7 @@ tab-group .tabbrowser-tab {
 /* Background Style 2, color mixed background */
 @media -moz-pref("ultima.tabs.tabgroups.background.2") {
     .tab-context-line {
-        border-radius: 5px !important;
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
         translate: 0px 10px !important;
         margin: 0 !important;
         width: 50% !important;
@@ -467,4 +473,6 @@ tab-group .tabbrowser-tab {
             color: var(--uc-browser-color) !important;
         }
     }
+}
+
 }

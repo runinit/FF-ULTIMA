@@ -1,0 +1,132 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+FF Ultima:         https://github.com/soulhotel/FF-ULTIMA
+File Desc:         Additive presentation styles for the active color scheme
+
+Exactly one user.theme.* color scheme owns palette sources. The optional
+user.theme.style.* preferences below only modify private Nova presentation roles.
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Colourful ----------------------------------------------------------------------------- */
+
+@media -moz-pref("user.theme.style.colourful") {
+    :root,
+    #main-window,
+    #main-window[lwtheme] {
+        --uc-nova-selected-border-leading: var(--uc-nova-accent-leading);
+        --uc-nova-selected-border-trailing:
+            color-mix(in srgb, var(--uc-nova-accent-leading) 70%, black);
+        --uc-nova-selected-border:
+            linear-gradient(
+                90deg,
+                var(--uc-nova-selected-border-leading),
+                var(--uc-nova-selected-border-trailing)
+            );
+        --uc-nova-sidebery-selected-border:
+            linear-gradient(
+                90deg,
+                var(--uc-nova-selected-border-leading),
+                color-mix(in srgb, var(--uc-nova-accent-leading) 55%, black)
+            );
+
+        --uc-nova-colourful-toolbox-leading:
+            color-mix(
+                in srgb,
+                var(--uc-nova-accent-leading) 55%,
+                var(--uc-nova-chrome-block-base-surface)
+            );
+        --uc-nova-colourful-toolbox-trailing:
+            color-mix(
+                in srgb,
+                var(--uc-nova-accent-trailing) 55%,
+                var(--uc-nova-chrome-block-base-surface)
+            );
+        --uc-nova-toolbox-background-image:
+            linear-gradient(
+                90deg,
+                var(--uc-nova-colourful-toolbox-leading),
+                var(--uc-nova-colourful-toolbox-trailing)
+            );
+    }
+}
+
+/* Glass --------------------------------------------------------------------------------- */
+
+@media -moz-pref("user.theme.style.glass") {
+    @media -moz-pref("browser.tabs.allow_transparent_browser") {
+        :root,
+        #main-window,
+        #main-window[lwtheme] {
+            --uc-nova-app-surface: transparent;
+            --uc-nova-window-backing-surface:
+                color-mix(
+                    in srgb,
+                    var(--uc-nova-chrome-block-base-surface) 82%,
+                    transparent
+                );
+            --uc-nova-chrome-block-surface:
+                color-mix(
+                    in srgb,
+                    var(--uc-nova-chrome-block-base-surface) 64%,
+                    transparent
+                );
+            --uc-nova-toolbox-surface: var(--uc-nova-chrome-block-surface);
+
+            /* #sidebar-box and its transparent <browser> expose one inner
+               native/extension surface, avoiding two stacked 64% tints. */
+            --uc-nova-sidebar-box-surface: transparent;
+            --uc-nova-extension-frame-surface: var(--uc-nova-chrome-block-surface);
+            --uc-nova-extension-toolbar-surface: transparent;
+        }
+    }
+}
+
+/* Colourful glass keeps the same hue and replaces the toolbox's solid backing
+   with one 64% translucent gradient instead of stacking two alpha layers. */
+@media -moz-pref("user.theme.style.colourful") {
+    @media -moz-pref("user.theme.style.glass") {
+        @media -moz-pref("browser.tabs.allow_transparent_browser") {
+            :root,
+            #main-window,
+            #main-window[lwtheme] {
+                --uc-nova-toolbox-surface: transparent;
+                --uc-nova-toolbox-background-image:
+                    linear-gradient(
+                        90deg,
+                        color-mix(
+                            in srgb,
+                            var(--uc-nova-colourful-toolbox-leading) 64%,
+                            transparent
+                        ),
+                        color-mix(
+                            in srgb,
+                            var(--uc-nova-colourful-toolbox-trailing) 64%,
+                            transparent
+                        )
+                    );
+            }
+        }
+    }
+}
+
+/* Accessibility modes keep the new 2px geometry but use opaque system colors. */
+@media (forced-colors: active) {
+    :root,
+    #main-window,
+    #main-window[lwtheme] {
+        --uc-nova-app-surface: Canvas;
+        --uc-nova-window-backing-surface: Canvas;
+        --uc-nova-chrome-block-base-surface: Canvas;
+        --uc-nova-chrome-block-surface: Canvas;
+        --uc-nova-toolbox-surface: Canvas;
+        --uc-nova-sidebar-box-surface: Canvas;
+        --uc-nova-extension-frame-surface: Canvas;
+        --uc-nova-extension-toolbar-surface: Canvas;
+        --uc-nova-toolbox-background-image: none;
+        --uc-nova-selected-border-leading: Highlight;
+        --uc-nova-selected-border-trailing: Highlight;
+        --uc-nova-selected-border: linear-gradient(Highlight, Highlight);
+        --uc-nova-sidebery-selected-border: linear-gradient(Highlight, Highlight);
+    }
+}

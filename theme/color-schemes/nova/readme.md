@@ -1,20 +1,89 @@
-# FF ULTIMA Firefox Nova Overlay
+# FF Ultima Nova Foundation
 
-Experimental support by FF ULTIMA.
+Firefox 154 Nova is FF Ultima's required structural and visual baseline.
+`browser.nova.enabled` lets Firefox own the default chrome and New Tab layout;
+the selected `user.theme.*` palette continues to own colors.
 
-Firefox Nova is Mozilla's in-progress Firefox design refresh. This FF Ultima module is an experimental overlay meant to ride **alongside** native Nova: when Firefox's `browser.nova.enabled` is on, Nova restructures the chrome and drops FF Ultima's base-scheme styling, and this overlay restyles those surfaces. Enable it with `user.theme.nova` while another FF Ultima base color scheme remains active.
+`user.theme.nova` remains retired. Nova is a design system, not a selectable
+color scheme.
 
-## Usage
+## Pinned source
 
-1. Navigate to `about:config`.
-2. Keep your preferred base color scheme enabled, for example `user.theme.0.default` or `user.theme.noctalia`.
-3. Turn on `user.theme.nova`. If you also run Firefox's native redesign (`browser.nova.enabled=true`), enable both — they are designed to travel together.
-4. Restart Firefox or reload userChrome/userContent CSS.
+The initial baseline is Firefox Developer Edition 154.0b2:
 
-## Notes
+- tag: `FIREFOX_154_0b2_RELEASE`;
+- Git commit: `946dc6c3467a2a952e0bc3c8a8808cdbcb2acae6`;
+- Mozilla SourceStamp: `b7b1868f2e31da0d089ccb869ec773fa5d9fd9ac`;
+- BuildID: `20260725024243`.
 
-- `user.theme.nova` is intentionally additive. It reshapes and remaps FF Ultima `--uc-*` tokens instead of replacing the base palette.
-- The chrome **surface rescue** (urlbar/menus) is gated on `user.theme.nova` **OR** `browser.nova.enabled`, so it also activates automatically when Firefox's native Nova is detected — the two prefs are treated as a pair, not as independent layers.
-- Mozilla's Nova internals are still changing, so some Nova-era selectors and CSS variables in this module remain **provisional** and should be confirmed against the live Nova DOM via the Browser Toolbox.
-- This overlay does not add a Nova wallpaper. Existing base theme and user wallpaper settings continue to apply.
-- Avoid enabling multiple full base color schemes at the same time; Nova is the intended extra override layer.
+Mozilla's 20 `*.nova.tokens.json` files contain 307 overrides. Their generated,
+versioned snapshot is stored at
+`.github/nova-tokens/firefox-154.0b2.json`.
+
+Regenerate it from an exact Firefox source checkout:
+
+```sh
+node .github/extract-nova-tokens.mjs \
+  --source /path/to/firefox-source \
+  --output .github/nova-tokens/firefox-154.0b2.json
+```
+
+The extractor refuses a different commit/tag, unexpected source-file count, or
+unexpected token count. A Firefox baseline upgrade therefore requires an
+intentional source and snapshot review.
+
+## Ownership and cascade
+
+The runtime order is:
+
+1. active `--uc-*` palette sources;
+2. private `--uc-nova-*` semantic tokens;
+3. Firefox 153/154 compatibility aliases;
+4. native/shared appearance consumers;
+5. optional feature modules;
+6. custom CSS.
+
+Palette sources flow one way into consumers. No shared semantic or Firefox
+output token may write back into a palette source. Noctalia and the legacy
+Pywalfox preference remain narrow LWT-backed source adapters.
+
+Mozilla's fixed gray, violet, and categorical ramps are preserved in the
+snapshot for provenance, but they are not imported into FF Ultima. Instead:
+
+- existing browser, toolbar, URL-bar, sidebar, panel, tab, and context-menu
+  surfaces retain their palette owners;
+- accent 1 supplies focus, primary actions, and the leading selected-tab border;
+- accent 2 supplies the trailing selected-tab border and hover hue;
+- hover uses a 25% translucent accent surface;
+- active/open uses a 40% translucent accent surface;
+- selected tabs retain `--uc-tab-selected` and `--uc-tab-selected-text`.
+
+## Source-derived presentation
+
+The shared foundation follows Firefox 154 Nova:
+
+- 4px, 8px, 12px, 16px, and 24px radius tiers;
+- 24px tabs, controls, menu rows, and URL results;
+- 16px panels, cards, and popups; chrome blocks retain Firefox's platform radius;
+- an 8px FF Ultima outer chrome gap, 8px toolbar padding, and 6px tab block margins;
+- 32px standard URL-result and vertical-tab rows;
+- 2px focus treatment and native Nova elevation recipes.
+
+Inherently circular controls remain circular. The temporary
+`ultima.theme.corner.radius` preference has been removed; an old profile value
+is harmless and inert.
+
+## Surface and layout contract
+
+Firefox owns the resting toolbar, tab, native-sidebar, content, and New Tab
+layout. FF Ultima supplies shared appearance semantics to browser chrome,
+Sidebery, about pages, supported extensions, YouTube, Reddit, and the existing
+in-tree website modules.
+
+Optional `ultima.*` features continue to own only their named behavior,
+including hidden/autohide tabs, Sidebery autohide, floating bars, spacing modes,
+tab groups, split view, and window-control styles. The wallpaper layer remains
+independent.
+
+Repository validation, profile installation, and live Firefox verification are
+separate states. This source change does not install into or restart a profile.

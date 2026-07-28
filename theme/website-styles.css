@@ -25,9 +25,6 @@ bing declutter
     }
 }
 
-/* PIP button */
-.pip-wrapper {transform: scale(0.6);}
-
 /*--------------------------------------------------------------------------------*/
 
 /*bing declutter*/
@@ -38,7 +35,7 @@ bing declutter
     }
     .sb_feedback_button {
         opacity: 0.4 !important;
-        border-radius: 10px !important;
+        border-radius: var(--uc-nova-control-radius, 24px) !important;
     }
 
 }

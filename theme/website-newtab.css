@@ -23,31 +23,29 @@ new tab rounded tweaks
 /* variables ------------------------------------------------------------------- */     
 
 :root {
-    --uc-fixed-rounding: 18px;
-    --uc-rounded-border: 18px;
-    --uc-less-rounded-border: 12px;
-    --uc-evenless-rounded-border: 9px;
+    --uc-fixed-rounding: var(--uc-nova-panel-radius, 16px);
+    --uc-rounded-border: var(--uc-nova-card-radius, 16px);
+    --uc-less-rounded-border: var(--uc-nova-card-radius, 16px);
+    --uc-evenless-rounded-border: var(--uc-nova-card-radius, 16px);
     --mode-color: white;
-    --newtab-button-static-hover-background: transparent !important;
-    --button-background-color-ghost-hover: transparent !important;  
+    --newtab-button-static-hover-background: var(--uc-nova-hover-surface) !important;
+    --button-background-color-ghost-hover: var(--uc-nova-hover-surface) !important;
 }
-
-@media -moz-pref("user.theme.transparent") {:root{--newtab-background-color:var(--uc-browser-color) !important;}}
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --newtab-background-color-secondary: color-mix(in srgb, var(--uc-browser-color) 5%, transparent) !important;
-        --newtab-element-hover-color:  rgba(265,265,265,0.2) !important;
-        --uc-panel-backgrounds: color-mix(in srgb, var(--uc-browser-color) 40%, transparent);
+        --newtab-background-color-secondary: var(--uc-nova-urlbar-surface, var(--uc-urlbar-background)) !important;
+        --newtab-element-hover-color: var(--uc-nova-hover-surface, transparent) !important;
+        --uc-panel-backgrounds: var(--uc-nova-panel-surface, var(--uc-panel-background));
         --newtab-element-secondary-hover-color: var(--newtab-element-hover-color) !important;
         --mode-color: var(--uc-text);
     }
 }  
 @media (prefers-color-scheme: light) { 
     :root{
-        --newtab-background-color-secondary: color-mix(in srgb, var(--uc-browser-color) 35%, transparent) !important;
-        --newtab-element-hover-color:  rgba(200,200,210,0.6) !important;
-        --uc-panel-backgrounds: color-mix(in srgb, var(--uc-browser-color) 60%, transparent);
+        --newtab-background-color-secondary: var(--uc-nova-urlbar-surface, var(--uc-urlbar-background)) !important;
+        --newtab-element-hover-color: var(--uc-nova-hover-surface, transparent) !important;
+        --uc-panel-backgrounds: var(--uc-nova-panel-surface, var(--uc-panel-background));
         --newtab-element-secondary-hover-color: var(--newtab-element-hover-color) !important;
         --mode-color: var(--uc-text);
     }
@@ -131,7 +129,7 @@ body {
         background: var(--newtab-background-color-secondary) !important;
         filter: saturate(100%) !important;
         backdrop-filter: blur(33px);
-        border-radius:18px !important;
+        border-radius: var(--uc-nova-chip-radius, 6px) !important;
     }
 }
 .top-site-outer:hover .tile, .card-outer:hover .card { 
@@ -183,7 +181,7 @@ body {
         outline: none !important;
         filter: saturate(140%) !important;
         background-color: rgba(50, 50, 50, 0.1) !important;
-        border-radius: 18px !important;
+        border-radius: var(--uc-nova-card-radius, 12px) !important;
         box-shadow: 0 10px 15px rgb(0 0 0 / 20%) !important;
         backdrop-filter: blur(33px);
         background-blend-mode: overlay;
@@ -198,13 +196,13 @@ body {
 }}
 
 .search-wrapper content-search-handoff-ui {
-    --content-search-handoff-ui-background-color: transparent !important;
+    --content-search-handoff-ui-background-color: var(--uc-nova-urlbar-surface, var(--uc-urlbar-background)) !important;
     --content-search-handoff-ui-color: var(--mode-color) !important;
     --content-search-handoff-ui-fill: var(--mode-color) !important;
     --content-search-handoff-ui-caret-color: var(--mode-color) !important;
     --content-search-handoff-ui-border-width: 1px !important;
-    --content-search-handoff-ui-border-radius: 34px !important;
-    --content-search-handoff-ui-unfocused-border-color: transparent !important;
+    --content-search-handoff-ui-border-radius: var(--uc-nova-control-radius, 10px) !important;
+    --content-search-handoff-ui-unfocused-border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
     --content-search-handoff-ui-fakefocus-border-color: var(--button-active-bgcolor) !important;
     --content-search-handoff-ui-fakefocus-box-shadow-inner: transparent !important;
     --content-search-handoff-ui-fakefocus-box-shadow-outer: transparent !important;
@@ -212,14 +210,14 @@ body {
 }
 
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
-    background-color: transparent !important;
+    background-color: var(--uc-nova-urlbar-surface, var(--uc-urlbar-background)) !important;
     backdrop-filter: blur(33px) !important;
     filter: saturate(100%) !important;
-    border-radius: 34px !important;
+    border-radius: var(--uc-nova-control-radius, 10px) !important;
 }
 .search-handoff-button{
-    border-color: transparent !important;
-    border-radius: 34px !important;
+    border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+    border-radius: var(--uc-nova-control-radius, 10px) !important;
     box-shadow: none !important;
 }
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
@@ -313,9 +311,9 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     line-height: 26px;
 }
 .context-menu > ul > li > button:is(:focus, :hover) {
-    border-radius: 5px !important;
+    border-radius: var(--uc-nova-menuitem-radius, 10px) !important;
     background: var(--newtab-element-hover-color) !important;
-    color: var(--uc-accent-color-1) !important;
+    color: var(--uc-nova-hover-text, var(--uc-text)) !important;
 }
 .weatherButtonContextMenu .context-menu {z-index: 1000 !important;} /*doesnt work its populated*/
 .weather .weatherSponsorText {display:none !important;}
@@ -370,7 +368,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     box-shadow: unset !important;
 }
 .customize-menu .close-button {
-    border-radius: 8px !important;
+    border-radius: var(--uc-nova-control-radius, 10px) !important;
     background-color: transparent !important;
 }    
 .customize-menu .close-button:hover {
@@ -397,7 +395,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
 
 .home-section .section .selector {
     background-color: var(--newtab-background-color-secondary) !important;
-    border-radius: 10px !important;
+    border-radius: var(--uc-nova-control-radius, 10px) !important;
 }
 
     
@@ -412,7 +410,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
 }
 .compact-cards .card-outer .card-context {
     background-color: transparent !important;
-    border-radius: 18px;
+    border-radius: 9999px;
     clip-path: inset(-1px -1px 4px);
     height: 32px;
     width: 32px;
@@ -463,7 +461,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
 }
 
 .ds-onboarding-container:not(.placeholder), .ds-card-grid .ds-card:not(.placeholder) {
-    border-radius: 18px !important;
+    border-radius: var(--uc-nova-card-radius, 12px) !important;
     box-shadow: 0 10px 15px rgb(0 0 0 / 20%) !important;
     background-color: transparent !important;
 }
@@ -471,7 +469,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
 .ds-onboarding-container:not(.placeholder) .img-wrapper .img .placeholder-image,
 .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img img,
 .ds-card-grid .ds-card:not(.placeholder) .img-wrapper .img .placeholder-image {
-    border-radius: 16px 16px 0 0 !important;
+    border-radius: var(--uc-nova-card-radius, 12px) var(--uc-nova-card-radius, 12px) 0 0 !important;
 }
 
 .ds-card .context-menu-button, .ds-signup .context-menu-button {
@@ -523,7 +521,7 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     }
     #searchSuggestionTable {
         background-color: var(--newtab-background-color-secondary) !important;
-        border-radius: 18px !important;
+        border-radius: var(--uc-nova-panel-radius, 12px) !important;
         padding: 0.6rem !important;
         position: fixed;
         top:55px !important;
@@ -546,12 +544,12 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     }
     #searchSuggestionTable td:hover {
         background-color:transparent !important;
-        border-radius:10px !important;
+        border-radius: var(--uc-nova-menuitem-radius, 10px) !important;
     }  
     /*default search header*/
     .contentSearchSuggestionTable .contentSearchHeader {
         padding: 12px 0 12px 0 !important;
-        border-radius:18px !important;
+        border-radius: var(--uc-nova-menuitem-radius, 10px) !important;
         margin-top:10px !important;
         &:hover{cursor:pointer;text-decoration: underline;}
     }
@@ -562,12 +560,12 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     } 
     /*search engine buttons*/
     .contentSearchSuggestionTable .contentSearchOneOffItem {
-        border-radius:18px !important;
+        border-radius: var(--uc-nova-control-radius, 10px) !important;
         &:hover{cursor: pointer;}
     }
     /*search settings button*/
     .contentSearchSuggestionTable .contentSearchSettingsButton {
-        border-radius:10px !important;
+        border-radius: var(--uc-nova-control-radius, 10px) !important;
         background-color: transparent !important;
         padding-bottom: 25px !important;
         &:hover{text-decoration: underline;cursor:pointer; background-color: var(--newtab-element-hover-color) !important;}
@@ -615,6 +613,68 @@ body:not(.inline-onboarding) .fixed-search .search-wrapper {
     .top-site-outer {
         width: 110px !important;
     }  
+}
+
+/* Shared visual consumers. Existing page placement and optional layout modes stay intact. */
+:is(
+    .top-site-outer .tile,
+    .card-outer,
+    .ds-card,
+    .weatherCard,
+    .context-menu,
+    .customize-menu,
+    .modal,
+    .wallpaper-input
+) {
+    border-radius: var(--uc-nova-card-radius, 16px) !important;
+    border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+    box-shadow: var(--uc-nova-card-elevation, none) !important;
+}
+
+:is(
+    button,
+    input,
+    select,
+    .context-menu-button,
+    .contentSearchSuggestionEntry,
+    .contentSearchOneOffItem,
+    .contentSearchSettingsButton
+) {
+    border-radius: var(--uc-nova-control-radius, 24px) !important;
+}
+
+:is(button, .context-menu-button, .contentSearchSuggestionEntry, .contentSearchOneOffItem):not(:disabled):hover {
+    background-color: var(--uc-nova-hover-surface) !important;
+    box-shadow: none !important;
+    color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+}
+
+:is(button, .context-menu-button, .contentSearchSuggestionEntry, .contentSearchOneOffItem):is(:active, [aria-pressed="true"], [aria-selected="true"]):not(:disabled) {
+    background-color: var(--uc-nova-content-active-surface) !important;
+    box-shadow: none !important;
+    color: var(--uc-nova-active-text, var(--uc-text)) !important;
+}
+
+:is(.top-site-outer:hover .tile, .card-outer:hover .card, .ds-card:hover) {
+    background-color: var(--uc-nova-hover-surface) !important;
+    box-shadow: var(--uc-nova-card-elevation, none) !important;
+    color: var(--uc-nova-hover-text, var(--uc-text)) !important;
+}
+
+:is(.top-site-outer.active .tile, .card-outer.active .card, .ds-card.active) {
+    background-color: var(--uc-nova-content-active-surface) !important;
+    box-shadow: var(--uc-nova-card-elevation, none) !important;
+    color: var(--uc-nova-active-text, var(--uc-text)) !important;
+}
+
+:is(.top-site-outer:focus-within .tile, .card-outer:focus-within .card, .ds-card:focus-within) {
+    outline: var(--uc-nova-focus-outline) !important;
+    outline-offset: -2px !important;
+}
+
+:focus-visible {
+    outline: var(--uc-nova-focus-outline) !important;
+    outline-offset: -2px !important;
 }
 
 

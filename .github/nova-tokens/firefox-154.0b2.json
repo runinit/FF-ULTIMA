@@ -1,0 +1,4585 @@
+{
+  "schemaVersion": 1,
+  "firefox": {
+    "version": "154.0b2",
+    "tag": "FIREFOX_154_0b2_RELEASE",
+    "commit": "946dc6c3467a2a952e0bc3c8a8808cdbcb2acae6",
+    "sourceRepository": "https://github.com/mozilla-firefox/firefox",
+    "sourceStamp": "b7b1868f2e31da0d089ccb869ec773fa5d9fd9ac",
+    "buildId": "20260725024243"
+  },
+  "counts": {
+    "files": 20,
+    "tokens": 307
+  },
+  "sources": [
+    {
+      "path": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "sha256": "298568f859a361ba0613997d36f9e160777e5dbce8ad06d6d4e118dad76a89ab",
+      "basePath": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "baseSha256": "4199f07e12ac7ee67fdb5284d33e367769ea57a3a14a80b5f7b6dc551cc45bd1",
+      "owner": "browser/tabbrowser",
+      "tokenCount": 34
+    },
+    {
+      "path": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "sha256": "c04970b0be4ae10fab7e420c8f25646c578b1ea9ac76d09864b75d5f26acdfd4",
+      "basePath": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "baseSha256": "bc89a699a7659c9fba7fe78bb5de6365c53e1610bedd23651537f4aab0c053c2",
+      "owner": "browser/urlbar",
+      "tokenCount": 5
+    },
+    {
+      "path": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "sha256": "42c6a3f42c96faa82ebdf3e7c5efbb2a08a5c46ec2e16411c67f008f9b406da5",
+      "basePath": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "baseSha256": "d24cfbeb80fe700c672b9e2c5db01b22e6bae7c3bf1ea800af233697777ff3f9",
+      "owner": "browser/urlbar",
+      "tokenCount": 9
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "sha256": "74d289f5ecdd268c1ba343fe0cd8b27dbc7f891054b9790db3bc5f375462d239",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "baseSha256": "3665e58481b7bfe9ee8fc07142403e2f5b6718e93b076cfe0bf1f2b33f1321bc",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 7
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "sha256": "a2ff02544acc6909f1585f20d74419c7c3cd064dd15950b23c9f23b03201cec3",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "baseSha256": "75c969a42126b4a4226d16893d1b85494f61ef2e341835a248ca3ad855c1aa44",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 10
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+      "sha256": "c8f6922597a3fc040caabe13c45ddddac1704c4d3044eaa1bb97ecd5112f569b",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+      "baseSha256": "c3e0220933f6d4201ecae182bc3ec0643eaeac6336bb9932e218fa230e002de0",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 4
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "sha256": "7c01beb7d000722bb68bc9d3632448dec3b6f73bac344b6986aa2a7cfade6581",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "baseSha256": "4c2671b4ffe7165219e5264737fc819809e745aada7db03e2d905491ea2e7125",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 124
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "sha256": "867bf05f102df3073159c8726c9d738bc88bc7cb7a2f78c7f0247a765b4e5278",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "baseSha256": "dcdfc5623a5d39b16b8cca1dfaf560053b8a79adea5f83885b4b60bfdbfaecb1",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 5
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/base/text.nova.tokens.json",
+      "sha256": "e55526ae2827ea27f9cbc2fb7414eaf6277f25f15438a022e0fa63a412d9e1e4",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
+      "baseSha256": "62bad0a8ec2440006d9e46c579b90d0e1b1167495abe27806e67291829e308ab",
+      "owner": "toolkit-design-system/base",
+      "tokenCount": 3
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "sha256": "0dd6fa9cb55c78f8c2790443fe155c7adeae22931204bc64dc22b958d8f82548",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "baseSha256": "29b33aae5c2fef642a666235402c9f56555cb7713623fb17ce58cacfa2666abd",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 56
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+      "sha256": "a0423c077795129974b4b11860c864413d5ee9e7744cb4c2b0120546ea8e37ae",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+      "baseSha256": "b95483aad60683a5a853de0eaaf139c486bd445ecae263f57a1022ee21dcb1d0",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 4
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.nova.tokens.json",
+      "sha256": "3d2da0c41229b279000e2629b2f6794ba0a6d9a2c40e15441029b201f18c0e38",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.tokens.json",
+      "baseSha256": "a24a86a8bf3ec001ba1b8c0feb850533a96099200c25e2edef99394603b9c71a",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 1
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "sha256": "a8336b7c289024c1df0984f9a3dd305364bba23acd1b71becb0cbaec3bc488c5",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "baseSha256": "caa2ba860e7d617df8a188d8c6bb317c73ee53313b4d527592d04cc92fddd7d2",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 11
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/page.nova.tokens.json",
+      "sha256": "f4b060c97067cb2dc9e308232acd2a8a1f81f449d3c94d6f3723bb89121bf9ec",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/page.tokens.json",
+      "baseSha256": "6cf60a02d8ff3527389b77ad1d446f76355f72cf73e6aaa321996fe1beb5505a",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 1
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.nova.tokens.json",
+      "sha256": "b07c9b7e45049afc2a56d1f247fee6f9aee47879eb8328fea9140d95d4af5d5d",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.tokens.json",
+      "baseSha256": "b290d0c6dbfe1afa6ce3357a978598099b70fda3d5b2f34c7bb3a94353e4c7db",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 1
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "sha256": "5210fa52bfdc5026e3e0e6c9755f9f72c0aede5e6eb6d1f1b59bd184cc0873af",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "baseSha256": "7f80baf9449888421ea2618aa225cd25b86b19b962cece17507510713d5d196e",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 6
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/table.nova.tokens.json",
+      "sha256": "f9917cf0e0aec63e63cf33af0083b2e337ee2fe6f56655da80562f01fba99b27",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/table.tokens.json",
+      "baseSha256": "a9aeff3e3e35e1b35db819fb2470751971f764870c50547729e2eb9a72ef53e0",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 2
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "sha256": "f29e384a976ce6fdd1d03ec04d8093000819932da9c32a46256c5b614adfff75",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "baseSha256": "9b878024eecae17f8ca7392eb1ef9fc8b0028c5e44baff4e9bcb1e08ef8a6e02",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 8
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "sha256": "cfe99700d0bfe5e79a8b7e5081cf2f3d45eadc4eddf03706bd302ac7bcf73ab9",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "baseSha256": "2d8aa9dc7a71a284bab6fb27da0311d25d020373eacdd3c559b1308498a390da",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 11
+    },
+    {
+      "path": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "sha256": "6c0af8ee550a8009a558992892b84a87cdc7be666110e37d169d671aecfe2b3c",
+      "basePath": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "baseSha256": "6a03164364d8dca6482a95010d7e0187ec640d63502e94d29b58634504b17a28",
+      "owner": "toolkit-design-system/components",
+      "tokenCount": 5
+    }
+  ],
+  "tokens": [
+    {
+      "name": "--background-color-box",
+      "path": "color.box.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.gray.70}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.gray.80}",
+        "prefersContrast": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-box-info",
+      "path": "color.box.info",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.gray.15}",
+        "dark": "{color.gray.65}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "prefersContrast": "{background.color.canvas}",
+        "brand": {
+          "light": "{color.gray.20}",
+          "dark": "{color.gray.80}"
+        },
+        "platform": {
+          "default": "color-mix(in srgb, currentColor 6%, transparent)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-canvas",
+      "path": "color.canvas",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.gray.05}",
+        "dark": "{color.gray.85}",
+        "forcedColors": "Canvas"
+      },
+      "baseValue": {
+        "prefersContrast": "Canvas",
+        "brand": {
+          "light": "{color.white.@base}",
+          "dark": "{color.gray.90}"
+        },
+        "platform": {
+          "default": "Canvas"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-critical",
+      "path": "color.critical",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.red.10}",
+        "dark": "{color.red.70}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "light": "{color.red.0}",
+        "dark": "{color.red.90}",
+        "prefersContrast": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-information",
+      "path": "color.information",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.violet.10}",
+        "dark": "{color.violet.70}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "light": "{color.blue.0}",
+        "dark": "{color.blue.90}",
+        "prefersContrast": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-success",
+      "path": "color.success",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.green.10}",
+        "dark": "{color.green.70}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "light": "{color.green.0}",
+        "dark": "{color.green.90}",
+        "prefersContrast": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--background-color-warning",
+      "path": "color.warning",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/background.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/background.tokens.json",
+      "value": {
+        "light": "{color.yellow.10}",
+        "dark": "{color.yellow.70}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "light": "{color.yellow.0}",
+        "dark": "{color.yellow.90}",
+        "prefersContrast": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color",
+      "path": "color.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "light": "{color.gray.30}",
+        "dark": "{color.gray.45}",
+        "forcedColors": "CanvasText"
+      },
+      "baseValue": {
+        "brand": {
+          "light": "{color.gray.50}",
+          "dark": "{color.gray.70}"
+        },
+        "prefersContrast": "CanvasText",
+        "platform": {
+          "default": "color-mix(in srgb, currentColor 50%, transparent)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color-deemphasized",
+      "path": "color.deemphasized.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "light": "{color.gray.20}",
+        "dark": "{color.gray.55}",
+        "forcedColors": "CanvasText"
+      },
+      "baseValue": {
+        "brand": {
+          "light": "{color.gray.30}",
+          "dark": "{color.gray.70}"
+        },
+        "platform": {
+          "default": "color-mix(in srgb, currentColor 24%, transparent)"
+        },
+        "prefersContrast": "currentColor",
+        "forcedColors": "ButtonText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color-error",
+      "path": "color.error",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.20}",
+        "forcedColors": "{border.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.red.70}",
+        "dark": "{color.red.20}",
+        "prefersContrast": "{border.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color-interactive",
+      "path": "color.interactive.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "light": "{color.gray.35}",
+        "dark": "{color.gray.50}",
+        "forcedColors": "ButtonText"
+      },
+      "baseValue": {
+        "prefersContrast": "{text.color.@base}",
+        "forcedColors": "ButtonText",
+        "brand": {
+          "light": "{color.gray.60}",
+          "dark": "{color.gray.50}"
+        },
+        "platform": {
+          "default": "color-mix(in srgb, currentColor 15%, {color.gray.60})"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color-interactive-disabled",
+      "path": "color.interactive.disabled",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "light": "{color.gray.25}",
+        "dark": "{color.gray.60}",
+        "forcedColors": "GrayText"
+      },
+      "baseValue": {
+        "default": "{border.color.interactive.@base}",
+        "forcedColors": "GrayText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-color-transparent",
+      "path": "color.transparent",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "CanvasText"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "prefersContrast": "CanvasText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-radius-medium",
+      "path": "radius.medium",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": "12px",
+      "baseValue": "8px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-radius-small",
+      "path": "radius.small",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": "8px",
+      "baseValue": "4px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--border-radius-xlarge",
+      "path": "radius.xlarge",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": "24px",
+      "baseValue": "0",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--border-radius-xsmall",
+      "path": "radius.xsmall",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/border.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/border.tokens.json",
+      "value": "4px",
+      "baseValue": "2px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--box-shadow-color-darker-layer-1",
+      "path": "color.darker.layer-1",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+      "value": {
+        "light": "rgba(0, 0, 0, 0.15)",
+        "dark": "rgba(0, 0, 0, 0.2)",
+        "forcedColors": "transparent"
+      },
+      "baseValue": {
+        "light": "rgba(0, 0, 0, 0.15)",
+        "dark": "rgba(0, 0, 0, 0.2)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--box-shadow-color-darker-layer-2",
+      "path": "color.darker.layer-2",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+      "value": {
+        "light": "rgba(0, 0, 0, 0.2)",
+        "dark": "rgba(0, 0, 0, 0.4)",
+        "forcedColors": "transparent"
+      },
+      "baseValue": {
+        "light": "rgba(0, 0, 0, 0.2)",
+        "dark": "rgba(0, 0, 0, 0.4)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--box-shadow-color-lighter-layer-1",
+      "path": "color.lighter.layer-1",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+      "value": {
+        "light": "rgba(0, 0, 0, 0.02)",
+        "dark": "rgba(0, 0, 0, 0.06)",
+        "forcedColors": "transparent"
+      },
+      "baseValue": {
+        "light": "rgba(0, 0, 0, 0.03)",
+        "dark": "rgba(0, 0, 0, 0.15)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--box-shadow-color-lighter-layer-2",
+      "path": "color.lighter.layer-2",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/box-shadow.tokens.json",
+      "value": {
+        "light": "rgba(0, 0, 0, 0.04)",
+        "dark": "rgba(0, 0, 0, 0.12)",
+        "forcedColors": "transparent"
+      },
+      "baseValue": {
+        "light": "rgba(0, 0, 0, 0.05)",
+        "dark": "rgba(0, 0, 0, 0.2)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color",
+      "path": "background.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 13%, transparent)",
+        "default": "transparent",
+        "forcedColors": "ButtonFace"
+      },
+      "baseValue": {
+        "forcedColors": "ButtonFace",
+        "brand": {
+          "default": "color-mix(in srgb, currentColor 7%, transparent)"
+        },
+        "nativeTheme": "color-mix(in srgb, currentColor 13%, transparent)",
+        "platform": {
+          "light": "rgba(207, 207, 216, 0.33)",
+          "dark": "rgba(0, 0, 0, 0.33)"
+        }
+      },
+      "override": null,
+      "comment": "TODO Bug 1821203 - Gray use needs to be consolidated"
+    },
+    {
+      "name": "--button-background-color-active",
+      "path": "background.color.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
+        "light": "{color.violet-desaturated.30}",
+        "dark": "{color.violet-desaturated.40}",
+        "forcedColors": "SelectedItemText"
+      },
+      "baseValue": {
+        "forcedColors": "SelectedItemText",
+        "brand": {
+          "default": "color-mix(in srgb, currentColor 21%, transparent)"
+        },
+        "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
+        "platform": {
+          "light": "rgb(207, 207, 216)",
+          "dark": "rgba(207, 207, 216, 0.4)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-destructive",
+      "path": "background.color.destructive.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.30}",
+        "forcedColors": "{button.background.color.primary.@base}"
+      },
+      "baseValue": {
+        "light": "{color.red.60}",
+        "dark": "{color.red.30}",
+        "forcedColors": "{button.background.color.primary.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-destructive-active",
+      "path": "background.color.destructive.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.red.70}",
+        "dark": "{color.red.10}",
+        "forcedColors": "{button.background.color.primary.active}"
+      },
+      "baseValue": {
+        "light": "{color.red.80}",
+        "dark": "{color.red.10}",
+        "forcedColors": "{button.background.color.primary.active}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-destructive-hover",
+      "path": "background.color.destructive.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.red.60}",
+        "dark": "{color.red.20}",
+        "forcedColors": "{button.background.color.primary.hover}"
+      },
+      "baseValue": {
+        "light": "{color.red.70}",
+        "dark": "{color.red.20}",
+        "forcedColors": "{button.background.color.primary.hover}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-disabled",
+      "path": "background.color.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": "{button.background.color.@base}",
+      "baseValue": {
+        "default": "{button.background.color.@base}",
+        "forcedColors": "ButtonFace"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-ghost",
+      "path": "background.color.ghost.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "transparent",
+        "default": "{button.background.color.@base}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "forcedColors": "ButtonFace",
+        "brand": {
+          "forcedColors": "ButtonFace"
+        },
+        "nativeTheme": "transparent"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-ghost-disabled",
+      "path": "background.color.ghost.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.background.color.ghost.@base}",
+        "forcedColors": "{button.background.color.disabled}"
+      },
+      "baseValue": {
+        "default": "{button.background.color.ghost.@base}",
+        "brand": {
+          "forcedColors": "{button.background.color.disabled}"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-ghost-selected",
+      "path": "background.color.ghost.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": "{button.background.color.selected}",
+      "baseValue": "{button.background.color.ghost.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-hover",
+      "path": "background.color.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+        "light": "{color.violet-desaturated.20}",
+        "dark": "{color.violet-desaturated.50}",
+        "forcedColors": "SelectedItemText"
+      },
+      "baseValue": {
+        "forcedColors": "SelectedItemText",
+        "brand": {
+          "default": "color-mix(in srgb, currentColor 14%, transparent)"
+        },
+        "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+        "platform": {
+          "light": "rgba(207, 207, 216, 0.66)",
+          "dark": "rgba(207, 207, 216, 0.2)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-menu",
+      "path": "background.color.menu.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.background.color.ghost.@base}",
+        "forcedColors": "{button.background.color.@base}"
+      },
+      "baseValue": "{button.background.color.ghost.@base}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-muted",
+      "path": "background.color.muted.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.gray.20}",
+        "dark": "{color.gray.55}",
+        "forcedColors": "{button.background.color.@base}"
+      },
+      "baseValue": "{button.background.color.@base}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-muted-active",
+      "path": "background.color.muted.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.gray.40}",
+        "dark": "{color.gray.35}",
+        "forcedColors": "{button.background.color.active}"
+      },
+      "baseValue": "{button.background.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-muted-disabled",
+      "path": "background.color.muted.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.background.color.muted.@base}",
+        "forcedColors": "{button.background.color.@base}"
+      },
+      "baseValue": "{button.background.color.disabled}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-muted-hover",
+      "path": "background.color.muted.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.gray.30}",
+        "dark": "{color.gray.45}",
+        "forcedColors": "{button.background.color.hover}"
+      },
+      "baseValue": "{button.background.color.hover}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-muted-selected",
+      "path": "background.color.muted.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.background.color.muted.active}",
+        "forcedColors": "{button.background.color.ghost.active}"
+      },
+      "baseValue": "{button.background.color.muted.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-background-color-primary-disabled",
+      "path": "background.color.primary.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.violet-desaturated.50}",
+        "dark": "{color.violet-desaturated.40}",
+        "forcedColors": "GrayText"
+      },
+      "baseValue": {
+        "default": "{button.background.color.primary.@base}",
+        "forcedColors": "{button.text.color.disabled}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color",
+      "path": "border.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{color.accent.primary.@base}",
+        "forcedColors": "{border.color.interactive.@base}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "prefersContrast": "{button.text.color.@base}",
+        "forcedColors": "{border.color.interactive.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-destructive",
+      "path": "border.color.destructive.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.primary.@base}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.primary.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-destructive-selected",
+      "path": "border.color.destructive.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.destructive.@base}",
+        "forcedColors": "{button.border.color.destructive.active}"
+      },
+      "baseValue": "{button.border.color.destructive.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-ghost",
+      "path": "border.color.ghost.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.@base}"
+      },
+      "baseValue": {
+        "default": "{button.border.color.@base}",
+        "prefersContrast": "{button.border.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-ghost-active",
+      "path": "border.color.ghost.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.active}"
+      },
+      "baseValue": {
+        "default": "{button.border.color.active}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-ghost-disabled",
+      "path": "border.color.ghost.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.disabled}"
+      },
+      "baseValue": {
+        "default": "{button.border.color.disabled}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-ghost-hover",
+      "path": "border.color.ghost.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.hover}"
+      },
+      "baseValue": {
+        "default": "{button.border.color.hover}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-ghost-selected",
+      "path": "border.color.ghost.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.ghost.active}"
+      },
+      "baseValue": "{button.border.color.ghost.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-muted",
+      "path": "border.color.muted.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "{button.border.color.@base}"
+      },
+      "baseValue": "{button.border.color.@base}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-muted-active",
+      "path": "border.color.muted.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.muted.@base}",
+        "forcedColors": "{button.border.color.active}"
+      },
+      "baseValue": "{button.border.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-muted-disabled",
+      "path": "border.color.muted.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.muted.@base}",
+        "forcedColors": "{button.border.color.disabled}"
+      },
+      "baseValue": "{button.border.color.disabled}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-muted-hover",
+      "path": "border.color.muted.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.muted.@base}",
+        "forcedColors": "{button.border.color.hover}"
+      },
+      "baseValue": "{button.border.color.hover}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-muted-selected",
+      "path": "border.color.muted.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.muted.@base}",
+        "forcedColors": "{button.border.color.ghost.active}"
+      },
+      "baseValue": "{button.border.color.muted.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-primary",
+      "path": "border.color.primary.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.ghost.@base}",
+        "forcedColors": "ButtonFace"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "forcedColors": "ButtonFace"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-primary-selected",
+      "path": "border.color.primary.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.primary.@base}",
+        "forcedColors": "{button.border.color.primary.active}"
+      },
+      "baseValue": "{button.border.color.primary.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-color-selected",
+      "path": "border.color.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.border.color.@base}",
+        "forcedColors": "{button.border.color.active}"
+      },
+      "baseValue": "{button.border.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-border-radius",
+      "path": "border.radius",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": "{border.radius.xlarge}",
+      "baseValue": "{border.radius.medium}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-opacity-disabled",
+      "path": "opacity.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "0.7",
+        "forcedColors": "1"
+      },
+      "baseValue": {
+        "default": "0.5",
+        "forcedColors": "1"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-size-icon-small",
+      "path": "size.icon.small",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": "{size.item.medium}",
+      "baseValue": "{button.min-height.small}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color",
+      "path": "text.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "currentColor",
+        "light": "{color.violet.90}",
+        "dark": "{color.gray.0}",
+        "forcedColors": "ButtonText"
+      },
+      "baseValue": {
+        "forcedColors": "ButtonText",
+        "brand": {
+          "light": "{color.gray.100}",
+          "dark": "{color.gray.0}"
+        },
+        "nativeTheme": "currentColor",
+        "platform": {
+          "light": "rgb(21, 20, 26)",
+          "dark": "rgb(251, 251, 254)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-destructive",
+      "path": "text.color.destructive.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{button.text.color.primary.@base}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.gray.100}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-destructive-disabled",
+      "path": "text.color.destructive.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.destructive.@base}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "baseValue": {
+        "default": "{button.text.color.destructive.@base}",
+        "forcedColors": "{button.text.color.primary.disabled}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-destructive-selected",
+      "path": "text.color.destructive.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{button.text.color.destructive.@base}",
+        "dark": "{button.text.color.destructive.active}",
+        "forcedColors": "{button.text.color.destructive.active}"
+      },
+      "baseValue": "{button.text.color.destructive.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-ghost",
+      "path": "text.color.ghost.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.@base}",
+        "forcedColors": "ButtonText"
+      },
+      "baseValue": {
+        "default": "inherit",
+        "brand": {
+          "prefersContrast": "{button.text.color.@base}",
+          "forcedColors": "{button.text.color.@base}"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-ghost-active",
+      "path": "text.color.ghost.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.ghost.@base}",
+        "forcedColors": "{button.text.color.active}"
+      },
+      "baseValue": {
+        "default": "inherit",
+        "prefersContrast": "{button.text.color.active}",
+        "forcedColors": "{button.text.color.active}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-ghost-disabled",
+      "path": "text.color.ghost.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.ghost.@base}",
+        "forcedColors": "GrayText"
+      },
+      "baseValue": {
+        "default": "inherit",
+        "brand": {
+          "prefersContrast": "{button.text.color.disabled}",
+          "forcedColors": "{button.text.color.disabled}"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-ghost-hover",
+      "path": "text.color.ghost.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.ghost.@base}",
+        "forcedColors": "{button.text.color.ghost.active}"
+      },
+      "baseValue": {
+        "default": "inherit",
+        "prefersContrast": "{button.text.color.hover}",
+        "forcedColors": "{button.text.color.hover}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-menu-active",
+      "path": "text.color.menu.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{button.text.color.ghost.active}",
+        "dark": "{button.text.color.active}",
+        "forcedColors": "{button.text.color.primary.active}"
+      },
+      "baseValue": {
+        "default": "{button.text.color.ghost.active}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-menu-disabled",
+      "path": "text.color.menu.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{button.text.color.ghost.disabled}",
+        "dark": "{button.text.color.disabled}",
+        "forcedColors": "{button.text.color.primary.disabled}"
+      },
+      "baseValue": "{button.text.color.ghost.disabled}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-menu-hover",
+      "path": "text.color.menu.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{button.text.color.ghost.hover}",
+        "dark": "{button.text.color.hover}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "baseValue": {
+        "default": "{button.text.color.ghost.hover}",
+        "forcedColors": "{button.text.color.primary.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-menu-selected",
+      "path": "text.color.menu.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "currentColor",
+        "light": "{button.text.color.ghost.selected}",
+        "dark": "{button.text.color.selected}",
+        "forcedColors": "{button.text.color.primary.selected}"
+      },
+      "baseValue": {
+        "default": "{button.text.color.ghost.selected}",
+        "forcedColors": "{button.text.color.primary.selected}",
+        "nativeTheme": "currentColor"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-muted",
+      "path": "text.color.muted.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.@base}",
+        "forcedColors": "ButtonText"
+      },
+      "baseValue": "{button.text.color.@base}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-muted-active",
+      "path": "text.color.muted.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.muted.@base}",
+        "forcedColors": "{button.text.color.active}"
+      },
+      "baseValue": "{button.text.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-muted-disabled",
+      "path": "text.color.muted.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.muted.@base}",
+        "forcedColors": "GrayText"
+      },
+      "baseValue": "{button.text.color.disabled}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-muted-hover",
+      "path": "text.color.muted.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.muted.@base}",
+        "forcedColors": "{button.text.color.ghost.active}"
+      },
+      "baseValue": "{button.text.color.hover}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-muted-selected",
+      "path": "text.color.muted.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.muted.active}",
+        "forcedColors": "{button.text.color.ghost.active}"
+      },
+      "baseValue": "{button.text.color.muted.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-primary",
+      "path": "text.color.primary.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "nativeTheme": "AccentColorText",
+        "light": "{color.white.@base}",
+        "dark": "{color.gray.70}",
+        "forcedColors": "ButtonFace"
+      },
+      "baseValue": {
+        "forcedColors": "ButtonFace",
+        "brand": {
+          "light": "{color.white.@base}",
+          "dark": "{color.gray.100}"
+        },
+        "nativeTheme": "AccentColorText",
+        "platform": {
+          "light": "rgb(251, 251, 254)",
+          "dark": "rgb(43, 42, 51)"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-primary-active",
+      "path": "text.color.primary.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "default": "{button.text.color.primary.@base}",
+        "forcedColors": "{button.text.color.primary.hover}"
+      },
+      "baseValue": "{button.text.color.primary.hover}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--button-text-color-selected",
+      "path": "text.color.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/button.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/button.tokens.json",
+      "value": {
+        "light": "{button.text.color.@base}",
+        "dark": "{background.color.canvas}",
+        "forcedColors": "SelectedItemText"
+      },
+      "baseValue": "{button.text.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--card-border-color",
+      "path": "border.color",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+      "value": {
+        "light": "rgba(0, 0, 0, 0.06)",
+        "dark": "rgba(255, 255, 255, 0.04)",
+        "forcedColors": "CanvasText"
+      },
+      "baseValue": {
+        "light": "color-mix(in srgb, currentColor 10%, transparent)",
+        "dark": "color-mix(in srgb, currentColor 6%, transparent)",
+        "prefersContrast": "color-mix(in srgb, currentColor 41%, transparent)",
+        "forcedColors": "CanvasText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--card-gap",
+      "path": "gap.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+      "value": "{space.medium}",
+      "baseValue": "{card.padding.@base}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--card-header-background-color",
+      "path": "header.background.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+      "value": "{button.background.color.@base}",
+      "baseValue": {
+        "default": "initial",
+        "forcedColors": "{button.background.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--card-header-border-color",
+      "path": "header.border.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/card.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/card.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.@base}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.@base}",
+        "prefersContrast": "{button.border.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--checkbox-border-radius",
+      "path": "border.radius",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/checkbox.tokens.json",
+      "value": "{border.radius.xsmall}",
+      "baseValue": "{border.radius.small}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-accent-attention",
+      "path": "accent.attention",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": {
+        "nativeTheme": "AccentColor",
+        "light": "{color.green.40}",
+        "dark": "{color.green.30}",
+        "forcedColors": "AccentColor"
+      },
+      "baseValue": {
+        "prefersContrast": "AccentColor",
+        "light": "#2ac3a2",
+        "dark": "#54ffbd",
+        "nativeTheme": "AccentColor"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-accent-primary",
+      "path": "accent.primary.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": {
+        "nativeTheme": "AccentColor",
+        "light": "{color.violet.50}",
+        "dark": "{color.violet.30}",
+        "forcedColors": "AccentColor"
+      },
+      "baseValue": {
+        "light": "{color.blue.60}",
+        "dark": "{color.cyan.30}",
+        "nativeTheme": "AccentColor",
+        "forcedColors": "ButtonText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-accent-primary-active",
+      "path": "accent.primary.active",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, black 20%, {color.accent.primary.@base})",
+        "light": "{color.violet.70}",
+        "dark": "{color.violet.10}",
+        "forcedColors": "{color.accent.primary.hover}"
+      },
+      "baseValue": {
+        "forcedColors": "{color.accent.primary.hover}",
+        "light": "{color.blue.80}",
+        "dark": "{color.cyan.10}",
+        "nativeTheme": "color-mix(in srgb, black 20%, {color.accent.primary.@base})"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-accent-primary-hover",
+      "path": "accent.primary.hover",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, black 10%, {color.accent.primary.@base})",
+        "light": "{color.violet.60}",
+        "dark": "{color.violet.20}",
+        "forcedColors": "SelectedItem"
+      },
+      "baseValue": {
+        "forcedColors": "SelectedItem",
+        "light": "{color.blue.70}",
+        "dark": "{color.cyan.20}",
+        "nativeTheme": "color-mix(in srgb, black 10%, {color.accent.primary.@base})"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-accent-primary-selected",
+      "path": "accent.primary.selected",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": {
+        "nativeTheme": "SelectedItem",
+        "default": "{button.background.color.primary.active}",
+        "forcedColors": "SelectedItem"
+      },
+      "baseValue": {
+        "forcedColors": "SelectedItem",
+        "light": "{color.blue.60}",
+        "dark": "{color.cyan.30}",
+        "nativeTheme": "SelectedItem"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-0",
+      "path": "blue.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ecf3f8",
+      "baseValue": "oklch(97% 0.05 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-10",
+      "path": "blue.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#c5eafe",
+      "baseValue": "oklch(90% 0.13 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-20",
+      "path": "blue.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#a2d3ff",
+      "baseValue": "oklch(83% 0.17 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-30",
+      "path": "blue.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#7bb2ff",
+      "baseValue": "oklch(76% 0.2 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-40",
+      "path": "blue.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#5a87fd",
+      "baseValue": "oklch(69% 0.22 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-50",
+      "path": "blue.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#455fe7",
+      "baseValue": "oklch(62% 0.24 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-60",
+      "path": "blue.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3246b0",
+      "baseValue": "oklch(55% 0.24 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-70",
+      "path": "blue.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#23327b",
+      "baseValue": "oklch(48% 0.2 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-80",
+      "path": "blue.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#17214c",
+      "baseValue": "oklch(41% 0.17 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-blue-90",
+      "path": "blue.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#111524",
+      "baseValue": "oklch(34% 0.14 260)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-0",
+      "path": "cyan.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ebf4f5",
+      "baseValue": "oklch(97% 0.05 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-10",
+      "path": "cyan.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#c3eef8",
+      "baseValue": "oklch(90% 0.07 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-20",
+      "path": "cyan.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#8fddf0",
+      "baseValue": "oklch(83% 0.11 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-30",
+      "path": "cyan.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#4cc4e1",
+      "baseValue": "oklch(76% 0.14 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-40",
+      "path": "cyan.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#10a4ca",
+      "baseValue": "oklch(69% 0.19 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-50",
+      "path": "cyan.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#0a809f",
+      "baseValue": "oklch(62% 0.21 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-60",
+      "path": "cyan.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#066077",
+      "baseValue": "oklch(55% 0.21 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-70",
+      "path": "cyan.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#034554",
+      "baseValue": "oklch(48% 0.2 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-80",
+      "path": "cyan.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#002d38",
+      "baseValue": "oklch(41% 0.17 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-cyan-90",
+      "path": "cyan.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#011c23",
+      "baseValue": "oklch(34% 0.14 205)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-0",
+      "path": "gray.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#fcfbff",
+      "baseValue": "#fbfbfe",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-05",
+      "path": "gray.05",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f7f6fb",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-10",
+      "path": "gray.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#efedf2",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-15",
+      "path": "gray.15",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#e3e2e7",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-20",
+      "path": "gray.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#d6d5da",
+      "baseValue": "#f0f0f4",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-25",
+      "path": "gray.25",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#c7c6cb",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-30",
+      "path": "gray.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b7b6ba",
+      "baseValue": "#bac2ca",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-35",
+      "path": "gray.35",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#a6a4a9",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-40",
+      "path": "gray.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#949297",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-45",
+      "path": "gray.45",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#817f84",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-50",
+      "path": "gray.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#67666a",
+      "baseValue": "#bfbfc9",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-55",
+      "path": "gray.55",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#515054",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-60",
+      "path": "gray.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3f3e42",
+      "baseValue": "#8f8f9d",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-65",
+      "path": "gray.65",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#312f33",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-70",
+      "path": "gray.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#252428",
+      "baseValue": "#5b5b66",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-75",
+      "path": "gray.75",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#1d1b1f",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-80",
+      "path": "gray.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#171519",
+      "baseValue": "#23222b",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-85",
+      "path": "gray.85",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#131215",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-gray-90",
+      "path": "gray.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#121114",
+      "baseValue": "#1c1b22",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-0",
+      "path": "green.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ecf4f1",
+      "baseValue": "oklch(97% 0.05 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-10",
+      "path": "green.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#c4f1e0",
+      "baseValue": "oklch(90% 0.1 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-20",
+      "path": "green.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#90e3c6",
+      "baseValue": "oklch(83% 0.14 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-30",
+      "path": "green.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#4acca6",
+      "baseValue": "oklch(76% 0.17 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-40",
+      "path": "green.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#11ae84",
+      "baseValue": "oklch(69% 0.19 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-50",
+      "path": "green.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#008865",
+      "baseValue": "oklch(62% 0.21 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-60",
+      "path": "green.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#06674b",
+      "baseValue": "oklch(55% 0.21 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-70",
+      "path": "green.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#004933",
+      "baseValue": "oklch(48% 0.2 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-80",
+      "path": "green.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#003020",
+      "baseValue": "oklch(41% 0.17 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-green-90",
+      "path": "green.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#001e12",
+      "baseValue": "oklch(34% 0.14 145)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-0",
+      "path": "orange.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f8f0ec",
+      "baseValue": "oklch(97% 0.05 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-10",
+      "path": "orange.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ffdbc5",
+      "baseValue": "oklch(90% 0.10 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-20",
+      "path": "orange.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#febd99",
+      "baseValue": "oklch(86% 0.14 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-30",
+      "path": "orange.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ff9565",
+      "baseValue": "oklch(79% 0.17 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-40",
+      "path": "orange.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f4682c",
+      "baseValue": "oklch(72% 0.19 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-50",
+      "path": "orange.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#cd4208",
+      "baseValue": "oklch(65% 0.21 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-60",
+      "path": "orange.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#9c2c05",
+      "baseValue": "oklch(58% 0.21 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-70",
+      "path": "orange.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#701c07",
+      "baseValue": "oklch(48% 0.20 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-80",
+      "path": "orange.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#461209",
+      "baseValue": "oklch(41% 0.17 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-orange-90",
+      "path": "orange.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#250e0b",
+      "baseValue": "oklch(34% 0.14 50)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-0",
+      "path": "pink.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f7eff3",
+      "baseValue": "oklch(97% 0.05 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-10",
+      "path": "pink.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ffd5ee",
+      "baseValue": "oklch(90% 0.1 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-20",
+      "path": "pink.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ffb0e2",
+      "baseValue": "oklch(83% 0.14 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-30",
+      "path": "pink.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f585d3",
+      "baseValue": "oklch(76% 0.17 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-40",
+      "path": "pink.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#db54bf",
+      "baseValue": "oklch(69% 0.19 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-50",
+      "path": "pink.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b32e9f",
+      "baseValue": "oklch(62% 0.21 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-60",
+      "path": "pink.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#882078",
+      "baseValue": "oklch(55% 0.21 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-70",
+      "path": "pink.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#5f1854",
+      "baseValue": "oklch(48% 0.2 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-80",
+      "path": "pink.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3c1334",
+      "baseValue": "oklch(41% 0.17 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-pink-90",
+      "path": "pink.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#1e111b",
+      "baseValue": "oklch(34% 0.14 360)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-0",
+      "path": "purple.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#faebff",
+      "baseValue": "oklch(97% 0.05 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-10",
+      "path": "purple.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f6d7ff",
+      "baseValue": "oklch(90% 0.1 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-20",
+      "path": "purple.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#e8b7ff",
+      "baseValue": "oklch(83% 0.14 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-30",
+      "path": "purple.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#d490ff",
+      "baseValue": "oklch(76% 0.17 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-40",
+      "path": "purple.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b864ee",
+      "baseValue": "oklch(69% 0.19 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-50",
+      "path": "purple.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#9540c8",
+      "baseValue": "oklch(62% 0.21 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-60",
+      "path": "purple.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#702e98",
+      "baseValue": "oklch(55% 0.21 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-70",
+      "path": "purple.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#4f216b",
+      "baseValue": "oklch(48% 0.2 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-80",
+      "path": "purple.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#311842",
+      "baseValue": "oklch(41% 0.17 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-purple-90",
+      "path": "purple.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#1a1220",
+      "baseValue": "oklch(34% 0.14 315)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-0",
+      "path": "red.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#fcf2f3",
+      "baseValue": "oklch(97% 0.05 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-10",
+      "path": "red.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ffd9df",
+      "baseValue": "oklch(90% 0.1 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-20",
+      "path": "red.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ffb6bf",
+      "baseValue": "oklch(83% 0.14 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-30",
+      "path": "red.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ff8998",
+      "baseValue": "oklch(76% 0.17 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-40",
+      "path": "red.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#ed566e",
+      "baseValue": "oklch(69% 0.19 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-50",
+      "path": "red.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#c52d4f",
+      "baseValue": "oklch(62% 0.21 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-60",
+      "path": "red.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#961e3d",
+      "baseValue": "oklch(55% 0.21 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-70",
+      "path": "red.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#69172d",
+      "baseValue": "oklch(48% 0.2 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-80",
+      "path": "red.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#42121f",
+      "baseValue": "oklch(41% 0.17 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-red-90",
+      "path": "red.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#211014",
+      "baseValue": "oklch(34% 0.14 15)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-0",
+      "path": "violet.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f5ecff",
+      "baseValue": "oklch(97% 0.05 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-10",
+      "path": "violet.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#eaddff",
+      "baseValue": "oklch(90% 0.13 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-20",
+      "path": "violet.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#d4c1ff",
+      "baseValue": "oklch(83% 0.17 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-30",
+      "path": "violet.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b89cff",
+      "baseValue": "oklch(76% 0.2 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-40",
+      "path": "violet.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#9871ff",
+      "baseValue": "oklch(69% 0.22 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-50",
+      "path": "violet.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#764edd",
+      "baseValue": "oklch(62% 0.24 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-60",
+      "path": "violet.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#5939a8",
+      "baseValue": "oklch(55% 0.24 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-70",
+      "path": "violet.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3e2976",
+      "baseValue": "oklch(48% 0.2 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-80",
+      "path": "violet.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#271c48",
+      "baseValue": "oklch(41% 0.17 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-90",
+      "path": "violet.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#161423",
+      "baseValue": "oklch(34% 0.14 290)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-0",
+      "path": "violet-desaturated.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f2f0f8",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-10",
+      "path": "violet-desaturated.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#e7e1f8",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-20",
+      "path": "violet-desaturated.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#d2c8ec",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-30",
+      "path": "violet-desaturated.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b6aad9",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-40",
+      "path": "violet-desaturated.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#9687c0",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-50",
+      "path": "violet-desaturated.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#75669f",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-60",
+      "path": "violet-desaturated.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#584a7d",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-70",
+      "path": "violet-desaturated.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3e315f",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-80",
+      "path": "violet-desaturated.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#281d44",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-violet-desaturated-90",
+      "path": "violet-desaturated.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#180e30",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-0",
+      "path": "yellow.0",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f9f5e6",
+      "baseValue": "oklch(97% 0.05 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-10",
+      "path": "yellow.10",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#fde8b5",
+      "baseValue": "oklch(93% 0.1 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-20",
+      "path": "yellow.20",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#fbcc77",
+      "baseValue": "oklch(86% 0.14 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-30",
+      "path": "yellow.30",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#f3a81e",
+      "baseValue": "oklch(79% 0.2 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-40",
+      "path": "yellow.40",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#db820e",
+      "baseValue": "oklch(72% 0.22 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-50",
+      "path": "yellow.50",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#b26100",
+      "baseValue": "oklch(65% 0.24 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-60",
+      "path": "yellow.60",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#854800",
+      "baseValue": "oklch(58% 0.24 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-70",
+      "path": "yellow.70",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#5f3100",
+      "baseValue": "oklch(51% 0.23 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-80",
+      "path": "yellow.80",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#3e1d00",
+      "baseValue": "oklch(41% 0.2 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--color-yellow-90",
+      "path": "yellow.90",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/color.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/color.tokens.json",
+      "value": "#270f00",
+      "baseValue": "oklch(34% 0.17 90)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-color",
+      "path": "color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "{text.color.@base}",
+      "baseValue": {
+        "light": "{color.gray.70}",
+        "dark": "{color.gray.0}",
+        "prefersContrast": "{text.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-color-accent-primary-desaturated",
+      "path": "color.accent.primary.desaturated",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": {
+        "light": "{color.violet-desaturated.60}",
+        "dark": "{color.violet-desaturated.40}",
+        "forcedColors": "CanvasText"
+      },
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--icon-color-critical",
+      "path": "color.critical",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.20}",
+        "forcedColors": "{icon.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.red.60}",
+        "dark": "{color.red.20}",
+        "prefersContrast": "{icon.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-color-information",
+      "path": "color.information",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": {
+        "light": "{color.violet.50}",
+        "dark": "{color.violet.20}",
+        "forcedColors": "{icon.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.blue.60}",
+        "dark": "{color.blue.20}",
+        "prefersContrast": "{icon.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-color-success",
+      "path": "color.success",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": {
+        "light": "{color.green.50}",
+        "dark": "{color.green.20}",
+        "forcedColors": "{icon.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.green.60}",
+        "dark": "{color.green.20}",
+        "prefersContrast": "{icon.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-color-warning",
+      "path": "color.warning",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": {
+        "light": "{color.yellow.50}",
+        "dark": "{color.yellow.20}",
+        "forcedColors": "{icon.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.yellow.60}",
+        "dark": "{color.yellow.20}",
+        "prefersContrast": "{icon.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-size-large",
+      "path": "size.large",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "{size.item.medium}",
+      "baseValue": "{dimension.24}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-size-medium",
+      "path": "size.medium",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "20px",
+      "baseValue": "{dimension.20}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-size-small",
+      "path": "size.small",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "{size.item.small}",
+      "baseValue": "{dimension.16}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-size-xlarge",
+      "path": "size.xlarge",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "{size.item.large}",
+      "baseValue": "{dimension.32}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--icon-size-xsmall",
+      "path": "size.xsmall",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/icon.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/icon.tokens.json",
+      "value": "{size.item.xsmall}",
+      "baseValue": "{dimension.12}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--page-main-content-width",
+      "path": "main.content.width",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/page.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/page.tokens.json",
+      "value": "664px",
+      "baseValue": {
+        "brand": {
+          "default": "664px"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-background-color",
+      "path": "background.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": {
+        "nativeTheme": "Field",
+        "default": "{background.color.box.@base}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "rgb(66, 65, 77)",
+        "nativeTheme": "Field",
+        "forcedColors": "Menu"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-border-color",
+      "path": "border.color",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": {
+        "nativeTheme": "{border.color.deemphasized.@base}",
+        "light": "{color.gray.10}",
+        "dark": "{color.gray.60}",
+        "forcedColors": "{border.color.@base}"
+      },
+      "baseValue": {
+        "light": "rgb(240, 240, 244)",
+        "dark": "rgb(82, 82, 94)",
+        "nativeTheme": "{border.color.deemphasized.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-border-radius",
+      "path": "border.radius",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": "{border.radius.large}",
+      "baseValue": "{border.radius.medium}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-menuitem-border-radius",
+      "path": "border.radius",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel-menuitem.tokens.json",
+      "value": "{button.border.radius}",
+      "baseValue": "{border.radius.small}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-padding",
+      "path": "padding.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": "{panel.padding.block}",
+      "baseValue": "16px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-padding-block",
+      "path": "padding.block",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": "8px",
+      "baseValue": "4px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--panel-text-color",
+      "path": "text.color",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/panel.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/panel.tokens.json",
+      "value": {
+        "nativeTheme": "FieldText",
+        "default": "{text.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.black.@base}",
+        "dark": "rgb(251, 251, 254)",
+        "nativeTheme": "FieldText",
+        "forcedColors": "MenuText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--size-item-large",
+      "path": "item.large",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "value": "32px",
+      "baseValue": "{dimension.32}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--size-item-medium",
+      "path": "item.medium",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "value": "24px",
+      "baseValue": "{dimension.24}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--size-item-small",
+      "path": "item.small",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "value": "16px",
+      "baseValue": "{dimension.16}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--size-item-xlarge",
+      "path": "item.xlarge",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "value": "48px",
+      "baseValue": "{dimension.48}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--size-item-xsmall",
+      "path": "item.xsmall",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/size.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/size.tokens.json",
+      "value": "12px",
+      "baseValue": "{dimension.12}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-background-color-hover",
+      "path": "background.color.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+        "default": "{toolbarbutton.background.color.hover}"
+      },
+      "baseValue": "color-mix(in srgb, currentColor 11%, transparent)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-background-color-selected",
+      "path": "background.color.selected",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "nativeTheme": "var(--toolbar-background-color)",
+        "default": "{background.color.box.@base}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "rgba(106, 106, 120, 0.7)",
+        "nativeTheme": "var(--toolbar-background-color)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-border-color-accent",
+      "path": "border.color.accent",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "linear-gradient(96deg, var(--tab-border-color-selected-leading) 20.68%, var(--tab-border-color-selected-trailing) 79.34%)",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--tab-border-color-selected-leading",
+      "path": "border.color.selected.leading",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "{color.violet.30}",
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--tab-border-color-selected-trailing",
+      "path": "border.color.selected.trailing",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.orange.30}",
+        "dark": "{color.violet.50}"
+      },
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--tab-border-radius",
+      "path": "border.radius",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "{toolbarbutton.border.radius}",
+      "baseValue": "var(--toolbarbutton-border-radius)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-box-shadow-selected",
+      "path": "box.shadow.selected",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "none",
+      "baseValue": "{box-shadow.level-1}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-blue",
+      "path": "group.blue.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.blue.50}",
+        "dark": "{color.blue.30}"
+      },
+      "baseValue": {
+        "light": "{color.blue.50}",
+        "dark": "{color.blue.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-blue-hover",
+      "path": "group.blue.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.blue.60}",
+        "dark": "{color.blue.40}"
+      },
+      "baseValue": {
+        "light": "{color.blue.60}",
+        "dark": "{color.blue.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-blue-text",
+      "path": "group.blue.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.blue.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.blue.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-cyan",
+      "path": "group.cyan.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.cyan.50}",
+        "dark": "{color.cyan.30}"
+      },
+      "baseValue": {
+        "light": "{color.cyan.50}",
+        "dark": "{color.cyan.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-cyan-hover",
+      "path": "group.cyan.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.cyan.60}",
+        "dark": "{color.cyan.40}"
+      },
+      "baseValue": {
+        "light": "{color.cyan.60}",
+        "dark": "{color.cyan.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-cyan-text",
+      "path": "group.cyan.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.cyan.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.cyan.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-green",
+      "path": "group.green.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.green.50}",
+        "dark": "{color.green.30}"
+      },
+      "baseValue": {
+        "light": "{color.green.50}",
+        "dark": "{color.green.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-green-hover",
+      "path": "group.green.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.green.60}",
+        "dark": "{color.green.40}"
+      },
+      "baseValue": {
+        "light": "{color.green.60}",
+        "dark": "{color.green.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-green-text",
+      "path": "group.green.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.green.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.green.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-orange",
+      "path": "group.orange.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.orange.50}",
+        "dark": "{color.orange.30}"
+      },
+      "baseValue": {
+        "light": "{color.orange.50}",
+        "dark": "{color.orange.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-orange-hover",
+      "path": "group.orange.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.orange.60}",
+        "dark": "{color.orange.40}"
+      },
+      "baseValue": {
+        "light": "{color.orange.60}",
+        "dark": "{color.orange.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-orange-text",
+      "path": "group.orange.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.orange.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.orange.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-pink",
+      "path": "group.pink.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.pink.50}",
+        "dark": "{color.pink.30}"
+      },
+      "baseValue": {
+        "light": "{color.pink.50}",
+        "dark": "{color.pink.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-pink-hover",
+      "path": "group.pink.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.pink.60}",
+        "dark": "{color.pink.40}"
+      },
+      "baseValue": {
+        "light": "{color.pink.60}",
+        "dark": "{color.pink.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-pink-text",
+      "path": "group.pink.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.pink.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.pink.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-purple",
+      "path": "group.purple.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.purple.50}",
+        "dark": "{color.purple.30}"
+      },
+      "baseValue": {
+        "light": "{color.purple.50}",
+        "dark": "{color.purple.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-purple-hover",
+      "path": "group.purple.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.purple.60}",
+        "dark": "{color.purple.40}"
+      },
+      "baseValue": {
+        "light": "{color.purple.60}",
+        "dark": "{color.purple.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-purple-text",
+      "path": "group.purple.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.purple.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.purple.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-red",
+      "path": "group.red.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.30}"
+      },
+      "baseValue": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-red-hover",
+      "path": "group.red.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.red.60}",
+        "dark": "{color.red.40}"
+      },
+      "baseValue": {
+        "light": "{color.red.60}",
+        "dark": "{color.red.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-red-text",
+      "path": "group.red.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.red.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.red.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-yellow",
+      "path": "group.yellow.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.yellow.50}",
+        "dark": "{color.yellow.30}"
+      },
+      "baseValue": {
+        "light": "{color.yellow.50}",
+        "dark": "{color.yellow.10}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-yellow-hover",
+      "path": "group.yellow.hover",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.yellow.60}",
+        "dark": "{color.yellow.40}"
+      },
+      "baseValue": {
+        "light": "{color.yellow.60}",
+        "dark": "{color.yellow.20}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-group-yellow-text",
+      "path": "group.yellow.text.@base",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": {
+        "light": "{color.white.@base}",
+        "dark": "{color.yellow.90}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "{color.yellow.60}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-loading-fill",
+      "path": "loading.fill",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "{color.accent.primary.@base}",
+      "baseValue": "{color.blue.50}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-margin-block",
+      "path": "margin.block",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "6px",
+      "baseValue": "{dimension.4}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--tab-outline-offset",
+      "path": "outline.offset",
+      "owner": "browser/tabbrowser",
+      "source": "browser/themes/shared/tabbrowser/tab.nova.tokens.json",
+      "baseSource": "browser/themes/shared/tabbrowser/tab.tokens.json",
+      "value": "-1px",
+      "baseValue": "calc(-1 * {border.width})",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--table-row-background-color",
+      "path": "row.background.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/table.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/table.tokens.json",
+      "value": "{background.color.canvas}",
+      "baseValue": {
+        "default": "{background.color.canvas}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--table-row-background-color-alternate",
+      "path": "row.background.color.alternate",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/table.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/table.tokens.json",
+      "value": {
+        "light": "{color.gray.20}",
+        "dark": "{color.gray.65}",
+        "forcedColors": "{background.color.canvas}"
+      },
+      "baseValue": {
+        "forcedColors": "{background.color.canvas}",
+        "brand": {
+          "light": "#f0f0f4",
+          "dark": "{color.gray.80}"
+        },
+        "platform": {
+          "light": "rgba(0, 0, 0, 0.05)",
+          "dark": "rgba(255, 255, 255, 0.05)"
+        }
+      },
+      "override": null,
+      "comment": "TODO Bug 1821203 - Gray use needs to be consolidated"
+    },
+    {
+      "name": "--text-color",
+      "path": "color.@base",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/text.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
+      "value": {
+        "prefersContrast": "CanvasText",
+        "nativeTheme": "currentColor",
+        "light": "{color.violet-desaturated.90}",
+        "dark": "{color.violet-desaturated.0}"
+      },
+      "baseValue": {
+        "prefersContrast": "CanvasText",
+        "brand": {
+          "light": "{color.gray.100}",
+          "dark": "{color.gray.0}"
+        },
+        "platform": {
+          "default": "currentColor"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--text-color-accent-primary-selected",
+      "path": "color.accent.primary.selected",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/text.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
+      "value": {
+        "forcedColors": "SelectedItemText",
+        "brand": {
+          "light": "{color.white.@base}",
+          "dark": "{color.gray.55}"
+        },
+        "platform": {
+          "default": "SelectedItemText"
+        }
+      },
+      "baseValue": {
+        "forcedColors": "SelectedItemText",
+        "brand": {
+          "light": "{color.white.@base}",
+          "dark": "{color.gray.100}"
+        },
+        "platform": {
+          "default": "SelectedItemText"
+        }
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--text-color-error",
+      "path": "color.error",
+      "owner": "toolkit-design-system/base",
+      "source": "toolkit/themes/shared/design-system/src/tokens/base/text.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/base/text.tokens.json",
+      "value": {
+        "light": "{color.red.50}",
+        "dark": "{color.red.20}",
+        "prefersContrast": "inherit"
+      },
+      "baseValue": {
+        "light": "{color.red.70}",
+        "dark": "{color.red.20}",
+        "prefersContrast": "inherit"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-background-color",
+      "path": "background.color",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, -moz-dialog 85%, {color.white.@base})",
+        "default": "{background.color.box.@base}",
+        "forcedColors": "Canvas"
+      },
+      "baseValue": {
+        "light": "#f9f9fb",
+        "dark": "rgb(43, 42, 51)",
+        "nativeTheme": "color-mix(in srgb, -moz-dialog 85%, {color.white.@base})"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-background-color",
+      "path": "field.background.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": "{toolbar.background.color}",
+      "baseValue": {
+        "light": "rgba(0, 0, 0, 0.05)",
+        "dark": "{color.black.alpha.30}",
+        "prefersContrast": "Field"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-background-color-focus",
+      "path": "field.background.color.focus",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "nativeTheme": "Field",
+        "default": "{background.color.box.@base}"
+      },
+      "baseValue": {
+        "light": "{color.white.@base}",
+        "dark": "rgb(66, 65, 77)",
+        "nativeTheme": "Field"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-border-color",
+      "path": "field.border.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "light": "{color.gray.20}",
+        "dark": "{color.gray.60}",
+        "forcedColors": "ButtonText"
+      },
+      "baseValue": {
+        "default": "{border.color.transparent}",
+        "prefersContrast": "{input.border.color}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-border-color-focus",
+      "path": "field.border.color.focus",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "default": "#ffffff",
+        "forcedColors": "SelectedItem"
+      },
+      "baseValue": {
+        "default": "color-mix(in srgb, {focus.outline.color} 50%, transparent)",
+        "prefersContrast": "{focus.outline.color}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-text-color",
+      "path": "field.text.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "nativeTheme": "inherit",
+        "light": "{color.violet-desaturated.70}",
+        "dark": "{color.violet-desaturated.10}",
+        "forcedColors": "{text.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.gray.100}",
+        "dark": "{color.gray.0}",
+        "nativeTheme": "inherit",
+        "prefersContrast": "FieldText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-field-text-color-focus",
+      "path": "field.text.color.focus",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": {
+        "nativeTheme": "FieldText",
+        "default": "{toolbar.field.text.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.black.@base}",
+        "dark": "{color.gray.0}",
+        "nativeTheme": "FieldText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbar-padding-inline",
+      "path": "padding.inline",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbar.tokens.json",
+      "value": "6px",
+      "baseValue": "8px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-background-color-active",
+      "path": "background.color.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "light": "rgba(117, 102, 159, 0.4)",
+        "dark": "rgba(182, 170, 217, 0.4)",
+        "forcedColors": "{button.background.color.active}"
+      },
+      "baseValue": "color-mix(in srgb, currentColor 30%, transparent)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-background-color-hover",
+      "path": "background.color.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "light": "rgba(117, 102, 159, 0.25)",
+        "dark": "rgba(182, 170, 217, 0.25)",
+        "forcedColors": "{button.background.color.hover}"
+      },
+      "baseValue": "color-mix(in srgb, currentColor 17%, transparent)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-icon-fill",
+      "path": "icon.fill.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "nativeTheme": "currentColor",
+        "light": "{color.violet-desaturated.50}",
+        "dark": "{color.violet-desaturated.10}",
+        "forcedColors": "{button.text.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.gray.70}",
+        "dark": "{color.gray.0}",
+        "nativeTheme": "currentColor"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-icon-fill-attention",
+      "path": "icon.fill.attention.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "nativeTheme": "AccentColor",
+        "default": "{color.accent.primary.@base}"
+      },
+      "baseValue": {
+        "light": "{color.blue.60}",
+        "dark": "{color.cyan.30}",
+        "nativeTheme": "AccentColor"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-opacity-disabled",
+      "path": "opacity.disabled",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": "0.4",
+      "baseValue": {
+        "default": "{button.opacity.disabled}",
+        "prefersContrast": 0.3
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-outline-color",
+      "path": "outline.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.@base}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "forcedColors": "ButtonText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-outline-color-active",
+      "path": "outline.color.active",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.active}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "prefersContrast": "currentColor",
+        "forcedColors": "ButtonText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-outline-color-hover",
+      "path": "outline.color.hover",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": {
+        "default": "transparent",
+        "forcedColors": "{button.border.color.hover}"
+      },
+      "baseValue": {
+        "default": "transparent",
+        "prefersContrast": "currentColor",
+        "forcedColors": "SelectedItem"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-outline-color-selected",
+      "path": "outline.color.selected",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": "{toolbarbutton.outline.color.active}",
+      "baseValue": {
+        "default": "{toolbarbutton.outline.color.active}",
+        "forcedColors": "SelectedItem"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-outline-offset",
+      "path": "outline.offset",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": "-1px",
+      "baseValue": "calc(-1 * {border.width})",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbarbutton-padding-inner-touch-narrow",
+      "path": "padding.inner.touch.narrow",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbarbutton.tokens.json",
+      "value": "0",
+      "baseValue": "8px",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbox-background-color-gradient-leading",
+      "path": "background.color.gradient-leading",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "value": {
+        "light": "{color.violet.10}",
+        "dark": "{color.violet-desaturated.70}",
+        "forcedColors": "Canvas"
+      },
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--toolbox-background-color-gradient-trailing",
+      "path": "background.color.gradient-trailing",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "value": {
+        "light": "{color.orange.10}",
+        "dark": "{color.orange.70}",
+        "forcedColors": "Canvas"
+      },
+      "baseValue": "unset",
+      "override": true,
+      "comment": null
+    },
+    {
+      "name": "--toolbox-background-color-inactive",
+      "path": "background.color.inactive",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "value": {
+        "nativeTheme": "-moz-headerbarinactive",
+        "default": "transparent"
+      },
+      "baseValue": {
+        "default": "{toolbox.background.color.@base}",
+        "nativeTheme": "-moz-headerbarinactive"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbox-text-color",
+      "path": "text.color.@base",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "value": {
+        "nativeTheme": "-moz-headerbartext",
+        "default": "{text.color.@base}"
+      },
+      "baseValue": {
+        "light": "{color.gray.100}",
+        "dark": "{color.gray.0}",
+        "nativeTheme": "-moz-headerbartext"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--toolbox-text-color-inactive",
+      "path": "text.color.inactive",
+      "owner": "toolkit-design-system/components",
+      "source": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.nova.tokens.json",
+      "baseSource": "toolkit/themes/shared/design-system/src/tokens/components/toolbox.tokens.json",
+      "value": {
+        "nativeTheme": "-moz-headerbarinactivetext",
+        "default": "{text.color.deemphasized}"
+      },
+      "baseValue": {
+        "default": "{toolbox.text.color.@base}",
+        "nativeTheme": "-moz-headerbarinactivetext"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbar-box-background-color",
+      "path": "box.background.color.@base",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 16%, transparent)",
+        "default": "{urlbarview.background.color.hover}"
+      },
+      "baseValue": {
+        "light": "white",
+        "dark": "rgb(66, 65, 77)",
+        "nativeTheme": "{button.background.color.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbar-box-background-color-active",
+      "path": "box.background.color.active",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 30%, transparent)",
+        "light": "rgba(117, 102, 159, 0.6)",
+        "dark": "rgba(176, 163, 210, 0.6)"
+      },
+      "baseValue": "{button.background.color.active}",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbar-box-background-color-focus",
+      "path": "box.background.color.focus",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "value": "{urlbar.box.background.color.@base}",
+      "baseValue": {
+        "light": "{button.background.color.@base}",
+        "dark": "color-mix(in srgb, currentColor 16%, transparent)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbar-box-background-color-hover",
+      "path": "box.background.color.hover",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 22%, transparent)",
+        "default": "{urlbarview.background.color.selected}"
+      },
+      "baseValue": {
+        "light": "{button.background.color.hover}",
+        "dark": "color-mix(in srgb, currentColor 22%, transparent)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbar-icon-fill-opacity",
+      "path": "icon.fill.opacity",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbar.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbar.tokens.json",
+      "value": {
+        "nativeTheme": "0.9",
+        "light": "0.7",
+        "dark": "0.95",
+        "prefersContrast": "1"
+      },
+      "baseValue": {
+        "default": "0.72",
+        "nativeTheme": "0.9",
+        "prefersContrast": "1"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-action-button-background-color",
+      "path": "action.button.background.color.@base",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": "{urlbar.box.background.color.@base}",
+      "baseValue": "color-mix(in srgb, var(--urlbarview-background-color-hover) 50%, transparent)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-action-button-background-color-hover",
+      "path": "action.button.background.color.hover",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": "{urlbar.box.background.color.hover}",
+      "baseValue": "var(--urlbarview-background-color-hover)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-background-color-hover",
+      "path": "background.color.hover",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "{background.color.dimmed.@base}",
+        "default": "{toolbarbutton.background.color.hover}"
+      },
+      "baseValue": {
+        "nativeTheme": "{background.color.dimmed.@base}",
+        "light": "rgb(240, 240, 244)",
+        "dark": "{background.color.dimmed.@base}"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-background-color-selected",
+      "path": "background.color.selected",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "SelectedItem",
+        "default": "{toolbarbutton.background.color.active}"
+      },
+      "baseValue": {
+        "nativeTheme": "SelectedItem",
+        "light": "#e0e0e6",
+        "dark": "rgb(43, 42, 51)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-border-radius",
+      "path": "border.radius",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": "{urlbar.border.radius}",
+      "baseValue": "calc({button.border.radius} + 2px)",
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-separator-color",
+      "path": "separator.color",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 14%, transparent)",
+        "light": "{color.gray.20}",
+        "dark": "{color.gray.60}",
+        "forcedColors": "#ffffff"
+      },
+      "baseValue": {
+        "light": "rgb(240, 240, 244)",
+        "dark": "rgb(82, 82, 94)",
+        "nativeTheme": "color-mix(in srgb, currentColor 14%, transparent)",
+        "prefersContrast": "color-mix(in srgb, currentColor 86%, transparent)"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-text-color-action",
+      "path": "text.color.action",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "LinkText",
+        "default": "{toolbar.field.text.color.focus}"
+      },
+      "baseValue": {
+        "light": "rgb(91, 91, 102)",
+        "dark": "rgb(191, 191, 201)",
+        "nativeTheme": "LinkText"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-text-color-secondary",
+      "path": "text.color.secondary",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "color-mix(in srgb, currentColor 73%, transparent)",
+        "light": "#3e315f",
+        "dark": "#e7e1f8",
+        "forcedColors": "#ffffff"
+      },
+      "baseValue": {
+        "nativeTheme": "color-mix(in srgb, currentColor 73%, transparent)",
+        "default": "color-mix(in srgb, currentColor 73%, transparent)",
+        "forcedColors": "currentColor"
+      },
+      "override": null,
+      "comment": null
+    },
+    {
+      "name": "--urlbarview-text-color-selected",
+      "path": "text.color.selected",
+      "owner": "browser/urlbar",
+      "source": "browser/themes/shared/urlbar/urlbarview.nova.tokens.json",
+      "baseSource": "browser/themes/shared/urlbar/urlbarview.tokens.json",
+      "value": {
+        "nativeTheme": "SelectedItemText",
+        "default": "{toolbar.field.text.color.focus}"
+      },
+      "baseValue": {
+        "light": "rgb(21, 20, 26)",
+        "dark": "rgb(251, 251, 254)",
+        "nativeTheme": "SelectedItemText"
+      },
+      "override": null,
+      "comment": null
+    }
+  ]
+}
