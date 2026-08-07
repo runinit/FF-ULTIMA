@@ -397,6 +397,17 @@ enable bookmark url editting (add bookmark menu)
                     var(--uc-nova-chrome-gap, 8px)
                 );
         }
+
+        /* A below-URLbar layout normally anchors the floating bookmarks bar
+           to #TabsToolbar. Sidebery/disabled-tabbar layouts hide that owner,
+           so return the anchor to the visible navbar. */
+        #nav-bar {
+            anchor-name: --uc-bookmarks-float-anchor;
+        }
+
+        #TabsToolbar {
+            anchor-name: none;
+        }
     }
 }
 

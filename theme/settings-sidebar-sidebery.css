@@ -137,10 +137,10 @@ adjustments for accessible splitter
     :root {
         --uc-sidebar-collapsed-width: 38px;
         --uc-sidebar-gap: var(--uc-nova-chrome-gap, 8px);
-        /* The absolute rail starts at #browser's border edge while the visible
-           app canvas starts after its inline padding. Account for that first
-           shared gutter, then leave the same gutter outside the rail. */
-        --uc-sidebar-inline-offset: calc(var(--uc-sidebar-gap) * 2);
+        /* Keep one shared gutter between the browser edge and the rail. The
+           page reservation below has a different coordinate origin, so do not
+           double-count this gutter in the rail offset. */
+        --uc-sidebar-inline-offset: var(--uc-sidebar-gap);
         --browser-autohide-margin:
             calc(var(--uc-sidebar-collapsed-width) + var(--uc-sidebar-gap) - 2px);
     }

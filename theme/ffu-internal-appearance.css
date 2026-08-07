@@ -87,7 +87,38 @@ are declared before this file and retain their private namespace for compatibili
     .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
         .tab-background {
         box-sizing: border-box !important;
+        background:
+            linear-gradient(
+                var(--uc-nova-tab-active-surface),
+                var(--uc-nova-tab-active-surface)
+            ) padding-box,
+            var(--uc-nova-selected-border) border-box !important;
         border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;
+    }
+
+    .tabbrowser-tab:is([selected], [visuallyselected], [multiselected]):not([disabled]):hover
+        .tab-background {
+        background:
+            linear-gradient(
+                var(--uc-nova-tab-selected-hover-surface),
+                var(--uc-nova-tab-selected-hover-surface)
+            ) padding-box,
+            var(--uc-nova-selected-border) border-box !important;
+    }
+
+    /* Firefox's selected outline is one CSS pixel. The palette border-box above
+       is the selected treatment unless the user explicitly enables the legacy
+       full-outline feature. */
+    @media not -moz-pref("ultima.tabs.tab.outline", "full") {
+        .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+            .tab-background {
+            outline-color: transparent !important;
+        }
+    }
+
+    .tabbrowser-tab:not([disabled]):focus-visible .tab-background {
+        outline: var(--uc-nova-focus-outline) !important;
+        outline-offset: -2px !important;
     }
 }
 
@@ -114,26 +145,6 @@ are declared before this file and retain their private namespace for compatibili
         color: var(--uc-nova-hover-text, var(--uc-text)) !important;
     }
 
-    .tabbrowser-tab:not([disabled]):focus-visible .tab-background {
-        outline: var(--uc-nova-focus-outline) !important;
-        outline-offset: -2px !important;
-    }
-}
-
-@media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
-    /* Firefox paints the resting selected-tab ring from
-       --tab-border-color-accent. Add only the selected-hover layer here while
-       retaining the shared selected-border path. */
-    .tabbrowser-tab:is([selected], [visuallyselected]):not([multiselected], [disabled]):hover
-        .tab-background {
-        background:
-            var(--uc-nova-selected-border) border-box border-area,
-            linear-gradient(
-                var(--uc-nova-tab-selected-hover-surface),
-                var(--uc-nova-tab-selected-hover-surface)
-            ) padding-box !important;
-        border: var(--uc-nova-selected-border-width, 2px) solid transparent !important;
-    }
 }
 
 .tabbrowser-tab:is(:hover, [selected], [visuallyselected], [multiselected])
@@ -441,22 +452,87 @@ are declared before this file and retain their private namespace for compatibili
     border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
 }
 
+#contentAreaContextMenu {
+    --panel-background-color:
+        var(--uc-nova-context-menu-surface, var(--uc-context-menu)) !important;
+    --panel-border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+    --panel-border-radius: var(--uc-nova-panel-radius, 16px) !important;
+    --panel-padding: var(--uc-nova-chrome-gap, 8px) !important;
+    --panel-box-shadow:
+        var(--uc-nova-panel-elevation, var(--uc-box-shadow-panel)) !important;
+    --menuitem-border-radius: var(--uc-nova-radius-small, 8px) !important;
+}
+
+#contentAreaContextMenu::part(content) {
+    background-color:
+        var(--uc-nova-context-menu-surface, var(--uc-context-menu)) !important;
+    border: 1px solid var(--uc-nova-border, var(--uc-panel-border)) !important;
+    border-radius: var(--uc-nova-panel-radius, 16px) !important;
+    box-shadow: var(--uc-nova-panel-elevation, var(--uc-box-shadow-panel)) !important;
+    padding: var(--uc-nova-chrome-gap, 8px) !important;
+    overflow: clip !important;
+}
+
+#contentAreaContextMenu :is(menu, menuitem) {
+    border-radius: var(--uc-nova-radius-small, 8px) !important;
+}
+
+#contentAreaContextMenu menuseparator {
+    border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
+}
+
 #main-window menupopup :is(menu, menuitem, .menu-text, .menu-accel) {
     text-align: start !important;
 }
 
 #main-window panelview :is(toolbarbutton, button):not([disabled]):hover,
+#main-window panel-item:not([disabled]):hover::part(button),
 .searchmode-switcher-panel-list > panel-item:not([disabled]):hover::part(button) {
-    box-shadow: inset 0 0 0 1px var(--uc-nova-hover-ring) !important;
+    box-shadow: none !important;
 }
 
 #main-window panelview
     :is(toolbarbutton, button):is([open], [checked], :active):not([disabled]),
+#main-window
+    panel-item:is(:active, [checked], [selected], [aria-selected="true"]):not(
+        [disabled]
+    )::part(button),
 .searchmode-switcher-panel-list
     > panel-item:is(:active, [checked], [selected], [aria-selected="true"]):not(
         [disabled]
     )::part(button) {
-    box-shadow: inset 0 0 0 1px var(--uc-nova-active-ring) !important;
+    box-shadow: none !important;
+}
+
+#main-window :is(menu, menuitem):is(
+    [_moz-menuactive],
+    [open],
+    [checked],
+    :active
+):not([disabled]) {
+    box-shadow: none !important;
+}
+
+#main-window menupopup :is(menu, menuitem):not([disabled]):focus-visible {
+    outline: var(--uc-nova-focus-outline) !important;
+    outline-offset: -2px !important;
+}
+
+#main-window panel-item:focus-within:not([disabled])::part(button) {
+    outline: var(--uc-nova-focus-outline) !important;
+    outline-offset: -2px !important;
+}
+
+#unified-extensions-view
+    :is(
+        .unified-extensions-item-action-button,
+        .unified-extensions-item-menu-button,
+        #unified-extensions-manage-extensions
+    ):is(:hover, [open], [checked], :active):not([disabled]),
+#unified-extensions-view
+    :is(.unified-extensions-item-action-button, #unified-extensions-manage-extensions)
+    > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+    box-shadow: none !important;
 }
 
 @media -moz-pref("user.theme.noctalia"), -moz-pref("user.theme.pywalfox") {
@@ -499,14 +575,14 @@ are declared before this file and retain their private namespace for compatibili
 
     #main-window panelview :is(toolbarbutton, button):not([disabled]):hover {
         background-color: var(--uc-nova-panel-hover-surface) !important;
-        box-shadow: inset 0 0 0 1px var(--uc-nova-hover-ring) !important;
+        box-shadow: none !important;
         color: var(--uc-nova-hover-text, var(--uc-text)) !important;
     }
 
     #main-window panelview
         :is(toolbarbutton, button):is([open], [checked], :active):not([disabled]) {
         background-color: var(--uc-nova-panel-active-surface) !important;
-        box-shadow: inset 0 0 0 1px var(--uc-nova-active-ring) !important;
+        box-shadow: none !important;
         color: var(--uc-nova-active-text, var(--uc-text)) !important;
     }
 
@@ -591,13 +667,6 @@ findbar :is(textbox, input) {
     background-color: var(--uc-nova-panel-surface, var(--uc-layered-background)) !important;
     color: var(--uc-text) !important;
     border-color: var(--uc-nova-border, var(--uc-panel-border)) !important;
-}
-
-@media -moz-pref("ultima.tabs.splitview.content.outline") {
-    .split-view-panel .browserContainer {
-        outline: 1px solid var(--uc-nova-accent-leading, var(--uc-accent-color-1)) !important;
-        outline-offset: -1px !important;
-    }
 }
 
 /* Status and Picture-in-Picture visual treatment only --------------------------------- */

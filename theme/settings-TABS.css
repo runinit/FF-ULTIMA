@@ -56,6 +56,474 @@ pinned tabs transparent background
         min-width: fit-content !important;
     }
 }
+
+/* Native expand-on-hover keeps Firefox's collapsed icon rail and animation.
+   Restore FF Ultima's compact pinned grid only after the native rail expands,
+   rather than replacing Firefox's sidebar or panel geometry. */
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+    @media -moz-pref("sidebar.verticalTabs") {
+        #pinned-tabs-container[orient="vertical"] .tabbrowser-tab[pinned] {
+            .tab-close-button {
+                display: none !important;
+            }
+
+            &:not([selected], [visuallyselected], [multiselected], :hover)
+                .tab-background {
+                box-sizing: border-box !important;
+                background: var(--uc-nova-tab-surface) !important;
+                border:
+                    1px solid
+                    var(--uc-nova-chrome-border, var(--uc-panel-border)) !important;
+                border-radius: var(--uc-nova-tab-radius) !important;
+                box-shadow: none !important;
+            }
+
+            &:not([selected], [visuallyselected], [multiselected]):hover
+                .tab-background {
+                box-sizing: border-box !important;
+                background: var(--uc-nova-tab-hover-surface) !important;
+                border: 1px solid var(--uc-nova-hover-ring) !important;
+                border-radius: var(--uc-nova-tab-radius) !important;
+                box-shadow: none !important;
+            }
+
+            &:is([selected], [visuallyselected], [multiselected])
+                .tab-background {
+                box-sizing: border-box !important;
+                background:
+                    linear-gradient(
+                        var(--uc-nova-tab-active-surface),
+                        var(--uc-nova-tab-active-surface)
+                    ) padding-box,
+                    var(--uc-nova-selected-border) border-box !important;
+                border:
+                    var(--uc-nova-selected-border-width, 2px)
+                    solid
+                    transparent !important;
+                border-radius: var(--uc-nova-tab-radius) !important;
+                box-shadow: none !important;
+            }
+
+            &:is([selected], [visuallyselected], [multiselected]):hover
+                .tab-background {
+                background:
+                    linear-gradient(
+                        var(--uc-nova-tab-selected-hover-surface),
+                        var(--uc-nova-tab-selected-hover-surface)
+                    ) padding-box,
+                    var(--uc-nova-selected-border) border-box !important;
+            }
+        }
+
+        /* Firefox 153 keeps the pinned arrowscrollbox's items-wrapper inside
+           shadow DOM. User styles cannot reach that ::part, so lay out the
+           slotted tabs directly while the native launcher is expanded. */
+        #sidebar-container:hover
+            #tabbrowser-tabs[orient="vertical"][expanded]
+            > #pinned-tabs-container[orient="vertical"] {
+            --uc-native-pinned-column-width:
+                calc(
+                    (
+                            100% -
+                                2 *
+                                var(
+                                    --tab-pinned-container-margin-inline-expanded,
+                                    8px
+                                )
+                        ) /
+                        var(--tab-pinned-horizontal-count, 5)
+                );
+
+            position: relative !important;
+            display: block !important;
+            flex: none !important;
+            min-height: var(--tab-height-with-margin-padding) !important;
+            height: var(--tab-height-with-margin-padding) !important;
+
+            &:has(> .tabbrowser-tab:nth-child(6)) {
+                height:
+                    calc(2 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(11)) {
+                height:
+                    calc(3 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(16)) {
+                height:
+                    calc(4 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(21)) {
+                height:
+                    calc(5 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(26)) {
+                height:
+                    calc(6 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(31)) {
+                height:
+                    calc(7 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(36)) {
+                height:
+                    calc(8 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(41)) {
+                height:
+                    calc(9 * var(--tab-height-with-margin-padding)) !important;
+            }
+            &:has(> .tabbrowser-tab:nth-child(46)) {
+                height:
+                    calc(10 * var(--tab-height-with-margin-padding)) !important;
+            }
+
+            > .tabbrowser-tab[pinned] {
+                position: absolute !important;
+                inline-size: var(--uc-native-pinned-column-width) !important;
+                min-inline-size: 0 !important;
+                max-inline-size: none !important;
+                block-size: var(--tab-height-with-margin-padding) !important;
+                margin: 0 !important;
+
+                &:nth-child(5n + 1) {
+                    inset-inline-start:
+                        var(
+                            --tab-pinned-container-margin-inline-expanded,
+                            8px
+                        ) !important;
+                }
+                &:nth-child(5n + 2) {
+                    inset-inline-start:
+                        calc(
+                            var(
+                                    --tab-pinned-container-margin-inline-expanded,
+                                    8px
+                                ) +
+                                var(--uc-native-pinned-column-width)
+                        ) !important;
+                }
+                &:nth-child(5n + 3) {
+                    inset-inline-start:
+                        calc(
+                            var(
+                                    --tab-pinned-container-margin-inline-expanded,
+                                    8px
+                                ) +
+                                2 *
+                                var(--uc-native-pinned-column-width)
+                        ) !important;
+                }
+                &:nth-child(5n + 4) {
+                    inset-inline-start:
+                        calc(
+                            var(
+                                    --tab-pinned-container-margin-inline-expanded,
+                                    8px
+                                ) +
+                                3 *
+                                var(--uc-native-pinned-column-width)
+                        ) !important;
+                }
+                &:nth-child(5n + 5) {
+                    inset-inline-start:
+                        calc(
+                            var(
+                                    --tab-pinned-container-margin-inline-expanded,
+                                    8px
+                                ) +
+                                4 *
+                                var(--uc-native-pinned-column-width)
+                        ) !important;
+                }
+
+                &:nth-child(-n + 5) {
+                    inset-block-start: 0 !important;
+                }
+                &:nth-child(n + 6):nth-child(-n + 10) {
+                    inset-block-start:
+                        var(--tab-height-with-margin-padding) !important;
+                }
+                &:nth-child(n + 11):nth-child(-n + 15) {
+                    inset-block-start:
+                        calc(
+                            2 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 16):nth-child(-n + 20) {
+                    inset-block-start:
+                        calc(
+                            3 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 21):nth-child(-n + 25) {
+                    inset-block-start:
+                        calc(
+                            4 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 26):nth-child(-n + 30) {
+                    inset-block-start:
+                        calc(
+                            5 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 31):nth-child(-n + 35) {
+                    inset-block-start:
+                        calc(
+                            6 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 36):nth-child(-n + 40) {
+                    inset-block-start:
+                        calc(
+                            7 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 41):nth-child(-n + 45) {
+                    inset-block-start:
+                        calc(
+                            8 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+                &:nth-child(n + 46):nth-child(-n + 50) {
+                    inset-block-start:
+                        calc(
+                            9 * var(--tab-height-with-margin-padding)
+                        ) !important;
+                }
+            }
+
+            .tab-label-container {
+                display: none !important;
+            }
+
+            .tab-content {
+                justify-content: center !important;
+            }
+
+            .tab-background {
+                margin-inline: var(--tab-pinned-margin-inline-expanded) !important;
+            }
+        }
+
+        /* The collapsed native launcher is only 56px wide. Firefox's shadow
+           items-wrapper cannot be styled from userChrome, so compact the
+           slotted pins directly. Stack takes precedence if both prefs are set. */
+        @media -moz-pref("ultima.tabs.pinned.collapsed.grid") {
+            @media not -moz-pref("ultima.tabs.pinned.collapsed.stack") {
+                :is(
+                    #tabbrowser-tabs[orient="vertical"]:not([expanded]),
+                    #sidebar-container:not(
+                        :hover,
+                        [sidebar-ongoing-animations]
+                    )
+                        #tabbrowser-tabs[orient="vertical"][expanded]
+                )
+                    > #pinned-tabs-container[orient="vertical"] {
+                    --uc-collapsed-pin-size: 24px;
+
+                    position: relative !important;
+                    display: block !important;
+                    flex: none !important;
+                    min-height: var(--uc-collapsed-pin-size) !important;
+                    height: var(--uc-collapsed-pin-size) !important;
+                    overflow: visible !important;
+
+                    &:has(> .tabbrowser-tab:nth-child(3)) {height: 48px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(5)) {height: 72px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(7)) {height: 96px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(9)) {height: 120px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(11)) {height: 144px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(13)) {height: 168px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(15)) {height: 192px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(17)) {height: 216px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(19)) {height: 240px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(21)) {height: 264px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(23)) {height: 288px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(25)) {height: 312px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(27)) {height: 336px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(29)) {height: 360px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(31)) {height: 384px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(33)) {height: 408px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(35)) {height: 432px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(37)) {height: 456px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(39)) {height: 480px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(41)) {height: 504px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(43)) {height: 528px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(45)) {height: 552px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(47)) {height: 576px !important;}
+                    &:has(> .tabbrowser-tab:nth-child(49)) {height: 600px !important;}
+
+                    > .tabbrowser-tab[pinned] {
+                        position: absolute !important;
+                        inset-inline-start: 4px !important;
+                        inline-size: var(--uc-collapsed-pin-size) !important;
+                        min-inline-size: var(--uc-collapsed-pin-size) !important;
+                        max-inline-size: var(--uc-collapsed-pin-size) !important;
+                        block-size: var(--uc-collapsed-pin-size) !important;
+                        margin: 0 !important;
+
+                        &:nth-child(2n) {inset-inline-start: 28px !important;}
+                        &:nth-child(n + 3):nth-child(-n + 4) {inset-block-start: 24px !important;}
+                        &:nth-child(n + 5):nth-child(-n + 6) {inset-block-start: 48px !important;}
+                        &:nth-child(n + 7):nth-child(-n + 8) {inset-block-start: 72px !important;}
+                        &:nth-child(n + 9):nth-child(-n + 10) {inset-block-start: 96px !important;}
+                        &:nth-child(n + 11):nth-child(-n + 12) {inset-block-start: 120px !important;}
+                        &:nth-child(n + 13):nth-child(-n + 14) {inset-block-start: 144px !important;}
+                        &:nth-child(n + 15):nth-child(-n + 16) {inset-block-start: 168px !important;}
+                        &:nth-child(n + 17):nth-child(-n + 18) {inset-block-start: 192px !important;}
+                        &:nth-child(n + 19):nth-child(-n + 20) {inset-block-start: 216px !important;}
+                        &:nth-child(n + 21):nth-child(-n + 22) {inset-block-start: 240px !important;}
+                        &:nth-child(n + 23):nth-child(-n + 24) {inset-block-start: 264px !important;}
+                        &:nth-child(n + 25):nth-child(-n + 26) {inset-block-start: 288px !important;}
+                        &:nth-child(n + 27):nth-child(-n + 28) {inset-block-start: 312px !important;}
+                        &:nth-child(n + 29):nth-child(-n + 30) {inset-block-start: 336px !important;}
+                        &:nth-child(n + 31):nth-child(-n + 32) {inset-block-start: 360px !important;}
+                        &:nth-child(n + 33):nth-child(-n + 34) {inset-block-start: 384px !important;}
+                        &:nth-child(n + 35):nth-child(-n + 36) {inset-block-start: 408px !important;}
+                        &:nth-child(n + 37):nth-child(-n + 38) {inset-block-start: 432px !important;}
+                        &:nth-child(n + 39):nth-child(-n + 40) {inset-block-start: 456px !important;}
+                        &:nth-child(n + 41):nth-child(-n + 42) {inset-block-start: 480px !important;}
+                        &:nth-child(n + 43):nth-child(-n + 44) {inset-block-start: 504px !important;}
+                        &:nth-child(n + 45):nth-child(-n + 46) {inset-block-start: 528px !important;}
+                        &:nth-child(n + 47):nth-child(-n + 48) {inset-block-start: 552px !important;}
+                        &:nth-child(n + 49):nth-child(-n + 50) {inset-block-start: 576px !important;}
+                    }
+
+                    .tab-label-container,
+                    .tab-close-button {display: none !important;}
+                    .tab-content {
+                        justify-content: center !important;
+                        padding-inline: 0 !important;
+                    }
+                    .tab-background {
+                        margin: 1px !important;
+                        border-radius: var(--uc-nova-tab-radius) !important;
+                    }
+                }
+            }
+        }
+
+        @media -moz-pref("ultima.tabs.pinned.collapsed.stack") {
+            :is(
+                #tabbrowser-tabs[orient="vertical"]:not([expanded]),
+                #sidebar-container:not(:hover, [sidebar-ongoing-animations])
+                    #tabbrowser-tabs[orient="vertical"][expanded]
+            )
+                > #pinned-tabs-container[orient="vertical"] {
+                --uc-collapsed-stack-pin-size: 36px;
+
+                position: relative !important;
+                display: block !important;
+                flex: none !important;
+                min-height: 56px !important;
+                height: 56px !important;
+                overflow: visible !important;
+
+                > .tabbrowser-tab[pinned] {
+                    position: absolute !important;
+                    inset-block-start: 18px !important;
+                    inset-inline-start: 0 !important;
+                    inline-size: var(--uc-collapsed-stack-pin-size) !important;
+                    min-inline-size: var(--uc-collapsed-stack-pin-size) !important;
+                    max-inline-size: var(--uc-collapsed-stack-pin-size) !important;
+                    block-size: var(--uc-collapsed-stack-pin-size) !important;
+                    margin: 0 !important;
+                    visibility: hidden !important;
+                    opacity: 0 !important;
+                    pointer-events: none !important;
+
+                    &:nth-last-child(-n + 3),
+                    &:is([selected], [visuallyselected], [multiselected]) {
+                        visibility: visible !important;
+                        opacity: 1 !important;
+                    }
+                    &:nth-last-child(3) {
+                        inset-block-start: 0 !important;
+                        inset-inline-start: 18px !important;
+                        transform: none !important;
+                        opacity: 1 !important;
+                        z-index: 1 !important;
+                    }
+                    &:nth-last-child(2) {
+                        inset-block-start: 9px !important;
+                        inset-inline-start: 9px !important;
+                        transform: none !important;
+                        opacity: 1 !important;
+                        z-index: 2 !important;
+                    }
+                    &:last-child {
+                        inset-block-start: 18px !important;
+                        inset-inline-start: 0 !important;
+                        z-index: 3 !important;
+                    }
+                    &:is([selected], [visuallyselected], [multiselected]) {
+                        transform: none !important;
+                        opacity: 1 !important;
+                    }
+                }
+
+                .tab-label-container,
+                .tab-close-button {display: none !important;}
+                .tab-content {
+                    justify-content: center !important;
+                    padding-inline: 0 !important;
+                }
+                .tab-background {
+                    margin: 1px !important;
+                    background:
+                        color-mix(
+                            in srgb,
+                            var(--uc-nova-tab-active-surface) 64%,
+                            transparent
+                        ) !important;
+                    border: 1px solid var(--uc-nova-chrome-border) !important;
+                    border-radius: 10px !important;
+                    box-shadow:
+                        0 2px 5px color-mix(in srgb, black 42%, transparent)
+                        !important;
+                }
+                > .tabbrowser-tab[pinned]:is(
+                    [selected],
+                    [visuallyselected],
+                    [multiselected]
+                ) .tab-background {
+                    background:
+                        linear-gradient(
+                            color-mix(
+                                in srgb,
+                                var(--uc-nova-tab-selected-hover-surface) 72%,
+                                transparent
+                            ),
+                            color-mix(
+                                in srgb,
+                                var(--uc-nova-tab-selected-hover-surface) 72%,
+                                transparent
+                            )
+                        ) padding-box,
+                        var(--uc-nova-selected-border) border-box !important;
+                    border:
+                        var(--uc-nova-selected-border-width, 2px)
+                        solid transparent !important;
+                }
+            }
+        }
+
+        @media (forced-colors) {
+            #pinned-tabs-container[orient="vertical"]
+                .tabbrowser-tab[pinned]:is(
+                    [selected],
+                    [visuallyselected],
+                    [multiselected]
+                )
+                .tab-background {
+                background: Canvas !important;
+                border-color: Highlight !important;
+            }
+        }
+    }
+}
+
 /* new tab button ----------------------------------------------------------------------------------------------- */
 @media -moz-pref("ultima.tabs.newtabbutton.ontop.1") {
     #vertical-tabs-newtab-button {order: -1 !important;}
@@ -417,10 +885,10 @@ pinned tabs transparent background
 @media -moz-pref("ultima.tabs.splitview.gradient.background") {
     #tabbrowser-tabs {
         tab-split-view-wrapper {
-            background: linear-gradient(-80deg, rgba(238,119,82,0.03), rgba(131,60,126,0.1), rgba(35,250,213,0.004)) !important;
+            background: var(--uc-nova-split-gradient-muted) !important;
             background-size: 100% !important;
             &:has(.tabbrowser-tab[selected]) {
-                background: linear-gradient(-80deg, rgba(238,119,82,0.7), rgba(131,60,126,0.7), rgba(35,250,213,0.7)) !important;
+                background: var(--uc-nova-split-gradient-active) !important;
             }
         }
     }

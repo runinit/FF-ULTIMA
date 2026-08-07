@@ -1,5 +1,5 @@
-### <ins> FF Ultima Version 4.5 Release
-- **⬇️ [Release Download](https://github.com/soulhotel/FF-ULTIMA/releases/download/4.5/ffultima4.5.zip)** direct link.<!--- **⬇️ [Source Download](https://github.com/soulhotel/FF-ULTIMA/archive/refs/heads/main.zip)** direct link.-->
+### <ins> FF Ultima Version 5.0.0 Release
+- **⬇️ [Release Download](https://github.com/soulhotel/FF-ULTIMA/releases/download/5.0.0/ffultima5.0.0.zip)** direct link.<!--- **⬇️ [Source Download](https://github.com/soulhotel/FF-ULTIMA/archive/refs/heads/main.zip)** direct link.-->
 - 🗨️ [Submit an issue](https://github.com/soulhotel/FF-ULTIMA/issues/new/choose) or ask questions not answered in [the Wiki](https://ff-ultima.github.io/docs/getting-started).
 - ⚙️ [Change settings](https://ff-ultima.github.io/docs/category/settings), tab size, autohiding, spacing, and more.
 - ⚙️ [How to Update](https://ff-ultima.github.io/docs/how-to/how-to-update) the theme to a new version.

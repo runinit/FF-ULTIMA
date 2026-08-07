@@ -117,6 +117,38 @@ The source reference is generated from Firefox 154.0b2 by
             var(--uc-nova-selected-border-trailing) 79.34%
         );
     --uc-nova-sidebery-selected-border: var(--uc-nova-selected-border);
+    --uc-nova-split-gradient-muted:
+        linear-gradient(
+            -80deg,
+            color-mix(in srgb, var(--uc-nova-accent-leading) 4%, transparent),
+            color-mix(in srgb, var(--uc-nova-accent-trailing) 12%, transparent),
+            color-mix(in srgb, var(--uc-nova-accent-leading) 4%, transparent)
+        );
+    --uc-nova-split-gradient-active:
+        linear-gradient(
+            -80deg,
+            color-mix(in srgb, var(--uc-nova-accent-leading) 70%, transparent),
+            color-mix(in srgb, var(--uc-nova-accent-trailing) 70%, transparent),
+            color-mix(in srgb, var(--uc-nova-accent-leading) 45%, transparent)
+        );
+    --uc-nova-split-chooser-leading:
+        color-mix(
+            in srgb,
+            var(--uc-nova-accent-leading) 24%,
+            var(--uc-nova-canvas-surface)
+        );
+    --uc-nova-split-chooser-trailing:
+        color-mix(
+            in srgb,
+            var(--uc-nova-accent-trailing) 20%,
+            var(--uc-nova-canvas-surface)
+        );
+    --uc-nova-split-chooser-background:
+        linear-gradient(
+            135deg,
+            var(--uc-nova-split-chooser-leading),
+            var(--uc-nova-split-chooser-trailing)
+        );
 
     /* Status and icon roles. Firefox-owned category colors remain untouched. */
     --uc-nova-icon-color: var(--uc-nova-text);
@@ -451,6 +483,11 @@ The source reference is generated from Firefox 154.0b2 by
         --uc-nova-selected-border-leading: Highlight;
         --uc-nova-selected-border-trailing: Highlight;
         --uc-nova-sidebery-selected-border: linear-gradient(Highlight, Highlight);
+        --uc-nova-split-gradient-muted: Canvas;
+        --uc-nova-split-gradient-active: Highlight;
+        --uc-nova-split-chooser-leading: Canvas;
+        --uc-nova-split-chooser-trailing: Canvas;
+        --uc-nova-split-chooser-background: Canvas;
         --uc-nova-icon-color: CanvasText;
         --uc-nova-attention-desaturated: LinkText;
         --uc-nova-icon-attention: LinkText;
@@ -469,6 +506,25 @@ The source reference is generated from Firefox 154.0b2 by
         --uc-nova-panel-elevation: none;
         --uc-nova-card-elevation: none;
         --uc-nova-page-frame-elevation: none;
+    }
+}
+
+/* Firefox's split chooser is an about: page, so it consumes the same private
+   palette roles through userContent.css instead of browser chrome. */
+@-moz-document url("about:opentabs") {
+    :root {
+        background: var(--uc-nova-split-chooser-background) fixed !important;
+        color: var(--uc-nova-text, CanvasText) !important;
+    }
+
+    .sticky-header {
+        background:
+            linear-gradient(
+                to bottom,
+                var(--uc-nova-split-chooser-leading) 0%,
+                var(--uc-nova-split-chooser-trailing) 95%,
+                transparent 100%
+            ) !important;
     }
 }
 

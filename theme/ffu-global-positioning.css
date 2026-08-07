@@ -163,27 +163,77 @@ resizes the resting chrome unless its owning ultima.* preference is enabled.
         }
     }
 
+    /* Keep FF Ultima in control of native vertical-tab geometry. Firefox's
+       sidebar.visibility=expand-on-hover controller also rewrites the pinned
+       tab container, producing a different grid while collapsed. This branch
+       therefore owns the overlay only when that native controller is off.
+       #sidebar-container is Firefox's flex item beside #tabbrowser-tabbox;
+       moving only its sidebar-main child leaves the expanded flex track behind.
+       Keep the container at its expanded width and translate it off-canvas so
+       opening does not reflow every vertical tab on each animation frame. */
     @media -moz-pref("sidebar.verticalTabs") {
-        #main-window:not([sidebar-expand-on-hover=""]) :is(#sidebar-main, sidebar-main) {
-            position: absolute !important;
-            inset-block: 0;
-            z-index: 1000 !important;
+        /* Firefox 153 temporarily removes MousePosTracker while native
+           expand-on-hover animations and chrome popups are active. If that
+           blocker is left armed, the launcher can retain its expanded
+           attributes after the pointer has left. Once no native animation or
+           popup owns the state, make the rendered rail follow the real hover
+           boundary again. The controller remains authoritative while hovered,
+           animating, or displaying a menu. */
+        @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+            :root[sidebar-expand-on-hover]:not(
+                    :has(
+                        menupopup[state="open"],
+                        menupopup[state="showing"],
+                        panel[state="open"],
+                        panel[state="showing"]
+                    )
+                )
+                #sidebar-container[sidebar-launcher-expanded][sidebar-launcher-hovered]:not(
+                    :hover,
+                    [sidebar-ongoing-animations]
+                ) {
+                inline-size:
+                    var(--sidebar-launcher-collapsed-width) !important;
+                min-inline-size:
+                    var(--sidebar-launcher-collapsed-width) !important;
+                max-inline-size:
+                    var(--sidebar-launcher-collapsed-width) !important;
+            }
         }
 
-        #main-window:not([sidebar-expand-on-hover=""])
-            :has(#tabContextMenu:not(:hover):not([state="open"]):not([state="showing"]))
-            :is(#sidebar-main, sidebar-main):not(:hover) {
-            width: 3px !important;
-            transition: width var(--uc-nova-motion-duration, 160ms) ease 200ms !important;
-        }
+        @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+            #main-window:not([sidebar-expand-on-hover=""]) #sidebar-container {
+                position: absolute !important;
+                inset-block: 0;
+                z-index: 1000 !important;
+                transition:
+                    translate var(--uc-nova-motion-duration, 160ms)
+                    cubic-bezier(0.2, 0, 0, 1) !important;
+            }
 
-        #main-window:not([sidebar-expand-on-hover=""]) :is(#sidebar-main, sidebar-main):hover {
-            box-shadow: var(--uc-nova-panel-elevation, var(--uc-box-shadow)) !important;
-            transition: width var(--uc-nova-motion-duration, 160ms) ease !important;
-        }
+            #main-window:not([sidebar-expand-on-hover=""])
+                :has(#tabContextMenu:not(:hover):not([state="open"]):not([state="showing"]))
+                #sidebar-container:not([sidebar-positionend]):not(:hover) {
+                translate: calc(-100% + 3px) 0 !important;
+                transition-delay: 180ms !important;
+            }
 
-        #sidebar-launcher-splitter {
-            display: none !important;
+            #main-window:not([sidebar-expand-on-hover=""])
+                :has(#tabContextMenu:not(:hover):not([state="open"]):not([state="showing"]))
+                #sidebar-container[sidebar-positionend]:not(:hover) {
+                translate: calc(100% - 3px) 0 !important;
+                transition-delay: 180ms !important;
+            }
+
+            #main-window:not([sidebar-expand-on-hover=""]) #sidebar-container:hover {
+                translate: 0 0 !important;
+                transition-delay: 0ms !important;
+                box-shadow: var(--uc-nova-panel-elevation, var(--uc-box-shadow)) !important;
+            }
+
+            #sidebar-launcher-splitter {
+                display: none !important;
+            }
         }
     }
 }
@@ -250,10 +300,12 @@ resizes the resting chrome unless its owning ultima.* preference is enabled.
 
 @media -moz-pref("ultima.tabs.tabbar.autohide") {
     @media -moz-pref("ultima.tabs.tabbar.autohide+compact") {
-        #main-window:not([sidebar-expand-on-hover=""]) :is(#sidebar-main, sidebar-main) {
-            inset-block: 10vh 20vh !important;
-            padding-block-start: 5px !important;
-            border-radius: var(--uc-nova-panel-radius, 16px) !important;
+        @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+            #main-window:not([sidebar-expand-on-hover=""]) #sidebar-container {
+                inset-block: 10vh 20vh !important;
+                padding-block-start: 5px !important;
+                border-radius: var(--uc-nova-panel-radius, 16px) !important;
+            }
         }
     }
 }
@@ -264,6 +316,12 @@ resizes the resting chrome unless its owning ultima.* preference is enabled.
     :is(#sidebar-main, sidebar-main),
     #sidebar-box {
         transition-duration: 0ms !important;
+        animation-duration: 0ms !important;
+    }
+
+    #main-window:not([sidebar-expand-on-hover=""]) #sidebar-container {
+        transition-duration: 0ms !important;
+        transition-delay: 0ms !important;
         animation-duration: 0ms !important;
     }
 }

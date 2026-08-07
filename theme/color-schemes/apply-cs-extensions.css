@@ -94,8 +94,13 @@ supply component geometry, translucent states, borders, focus, and elevation.
         --ctx-menu-fg: var(--uc-text) !important;
         --ctx-menu-border: var(--uc-nova-border, var(--uc-panel-border)) !important;
         --ctx-menu-border-radius: var(--uc-nova-panel-radius, 16px) !important;
+        --ctx-menu-opt-border-radius: var(--uc-nova-radius-small, 8px) !important;
         --ctx-menu-padding: var(--uc-nova-chrome-gap, 8px) !important;
         --ctx-menu-text-opt-inner-gap: var(--uc-nova-chrome-gap, 8px) !important;
+        --ctx-menu-text-opt-height: 32px !important;
+        --ctx-menu-icon-opt-height: 32px !important;
+        --ctx-menu-min-width: min(240px, calc(100vw - 24px)) !important;
+        --ctx-menu-max-width: min(240px, calc(100vw - 24px)) !important;
         --ctx-menu-separator: var(--uc-nova-border, var(--uc-panel-border)) !important;
         --ctx-menu-opt-hover-bg: var(--uc-nova-panel-hover-surface) !important;
         --ctx-menu-opt-hover-fg: var(--uc-nova-hover-text, var(--uc-text)) !important;
@@ -261,6 +266,25 @@ supply component geometry, translucent states, borders, focus, and elevation.
         border: 1px solid var(--uc-nova-border, var(--uc-panel-border)) !important;
         border-radius: var(--uc-nova-panel-radius, 16px) !important;
         box-shadow: var(--uc-nova-panel-elevation, none) !important;
+    }
+
+    #root.root .CtxMenu .box {
+        box-sizing: border-box !important;
+        width: min(240px, calc(100vw - 24px)) !important;
+    }
+
+    #root.root .CtxMenu :is(.inline-group, .list-group) {
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    #root.root .CtxMenu :is(.opt, .icon-opt) {
+        border-radius: var(--uc-nova-radius-small, 8px) !important;
+        box-shadow: none !important;
+    }
+
+    #root.root .CtxMenu :is(.opt, .icon-opt)::before {
+        border-radius: inherit !important;
     }
 
     #root.root :is(.ctx-menu, .popup) :is(.opt, .option, [role="menuitem"]):not([disabled]):hover {
@@ -526,6 +550,35 @@ supply component geometry, translucent states, borders, focus, and elevation.
         .TabsPanel .new-tab-btns,
         .BottomBar {
             justify-content: center !important;
+        }
+
+        /* Sidebery renders up to four footer tools as one horizontal row.
+           Pack them inside the existing footer reservation instead of
+           centering an overflowing row across the collapsed rail. */
+        .BottomBar {
+            display: grid !important;
+            grid-template-columns: repeat(2, 16px) !important;
+            grid-auto-rows: 16px !important;
+            gap: 2px !important;
+            align-content: end !important;
+            align-items: center !important;
+        }
+
+        .BottomBar:has(> .tool-btn:nth-child(3)) {
+            grid-template-columns: repeat(2, 14px) !important;
+            grid-auto-rows: 14px !important;
+        }
+
+        .BottomBar > .tool-btn {
+            box-sizing: border-box !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            height: 100% !important;
+        }
+
+        .BottomBar > .tool-btn > svg {
+            width: 12px !important;
+            height: 12px !important;
         }
     }
 

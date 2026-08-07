@@ -148,102 +148,142 @@ ultima.urlbar.hide.trackingprotection.icon
 }
 
 @media -moz-pref("ultima.urlbar.float") {
-@media not -moz-pref("ultima.urlbar.limit.popout") {
+    #urlbar {
+        transition:
+            opacity 0.3s ease-in-out,
+            transform 0.3s ease-in-out,
+            max-height 0.3s ease-in-out !important;
+    }
 
-      #urlbar, :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar {
-          /* baseline transition */
-          transition: all 0.3s ease-in-out !important;
-          &[open] {
-              /* appearance adjustments */
-              --urlbarView-separator-color: transparent !important;
-              padding-top:3px !important;
-              & #urlbar-background,
-              & .urlbar-background {
-                  box-shadow: var(--uc-box-shadow) !important;
-              }
-          }
-          /* when extended = scale */
-          &[breakout-extend] {
-              max-width: 33vw !important;
-              position: fixed !important;
-              top: 20vh !important;
-              left: 50% !important;
-              transform: translateX(-50%) scale(1.1) !important;
-              @media (-moz-pref("ultima.navbar.autohide")) or (-moz-pref("ultima.navbar.float")) or (-moz-pref("ultima.navbar.float.fullsize")) {
-                  @media not -moz-pref("ultima.navbar.position","bottom") {
-                      top: 20vh !important;
-                  }
-                  @media -moz-pref("ultima.navbar.position","bottom") {
-                      top: 50vh !important;
-                      height: fit-content !important;
-                  }
-              }
-          }
-          /*situational transition */
-          &:hover:not([open]) {
-              transition: all 0.3s ease-in-out 5s !important;
-          }
-      }
-      /*situational transition */
-      :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) {
-          & #urlbar  {
-              padding-bottom: 0px !important;
-              transition: all 0.3s ease-in-out 5s !important;
-          }
-      }
-
-}
-}
-
-@media -moz-pref("ultima.urlbar.float") {
-@media -moz-pref("ultima.urlbar.limit.popout") {
-
-    #urlbar[pageproxystate="valid"] {
-        height: 36px !important;
-    }    
-    #urlbar[pageproxystate="valid"], :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar[pageproxystate="valid"] {
-        /* baseline transition */
-        transition: all 0.3s ease-in-out !important;
-        &[open] {
-            /* appearance adjustments */
+    /* Firefox 153 promotes the complete breakout urlbar to a popover. Size and
+       position that owner directly so its input, background, results, and
+       scrollbar remain one viewport-safe surface. */
+    @media not -moz-pref("ultima.urlbar.limit.popout") {
+        #urlbar[open] {
             --urlbarView-separator-color: transparent !important;
-            padding-top:3px !important;
-            & #urlbar-background,
-            & .urlbar-background {
+            padding-block-start: 3px !important;
+
+            > :is(#urlbar-background, .urlbar-background) {
                 box-shadow: var(--uc-box-shadow) !important;
             }
         }
-        /* when extended = scale */
-        &[breakout-extend] {
-            max-width: 33vw !important;
+
+        #urlbar[breakout-extend]:popover-open {
+            box-sizing: border-box !important;
             position: fixed !important;
-            top: 20vh !important;
-            left: 50% !important;
-            transform: translateX(-50%) scale(1.1) !important;
-            @media (-moz-pref("ultima.navbar.autohide")) or (-moz-pref("ultima.navbar.float")) or (-moz-pref("ultima.navbar.float.fullsize")) {
-                @media not -moz-pref("ultima.navbar.position","bottom") {
-                    top: 20vh !important;
-                }
-                @media -moz-pref("ultima.navbar.position","bottom") {
-                    top: 50vh !important;
-                    height: fit-content !important;
-                }
+            inset: auto !important;
+            inset-block-start: 20vh !important;
+            inset-inline-start: 50% !important;
+            inline-size: min(33vw, calc(100vw - 48px)) !important;
+            min-inline-size: 0 !important;
+            max-inline-size: none !important;
+            block-size: auto !important;
+            max-block-size: min(600px, calc(80vh - 24px)) !important;
+            margin: 0 !important;
+            transform: translateX(-50%) !important;
+
+            > :is(#urlbar-background, .urlbar-background) {
+                inset: 0 !important;
+                inline-size: 100% !important;
+            }
+
+            > .urlbar-input-container,
+            > .urlbarView,
+            > .urlbarView > .urlbarView-body-outer,
+            > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner,
+            #urlbar-results {
+                box-sizing: border-box !important;
+                inline-size: 100% !important;
+                max-inline-size: none !important;
+            }
+
+            > .urlbar-input-container {
+                block-size: var(--urlbar-height) !important;
+            }
+
+            > .urlbarView {
+                margin: 0 !important;
             }
         }
-        /*situational transition */
-        &:hover:not([open]) {
-            transition: all 0.3s ease-in-out 5s !important;
+
+        @media -moz-pref("ultima.navbar.position", "bottom") {
+            #urlbar[breakout-extend]:popover-open {
+                inset-block-start: 50vh !important;
+                max-block-size: min(600px, calc(50vh - 24px)) !important;
+            }
         }
-    }
-    /*situational transition */
-    :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) {
-        & #urlbar  {
-            padding-bottom: 0px !important;
-            transition: all 0.3s ease-in-out 5s !important;
+
+        :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open]) #urlbar {
+            padding-block-end: 0 !important;
+            transition-delay: 5s !important;
         }
     }
 
-}
+    @media -moz-pref("ultima.urlbar.limit.popout") {
+        #urlbar[pageproxystate="valid"] {
+            height: 36px !important;
+        }
+
+        #urlbar[pageproxystate="valid"][open] {
+            --urlbarView-separator-color: transparent !important;
+            padding-block-start: 3px !important;
+
+            > :is(#urlbar-background, .urlbar-background) {
+                box-shadow: var(--uc-box-shadow) !important;
+            }
+        }
+
+        #urlbar[pageproxystate="valid"][breakout-extend]:popover-open {
+            box-sizing: border-box !important;
+            position: fixed !important;
+            inset: auto !important;
+            inset-block-start: 20vh !important;
+            inset-inline-start: 50% !important;
+            inline-size: min(33vw, calc(100vw - 48px)) !important;
+            min-inline-size: 0 !important;
+            max-inline-size: none !important;
+            block-size: auto !important;
+            max-block-size: min(600px, calc(80vh - 24px)) !important;
+            margin: 0 !important;
+            transform: translateX(-50%) !important;
+
+            > :is(#urlbar-background, .urlbar-background) {
+                inset: 0 !important;
+                inline-size: 100% !important;
+            }
+
+            > .urlbar-input-container,
+            > .urlbarView,
+            > .urlbarView > .urlbarView-body-outer,
+            > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner,
+            #urlbar-results {
+                box-sizing: border-box !important;
+                inline-size: 100% !important;
+                max-inline-size: none !important;
+            }
+
+            > .urlbar-input-container {
+                block-size: var(--urlbar-height) !important;
+            }
+
+            > .urlbarView {
+                margin: 0 !important;
+            }
+        }
+
+        @media -moz-pref("ultima.navbar.position", "bottom") {
+            #urlbar[pageproxystate="valid"][breakout-extend]:popover-open {
+                inset-block-start: 50vh !important;
+                max-block-size: min(600px, calc(50vh - 24px)) !important;
+            }
+        }
+
+        :root:has(:is(#urlbar-searchmode-switcher, .searchmode-switcher)[open])
+            #urlbar[pageproxystate="valid"] {
+            padding-block-end: 0 !important;
+            transition-delay: 5s !important;
+        }
+    }
 }
 
 @media -moz-pref("ultima.urlbar.drags.window") {
